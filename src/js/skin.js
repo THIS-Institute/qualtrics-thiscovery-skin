@@ -15,7 +15,9 @@ if (localStorage.getItem("thisco_dev") !== null) {
     document.adoptedStyleSheets = [ skinsheet ];
     if (typeof io !== "undefined") {
         const socket = io("ws://localhost:34567",{transports : ["websocket"]});
-        socket.on("skinjob_update",(cssstring)=>{skinsheet.replaceSync(cssstring);});
+        socket.on("skinjob_update",(cssstring)=>{
+            skinsheet.replaceSync(cssstring);
+        });
     }
 }
 

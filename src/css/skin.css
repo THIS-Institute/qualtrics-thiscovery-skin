@@ -1,5 +1,8 @@
 body {
-  background: blue;
+  background: red;
+}
+body * {
+  outline: 1px dotted gray;
 }
 
 /*# sourceMappingURL=skin.css.map */
