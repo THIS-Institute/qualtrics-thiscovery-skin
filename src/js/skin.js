@@ -8,10 +8,9 @@
 // import { io } from "socket.io-client";
 const io = require('socket.io-client');
 
-// skinjob snippet - only if URL params contains &thisco_dev
+// skinjob snippet - only if localStorage contains thisco_dev
 
-let params = new URLSearchParams(window.location.search);
-if (params.has("thisco_dev")) {
+if (localStorage.getItem("thisco_dev") !== null) {
     let skinsheet = new CSSStyleSheet();
     document.adoptedStyleSheets = [ skinsheet ];
     if (typeof io !== "undefined") {
