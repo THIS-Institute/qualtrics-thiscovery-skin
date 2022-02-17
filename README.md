@@ -4,7 +4,7 @@ Javascript and CSS to customise Qualtrics surveys
 Outputs:
 
 - /dist/bundle.{version}.min.js
-- /dist/bundle.{version}.v2.min.css
+- /dist/bundle.{version}.min.css
 
 ## Installation
 
