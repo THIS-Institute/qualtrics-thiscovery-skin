@@ -21,3 +21,6 @@ if (localStorage.getItem("thisco_dev") !== null) {
     }
 }
 
+// shopping list
+
+// update button text to Next Page, Previous Page  (*** EXCEPT THESE ARE DEFINABLE IN QUALTRICS ***])

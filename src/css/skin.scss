@@ -1,6 +1,2 @@
-body {
-    background: red;
-    * {
-        outline : 1px dotted gray;
-    }
-}
+@use './components/base.scss';
+@use './components/buttons.scss';

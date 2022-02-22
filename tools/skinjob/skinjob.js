@@ -104,8 +104,7 @@ io.on("connection", (socket)=>{
     const handleChange = _.debounce((path) => {
         log(chalk.yellowBright(`changes made to ${path}`));
         let contents = readFileSync(cssfile,{encoding:"utf-8"});
-        validateCss(contents,(err,data)=>{
-            let { validity, errors, warnings } = data;
+        validateCss(contents,(err,{validity=false,errors=[],warnings=[]}={})=>{
             const valid = validity && !errors.length;
             if (!valid) {
                 // warn errors and stop

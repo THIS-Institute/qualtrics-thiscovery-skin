@@ -7,7 +7,7 @@
     "dev_build:js": "parcel ./src/js/skin.js --dist-dir ./intermed --https --no-hmr",
     "build": "run-s build:scss build:postcss build:js",
     "build:js": "esbuild ./src/js/skin.js --bundle --minify --sourcemap --outfile=./dist/bundle.2.0.0.js --target=es2016,chrome94,firefox94,safari13,edge96,node12",
-    "build:scss": "sass ./src/css ",
+    "build:scss": "sass ./src/css/skin.scss ./src/css/skin.css",
     "build:postcss": "postcss ./src/css/skin.css -m -o ./dist/bundle.2.0.0.css",
     "test": "echo \"Error: no test specified\" && exit 1",
     "skinjob": "node ./tools/skinjob/skinjob.js ./src/css/skin.css",
