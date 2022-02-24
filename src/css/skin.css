@@ -100,6 +100,18 @@ html {
 .Skin .QuestionOuter {
   padding: 0;
 }
+.Skin #Footer {
+  background-color: var(--this-light-grey);
+  position: absolute;
+  width: 100%;
+  max-width: initial;
+  margin-top: 2rem;
+}
+.Skin #Plug {
+  visibility: hidden;
+  max-height: 0px;
+  overflow: hidden;
+}
 
 /* define official THIS colours */
 :root {

@@ -106,11 +106,9 @@ html {
 
     .SkinInner {
         padding-top:5rem;
-
         @include respond-above(sm) {
             padding-top: 6rem;
         }
-
     }
 
     #HeaderContainer {
@@ -153,6 +151,21 @@ html {
 
     .QuestionOuter {
         padding: 0;
+    }
+
+    #Footer {
+        background-color: var(--this-light-grey);
+        position: absolute;
+        // bottom: 0px;
+        width: 100%;
+        max-width: initial;
+        margin-top: 2rem;
+    }
+
+    #Plug {
+        visibility: hidden;
+        max-height: 0px;
+        overflow: hidden;
     }
 
 }
