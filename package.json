@@ -42,6 +42,7 @@
     "socket.io": "^4.4.1"
   },
   "dependencies": {
+    "blissfuljs": "^1.0.6",
     "lodash": "^4.17.21",
     "socket.io-client": "^4.4.1"
   },

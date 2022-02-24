@@ -29,6 +29,12 @@
   --this-yellow: rgb(255 216 90 / 1);
 }
 
+/* 
+
+mobile-first layout ?? might be fighting against Qualtrics breakpoints....  
+Q breakpoints seem to be... [ <480px, <767px (some weird 770px ones?), <979px ]
+
+*/
 html {
   font-size: 14px;
 }
@@ -37,14 +43,31 @@ html {
   font-family: "thisco_Brown", "Brown-Regular", Arial, "Helvetica Neue", Helvetica, sans-serif;
   color: rgba(0, 0, 0, 0.95);
   font-weight: 100;
+  font-size: 20px;
   /* resets */
+}
+@media (min-width: 481px) {
+  .Skin {
+    font-size: 18px;
+  }
+}
+@media (min-width: 768px) {
+  .Skin {
+    font-size: 20px;
+  }
 }
 .Skin .SkinInner {
   padding-top: 5rem;
 }
+@media (min-width: 768px) {
+  .Skin .SkinInner {
+    padding-top: 6rem;
+  }
+}
 .Skin #HeaderContainer {
   background-color: var(--this-light-grey);
   position: fixed;
+  left: 0px;
   width: 100vw;
   z-index: 100;
   top: 0px;
@@ -57,6 +80,12 @@ html {
   background-size: 10rem auto;
   background-position: left 40%;
 }
+@media (min-width: 768px) {
+  .Skin #HeaderContainer #Header {
+    height: 6rem;
+    background-position: 1.6rem 50%;
+  }
+}
 .Skin h1, .Skin h2, .Skin h3, .Skin h4 {
   line-height: 1.2;
   margin-top: 1em;
@@ -66,6 +95,10 @@ html {
   color: inherit;
   font-weight: inherit;
   font-family: inherit;
+  font-size: inherit;
+}
+.Skin .QuestionOuter {
+  padding: 0;
 }
 
 /* define official THIS colours */
@@ -81,15 +114,30 @@ html {
   --this-yellow: rgb(255 216 90 / 1);
 }
 
-/* mobile-first layout */
 .Skin #Buttons {
   /* reset */
   display: grid;
   grid-template-columns: 1fr;
   grid-gap: 1em;
 }
+@media (min-width: 481px) {
+  .Skin #Buttons {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .Skin #Buttons #NextButton {
+    grid-column-start: 3;
+  }
+}
+@media (min-width: 481px) {
+  .Skin #Buttons {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  }
+  .Skin #Buttons #NextButton {
+    grid-column-start: 5;
+  }
+}
 .Skin #Buttons #NextButton, .Skin #Buttons #PreviousButton {
-  font-size: 1.8em;
+  font-size: 1.4em;
   font-family: inherit;
   font-weight: inherit;
   border-radius: 999px;
@@ -103,6 +151,11 @@ html {
   transform: scale(1.03);
   background-color: transparent;
   color: var(--this-red);
+}
+@media (min-width: 481px) {
+  .Skin #Buttons #NextButton, .Skin #Buttons #PreviousButton {
+    font-size: 1em;
+  }
 }
 .Skin #Buttons #PreviousButton {
   border-color: var(--this-dark-grey);

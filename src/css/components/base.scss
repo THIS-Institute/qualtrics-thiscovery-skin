@@ -20,12 +20,12 @@
 }
   
 // Colours
-$color-black: #3a3c42;
-$color-grey: #d2d4d3;
-$color-yellow: #ffd85a;
-$color-red: #dd0031;
-$color-pink: #f3a5b9;
-$color-aubergine: #680436;
+// $color-black: #3a3c42;
+// $color-grey: #d2d4d3;
+// $color-yellow: #ffd85a;
+// $color-red: #dd0031;
+// $color-pink: #f3a5b9;
+// $color-aubergine: #680436;
 
 /* define official THIS colours */
 :root {
@@ -38,6 +38,47 @@ $color-aubergine: #680436;
     --this-pink: rgb(243, 165, 185);
     --this-aubergine: rgb(104 4 54 / 1);
     --this-yellow: rgb(255 216 90 / 1);
+}
+
+/* 
+
+mobile-first layout ?? might be fighting against Qualtrics breakpoints....  
+Q breakpoints seem to be... [ <480px, <767px (some weird 770px ones?), <979px ]
+
+*/
+
+// A map of breakpoints.
+$breakpoints: (
+  xs: 481px,
+  sm: 768px,
+  md: 980px,
+  lg: 1200px
+);
+
+//
+//  RESPOND ABOVE
+//––––––––––––––––––––––––––––––––––––––––––––––––––
+
+// @include respond-above(sm) {}
+@mixin respond-above($breakpoint) {
+
+    // If the breakpoint exists in the map.
+    @if map-has-key($breakpoints, $breakpoint) {
+  
+      // Get the breakpoint value.
+      $breakpoint-value: map-get($breakpoints, $breakpoint);
+  
+      // Write the media query.
+      @media (min-width: $breakpoint-value) {
+        @content;
+      }
+    
+    // If the breakpoint doesn't exist in the map.
+    } @else {
+  
+      // Log a warning.
+      @warn 'Invalid breakpoint: #{$breakpoint}.';
+    }
 }
 
 @mixin thisco_logo(){
@@ -53,14 +94,29 @@ html {
     font-family : "thisco_Brown", "Brown-Regular", Arial, "Helvetica Neue", Helvetica, sans-serif;
     color:rgb(0 0 0 / .95);
     font-weight: 100;
+    font-size: 20px;
+
+    @include respond-above(xs){
+        font-size:18px;
+    }
+
+    @include respond-above(sm){
+        font-size:20px;
+    }
 
     .SkinInner {
         padding-top:5rem;
+
+        @include respond-above(sm) {
+            padding-top: 6rem;
+        }
+
     }
 
     #HeaderContainer {
         background-color: var(--this-light-grey);
         position: fixed;
+        left:0px;
         width: 100vw;
         z-index: 100;
         top:0px;
@@ -71,6 +127,12 @@ html {
             background-repeat: no-repeat;
             background-size: 10rem auto;
             background-position: left 40%;
+
+            @include respond-above(sm) {
+                height: 6rem;
+                background-position: 1.6rem 50%;
+            }
+
         }
     }
 
@@ -86,6 +148,11 @@ html {
         color: inherit;
         font-weight: inherit;
         font-family: inherit;
+        font-size: inherit;
+    }
+
+    .QuestionOuter {
+        padding: 0;
     }
 
 }

@@ -124,4 +124,6 @@ io.on("connection", (socket)=>{
     watcher.on('ready',()=>log(chalk.green(`watching ${cssfile}`)));
     watcher.on('change',handleChange);
 
+    handleChange(cssfile); // fire once for page reloads
+
 }); 

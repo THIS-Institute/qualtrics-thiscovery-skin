@@ -11,19 +11,32 @@
     --this-yellow: rgb(255 216 90 / 1);
 }
 
-/* mobile-first layout */
-
 .Skin {
     #Buttons {
         /* reset */
 
         display: grid;
         grid-template-columns: 1fr;
-        grid-gap:1em;   
+        grid-gap:1em;
+
+        @media (min-width: 481px) {
+            grid-template-columns: 1fr 1fr 1fr;
+
+            #NextButton {
+                grid-column-start: 3;
+            }
+        }
+
+        @media (min-width: 481px) {
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+            #NextButton {
+                grid-column-start: 5;
+            }
+        }
 
         #NextButton, #PreviousButton {
             
-            font-size: 1.8em;
+            font-size: 1.4em;
             font-family: inherit;
             font-weight: inherit;
             border-radius: 999px;
@@ -37,6 +50,10 @@
                 transform: scale(1.03);
                 background-color: transparent;
                 color: var(--this-red);
+            }
+
+            @media (min-width: 481px) {
+                font-size: 1em;
             }
 
         }
