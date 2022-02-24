@@ -7,10 +7,9 @@
 
 // import { io } from "socket.io-client";
 const io = require('socket.io-client');
-const Bliss = require('blissfuljs');
+constBliss = require('blissfuljs');
 import { forIn, startCase } from 'lodash';
-self.B$ = Bliss;
-self.B$$ = Bliss.$; // bliss jQuery conflict
+
 
 // skinjob snippet - only if localStorage contains thisco_dev
 
@@ -29,7 +28,7 @@ if (localStorage.getItem("thisco_dev") !== null) {
 
 // footer
 
-const footer = B$("#Footer");
+const footer = Bliss("#Footer");
 if (footer) {
     const logos = {
         "this_institute" : {
@@ -46,7 +45,7 @@ if (footer) {
         }
     };
     forIn(logos,(value,key)=>{
-        footer.appendChild(B$.create('div',{
+        footer.appendChild(Bliss.create('div',{
             className : 'logo-container',
             id : `logo_${key}`,
             contents: [{
@@ -63,14 +62,14 @@ if (footer) {
     });
 
     // boilerplate
-    footer.appendChild(B$.create("div",{
+    footer.appendChild(Bliss.create("div",{
         className : "colophon",
         contents : [{
             tag :"ul",
             contents : [{
                 tag : "li",
                 className : "copyright",
-                contents : `Thiscovery &copy; THIS Institute ${new Date().getFullYear()}`
+                contents : `Thiscovery © THIS Institute ${new Date().getFullYear()}`
             }]
         }]
     }))
