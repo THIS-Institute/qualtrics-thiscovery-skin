@@ -74,6 +74,24 @@ if (footer) {
                 tag : "li",
                 className : "copyright",
                 contents : `Thiscovery © THIS Institute ${new Date().getFullYear()}`
+            },{
+                tag : "li",
+                className : "policy-link",
+                contents : [{
+                    tag : "a",
+                    target : "_blank",
+                    href : "https://www.thiscovery.org/privacy-policy",
+                    contents : "Privacy Policy"
+                }]
+            },{
+                tag : "li",
+                className : "policy-link",
+                contents : [{
+                    tag : "a",
+                    target : "_blank",
+                    href : "https://www.thiscovery.org/terms-of-use",
+                    contents : "Terms of Use"
+                }]
             }]
         }]
     }))
