@@ -1,3 +1,77 @@
+/* define official THIS colours */
+:root {
+  --this-dark-grey: rgb(58 60 66 / 1);
+  --this-light-grey: rgb(210 212 211 / 1);
+  --this-red: rgb(221, 0, 49);
+  --this-bright-blue: rgb(91, 194, 231);
+  --this-pale-blue: rgb(143, 172, 217);
+  --this-green: rgb(0, 187, 126);
+  --this-pink: rgb(243, 165, 185);
+  --this-aubergine: rgb(104 4 54 / 1);
+  --this-yellow: rgb(255 216 90 / 1);
+}
 
+/* 
+
+mobile-first layout ?? might be fighting against Qualtrics breakpoints....  
+Q breakpoints seem to be... [ <480px, <767px (some weird 770px ones?), <979px ]
+
+*/
+.Skin .SkinInner {
+  padding-top: 7rem;
+}
+@media (min-width: 768px) {
+  .Skin .SkinInner {
+    padding-top: 8rem;
+  }
+}
+.Skin #HeaderContainer {
+  background-color: var(--this-light-grey);
+  position: fixed;
+  left: 0px;
+  width: 100vw;
+  z-index: 100;
+  top: 0px;
+  box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.1);
+}
+.Skin #HeaderContainer #Header {
+  height: 5rem;
+  background-image: url("data:image/svg+xml,%3Csvg width='100%25' height='100%25' viewBox='0 0 1992 412' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xml:space='preserve' xmlns:serif='http://www.serif.com/' style='fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;'%3E%3Cpath d='M176.15,310.356c-7.129,2.516 -23.487,4.196 -33.971,4.196c-32.716,-0 -56.621,-10.905 -70.458,-29.359c-10.488,-13.837 -15.1,-31.875 -15.1,-60.812l-0,-71.3l-56.621,-0l0,-46.134l56.621,0l-0,-56.62l54.517,-0l-0,56.62l67.108,0l-0,46.134l-67.108,-0l-0,77.587c-0,12.584 2.104,20.134 6.716,25.588c5.45,6.287 14.259,10.062 27.679,10.062c7.967,0 18.45,-1.258 22.23,-2.096l8.387,46.134Z' style='fill:%23dd0932;fill-rule:nonzero;'/%3E%3Cpath d='M268.41,310.356l-54.52,-0l-0,-297.771l54.52,-0l0,109.042c15.1,-11.742 34.388,-18.875 55.359,-18.875c28.1,-0 53.683,12.583 70.462,32.712c13.417,15.942 20.971,36.492 20.971,71.3l0,103.592l-54.521,-0l0,-107.788c0,-20.129 -4.616,-30.612 -12.166,-38.158c-7.13,-7.138 -18.034,-11.329 -30.617,-11.329c-23.067,-0 -41.938,14.679 -49.488,25.162l0,132.113Z' style='fill:%23dd0932;fill-rule:nonzero;'/%3E%3Cpath d='M485.535,0c19.713,0 35.654,15.1 35.654,34.813c0,19.708 -15.941,34.808 -35.654,34.808c-19.712,-0 -35.646,-15.1 -35.646,-34.808c0,-19.713 15.934,-34.813 35.646,-34.813' style='fill:%23dd0932;fill-rule:nonzero;'/%3E%3Cpath d='M572.471,248.287c13.842,12.579 35.234,20.125 55.779,20.125c14.684,0 26.005,-7.129 26.005,-17.192c-0,-30.616 -98.555,-19.708 -98.555,-85.137c0,-39.004 37.742,-63.329 78.009,-63.329c26.421,-0 55.358,10.066 68.779,20.55l-25.588,39.425c-10.483,-7.55 -24.325,-13.842 -39,-13.842c-15.1,0 -27.679,5.871 -27.679,16.358c0,26.425 98.554,15.938 98.554,86.396c0,39 -38.162,62.909 -80.941,62.909c-28.104,-0 -57.879,-9.646 -81.784,-27.263l26.421,-39Z' style='fill:%23dd0932;fill-rule:nonzero;'/%3E%3Cpath d='M933.557,268.832c-23.904,31.879 -54.1,45.721 -92.266,45.721c-62.913,-0 -109.042,-46.98 -109.042,-105.692c0,-59.134 47.388,-106.108 109.463,-106.108c35.229,-0 66.679,16.358 85.558,40.683l-38.592,33.971c-10.9,-14.259 -27.258,-24.325 -46.966,-24.325c-31.459,-0 -54.942,24.745 -54.942,55.779c-0,31.875 23.062,55.362 56.2,55.362c22.225,0 39.842,-13.421 48.646,-26.846l41.941,31.455Z' style='fill:%23dd0932;fill-rule:nonzero;'/%3E%3Cpath d='M1051.85,264.221c31.871,0 53.684,-24.741 53.684,-55.362c-0,-30.613 -21.813,-55.779 -53.684,-55.779c-31.879,-0 -53.683,25.166 -53.683,55.779c0,30.621 21.804,55.362 53.683,55.362m0,-161.466c61.65,-0 108.205,47.391 108.205,106.104c-0,58.716 -46.555,105.691 -108.205,105.691c-61.654,0 -108.204,-46.975 -108.204,-105.691c0,-58.713 46.55,-106.104 108.204,-106.104' style='fill:%23dd0932;fill-rule:nonzero;'/%3E%3Cpath d='M1270.3,231.091l55.783,-124.146l56.621,0l-93.53,203.409l-37.741,-0l-93.534,-203.409l56.621,0l55.779,124.146Z' style='fill:%23dd0932;fill-rule:nonzero;'/%3E%3Cpath d='M1521.08,182.438c-1.675,-18.029 -18.038,-35.646 -40.267,-35.646c-22.65,0 -41.096,17.196 -43.612,35.646l83.879,0Zm50.746,95.625c-19.713,23.488 -52.005,36.488 -83.463,36.488c-60.812,-0 -106.525,-41.938 -106.525,-105.692c0,-56.617 38.584,-106.108 98.975,-106.108c56.2,-0 96.046,47.396 96.046,104.012c0,5.45 -0.421,10.909 -1.258,15.521l-140.917,0c2.938,28.517 26,48.233 54.942,48.233c23.058,0 41.516,-13.004 51.158,-23.487l31.042,31.033Z' style='fill:%23dd0932;fill-rule:nonzero;'/%3E%3Cpath d='M1733.75,155.178c-3.771,-1.258 -11.746,-2.096 -19.713,-2.096c-23.908,0 -42.779,17.196 -49.487,29.354l-0,127.921l-54.521,0l0,-203.412l52.425,-0l0,20.55c12.163,-15.092 34.388,-24.742 59.129,-24.742c7.975,-0 12.588,0.837 18.459,1.675l-6.292,50.75Z' style='fill:%23dd0932;fill-rule:nonzero;'/%3E%3Cpath d='M1794.19,411.011l56.204,-121.209l-91.012,-182.858l59.975,0l59.558,122.046l54.942,-122.046l57.458,0l-140.083,304.067l-57.042,-0Z' style='fill:%23dd0932;fill-rule:nonzero;'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: 10rem auto;
+  background-position: left 40%;
+}
+@media (min-width: 768px) {
+  .Skin #HeaderContainer #Header {
+    height: 6rem;
+    background-position: 1.6rem 50%;
+  }
+}
+.Skin #Footer {
+  background-color: var(--this-light-grey);
+  position: absolute;
+  width: 100%;
+  max-width: initial;
+  margin-top: 0px;
+  padding: 5rem 1rem;
+  padding-bottom: 1rem;
+}
+.Skin #Footer .logo-container {
+  display: inline-block;
+  height: 2rem;
+  margin-right: 1em;
+  margin-bottom: 0.8em;
+}
+.Skin #Footer .colophon ul {
+  list-style: none;
+  width: 100%;
+  padding: 0;
+  font-size: 0.75em;
+}
+.Skin #Plug {
+  visibility: hidden;
+  max-height: 0px;
+  overflow: hidden;
+}
 
 /*# sourceMappingURL=skin.css.map */

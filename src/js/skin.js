@@ -44,8 +44,12 @@ if (footer) {
             "url" : "https://www.health.org.uk"
         }
     };
+    const logoHolder = $.create("div",{
+        className : "logo-holder"
+    });
+    footer.appendChild(logoHolder);
     forIn(logos,(value,key)=>{
-        footer.appendChild(Bliss.create('div',{
+        logoHolder.appendChild(Bliss.create('div',{
             className : 'logo-container',
             id : `logo_${key}`,
             contents: [{
