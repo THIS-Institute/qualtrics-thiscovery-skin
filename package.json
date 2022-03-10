@@ -10,7 +10,7 @@
     "build:scss": "sass ./src/css/skin.scss ./src/css/skin.css",
     "build:postcss": "postcss ./src/css/skin.css -m -o ./dist/bundle.2.0.0.css",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "skinjob": "node ./tools/skinjob/skinjob.js ./src/css/skin.css",
+    "skinjob": "node ./tools/skinjob/skinjob.js ./src/css/skin.css --novalidation",
     "watch:scss": "chokidar \"src/css/**/*.scss\" -c \"npm run build:scss\""
   },
   "repository": {

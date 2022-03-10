@@ -33,6 +33,11 @@ const optionList = [{
     type: Number,
     description : "debounce watcher",
     typeLabel : "ms"
+},{
+    name: "novalidation",
+    alias: "n",
+    type: Boolean,
+    description : "switch off CSS validation"
 }];
 
 const dieHelp = ()=>{
@@ -59,10 +64,11 @@ if (_.isEmpty(cssfile) || (cssfile === "help")) {
 }
 
 // parse options
-let { port, help, debounce } = _.assign({
+let { port, help, debounce, novalidation } = _.assign({
     port : 34567,
     help : null,
-    debounce : 500
+    debounce : 500,
+    novalidation : false
 }, commandLineArgs(optionList,{ partial: true })); // defaults
 
 if (!!help) {
@@ -102,23 +108,38 @@ io.on("connection", (socket)=>{
     });
 
     const handleChange = _.debounce((path) => {
+
+        const broadcast = ()=>{
+            console.debug(chalk.yellowBright("Broadcasting..."));
+            socket.emit('skinjob_update',contents);
+            return;
+        }
+
         log(chalk.yellowBright(`changes made to ${path}`));
         let contents = readFileSync(cssfile,{encoding:"utf-8"});
-        validateCss(contents,(err,{validity=false,errors=[],warnings=[]}={})=>{
-            const valid = validity && !errors.length;
-            if (!valid) {
-                // warn errors and stop
-                log(chalk.redBright("CSS Errors:"));
-                errors.forEach(err=>log(chalk.red(`Line ${err.line || "??"}: ${err.message}`)));
-                return;
-            }
-            else {
-                // broadcast on socket changes
-                log((warnings.length ? chalk.yellow : chalk.green)(`CSS valid with ${warnings.length} warnings`));
-                if (warnings.length) warnings.forEach(warn=>log(chalk.yellow(`Line ${warn.line || "??"}: ${warn.message}`)));
-                socket.emit('skinjob_update',contents);
-            }
-        });
+
+        if (novalidation) {
+            broadcast();
+        }
+        else {
+            validateCss(contents,(err,{validity=false,errors=[],warnings=[]}={})=>{
+                console.debug({validity});
+                const valid = validity && (errors.length < 1);
+                if (!valid) {
+                    // warn errors and stop
+                    log(chalk.redBright("CSS Errors:"));
+                    errors.forEach(err=>log(chalk.red(`Line ${err.line || "??"}: ${err.message}`)));
+                    return;
+                }
+                else {
+                    // broadcast on socket changes
+                    log((warnings.length ? chalk.yellow : chalk.green)(`CSS valid with ${warnings.length} warnings`));
+                    if (warnings.length) warnings.forEach(warn=>log(chalk.yellow(`Line ${warn.line || "??"}: ${warn.message}`)));
+                    broadcast();
+                }
+            });
+        }
+
     },debounce);
     
     watcher.on('ready',()=>log(chalk.green(`watching ${cssfile}`)));
