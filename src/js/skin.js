@@ -7,7 +7,7 @@
 
 // import { io } from "socket.io-client";
 const io = require('socket.io-client');
-const Bliss = require('blissfuljs');
+constBliss = require('blissfuljs');
 import { forIn, startCase } from 'lodash';
 
 // skinjob snippet - only if localStorage contains thisco_dev
