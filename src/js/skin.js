@@ -7,7 +7,7 @@
 
 // import { io } from "socket.io-client";
 const io = require('socket.io-client');
-constBliss = require('blissfuljs');
+const BlissfulJs = require('blissfuljs'); // module adds Bliss to window object for us
 import { forIn, startCase } from 'lodash';
 
 // skinjob snippet - only if localStorage contains thisco_dev
@@ -27,7 +27,7 @@ if (localStorage.getItem("thisco_dev") !== null) {
 
 // footer
 
-const footer = Bliss("#Footer");
+const footer = document.getElementById("Footer");
 if (footer) {
     const logos = {
         "this_institute" : {
