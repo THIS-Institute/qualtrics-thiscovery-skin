@@ -99,6 +99,20 @@ $breakpoints: (
         padding: 5rem 1rem;
         padding-bottom: 1rem;
 
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 1em;
+        align-items: flex-end;
+
+        @include respond-above(sm) {
+         grid-template-columns: 15rem 1fr;
+         padding-left: 2.1rem;          
+        }
+
+        .logo-holder {
+            border-right: 2px solid rgb(58 60 66 / 0.25);
+        }
+
         .logo-container {
             display: inline-block;
             height: 2rem;
@@ -112,6 +126,13 @@ $breakpoints: (
                 width: 100%;
                 padding: 0;
                 font-size: .75em;
+
+                li.policy-link {
+                    font-size: 1.35em;
+                }
+
+
+
             }
         }
 

@@ -55,6 +55,19 @@ Q breakpoints seem to be... [ <480px, <767px (some weird 770px ones?), <979px ]
   margin-top: 0px;
   padding: 5rem 1rem;
   padding-bottom: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1em;
+  align-items: flex-end;
+}
+@media (min-width: 768px) {
+  .Skin #Footer {
+    grid-template-columns: 15rem 1fr;
+    padding-left: 2.1rem;
+  }
+}
+.Skin #Footer .logo-holder {
+  border-right: 2px solid rgba(58, 60, 66, 0.25);
 }
 .Skin #Footer .logo-container {
   display: inline-block;
@@ -67,6 +80,9 @@ Q breakpoints seem to be... [ <480px, <767px (some weird 770px ones?), <979px ]
   width: 100%;
   padding: 0;
   font-size: 0.75em;
+}
+.Skin #Footer .colophon ul li.policy-link {
+  font-size: 1.35em;
 }
 .Skin #Plug {
   visibility: hidden;

@@ -7,9 +7,8 @@
 
 // import { io } from "socket.io-client";
 const io = require('socket.io-client');
-constBliss = require('blissfuljs');
+const Bliss = require('blissfuljs');
 import { forIn, startCase } from 'lodash';
-
 
 // skinjob snippet - only if localStorage contains thisco_dev
 
@@ -72,10 +71,6 @@ if (footer) {
             tag :"ul",
             contents : [{
                 tag : "li",
-                className : "copyright",
-                contents : `Thiscovery © THIS Institute ${new Date().getFullYear()}`
-            },{
-                tag : "li",
                 className : "policy-link",
                 contents : [{
                     tag : "a",
@@ -92,6 +87,10 @@ if (footer) {
                     href : "https://www.thiscovery.org/terms-of-use",
                     contents : "Terms of Use"
                 }]
+            },{
+                tag : "li",
+                className : "copyright",
+                contents : `Thiscovery © THIS Institute ${new Date().getFullYear()}`
             }]
         }]
     }))
