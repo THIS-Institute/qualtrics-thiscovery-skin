@@ -44,7 +44,7 @@ if (footer) {
             "url" : "https://www.health.org.uk"
         }
     };
-    const logoHolder = $.create("div",{
+    const logoHolder = Bliss.create("div",{
         className : "logo-holder"
     });
     footer.appendChild(logoHolder);
