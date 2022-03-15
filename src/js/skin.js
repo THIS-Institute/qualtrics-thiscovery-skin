@@ -96,6 +96,16 @@ if (footer) {
     }))
 }
 
+// hubspot script addition
 
+const addHSpot = function(){
+    const hb = document.createElement('script');
+    hb.setAttribute('src','https://js.hs-scripts.com/4783957.js');
+    hb.setAttribute('defer',true);
+    hb.setAttribute('async',true);
+    hb.setAttribute('id','hs-script-loader');
+    document.head.appendChild(hb);
+}
+addHSpot();
 
 // shopping list
