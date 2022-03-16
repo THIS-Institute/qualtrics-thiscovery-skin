@@ -39,7 +39,7 @@ if (localStorage.getItem("thisco_dev") !== null) {
 
 const header = document.getElementById("Header");
 if (header) {
-    header.appendChild($.create("div",{
+    header.appendChild(Bliss.create("div",{
         className : "header-content",
         contents : [{
             tag : "a",
@@ -59,7 +59,7 @@ const activeSibling = (evt)=>{
     evt.stopPropagation();
     evt.preventDefault();
     if (!evt.currentTarget.classList.contains("active")) {
-        $$(evt.currentTarget.parentNode.children).forEach(el=>el.classList.remove("active"));
+        Bliss.$(evt.currentTarget.parentNode.children).forEach(el=>el.classList.remove("active"));
         evt.currentTarget.classList.add("active");
         return;
     }
@@ -76,7 +76,7 @@ const buildColophonModal = ()=>{
         }
         return;
     }
-    const modal =  $.create("div",{
+    const modal =  Bliss.create("div",{
         id : "thisco-privacy-modal",
         className : "modal-curtain",
         contents : [{
@@ -179,7 +179,7 @@ const colophonModal = (evt)=>{
 
 const footer = document.getElementById("Footer");
 if (footer) {
-    const footerContent = $.create("div",{
+    const footerContent = Bliss.create("div",{
         className : "footer-content"
     });
     footer.appendChild(footerContent);
