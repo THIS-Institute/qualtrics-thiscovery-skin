@@ -6,6 +6,10 @@ Outputs:
 - /dist/bundle.{version}.min.js
 - /dist/bundle.{version}.min.css
 
+## Versions
+
+- 2.0.0 - simple header and footer over existing CSS shims (so requires both sets of CSS and js in header snippet)
+
 ## Installation
 
 Requires node.js 16+ and npm 6+ (bundled in node) - in the cloned repo run:
@@ -18,7 +22,7 @@ Requires node.js 16+ and npm 6+ (bundled in node) - in the cloned repo run:
 
 `npm run skinjob` - run the 'skinjob' server to do live updating of a published survey (if it has this script in its header)
 
-`npm run dev_build:js` - currently a script using parcel to bundle `/src/skin.js` into `/intermed` (don't really need it, as there's no way to test locally yet anyway)
+`npm run dev_build:js` - currently a script using [parcel](https://parceljs.org) to bundle `/src/skin.js` into `/intermed` (don't really need it, as there's no way to test locally yet anyway)
 
 ## Build / Deploy
 

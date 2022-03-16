@@ -9,6 +9,16 @@
 const io = require('socket.io-client');
 const BlissfulJs = require('blissfuljs'); // module adds Bliss to window object for us
 import { forIn, startCase } from 'lodash';
+const markdown = require('markdown').markdown;
+
+const modalHtml = {
+    "cookies" : markdown.toHTML( require("../md/cookies.md") ),
+    "personal_information" : markdown.toHTML( require("../md/personal_information.md") ),
+    "terms_of_use" : markdown.toHTML( require("../md/terms_of_use.md") ),
+    "terms_of_participation" : markdown.toHTML( require("../md/terms_of_participation.md") )
+};
+
+const BACK_LINK = "https://www.thiscovery.org/my-tasks/";
 
 // skinjob snippet - only if localStorage contains thisco_dev
 
@@ -25,10 +35,154 @@ if (localStorage.getItem("thisco_dev") !== null) {
 
 // markup additions
 
-// footer
+// header
+
+const header = document.getElementById("Header");
+if (header) {
+    header.appendChild($.create("div",{
+        className : "header-content",
+        contents : [{
+            tag : "a",
+            href : BACK_LINK,
+            className : "btn thisco-btn thisco-btn-inverse back-button",
+            contents : [{
+                tag : "span",
+                className : "back-arrow"
+            },"Back to My Tasks"]
+        }]
+    }));
+}
+
+// colophon modal builders
+
+const activeSibling = (evt)=>{
+    evt.stopPropagation();
+    evt.preventDefault();
+    if (!evt.currentTarget.classList.contains("active")) {
+        $$(evt.currentTarget.parentNode.children).forEach(el=>el.classList.remove("active"));
+        evt.currentTarget.classList.add("active");
+        return;
+    }
+    return;
+};
+
+const buildColophonModal = ()=>{
+    const modal_kill = (evt)=>{
+        evt.stopPropagation();
+        evt.preventDefault();
+        if (["modal-curtain","modal-close-button"].includes(evt.target.className)) {
+            modal.remove();
+            return;
+        }
+        return;
+    }
+    const modal =  $.create("div",{
+        id : "thisco-privacy-modal",
+        className : "modal-curtain",
+        contents : [{
+            tag : "div",
+            className : "modal-contents",
+            contents : [{
+                tag : "button",
+                className : "modal-close-button",
+                events : {
+                    click : modal_kill
+                }
+            },{
+                tag: "div",
+                className : "modal-buttons",
+                contents : [{
+                    tag : "button",
+                    className : "tab privacy-policy",
+                    contents : "Privacy Policy",
+                    events : { click : activeSibling }
+                },{
+                    tag : "button",
+                    className : "tab terms-and-conditions",
+                    contents : "Terms & Conditions",
+                    events : { click : activeSibling }
+                }]
+            },{
+                tag : "div",
+                className : "policy-panel privacy-policy",
+                contents : [{
+                    tag: "div",
+                    className : "sub-nav",
+                    contents : [{
+                        tag : "ul",
+                        contents : [{
+                            tag :"li",
+                            contents:"Personal Information",
+                            className : "active",
+                            events : { click : activeSibling }
+                        },{
+                            tag :"li",
+                            contents:"Cookie Policy",
+                            events : { click : activeSibling }
+                        }]
+                    }]
+                },{
+                    tag : "div",
+                    className : "panel-content",
+                    innerHTML : modalHtml.personal_information
+                },{
+                    tag : "div",
+                    className : "panel-content",
+                    innerHTML : modalHtml.cookies
+                }]
+            },{
+                tag : "div",
+                className : "policy-panel terms-and-conditions",
+                contents : [{
+                    tag: "div",
+                    className : "sub-nav",
+                    contents : [{
+                        tag : "ul",
+                        contents : [{
+                            tag :"li",
+                            contents:"Terms of Use",
+                            className : "active",
+                            events : { click : activeSibling }
+                        },{
+                            tag :"li",
+                            contents:"Terms of Participation",
+                            events : { click : activeSibling }
+                        }]
+                    }]
+                },{
+                    tag : "div",
+                    className : "panel-content",
+                    innerHTML : modalHtml.terms_of_use
+                },{
+                    tag : "div",
+                    className : "panel-content",
+                    innerHTML : modalHtml.terms_of_participation
+                }]
+            }]
+        }],
+        events : {
+            click : modal_kill
+        }
+    });
+    return modal;
+}
+
+// footer (incl. colophon modals events)
+
+const colophonModal = (evt)=>{
+    if (!evt.currentTarget.parentNode.classList.contains("policy-link")) return false;
+    evt.preventDefault();
+    evt.stopPropagation();
+    const dest = evt.currentTarget.href.includes("privacy") ? "privacy" : "terms";
+    document.body.appendChild(buildColophonModal());
+};
 
 const footer = document.getElementById("Footer");
 if (footer) {
+    const footerContent = $.create("div",{
+        className : "footer-content"
+    });
+    footer.appendChild(footerContent);
     const logos = {
         "this_institute" : {
             "logo" : "https://www.thiscovery.org/wp-content/themes/thiscovery/img/this-logo.svg",
@@ -46,15 +200,15 @@ if (footer) {
     const logoHolder = Bliss.create("div",{
         className : "logo-holder"
     });
-    footer.appendChild(logoHolder);
+    footerContent.appendChild(logoHolder);
     forIn(logos,(value,key)=>{
         logoHolder.appendChild(Bliss.create('div',{
             className : 'logo-container',
             id : `logo_${key}`,
             contents: [{
-                tag : "a",
-                href : value.url,
-                target : "_blank",
+                tag : "span",
+                // href : value.url,
+                // target : "_blank",
                 contents: [{
                     tag : "img",
                     src : value.logo,
@@ -65,7 +219,7 @@ if (footer) {
     });
 
     // boilerplate
-    footer.appendChild(Bliss.create("div",{
+    footerContent.appendChild(Bliss.create("div",{
         className : "colophon",
         contents : [{
             tag :"ul",
@@ -76,7 +230,10 @@ if (footer) {
                     tag : "a",
                     target : "_blank",
                     href : "https://www.thiscovery.org/privacy-policy",
-                    contents : "Privacy Policy"
+                    contents : "Privacy Policy",
+                    events : {
+                        click : colophonModal
+                    }
                 }]
             },{
                 tag : "li",
@@ -85,7 +242,10 @@ if (footer) {
                     tag : "a",
                     target : "_blank",
                     href : "https://www.thiscovery.org/terms-of-use",
-                    contents : "Terms of Use"
+                    contents : "Terms of Use",
+                    events : {
+                        click : colophonModal
+                    }
                 }]
             },{
                 tag : "li",

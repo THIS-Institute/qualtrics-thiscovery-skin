@@ -4,9 +4,9 @@
   "description": "Javascript and CSS to customise Qualtrics surveys",
   "main": "./dist/thiscovery-skin.js",
   "scripts": {
-    "dev_build:js": "parcel ./src/js/skin.js --dist-dir ./intermed --https --no-hmr",
+    "dev_build:js": "parcel ./src/js/skin.js --dist-dir ./intermed --https --no-hmr --config ./.parcelrc",
     "build": "run-s build:scss build:postcss build:js",
-    "build:js": "esbuild ./src/js/skin.js --bundle --minify --sourcemap --outfile=./dist/bundle.2.0.0.js --target=es2016,chrome94,firefox94,safari13,edge96,node12",
+    "build:js": "esbuild ./src/js/skin.js --bundle --minify --sourcemap --loader:.md=text --outfile=./dist/bundle.2.0.0.js --target=es2016,chrome94,firefox94,safari13,edge96,node12",
     "build:scss": "sass ./src/css/skin.scss ./src/css/skin.css",
     "build:postcss": "postcss ./src/css/skin.css -m -o ./dist/bundle.2.0.0.css",
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -44,6 +44,8 @@
   "dependencies": {
     "blissfuljs": "^1.0.6",
     "lodash": "^4.17.21",
+    "markdown": "^0.5.0",
+    "parcel-transformer-markdown": "^2.1.0",
     "socket.io-client": "^4.4.1"
   },
   "browserslist": "> 0.5%, last 2 versions, not dead"
