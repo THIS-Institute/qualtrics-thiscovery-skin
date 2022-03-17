@@ -23,7 +23,7 @@ $breakpoints: (
   xs: 481px,
   sm: 768px,
   md: 980px,
-  lg: 1200px
+  lg: 1400px
 );
 
 //
@@ -75,6 +75,7 @@ $breakpoints: (
         box-shadow: 0px 1px 10px rgb(0 0 0 / 0.1);
         #Header {
             height: 5rem;
+            padding: 0px;
             @include thisco_logo();
             background-repeat: no-repeat;
             background-size: 10rem auto;
@@ -83,6 +84,32 @@ $breakpoints: (
             @include respond-above(sm) {
                 height: 6rem;
                 background-position: 1.6rem 50%;
+            }
+
+            @include respond-above(lg) {
+                background-position: calc(50vw - 700px) 50%;
+            }
+
+            .header-content {
+                height: 100%;
+                width: clamp(80vw, 100%, 1400px);
+                @include respond-above(lg) {
+                    margin-left: calc(50vw - 700px);
+                }
+                display: grid;
+                grid-column-templates: 1fr 1fr 1fr;
+                align-items: center;
+
+                .back-button {
+                    grid-column-start: 3;
+                    max-width: 20ch;
+                    font-size: .7em;
+                    /* these following are ad-hoc button styles just for 2.0.0 */
+                    padding: 10px 12px;
+                    text-align: right;
+                    justify-self: flex-end;
+                }
+
             }
 
         }
@@ -98,44 +125,58 @@ $breakpoints: (
         margin-top: 0px;
         padding: 5rem 1rem;
         padding-bottom: 1rem;
+        width: 100vw;
 
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-gap: 1em;
-        align-items: flex-end;
+        .footer-content {
 
-        @include respond-above(sm) {
-         grid-template-columns: 15rem 1fr;
-         padding-left: 2.1rem;          
-        }
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 1em;
+            align-items: flex-end;
+            width: clamp(80vw, 100%, 1400px);
+            @include respond-above(lg) {
+                margin-left: calc(50vw - 700px);
+            }
 
-        .logo-holder {
-            border-right: 2px solid rgb(58 60 66 / 0.25);
-        }
+            @include respond-above(sm) {
+            grid-template-columns: 15rem 1fr;
+            padding-left: 2.1rem;          
+            }
 
-        .logo-container {
-            display: inline-block;
-            height: 2rem;
-            margin-right: 1em;
-            margin-bottom: .8em;
-        }
+            .logo-holder {
+                border-right: 2px solid rgb(58 60 66 / 0.25);
+            }
 
-        .colophon {
-            ul {
-                list-style: none;
-                width: 100%;
-                padding: 0;
-                font-size: .75em;
+            .logo-container {
+                display: inline-block;
+                height: 2rem;
+                margin-right: 1em;
+                margin-bottom: .8em;
+            }
 
-                li.policy-link {
-                    font-size: 1.35em;
+            .colophon {
+                ul {
+                    list-style: none;
+                    width: 100%;
+                    padding: 0;
+                    font-size: .75em;
+
+                    li.policy-link {
+                        font-size: 1.35em;
+                    }
                 }
-
-
-
             }
         }
+    }
 
+    #SkinContent {
+        min-height: calc(100vh - 20rem);
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        > * {
+            flex-basis: 100%;
+        }
     }
 
     #Plug {

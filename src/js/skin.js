@@ -55,12 +55,23 @@ if (header) {
 
 // colophon modal builders
 
-const activeSibling = (evt)=>{
-    evt.stopPropagation();
-    evt.preventDefault();
-    if (!evt.currentTarget.classList.contains("active")) {
-        Bliss.$(evt.currentTarget.parentNode.children).forEach(el=>el.classList.remove("active"));
-        evt.currentTarget.classList.add("active");
+const activeSibling = (target)=>{
+    
+    if (target instanceof Event) {
+        target.stopPropagation();
+        target.preventDefault();
+        target = target.currentTarget;
+    }
+    else {
+        target = Bliss(target);
+    }
+
+    if (!target) return;
+
+    if (!target.classList.contains("active")) {
+        Bliss.$(target.parentNode.children).forEach(el=>el.classList.remove("active"));
+        target.classList.add("active");
+        if (target.dataset.addActive && (target.dataset.addActive !== "")) activeSibling(target.dataset.addActive);
         return;
     }
     return;
@@ -95,16 +106,19 @@ const buildColophonModal = ()=>{
                     tag : "button",
                     className : "tab privacy-policy",
                     contents : "Privacy Policy",
-                    events : { click : activeSibling }
+                    events : { click : activeSibling },
+                    "data-add-active" : "#panel-privacy-policy"
                 },{
                     tag : "button",
                     className : "tab terms-and-conditions",
                     contents : "Terms & Conditions",
-                    events : { click : activeSibling }
+                    events : { click : activeSibling },
+                    "data-add-active" : "#panel-terms-and-conditions"
                 }]
             },{
                 tag : "div",
                 className : "policy-panel privacy-policy",
+                id: "panel-privacy-policy",
                 contents : [{
                     tag: "div",
                     className : "sub-nav",
@@ -114,25 +128,30 @@ const buildColophonModal = ()=>{
                             tag :"li",
                             contents:"Personal Information",
                             className : "active",
-                            events : { click : activeSibling }
+                            events : { click : activeSibling },
+                            "data-add-active" : "#panel-personal-information"
                         },{
                             tag :"li",
                             contents:"Cookie Policy",
-                            events : { click : activeSibling }
+                            events : { click : activeSibling },
+                            "data-add-active" : "#panel-cookies"
                         }]
                     }]
                 },{
                     tag : "div",
                     className : "panel-content",
-                    innerHTML : modalHtml.personal_information
+                    innerHTML : modalHtml.personal_information,
+                    id : "panel-personal-information"
                 },{
                     tag : "div",
                     className : "panel-content",
-                    innerHTML : modalHtml.cookies
+                    innerHTML : modalHtml.cookies,
+                    id : "panel-cookies"
                 }]
             },{
                 tag : "div",
                 className : "policy-panel terms-and-conditions",
+                id : "panel-terms-and-conditions",
                 contents : [{
                     tag: "div",
                     className : "sub-nav",
@@ -142,21 +161,25 @@ const buildColophonModal = ()=>{
                             tag :"li",
                             contents:"Terms of Use",
                             className : "active",
-                            events : { click : activeSibling }
+                            events : { click : activeSibling },
+                            "data-add-active": "#panel-terms-of-use"
                         },{
                             tag :"li",
                             contents:"Terms of Participation",
-                            events : { click : activeSibling }
+                            events : { click : activeSibling },
+                            "data-add-active" : "#panel-terms-of-participation"
                         }]
                     }]
                 },{
                     tag : "div",
                     className : "panel-content",
-                    innerHTML : modalHtml.terms_of_use
+                    innerHTML : modalHtml.terms_of_use,
+                    id: "panel-terms-of-use"
                 },{
                     tag : "div",
                     className : "panel-content",
-                    innerHTML : modalHtml.terms_of_participation
+                    innerHTML : modalHtml.terms_of_participation,
+                    id : "panel-terms-of-participation"
                 }]
             }]
         }],
