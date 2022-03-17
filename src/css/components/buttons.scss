@@ -86,13 +86,12 @@
 
     }
 
-    .btn.thisco_button {
+    .btn.thisco-btn {
         @include thisco-button();
     }
 
-    .btn.thisco-button-inverse {
+    .btn.thisco-btn-inverse {
         @include thisco-button-inverse();
-        
     }
 
 }
