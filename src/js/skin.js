@@ -198,6 +198,7 @@ const colophonModal = (evt)=>{
     evt.stopPropagation();
     const dest = evt.currentTarget.href.includes("privacy") ? "privacy-policy" : "terms-and-conditions";
     document.body.appendChild(buildColophonModal());
+    Bliss(".modal-contents").scrollTop = 0;
     activeSibling(`button.${dest}`);
     return;
 };
