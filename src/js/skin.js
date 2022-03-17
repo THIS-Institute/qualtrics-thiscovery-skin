@@ -18,7 +18,7 @@ const modalHtml = {
     "terms_of_participation" : markdown.toHTML( require("../md/terms_of_participation.md") )
 };
 
-const BACK_LINK = "https://www.thiscovery.org/my-tasks/";
+const BACK_LINK = window.location.search.includes("staging") ? "https://staging.thiscovery.org/my-tasks/" : "https://www.thiscovery.org/my-tasks/";
 
 // skinjob snippet - only if localStorage contains thisco_dev
 
@@ -139,7 +139,7 @@ const buildColophonModal = ()=>{
                     }]
                 },{
                     tag : "div",
-                    className : "panel-content",
+                    className : "panel-content active",
                     innerHTML : modalHtml.personal_information,
                     id : "panel-personal-information"
                 },{
@@ -172,7 +172,7 @@ const buildColophonModal = ()=>{
                     }]
                 },{
                     tag : "div",
-                    className : "panel-content",
+                    className : "panel-content active",
                     innerHTML : modalHtml.terms_of_use,
                     id: "panel-terms-of-use"
                 },{
@@ -196,8 +196,10 @@ const colophonModal = (evt)=>{
     if (!evt.currentTarget.parentNode.classList.contains("policy-link")) return false;
     evt.preventDefault();
     evt.stopPropagation();
-    const dest = evt.currentTarget.href.includes("privacy") ? "privacy" : "terms";
+    const dest = evt.currentTarget.href.includes("privacy") ? "privacy-policy" : "terms-and-conditions";
     document.body.appendChild(buildColophonModal());
+    activeSibling(`button.${dest}`);
+    return;
 };
 
 const footer = document.getElementById("Footer");
