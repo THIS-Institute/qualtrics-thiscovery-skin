@@ -252,22 +252,16 @@ Q breakpoints seem to be... [ <480px, <767px (some weird 770px ones?), <979px ]
   left: 0px;
   width: 100vw;
   height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   z-index: 500;
   background-color: rgba(0, 0, 0, 0.3);
 }
 #thisco-privacy-modal .modal-contents {
-  min-height: 100vh;
   overflow: scroll;
   width: 100%;
-  max-height: initial;
   padding: 80px 20px 20px;
   background-color: var(--this-lighter-grey);
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2);
-  display: grid;
-  grid-template-columns: 1fr;
+  display: block;
 }
 @media (min-width: 768px) {
   #thisco-privacy-modal .modal-contents {
@@ -293,7 +287,11 @@ Q breakpoints seem to be... [ <480px, <767px (some weird 770px ones?), <979px ]
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cg fill='%23FFF' fill-rule='evenodd'%3E%3Cpath d='M2.909 1.212l11.88 11.88a1.2 1.2 0 1 1-1.697 1.697L1.211 2.908a1.2 1.2 0 0 1 1.697-1.697z'/%3E%3Cpath d='M2.909 14.788l11.88-11.88a1.2 1.2 0 1 0-1.697-1.697l-11.88 11.88a1.2 1.2 0 0 0 1.697 1.697z'/%3E%3C/g%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 60%;
+  background-size: 50%;
+}
+#thisco-privacy-modal .modal-contents .modal-buttons {
+  display: flex;
+  align-items: flex-end;
 }
 #thisco-privacy-modal .modal-contents .modal-buttons button {
   font-family: "Brown";
@@ -302,9 +300,60 @@ Q breakpoints seem to be... [ <480px, <767px (some weird 770px ones?), <979px ]
   border: none;
   padding: 15px 0;
   background-color: var(--this-light-grey);
+  border-top-right-radius: 10px;
+  transition: all 0.2s;
+  max-height: 46px;
 }
-#thisco-privacy-modal .modal-contents .policy-panel {
+#thisco-privacy-modal .modal-contents .modal-buttons button:nth-child(1) {
+  border-top-right-radius: 0px;
+  border-top-left-radius: 10px;
+}
+#thisco-privacy-modal .modal-contents .modal-buttons button:hover, #thisco-privacy-modal .modal-contents .modal-buttons button:active, #thisco-privacy-modal .modal-contents .modal-buttons button.active {
+  padding: 20px 0;
+  background-color: white;
+  color: var(--this-red);
+  max-height: 54px;
+}
+#thisco-privacy-modal .modal-contents #panel-privacy-policy, #thisco-privacy-modal .modal-contents #panel-terms-and-conditions {
   display: none;
+}
+#thisco-privacy-modal .modal-contents #panel-privacy-policy.active, #thisco-privacy-modal .modal-contents #panel-terms-and-conditions.active {
+  display: block;
+}
+#thisco-privacy-modal .modal-contents #panel-privacy-policy.active .sub-nav ul, #thisco-privacy-modal .modal-contents #panel-terms-and-conditions.active .sub-nav ul {
+  list-style: none;
+  padding-left: 0;
+  font-size: 1.2em;
+  line-height: 2;
+}
+#thisco-privacy-modal .modal-contents #panel-privacy-policy.active .sub-nav ul li, #thisco-privacy-modal .modal-contents #panel-terms-and-conditions.active .sub-nav ul li {
+  opacity: 0.2;
+  cursor: pointer;
+}
+#thisco-privacy-modal .modal-contents #panel-privacy-policy.active .sub-nav ul li.active, #thisco-privacy-modal .modal-contents #panel-terms-and-conditions.active .sub-nav ul li.active {
+  opacity: 1;
+  color: var(--this-red);
+}
+#thisco-privacy-modal .modal-contents #panel-privacy-policy.active .panel-content, #thisco-privacy-modal .modal-contents #panel-terms-and-conditions.active .panel-content {
+  display: none;
+}
+#thisco-privacy-modal .modal-contents #panel-privacy-policy.active .panel-content.active, #thisco-privacy-modal .modal-contents #panel-terms-and-conditions.active .panel-content.active {
+  display: block;
+  padding: 20px;
+  background-color: white;
+  border-radius: 6px;
+  font-size: 18px;
+  line-height: 1.6;
+}
+#thisco-privacy-modal .modal-contents #panel-privacy-policy.active .panel-content.active h1, #thisco-privacy-modal .modal-contents #panel-privacy-policy.active .panel-content.active h2, #thisco-privacy-modal .modal-contents #panel-privacy-policy.active .panel-content.active h3, #thisco-privacy-modal .modal-contents #panel-privacy-policy.active .panel-content.active p, #thisco-privacy-modal .modal-contents #panel-privacy-policy.active .panel-content.active ul, #thisco-privacy-modal .modal-contents #panel-privacy-policy.active .panel-content.active ol, #thisco-privacy-modal .modal-contents #panel-terms-and-conditions.active .panel-content.active h1, #thisco-privacy-modal .modal-contents #panel-terms-and-conditions.active .panel-content.active h2, #thisco-privacy-modal .modal-contents #panel-terms-and-conditions.active .panel-content.active h3, #thisco-privacy-modal .modal-contents #panel-terms-and-conditions.active .panel-content.active p, #thisco-privacy-modal .modal-contents #panel-terms-and-conditions.active .panel-content.active ul, #thisco-privacy-modal .modal-contents #panel-terms-and-conditions.active .panel-content.active ol {
+  margin-bottom: 1rem;
+}
+#thisco-privacy-modal .modal-contents #panel-privacy-policy.active .panel-content.active a, #thisco-privacy-modal .modal-contents #panel-privacy-policy.active .panel-content.active a:visited, #thisco-privacy-modal .modal-contents #panel-terms-and-conditions.active .panel-content.active a, #thisco-privacy-modal .modal-contents #panel-terms-and-conditions.active .panel-content.active a:visited {
+  text-decoration: none;
+  color: var(--this-red);
+}
+#thisco-privacy-modal .modal-contents #panel-privacy-policy.active .panel-content.active a:active, #thisco-privacy-modal .modal-contents #panel-privacy-policy.active .panel-content.active a:hover, #thisco-privacy-modal .modal-contents #panel-privacy-policy.active .panel-content.active a:visited:active, #thisco-privacy-modal .modal-contents #panel-privacy-policy.active .panel-content.active a:visited:hover, #thisco-privacy-modal .modal-contents #panel-terms-and-conditions.active .panel-content.active a:active, #thisco-privacy-modal .modal-contents #panel-terms-and-conditions.active .panel-content.active a:hover, #thisco-privacy-modal .modal-contents #panel-terms-and-conditions.active .panel-content.active a:visited:active, #thisco-privacy-modal .modal-contents #panel-terms-and-conditions.active .panel-content.active a:visited:hover {
+  color: black;
 }
 
 /*# sourceMappingURL=skin.css.map */
