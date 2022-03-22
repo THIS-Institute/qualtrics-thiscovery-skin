@@ -66,6 +66,8 @@ $breakpoints: (
         overflow-y: scroll;
         width: 100%;
         // max-height: initial;
+        /* old font family rule */
+        font-family: Brown-Regular,sans-serif,Arial,"Helvetica Neue",Helvetica,sans-serif;
         padding: 80px 20px 20px;
         @include respond-above(md) {
             padding: 40px;

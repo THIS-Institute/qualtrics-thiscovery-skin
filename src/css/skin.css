@@ -277,6 +277,8 @@ Q breakpoints seem to be... [ <480px, <767px (some weird 770px ones?), <979px ]
   overflow: hidden;
   overflow-y: scroll;
   width: 100%;
+  /* old font family rule */
+  font-family: Brown-Regular, sans-serif, Arial, "Helvetica Neue", Helvetica, sans-serif;
   padding: 80px 20px 20px;
   background-color: var(--this-lighter-grey);
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2);
