@@ -9,6 +9,7 @@
     "build:js": "esbuild ./src/js/skin.js --bundle --minify --sourcemap --loader:.md=text --outfile=./dist/bundle.2.0.0.js --target=es2016,chrome94,firefox94,safari13,edge96,node12",
     "build:scss": "sass ./src/css/skin.scss ./src/css/skin.css",
     "build:postcss": "postcss ./src/css/skin.css -m -o ./dist/bundle.2.0.0.css",
+    "doiuse": "npx doiuse ./src/css/skin.css",
     "test": "echo \"Error: no test specified\" && exit 1",
     "skinjob": "node ./tools/skinjob/skinjob.js ./src/css/skin.css --novalidation",
     "watch:scss": "chokidar \"src/css/**/*.scss\" -c \"npm run build:scss\""
@@ -29,12 +30,15 @@
     "chalk": "^3.0.0-beta.2",
     "chokidar": "^3.5.3",
     "chokidar-cli": "^3.0.0",
+    "cli-table": "^0.3.11",
     "command-line-args": "^5.2.1",
     "command-line-usage": "^6.1.1",
     "css-validator": "^0.10.0",
     "cssnano": "^5.0.17",
+    "doiuse": "^4.4.1",
     "esbuild": "^0.14.22",
     "express": "^4.17.2",
+    "papaparse": "^5.3.2",
     "parcel": "^2.2.1",
     "postcss": "^8.4.6",
     "postcss-cli": "^9.1.0",
@@ -48,5 +52,5 @@
     "parcel-transformer-markdown": "^2.1.0",
     "socket.io-client": "^4.4.1"
   },
-  "browserslist": "> 0.5%, last 2 versions, not dead"
+  "browserslist": "> 0.5% in GB"
 }
