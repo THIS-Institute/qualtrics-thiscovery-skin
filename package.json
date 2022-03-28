@@ -5,10 +5,11 @@
   "main": "./dist/thiscovery-skin.js",
   "scripts": {
     "dev_build:js": "parcel ./src/js/skin.js --dist-dir ./intermed --https --no-hmr --config ./.parcelrc",
-    "build": "run-s build:scss build:postcss build:js",
-    "build:js": "esbuild ./src/js/skin.js --bundle --minify --sourcemap --loader:.md=text --outfile=./dist/bundle.2.0.0.js --target=es2016,chrome94,firefox94,safari13,edge96,node12",
+    "build": "run-s build:scss build:postcss build:js build:copy_latest",
+    "build:js": "esbuild ./src/js/skin.js --bundle --minify --sourcemap --loader:.md=text --outfile=./dist/bundle.$npm_package_version.js --target=es2016,chrome94,firefox94,safari13,edge96,node12",
     "build:scss": "sass ./src/css/skin.scss ./src/css/skin.css",
-    "build:postcss": "postcss ./src/css/skin.css -m -o ./dist/bundle.2.0.0.css",
+    "build:copy_latest" : "cp ./dist/bundle.$npm_package_version.css ./dist/bundle.latest.css & cp ./dist/bundle.$npm_package_version.js ./dist/bundle.latest.js",
+    "build:postcss": "postcss ./src/css/skin.css -m -o ./dist/bundle.$npm_package_version.css",
     "doiuse": "npx doiuse ./src/css/skin.css",
     "test": "echo \"Error: no test specified\" && exit 1",
     "skinjob": "node ./tools/skinjob/skinjob.js ./src/css/skin.css --novalidation",
@@ -26,7 +27,7 @@
   "homepage": "https://github.com/THIS-Institute/qualtrics-thiscovery-skin#readme",
   "devDependencies": {
     "autoprefixer": "^10.4.2",
-    "browserslist": "^4.19.1",
+    "browserslist": "^4.19.1",   
     "chalk": "^3.0.0-beta.2",
     "chokidar": "^3.5.3",
     "chokidar-cli": "^3.0.0",

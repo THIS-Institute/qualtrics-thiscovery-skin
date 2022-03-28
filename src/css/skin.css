@@ -324,6 +324,7 @@ Q breakpoints seem to be... [ <480px, <767px (some weird 770px ones?), <979px ]
   align-items: flex-end;
 }
 #thisco-privacy-modal .modal-contents .modal-buttons button {
+  font-family: inherit;
   font-size: 16px;
   width: 50%;
   border: none;
