@@ -44,7 +44,7 @@ if (header) {
         contents : [{
             tag : "a",
             href : BACK_LINK,
-            className : "btn thisco-btn thisco-btn-inverse back-button",
+            className : "btn thisco-btn thisco-btn-inverse-red back-button",
             contents : [{
                 tag : "span",
                 className : "back-arrow"

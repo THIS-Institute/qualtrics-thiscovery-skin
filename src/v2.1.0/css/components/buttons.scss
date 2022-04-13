@@ -11,6 +11,32 @@
     --this-yellow: rgb(255 216 90 / 1);
 }
 
+@mixin thisco-button() {
+    border-radius: 999px;
+    transition: all .2s ease-in;
+    background-color: var(--this-red);
+    padding: 1em 1.4em;
+    line-height: 1;
+    border: 2px solid var(--this-red);
+    font-weight: 400;
+    &:hover, &:active, &:focus {
+        transform: scale(1.03);
+        background-color: transparent;
+        color: var(--this-red);
+    }
+}
+
+@mixin thisco-button-inverse() {
+    border-color: var(--this-dark-grey);
+    color: var(--this-dark-grey);
+    background: white;
+    &:hover, &:active, &:focus {
+        background-color: var(--this-dark-grey);
+        color: white;
+        border-color: transparent;
+    }
+}
+
 .Skin {
     #Buttons {
         /* reset */
@@ -18,6 +44,9 @@
         display: grid;
         grid-template-columns: 1fr;
         grid-gap:1em;
+        overflow: hidden;
+        padding: 5px;
+        width: 100%;
 
         @media (min-width: 481px) {
             grid-template-columns: 1fr 1fr 1fr;
@@ -41,18 +70,7 @@
             font-size: 1.4em;
             font-family: inherit;
             font-weight: inherit;
-            border-radius: 999px;
-            transition: all .2s ease-in;
-            background-color: var(--this-red);
-            padding: 1em 1.4em;
-            line-height: 1;
-            border: 2px solid var(--this-red);
-
-            &:hover, &:active, &:focus {
-                transform: scale(1.03);
-                background-color: transparent;
-                color: var(--this-red);
-            }
+            @include thisco-button();
 
             @media (min-width: 481px) {
                 width: 100%;
@@ -63,15 +81,29 @@
         }
 
         #PreviousButton {
-            border-color: var(--this-dark-grey);
-            color: var(--this-dark-grey);
-            background: transparent;
-            grid-row-start: 2;
-            &:hover, &:active, &:focus {
-                background-color: var(--this-dark-grey);
-                color: white;
-            }
+            @include thisco-button-inverse();
+            // grid-row-start: 2;
         }
 
     }
+
+    .btn.thisco-btn {
+        @include thisco-button();
+    }
+
+    .btn.thisco-btn-inverse {
+        @include thisco-button-inverse();
+    }
+
+    .btn.thisco-btn-inverse-red {
+        @include thisco-button-inverse();
+        color: var(--this-red);
+        border-color: var(--this-red);
+        &:hover, &:active, &:focus {
+            background-color: var(--this-red);
+            color: white;
+            border-color: transparent;
+        }
+    }
+
 }

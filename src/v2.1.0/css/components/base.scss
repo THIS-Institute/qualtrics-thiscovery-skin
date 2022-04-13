@@ -18,14 +18,6 @@
     font-style: normal;
     font-weight: 100 200;
 }
-  
-// Colours
-// $color-black: #3a3c42;
-// $color-grey: #d2d4d3;
-// $color-yellow: #ffd85a;
-// $color-red: #dd0031;
-// $color-pink: #f3a5b9;
-// $color-aubergine: #680436;
 
 /* define official THIS colours */
 :root {
@@ -95,6 +87,7 @@ html {
     color:rgb(0 0 0 / .95);
     font-weight: 100;
     font-size: 20px;
+    line-height: 1.6;
 
     @include respond-above(xs){
         font-size:18px;
@@ -104,10 +97,26 @@ html {
         font-size:20px;
     }
 
+    /* basic resets */
+
+    h1, h2, h3, h4 {
+        line-height: 1.2;
+        margin-top: 1em;
+        margin-bottom: 1em;
+    }
+
+    a, a:hover, a:visited, a:focus {
+        // style links in place
+        color: inherit;
+        text-decoration: none;
+    }
+
+    /* end resets */
+
     .SkinInner {
-        padding-top:5rem;
+        padding-top:7rem;
         @include respond-above(sm) {
-            padding-top: 6rem;
+            padding-top: 8rem;
         }
     }
 
@@ -119,28 +128,54 @@ html {
         z-index: 100;
         top:0px;
         box-shadow: 0px 1px 10px rgb(0 0 0 / 0.1);
+        padding:0px 1rem;
         #Header {
             height: 5rem;
+            padding-bottom: 0px;
             @include thisco_logo();
             background-repeat: no-repeat;
             background-size: 10rem auto;
-            background-position: left 40%;
+            background-position: left 50%;
 
             @include respond-above(sm) {
                 height: 6rem;
                 background-position: 1.6rem 50%;
             }
 
+            @include respond-above(lg) {
+                background-position: calc(50vw - 700px) 50%;
+            }
+
+            .header-content {
+                height: 100%;
+                width: clamp(80vw, 100%, 1400px);
+                @include respond-above(lg) {
+                    margin-left: calc(50vw - 700px);
+                }
+                display: grid;
+                grid-column-templates: 1fr 1fr 1fr;
+                align-items: center;
+
+                .back-button {
+                    grid-column-start: 3;
+                    max-width: 24ch;
+                    font-size: .7em;
+                    padding: 10px 12px;
+                    text-align: right;
+                    justify-self: flex-end;
+                    margin-right: 0rem;
+                    font-weight: 400;
+                    @include respond-above(md) {
+                        margin-right: 2rem;
+                    }
+                }
+
+            }
+
         }
     }
 
-    h1, h2, h3, h4 {
-        line-height: 1.2;
-        margin-top: 1em;
-        margin-bottom: 1em;
-    }
 
-    /* resets */
 
     .QuestionText, .DB .QuestionText {
         color: inherit;
@@ -159,26 +194,61 @@ html {
         // bottom: 0px;
         width: 100%;
         max-width: initial;
-        margin-top: 3rem;
+        margin-top: 0px;
         padding: 5rem 1rem;
         padding-bottom: 1rem;
+        width: 100vw;
 
-        .logo-container {
-            display: inline-block;
-            height: 2rem;
-            margin-right: 1em;
-            margin-bottom: .8em;
-        }
+        .footer-content {
 
-        .colophon {
-            ul {
-                list-style: none;
-                width: 100%;
-                padding: 0;
-                font-size: .75em;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 1em;
+            align-items: flex-end;
+            width: clamp(80vw, 100%, 1400px);
+            @include respond-above(lg) {
+                margin-left: calc(50vw - 700px);
+            }
+
+            @include respond-above(sm) {
+            grid-template-columns: 15rem 1fr;
+            padding-left: 2.1rem;          
+            }
+
+            .logo-holder {
+                border-right: 2px solid rgb(58 60 66 / 0.25);
+            }
+
+            .logo-container {
+                display: inline-block;
+                height: 2rem;
+                margin-right: 1em;
+                margin-bottom: .8em;
+            }
+
+            .colophon {
+                ul {
+                    list-style: none;
+                    width: 100%;
+                    padding: 0;
+                    font-size: .75em;
+
+                    li.policy-link {
+                        font-size: 1.35em;
+                    }
+                }
             }
         }
+    }
 
+    #SkinContent {
+        min-height: calc(100vh - 20rem);
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        > * {
+            flex-basis: 100%;
+        }
     }
 
     #Plug {
