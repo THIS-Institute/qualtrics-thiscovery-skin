@@ -16,11 +16,11 @@ log(chalk.green("==============================="));
 // options:
 
 const top_choices = [
+    "0. exit",
     "1. set dev/build version",
     "2. set 'latest'",
     "3. develop",
-    "4. build",
-    '5. exit'
+    "4. build"
 ];
 
 async function go (){

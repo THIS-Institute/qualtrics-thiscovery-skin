@@ -1,6 +1,6 @@
 {
 	"name": "qualtrics-thiscovery-skin",
-	"version": "2.0.0",
+	"version": "2.1.0",
 	"latest_alias": "2.0.0",
 	"description": "Javascript and CSS to customise Qualtrics surveys",
 	"main": "./dist/thiscovery-skin.js",
@@ -10,6 +10,7 @@
 		"build:scss": "sass ./src/v$npm_package_version/css/skin.scss ./src/css/skin.css",
 		"build:copy_latest": "cp ./dist/bundle.$npm_package_version.css ./dist/bundle.latest.css & cp ./dist/bundle.$npm_package_version.js ./dist/bundle.latest.js",
 		"build:postcss": "postcss ./src/v$npm_package_version/css/skin.css -m -o ./dist/bundle.$npm_package_version.css",
+		"dev": "node dev.js",
 		"dev_tasks": "run-p watch:js watch:scss",
 		"doiuse": "npx doiuse ./src/v$npm_package_version/css/skin.css",
 		"test": "echo \"Error: no test specified\" && exit 1",
