@@ -7,9 +7,9 @@
 	"scripts": {
 		"build": "run-s build:scss build:postcss build:js build:copy_latest",
 		"build:js": "esbuild ./src/v$npm_package_version/js/skin.js --bundle --minify --sourcemap --loader:.md=text --outfile=./dist/bundle.$npm_package_version.js --target=es2016,chrome94,firefox94,safari13,edge96,node12",
-		"build:scss": "sass ./src/v$npm_package_version/css/skin.scss ./src/css/skin.css",
+		"build:scss": "sass ./src/v$npm_package_version/css/skin.scss ./src/v$npm_package_version/css/skin.css --embed-source-map",
 		"build:copy_latest": "cp ./dist/bundle.$npm_package_version.css ./dist/bundle.latest.css & cp ./dist/bundle.$npm_package_version.js ./dist/bundle.latest.js",
-		"build:postcss": "postcss ./src/v$npm_package_version/css/skin.css -m -o ./dist/bundle.$npm_package_version.css",
+		"build:postcss": "postcss ./src/v$npm_package_version/css/skin.css -m -o ./dist/bundle.$npm_package_version.css --verbose --map",
 		"dev": "node dev.js",
 		"dev_tasks": "run-p watch:js watch:scss",
 		"doiuse": "npx doiuse ./src/v$npm_package_version/css/skin.css",
