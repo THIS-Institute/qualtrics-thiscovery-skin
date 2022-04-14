@@ -1,3 +1,5 @@
+@use '../../../node_modules/css-reset-and-normalize/scss/reset-and-normalize.scss';
+
 @use './components/base.scss';
 @use './components/buttons.scss';
 @use './components/policy-modals.scss';

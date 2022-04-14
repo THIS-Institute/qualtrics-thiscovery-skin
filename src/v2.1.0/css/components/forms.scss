@@ -7,40 +7,6 @@ Qualtrics codes:
 
 */
 
-/* resets */
-
-.Skin {
-
-    .QuestionBody {
-        color: unset;
-        font-weight: unset;
-        font-size: unset;
-    }
-
-    .QuestionText {
-        padding: 0;
-    }
-
-    label.MultipleAnswer, label.SingleAnswer {
-        background-color: unset;
-        color: initial;
-        padding: unset;
-        &.q-checked, &.q-checked:hover, &:hover {
-            background-color: unset;
-            color: initial;
-            &.q-focused {
-                background-color: unset;
-                color: unset;
-            }
-        }
-    }
-
-    .LabelWrapper {
-        span {
-        }
-    }
-}
-
 /* radio buttons */
 
 @mixin thiscovery-radio-button ($size) {
@@ -57,16 +23,18 @@ Qualtrics codes:
     border: ($size * .3) solid white;
     outline: ($size * .2) solid var(--thisco-red);
     display: block;
+    transition: all .25s;
+    box-sizing: content-box;
 }
 
 @mixin thiscovery-radio-button-checked () {
     // background-color: var(--thisco-red) !important; // Q forces hand
     background-color: transparent !important;
-    background-size: 150% 150% !important;
+    background-size: 200% 200% !important;
 }
 
-$min-label-height: 2em;
-$radio-size: .8rem;
+$min-response-height: 2.6rem;
+$radio-size: .6em;
 
 /* basic question here for building on */
 
@@ -81,37 +49,59 @@ $radio-size: .8rem;
         padding-top: 0;
     }
 
-    label.MultipleAnswer, label.SingleAnswer {
-        padding: 5px;
-        min-height: $min-label-height;
-        > span {
-                            &:focus-visible {
-                &::before {
-                    transform: scale(1.1);
+    .ChoiceStructure {
+        li {
+            // hide native - Q js handles events
+            min-height: $min-response-height;
+            // border-radius: 15px;
+            // box-shadow: .5px .5px 0px rgb(0 0 0 / .1);
+            padding: .4rem .3rem;
+            margin-bottom: .6em;
+            input[type="radio"] {
+                width: 4px;
+                height: 4px;
+                opacity: 0;
+                & + label {
+                    display: none;
                 }
             }
-            &:active {
-                &::before {
-                    transform: scale(0.9);
+            .LabelWrapper {
+                margin-left: 1rem;
+                label.MultipleAnswer, label.SingleAnswer {
+                    padding: 5px;
+                    > span {
+                        position: relative;
+                        &:focus-visible {
+                            &::before {
+                                transform: scale(1.1);
+                            }
+                        }
+                        &:active {
+                            &::before {
+                                transform: scale(0.9);
+                            }
+                        }
+                    }
+                    > span::before {
+                        content: " ";
+                        position: absolute;
+                        left: -$radio-size * 2.4;
+                        top:($radio-size * 0);
+                        margin-top: 0;
+                        @include thiscovery-radio-button($radio-size);
+                    }
+                    &.q-checked, &.q-checked.q-focused {
+                        > span::before {
+                            animation: none;
+                            box-shadow: none;
+                            @include thiscovery-radio-button($radio-size);
+                            @include thiscovery-radio-button-checked();           
+                        }
+                    }
                 }
-            }
-        }
-        > span::before {
-            transition: all .15s;
-            animation: none;
-            top:($radio-size);
-            margin-top: 0;
-            @include thiscovery-radio-button($radio-size);
-        }
-        &.q-checked, &.q-checked.q-focused {
-            > span {
-            }
-            > span::before {
-                animation: none;
-                box-shadow: none;
-                @include thiscovery-radio-button($radio-size);
-                @include thiscovery-radio-button-checked();           
             }
         }
     }
+
+
 }

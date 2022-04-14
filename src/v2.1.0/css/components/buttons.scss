@@ -15,10 +15,11 @@
     border-radius: 999px;
     transition: all .2s ease-in;
     background-color: var(--thisco-red);
-    padding: 1em 1.4em;
+    padding: 1em 3em;
     line-height: 1;
     border: 2px solid var(--thisco-red);
     font-weight: 400;
+    color: white;
     &:hover, &:active, &:focus {
         transform: scale(1.03);
         background-color: transparent;

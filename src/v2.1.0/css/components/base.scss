@@ -37,6 +37,8 @@
 mobile-first layout ?? might be fighting against Qualtrics breakpoints....  
 Q breakpoints seem to be... [ <480px, <767px (some weird 770px ones?), <979px ]
 
+2.1.0 - ejects Q stylesheet
+
 */
 
 // A map of breakpoints.
@@ -85,8 +87,8 @@ html {
     font-family : "thisco_Brown", "Brown-Regular", Arial, "Helvetica Neue", Helvetica, sans-serif;
     color:rgb(0 0 0 / .95);
     font-weight: 100;
-    font-size: 20px;
-    line-height: 1.6;
+    font-size: 18px;
+    line-height: 1.4;
 
     @include respond-above(xs){
         font-size:18px;
@@ -113,9 +115,9 @@ html {
     /* end resets */
 
     .SkinInner {
-        padding-top:7rem;
+        padding-top:5rem;
         @include respond-above(sm) {
-            padding-top: 8rem;
+            padding-top: 6rem;
         }
     }
 
@@ -191,13 +193,14 @@ html {
     #Footer {
         background-color: var(--thisco-light-grey);
         position: absolute;
-        // bottom: 0px;
         width: 100%;
         max-width: initial;
         margin-top: 0px;
         padding: 5rem 1rem;
         padding-bottom: 1rem;
         width: 100vw;
+        font-size: 14px;
+
 
         .footer-content {
 
@@ -224,6 +227,9 @@ html {
                 height: 2rem;
                 margin-right: 1em;
                 margin-bottom: .8em;
+                img {
+                    max-width: 100%;
+                }
             }
 
             .colophon {
