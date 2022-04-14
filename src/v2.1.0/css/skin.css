@@ -106,7 +106,8 @@ html {
 }
 .Skin #HeaderContainer #Header .header-content {
   height: 100%;
-  width: clamp(80vw, 100%, 1400px);
+  width: 100%;
+  max-width: 1400px;
   display: grid;
   grid-column-templates: 1fr 1fr 1fr;
   align-items: center;
@@ -136,6 +137,7 @@ html {
   font-weight: inherit;
   font-family: inherit;
   font-size: inherit;
+  line-height: inherit;
 }
 .Skin .QuestionOuter {
   padding: 0;
@@ -476,4 +478,40 @@ html {
   color: black;
 }
 
-/*# sourceMappingURL=data:application/json;charset=utf-8,%7B%22version%22:3,%22sourceRoot%22:%22%22,%22sources%22:%5B%22components/base.scss%22,%22components/buttons.scss%22,%22components/policy-modals.scss%22%5D,%22names%22:%5B%5D,%22mappings%22:%22AAAA;EACI;EACA;EACA;EACA;;AAGJ;EACI;EACA;EACA;EACA;;AAGJ;EACI;EACA;EACA;EACA;;AAGJ;AACA;EACI;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;;AAGJ;;AAAA;AAAA;;AAAA;AA6CA;EACI;;;AAIJ;EACI;EACA;EACA;EACA;EACA;AAUA;AAcA;;AAlDE;EAqBN;IAQQ;;;AA7BF;EAqBN;IAYQ;;;AAKJ;EACI;EACA;EACA;;AAGJ;EAEI;EACA;;AAKJ;EACI;;AArDF;EAoDF;IAGQ;;;AAIR;EACI;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;AACA;EACI;EACA;EAzDR;EA2DQ;EACA;EACA;;AA1EN;EAoEE;IASQ;IACA;;;AA9EV;EAoEE;IAcQ;;;AAGJ;EACI;EACA;EAIA;EACA;EACA;;AA7FV;EAqFM;IAIQ;;;AAMJ;EACI;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;AAvGd;EA+FU;IAUQ;;;AAWpB;EACI;EACA;EACA;EACA;;AAGJ;EACI;;AAGJ;EACI;EACA;EAEA;EACA;EACA;EACA;EACA;EACA;;AAEA;EAEI;EACA;EACA;EACA;EACA;;AAhJN;EA0IE;IAQQ;;;AAlJV;EA0IE;IAYI;IACA;;;AAGA;EACI;;AAGJ;EACI;EACA;EACA;EACA;;AAIA;EACI;EACA;EACA;EACA;;AAEA;EACI;;AAOpB;EACI;EACA;EACA;EACA;;AACA;EACI;;AAIR;EACI;EACA;EACA;;;AChQR;AACA;EACI;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;;AA8BA;AACI;EAEA;EACA;EACA;EACA;EACA;EACA;;AAEA;EAVJ;IAWQ;;EAEA;IACI;;;AAIR;EAlBJ;IAmBQ;;EACA;IACI;;;AAIR;EAEI;EACA;EACA;EACA;EACA;EAzDR;EACA;EACA;EACA;EACA;EACA;EACA;;AACA;EACI;EACA;EACA;;AAkDI;EATJ;IAUQ;IACA;IACA;;;AAKR;EArDJ;EACA;EACA;;AACA;EACI;EACA;EACA;;AAsDJ;EA3EA;EACA;EACA;EACA;EACA;EACA;EACA;;AACA;EACI;EACA;EACA;;AAqEJ;EAhEA;EACA;EACA;;AACA;EACI;EACA;EACA;;AA8DJ;EApEA;EACA;EACA;EAoEI;EACA;;AApEJ;EACI;EACA;EACA;;AAkEA;EACI;EACA;EACA;;;ACxGZ;AACA;EACI;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;;AAsCA;EACI;EACA;EACA;EACA;EACA;EACA;EACA;;AApBF;EAaF;IASQ;;;AAIR;EAEI;EACA;EACA;AAEA;EACA;EACA;EAaA;EACA;EACA;;AAjDF;EA0BF;IAUQ;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;;;AAKJ;EACI;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;AA/DN;EAkDE;IAeQ;IACA;;;AAGR;EACI;EACA;;AACA;EACI;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;AACA;EACI;EACA;;AAEJ;EACI;EACA;EACA;EACA;;AAIZ;EACI;;AACA;EACI;;AAjGV;EAgGM;IAIQ;IACA;IACA;;;AAIA;EACI;EACA;EACA;EACA;;AA9GlB;EA0Gc;IAMQ;;;AAEJ;EACI;EACA;;AACA;EACI;EACA;;AAKhB;EACI;;AACA;EACI;EAKA;EACA;EACA;EACA;EACA;;AAxIlB;EA8Hc;IAGQ;IACA;;;AAOJ;EACI;;AAEJ;EACI;EACA;;AACA;EACI%22,%22file%22:%22skin.css%22%7D */
+aside {
+  border-radius: 25px;
+  padding: 1.8em;
+  background-color: var(--this-aubergine);
+  color: rgba(255, 255, 255, 0.95);
+  font-weight: 400;
+  margin-bottom: 1.6rem;
+  font-size: 0.7em;
+}
+
+/* Qualtrics compensatory styling */
+/*
+
+Qualtrics codes:
+    MC = Multiple Choice?
+
+*/
+/* resets */
+.Skin label.MultipleAnswer, .Skin label.SingleAnswer {
+  background-color: unset;
+  color: initial;
+  padding: unset;
+}
+.Skin label.MultipleAnswer.q-checked, .Skin label.MultipleAnswer.q-checked:hover, .Skin label.MultipleAnswer:hover, .Skin label.SingleAnswer.q-checked, .Skin label.SingleAnswer.q-checked:hover, .Skin label.SingleAnswer:hover {
+  background-color: unset;
+  color: initial;
+}
+.Skin label.MultipleAnswer.q-checked.q-focused, .Skin label.MultipleAnswer.q-checked:hover.q-focused, .Skin label.MultipleAnswer:hover.q-focused, .Skin label.SingleAnswer.q-checked.q-focused, .Skin label.SingleAnswer.q-checked:hover.q-focused, .Skin label.SingleAnswer:hover.q-focused {
+  background-color: unset;
+  color: unset;
+}
+.Skin .LabelWrapper span {
+  color: initial;
+  font-weight: initial;
+}
+
+/*# sourceMappingURL=skin.css.map */

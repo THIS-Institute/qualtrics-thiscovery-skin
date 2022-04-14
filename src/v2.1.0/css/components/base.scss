@@ -81,7 +81,6 @@ html {
     font-size: 14px;
 }
 
-
 .Skin {
     font-family : "thisco_Brown", "Brown-Regular", Arial, "Helvetica Neue", Helvetica, sans-serif;
     color:rgb(0 0 0 / .95);
@@ -148,7 +147,9 @@ html {
 
             .header-content {
                 height: 100%;
-                width: clamp(80vw, 100%, 1400px);
+                // width: clamp(80vw, 100%, 1400px);
+                width: 100%;
+                max-width: 1400px;
                 @include respond-above(lg) {
                     margin-left: calc(50vw - 700px);
                 }
@@ -175,18 +176,19 @@ html {
         }
     }
 
-
-
     .QuestionText, .DB .QuestionText {
         color: inherit;
         font-weight: inherit;
         font-family: inherit;
         font-size: inherit;
+        line-height: inherit;
     }
 
     .QuestionOuter {
         padding: 0;
     }
+
+
 
     #Footer {
         background-color: var(--this-light-grey);
