@@ -18,15 +18,15 @@
 }
 /* define official THIS colours */
 :root {
-  --this-dark-grey: rgb(58 60 66 / 1);
-  --this-light-grey: rgb(210 212 211 / 1);
-  --this-red: rgb(221, 0, 49);
-  --this-bright-blue: rgb(91, 194, 231);
-  --this-pale-blue: rgb(143, 172, 217);
-  --this-green: rgb(0, 187, 126);
-  --this-pink: rgb(243, 165, 185);
-  --this-aubergine: rgb(104 4 54 / 1);
-  --this-yellow: rgb(255 216 90 / 1);
+  --thisco-dark-grey: rgb(58 60 66 / 1);
+  --thisco-light-grey: rgb(210 212 211 / 1);
+  --thisco-red: rgb(221, 0, 49);
+  --thisco-bright-blue: rgb(91, 194, 231);
+  --thisco-pale-blue: rgb(143, 172, 217);
+  --thisco-green: rgb(0, 187, 126);
+  --thisco-pink: rgb(243, 165, 185);
+  --thisco-aubergine: rgb(104 4 54 / 1);
+  --thisco-yellow: rgb(255 216 90 / 1);
 }
 
 /* 
@@ -76,7 +76,7 @@ html {
   }
 }
 .Skin #HeaderContainer {
-  background-color: var(--this-light-grey);
+  background-color: var(--thisco-light-grey);
   position: fixed;
   left: 0px;
   width: 100vw;
@@ -143,7 +143,7 @@ html {
   padding: 0;
 }
 .Skin #Footer {
-  background-color: var(--this-light-grey);
+  background-color: var(--thisco-light-grey);
   position: absolute;
   width: 100%;
   max-width: initial;
@@ -205,15 +205,15 @@ html {
 
 /* define official THIS colours */
 :root {
-  --this-dark-grey: rgb(58 60 66 / 1);
-  --this-light-grey: rgb(210 212 211 / 1);
-  --this-red: rgb(221, 0, 49);
-  --this-bright-blue: rgb(91, 194, 231);
-  --this-pale-blue: rgb(143, 172, 217);
-  --this-green: rgb(0, 187, 126);
-  --this-pink: rgb(243, 165, 185);
-  --this-aubergine: rgb(104 4 54 / 1);
-  --this-yellow: rgb(255 216 90 / 1);
+  --thisco-dark-grey: rgb(58 60 66 / 1);
+  --thisco-light-grey: rgb(210 212 211 / 1);
+  --thisco-red: rgb(221, 0, 49);
+  --thisco-bright-blue: rgb(91, 194, 231);
+  --thisco-pale-blue: rgb(143, 172, 217);
+  --thisco-green: rgb(0, 187, 126);
+  --thisco-pink: rgb(243, 165, 185);
+  --thisco-aubergine: rgb(104 4 54 / 1);
+  --thisco-yellow: rgb(255 216 90 / 1);
 }
 
 .Skin #Buttons {
@@ -249,16 +249,17 @@ html {
   font-weight: inherit;
   border-radius: 999px;
   transition: all 0.2s ease-in;
-  background-color: var(--this-red);
+  background-color: var(--thisco-red);
   padding: 1em 1.4em;
   line-height: 1;
-  border: 2px solid var(--this-red);
+  border: 2px solid var(--thisco-red);
   font-weight: 400;
 }
 .Skin #Buttons #NextButton:hover, .Skin #Buttons #NextButton:active, .Skin #Buttons #NextButton:focus, .Skin #Buttons #PreviousButton:hover, .Skin #Buttons #PreviousButton:active, .Skin #Buttons #PreviousButton:focus {
   transform: scale(1.03);
   background-color: transparent;
-  color: var(--this-red);
+  color: var(--thisco-red);
+  border-color: var(--thisco-red);
 }
 @media (min-width: 481px) {
   .Skin #Buttons #NextButton, .Skin #Buttons #PreviousButton {
@@ -268,69 +269,70 @@ html {
   }
 }
 .Skin #Buttons #PreviousButton {
-  border-color: var(--this-dark-grey);
-  color: var(--this-dark-grey);
+  border-color: var(--thisco-dark-grey);
+  color: var(--thisco-dark-grey);
   background: white;
 }
 .Skin #Buttons #PreviousButton:hover, .Skin #Buttons #PreviousButton:active, .Skin #Buttons #PreviousButton:focus {
-  background-color: var(--this-dark-grey);
+  background-color: var(--thisco-dark-grey);
   color: white;
   border-color: transparent;
 }
 .Skin .btn.thisco-btn {
   border-radius: 999px;
   transition: all 0.2s ease-in;
-  background-color: var(--this-red);
+  background-color: var(--thisco-red);
   padding: 1em 1.4em;
   line-height: 1;
-  border: 2px solid var(--this-red);
+  border: 2px solid var(--thisco-red);
   font-weight: 400;
 }
 .Skin .btn.thisco-btn:hover, .Skin .btn.thisco-btn:active, .Skin .btn.thisco-btn:focus {
   transform: scale(1.03);
   background-color: transparent;
-  color: var(--this-red);
+  color: var(--thisco-red);
+  border-color: var(--thisco-red);
 }
 .Skin .btn.thisco-btn-inverse {
-  border-color: var(--this-dark-grey);
-  color: var(--this-dark-grey);
+  border-color: var(--thisco-dark-grey);
+  color: var(--thisco-dark-grey);
   background: white;
 }
 .Skin .btn.thisco-btn-inverse:hover, .Skin .btn.thisco-btn-inverse:active, .Skin .btn.thisco-btn-inverse:focus {
-  background-color: var(--this-dark-grey);
+  background-color: var(--thisco-dark-grey);
   color: white;
   border-color: transparent;
 }
 .Skin .btn.thisco-btn-inverse-red {
-  border-color: var(--this-dark-grey);
-  color: var(--this-dark-grey);
+  border-color: var(--thisco-dark-grey);
+  color: var(--thisco-dark-grey);
   background: white;
-  color: var(--this-red);
-  border-color: var(--this-red);
+  color: var(--thisco-red);
+  border-color: var(--thisco-red);
 }
 .Skin .btn.thisco-btn-inverse-red:hover, .Skin .btn.thisco-btn-inverse-red:active, .Skin .btn.thisco-btn-inverse-red:focus {
-  background-color: var(--this-dark-grey);
+  background-color: var(--thisco-dark-grey);
   color: white;
   border-color: transparent;
 }
 .Skin .btn.thisco-btn-inverse-red:hover, .Skin .btn.thisco-btn-inverse-red:active, .Skin .btn.thisco-btn-inverse-red:focus {
-  background-color: var(--this-red);
+  background-color: var(--thisco-red);
   color: white;
   border-color: transparent;
 }
 
 /* define official THIS colours */
 :root {
-  --this-dark-grey: rgb(58 60 66 / 1);
-  --this-light-grey: rgb(210 212 211 / 1);
-  --this-red: rgb(221, 0, 49);
-  --this-bright-blue: rgb(91, 194, 231);
-  --this-pale-blue: rgb(143, 172, 217);
-  --this-green: rgb(0, 187, 126);
-  --this-pink: rgb(243, 165, 185);
-  --this-aubergine: rgb(104 4 54 / 1);
-  --this-yellow: rgb(255 216 90 / 1);
-  --this-lighter-grey: #f4f4f4;
+  --thisco-dark-grey: rgb(58 60 66 / 1);
+  --thisco-light-grey: rgb(210 212 211 / 1);
+  --thisco-red: rgb(221, 0, 49);
+  --thisco-bright-blue: rgb(91, 194, 231);
+  --thisco-pale-blue: rgb(143, 172, 217);
+  --thisco-green: rgb(0, 187, 126);
+  --thisco-pink: rgb(243, 165, 185);
+  --thisco-aubergine: rgb(104 4 54 / 1);
+  --thisco-yellow: rgb(255 216 90 / 1);
+  --thisco-lighter-grey: #f4f4f4;
 }
 
 #thisco-privacy-modal.modal-curtain {
@@ -354,7 +356,7 @@ html {
   /* old font family rule */
   font-family: Brown-Regular, sans-serif, Arial, "Helvetica Neue", Helvetica, sans-serif;
   padding: 80px 20px 20px;
-  background-color: var(--this-lighter-grey);
+  background-color: var(--thisco-lighter-grey);
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2);
   display: block;
 }
@@ -373,7 +375,7 @@ html {
   }
 }
 #thisco-privacy-modal .modal-contents .modal-close-button {
-  background-color: var(--this-red);
+  background-color: var(--thisco-red);
   border: none;
   position: absolute;
   width: 40px;
@@ -403,7 +405,7 @@ html {
   width: 50%;
   border: none;
   padding: 15px 0;
-  background-color: var(--this-light-grey);
+  background-color: var(--thisco-light-grey);
   border-top-right-radius: 10px;
   transition: all 0.2s;
   max-height: 46px;
@@ -415,7 +417,7 @@ html {
 #thisco-privacy-modal .modal-contents .modal-buttons button:hover, #thisco-privacy-modal .modal-contents .modal-buttons button:active, #thisco-privacy-modal .modal-contents .modal-buttons button.active {
   padding: 20px 0;
   background-color: white;
-  color: var(--this-red);
+  color: var(--thisco-red);
   max-height: 54px;
 }
 #thisco-privacy-modal .modal-contents #panel-privacy-policy, #thisco-privacy-modal .modal-contents #panel-terms-and-conditions {
@@ -448,7 +450,7 @@ html {
 }
 #thisco-privacy-modal .modal-contents #panel-privacy-policy.active .sub-nav ul li.active, #thisco-privacy-modal .modal-contents #panel-terms-and-conditions.active .sub-nav ul li.active {
   opacity: 1;
-  color: var(--this-red);
+  color: var(--thisco-red);
 }
 #thisco-privacy-modal .modal-contents #panel-privacy-policy.active .panel-content, #thisco-privacy-modal .modal-contents #panel-terms-and-conditions.active .panel-content {
   display: none;
@@ -472,7 +474,7 @@ html {
 }
 #thisco-privacy-modal .modal-contents #panel-privacy-policy.active .panel-content.active a, #thisco-privacy-modal .modal-contents #panel-privacy-policy.active .panel-content.active a:visited, #thisco-privacy-modal .modal-contents #panel-terms-and-conditions.active .panel-content.active a, #thisco-privacy-modal .modal-contents #panel-terms-and-conditions.active .panel-content.active a:visited {
   text-decoration: none;
-  color: var(--this-red);
+  color: var(--thisco-red);
 }
 #thisco-privacy-modal .modal-contents #panel-privacy-policy.active .panel-content.active a:active, #thisco-privacy-modal .modal-contents #panel-privacy-policy.active .panel-content.active a:hover, #thisco-privacy-modal .modal-contents #panel-privacy-policy.active .panel-content.active a:visited:active, #thisco-privacy-modal .modal-contents #panel-privacy-policy.active .panel-content.active a:visited:hover, #thisco-privacy-modal .modal-contents #panel-terms-and-conditions.active .panel-content.active a:active, #thisco-privacy-modal .modal-contents #panel-terms-and-conditions.active .panel-content.active a:hover, #thisco-privacy-modal .modal-contents #panel-terms-and-conditions.active .panel-content.active a:visited:active, #thisco-privacy-modal .modal-contents #panel-terms-and-conditions.active .panel-content.active a:visited:hover {
   color: black;
@@ -481,7 +483,7 @@ html {
 aside {
   border-radius: 25px;
   padding: 1.8em;
-  background-color: var(--this-aubergine);
+  background-color: var(--thisco-aubergine);
   color: rgba(255, 255, 255, 0.95);
   font-weight: 400;
   margin-bottom: 1.6rem;
@@ -496,6 +498,14 @@ Qualtrics codes:
 
 */
 /* resets */
+.Skin .QuestionBody {
+  color: unset;
+  font-weight: unset;
+  font-size: unset;
+}
+.Skin .QuestionText {
+  padding: 0;
+}
 .Skin label.MultipleAnswer, .Skin label.SingleAnswer {
   background-color: unset;
   color: initial;
@@ -509,9 +519,58 @@ Qualtrics codes:
   background-color: unset;
   color: unset;
 }
-.Skin .LabelWrapper span {
-  color: initial;
-  font-weight: initial;
+/* radio buttons */
+/* basic question here for building on */
+.Skin #SkinContent {
+  padding: 1rem;
+}
+.Skin .QuestionText, .Skin .QuestionBody {
+  padding: 1rem;
+  padding-top: 0;
+}
+.Skin label.MultipleAnswer, .Skin label.SingleAnswer {
+  padding: 5px;
+  min-height: 2em;
+}
+.Skin label.MultipleAnswer > span:focus-visible::before, .Skin label.SingleAnswer > span:focus-visible::before {
+  transform: scale(1.1);
+}
+.Skin label.MultipleAnswer > span:active::before, .Skin label.SingleAnswer > span:active::before {
+  transform: scale(0.9);
+}
+.Skin label.MultipleAnswer > span::before, .Skin label.SingleAnswer > span::before {
+  transition: all 0.15s;
+  animation: none;
+  top: 0.8rem;
+  margin-top: 0;
+  color: var(--thisco-red);
+  border-radius: 50%;
+  width: 0.8rem;
+  height: 0.8rem;
+  background-image: radial-gradient(circle at center, var(--thisco-red) 0%, var(--thisco-red) 50%, transparent 50%) !important;
+  background-position: center !important;
+  background-size: 0% 0% !important;
+  background-repeat: no-repeat !important;
+  border: 0.24rem solid white;
+  outline: 0.16rem solid var(--thisco-red);
+  display: block;
+}
+.Skin label.MultipleAnswer.q-checked > span::before, .Skin label.MultipleAnswer.q-checked.q-focused > span::before, .Skin label.SingleAnswer.q-checked > span::before, .Skin label.SingleAnswer.q-checked.q-focused > span::before {
+  animation: none;
+  box-shadow: none;
+  color: var(--thisco-red);
+  border-radius: 50%;
+  width: 0.8rem;
+  height: 0.8rem;
+  background-image: radial-gradient(circle at center, var(--thisco-red) 0%, var(--thisco-red) 50%, transparent 50%) !important;
+  background-position: center !important;
+  background-size: 0% 0% !important;
+  background-repeat: no-repeat !important;
+  border: 0.24rem solid white;
+  outline: 0.16rem solid var(--thisco-red);
+  display: block;
+  background-color: transparent !important;
+  background-size: 150% 150% !important;
 }
 
 /*# sourceMappingURL=skin.css.map */

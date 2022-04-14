@@ -1,0 +1,14 @@
+@mixin panel-basic() {
+    border-radius: 25px;
+    padding: 1.8em;
+    background-color: var(--thisco-aubergine);
+    color: rgb(255 255 255 / 0.95);
+    font-weight: 400;
+    margin-bottom: 1.6rem;
+}
+
+// use asides for meta info (ie. not in questionnaires
+aside {
+    @include panel-basic();
+    font-size: .7em;
+}

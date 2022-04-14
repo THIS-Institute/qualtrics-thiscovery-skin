@@ -33,6 +33,14 @@ if (localStorage.getItem("thisco_dev") !== null) {
     }
 }
 
+// eject Qualtrics stylesheet if in dev
+
+if (localStorage.getItem("thisco_dev") !== null) {
+    Bliss.$("link[rel='stylesheet']").forEach(el=>{
+        if (!el.getAttribute('href').includes('thiscovery')) el.remove(); // bye!
+    });
+}
+
 // markup additions
 
 // header

@@ -1,37 +1,38 @@
 /* define official THIS colours */
 :root {
-    --this-dark-grey: rgb(58 60 66 / 1);
-    --this-light-grey: rgb(210 212 211 / 1);
-    --this-red: rgb(221, 0, 49);
-    --this-bright-blue: rgb(91, 194, 231);
-    --this-pale-blue: rgb(143, 172, 217);
-    --this-green: rgb(0, 187, 126);
-    --this-pink: rgb(243, 165, 185);
-    --this-aubergine: rgb(104 4 54 / 1);
-    --this-yellow: rgb(255 216 90 / 1);
+    --thisco-dark-grey: rgb(58 60 66 / 1);
+    --thisco-light-grey: rgb(210 212 211 / 1);
+    --thisco-red: rgb(221, 0, 49);
+    --thisco-bright-blue: rgb(91, 194, 231);
+    --thisco-pale-blue: rgb(143, 172, 217);
+    --thisco-green: rgb(0, 187, 126);
+    --thisco-pink: rgb(243, 165, 185);
+    --thisco-aubergine: rgb(104 4 54 / 1);
+    --thisco-yellow: rgb(255 216 90 / 1);
 }
 
 @mixin thisco-button() {
     border-radius: 999px;
     transition: all .2s ease-in;
-    background-color: var(--this-red);
+    background-color: var(--thisco-red);
     padding: 1em 1.4em;
     line-height: 1;
-    border: 2px solid var(--this-red);
+    border: 2px solid var(--thisco-red);
     font-weight: 400;
     &:hover, &:active, &:focus {
         transform: scale(1.03);
         background-color: transparent;
-        color: var(--this-red);
+        color: var(--thisco-red);
+        border-color: var(--thisco-red);
     }
 }
 
 @mixin thisco-button-inverse() {
-    border-color: var(--this-dark-grey);
-    color: var(--this-dark-grey);
+    border-color: var(--thisco-dark-grey);
+    color: var(--thisco-dark-grey);
     background: white;
     &:hover, &:active, &:focus {
-        background-color: var(--this-dark-grey);
+        background-color: var(--thisco-dark-grey);
         color: white;
         border-color: transparent;
     }
@@ -97,10 +98,10 @@
 
     .btn.thisco-btn-inverse-red {
         @include thisco-button-inverse();
-        color: var(--this-red);
-        border-color: var(--this-red);
+        color: var(--thisco-red);
+        border-color: var(--thisco-red);
         &:hover, &:active, &:focus {
-            background-color: var(--this-red);
+            background-color: var(--thisco-red);
             color: white;
             border-color: transparent;
         }

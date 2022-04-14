@@ -1,14 +1,14 @@
 /* define official THIS colours */
 :root {
-    --this-dark-grey: rgb(58 60 66 / 1);
-    --this-light-grey: rgb(210 212 211 / 1);
-    --this-red: rgb(221, 0, 49);
-    --this-bright-blue: rgb(91, 194, 231);
-    --this-pale-blue: rgb(143, 172, 217);
-    --this-green: rgb(0, 187, 126);
-    --this-pink: rgb(243, 165, 185);
-    --this-aubergine: rgb(104 4 54 / 1);
-    --this-yellow: rgb(255 216 90 / 1);
+    --thisco-dark-grey: rgb(58 60 66 / 1);
+    --thisco-light-grey: rgb(210 212 211 / 1);
+    --thisco-red: rgb(221, 0, 49);
+    --thisco-bright-blue: rgb(91, 194, 231);
+    --thisco-pale-blue: rgb(143, 172, 217);
+    --thisco-green: rgb(0, 187, 126);
+    --thisco-pink: rgb(243, 165, 185);
+    --thisco-aubergine: rgb(104 4 54 / 1);
+    --thisco-yellow: rgb(255 216 90 / 1);
 }
 
 /* 
@@ -70,7 +70,7 @@ $breakpoints: (
     }
 
     #HeaderContainer {
-        background-color: var(--this-light-grey);
+        background-color: var(--thisco-light-grey);
         position: fixed;
         left:0px;
         width: 100vw;
@@ -112,7 +112,7 @@ $breakpoints: (
                     /* these following are ad-hoc button styles just for 2.0.0 */
                     // span.back-arrow {
                     //     @include house_icon_white();
-                    //     background-color: var(--this-red);
+                    //     background-color: var(--thisco-red);
                     //     display: inline-block;
                     //     vertical-align: middle;
                     //     background-repeat: no-repeat;
@@ -131,11 +131,11 @@ $breakpoints: (
                     @include respond-above(md) {
                         margin-right: 2rem;
                     }
-                    border-color: var(--this-red);
-                    color: var(--this-red);
+                    border-color: var(--thisco-red);
+                    color: var(--thisco-red);
                     &:hover, &:active {
                         color: white;
-                        background-color: var(--this-red);
+                        background-color: var(--thisco-red);
                     }
                 }
 
@@ -146,7 +146,7 @@ $breakpoints: (
     }
 
     #Footer {
-        background-color: var(--this-light-grey);
+        background-color: var(--thisco-light-grey);
         position: absolute;
         // bottom: 0px;
         width: 100%;
