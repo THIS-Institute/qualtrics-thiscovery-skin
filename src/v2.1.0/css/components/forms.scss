@@ -50,13 +50,18 @@ $radio-size: .6em;
     }
 
     .ChoiceStructure {
+        padding-left: 1rem;
+        padding-right: 1rem;
         li {
-            // hide native - Q js handles events
+            // hide native - Q js handles events, clicks on whole li element *NOT* label as per standards
             min-height: $min-response-height;
-            // border-radius: 15px;
-            // box-shadow: .5px .5px 0px rgb(0 0 0 / .1);
-            padding: .4rem .3rem;
+            border-radius: 15px;
+            // box-shadow: inset .5px .5px 0px rgb(0 0 0 / .05);
+            background-color: rgb(0 0 0 / 0.01);
+            background-image: linear-gradient(45deg, transparent, rgb(0 0 0 / 0.005));
+            padding: .4rem .8rem;
             margin-bottom: .6em;
+            display: flex;
             input[type="radio"] {
                 width: 4px;
                 height: 4px;
@@ -64,6 +69,7 @@ $radio-size: .6em;
                 & + label {
                     display: none;
                 }
+                position: absolute;
             }
             .LabelWrapper {
                 margin-left: 1rem;
@@ -99,9 +105,26 @@ $radio-size: .6em;
                         }
                     }
                 }
+                input.TextEntryBox {
+                    // margin-left: 5px;
+                    // margin-bottom: .4em;
+                }
             }
         }
     }
 
+    input {
+        // generic style for majority of types, override as necessary
+        border-radius: 5px;
+        border: 1px solid var(--thisco-light-grey);
+        box-shadow: inset 1px 1px 1px rgb(0 0 0 / 0.05);
+        font-weight: 400;
+        padding-left: .2em;
+        padding-right: .2em;
+        &:focus-visible {
+            border-color: var(--thisco-red);
+            outline: 1px solid var(--thisco-red);
+        }
+    }
 
 }

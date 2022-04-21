@@ -589,12 +589,18 @@ html {
   font-size: 14px;
 }
 
+body {
+  min-height: 100vh;
+  background-color: var(--thisco-light-grey);
+}
+
 .Skin {
   font-family: "thisco_Brown", "Brown-Regular", Arial, "Helvetica Neue", Helvetica, sans-serif;
   color: rgba(0, 0, 0, 0.95);
   font-weight: 100;
   font-size: 18px;
   line-height: 1.4;
+  background-color: white;
   /* basic resets */
   /* end resets */
 }
@@ -743,13 +749,29 @@ html {
   font-size: 1.35em;
 }
 .Skin #SkinContent {
-  min-height: calc(100vh - 20rem);
+  min-height: calc(100vh - 25rem);
   display: flex;
   align-items: center;
   flex-wrap: wrap;
 }
 .Skin #SkinContent > * {
   flex-basis: 100%;
+}
+@media (min-width: 768px) {
+  .Skin #SkinContent {
+    max-width: 768px;
+    margin: auto;
+  }
+}
+@media (min-width: 980px) {
+  .Skin #SkinContent {
+    max-width: 980px;
+  }
+}
+@media (min-width: 1400px) {
+  .Skin #SkinContent {
+    max-width: 1400px;
+  }
 }
 .Skin #Plug {
   visibility: hidden;
@@ -798,7 +820,7 @@ html {
 .Skin #Buttons #NextButton, .Skin #Buttons #PreviousButton {
   width: 90%;
   margin: auto;
-  font-size: 1.4em;
+  font-size: 1em;
   font-family: inherit;
   font-weight: inherit;
   border-radius: 999px;
@@ -1062,15 +1084,24 @@ Qualtrics codes:
   padding: 1rem;
   padding-top: 0;
 }
+.Skin .ChoiceStructure {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
 .Skin .ChoiceStructure li {
   min-height: 2.6rem;
-  padding: 0.4rem 0.3rem;
+  border-radius: 15px;
+  background-color: rgba(0, 0, 0, 0.01);
+  background-image: linear-gradient(45deg, transparent, rgba(0, 0, 0, 0.005));
+  padding: 0.4rem 0.8rem;
   margin-bottom: 0.6em;
+  display: flex;
 }
 .Skin .ChoiceStructure li input[type=radio] {
   width: 4px;
   height: 4px;
   opacity: 0;
+  position: absolute;
 }
 .Skin .ChoiceStructure li input[type=radio] + label {
   display: none;
@@ -1128,6 +1159,18 @@ Qualtrics codes:
   box-sizing: content-box;
   background-color: transparent !important;
   background-size: 200% 200% !important;
+}
+.Skin input {
+  border-radius: 5px;
+  border: 1px solid var(--thisco-light-grey);
+  box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.05);
+  font-weight: 400;
+  padding-left: 0.2em;
+  padding-right: 0.2em;
+}
+.Skin input:focus-visible {
+  border-color: var(--thisco-red);
+  outline: 1px solid var(--thisco-red);
 }
 
 /*# sourceMappingURL=skin.css.map */
