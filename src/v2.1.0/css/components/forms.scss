@@ -15,11 +15,11 @@ Qualtrics codes:
     width: $size;
     height: $size;
     // background-color: white;
-    background-image: radial-gradient(circle at center, var(--thisco-red) 0%, var(--thisco-red) 50%, transparent 50%) !important;
+    background-image: radial-gradient(circle at center, var(--thisco-red) 0%, var(--thisco-red) 50%, transparent 50%);
     // background-image: radial-gradient(circle at center, red, green) !important;
-    background-position: center !important;
-    background-size: 0% 0% !important;
-    background-repeat: no-repeat !important;
+    background-position: center ;
+    background-size: 0% 0%;
+    background-repeat: no-repeat ;
     border: ($size * .3) solid white;
     outline: ($size * .2) solid var(--thisco-red);
     display: block;
@@ -29,8 +29,8 @@ Qualtrics codes:
 
 @mixin thiscovery-radio-button-checked () {
     // background-color: var(--thisco-red) !important; // Q forces hand
-    background-color: transparent !important;
-    background-size: 200% 200% !important;
+    background-color: transparent ;
+    background-size: 200% 200% ;
 }
 
 $min-response-height: 2.6rem;
@@ -62,7 +62,7 @@ $radio-size: .6em;
             padding: .4rem .8rem;
             margin-bottom: .6em;
             display: flex;
-            input[type="radio"] {
+            input[type="radio"], input[type="checkbox"] {
                 width: 4px;
                 height: 4px;
                 opacity: 0;
@@ -88,6 +88,7 @@ $radio-size: .6em;
                             }
                         }
                     }
+
                     > span::before {
                         content: " ";
                         position: absolute;
@@ -102,6 +103,20 @@ $radio-size: .6em;
                             box-shadow: none;
                             @include thiscovery-radio-button($radio-size);
                             @include thiscovery-radio-button-checked();           
+                        }
+                    }
+                }
+                label.MultipleAnswer {
+                    > span::before {
+                        border-radius: 0px;
+                    }
+                    &.q-checked, &.q-checked.q-focused {
+                        > span::before {
+                            border-radius: 0px;
+                            background-color: var(--thisco-red);
+                            background-image: url("data:image/svg+xml,%3Csvg width='100%25' height='100%25' viewBox='0 0 24 20' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xml:space='preserve' xmlns:serif='http://www.serif.com/' style='fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;'%3E%3Cpath id='check' d='M23.051,2.843l-14.151,15.977c-0.19,0.214 -0.463,0.337 -0.749,0.337c-0.275,0 -0.538,-0.113 -0.727,-0.313l-7.152,-7.573c-0.341,-0.361 -0.364,-0.924 -0.054,-1.311l0.952,-1.19c0.293,-0.367 0.808,-0.48 1.228,-0.27l5.277,2.639l12.797,-10.902c0.395,-0.336 0.989,-0.312 1.356,0.055l1.181,1.181c0.372,0.372 0.39,0.977 0.042,1.37Z' style='fill:%23fff;fill-rule:nonzero;'/%3E%3C/svg%3E");
+                            background-size: 110%;
+                            border-color: transparent;
                         }
                     }
                 }

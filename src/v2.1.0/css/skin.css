@@ -1097,13 +1097,13 @@ Qualtrics codes:
   margin-bottom: 0.6em;
   display: flex;
 }
-.Skin .ChoiceStructure li input[type=radio] {
+.Skin .ChoiceStructure li input[type=radio], .Skin .ChoiceStructure li input[type=checkbox] {
   width: 4px;
   height: 4px;
   opacity: 0;
   position: absolute;
 }
-.Skin .ChoiceStructure li input[type=radio] + label {
+.Skin .ChoiceStructure li input[type=radio] + label, .Skin .ChoiceStructure li input[type=checkbox] + label {
   display: none;
 }
 .Skin .ChoiceStructure li .LabelWrapper {
@@ -1131,10 +1131,10 @@ Qualtrics codes:
   border-radius: 50%;
   width: 0.6em;
   height: 0.6em;
-  background-image: radial-gradient(circle at center, var(--thisco-red) 0%, var(--thisco-red) 50%, transparent 50%) !important;
-  background-position: center !important;
-  background-size: 0% 0% !important;
-  background-repeat: no-repeat !important;
+  background-image: radial-gradient(circle at center, var(--thisco-red) 0%, var(--thisco-red) 50%, transparent 50%);
+  background-position: center;
+  background-size: 0% 0%;
+  background-repeat: no-repeat;
   border: 0.18em solid white;
   outline: 0.12em solid var(--thisco-red);
   display: block;
@@ -1148,17 +1148,27 @@ Qualtrics codes:
   border-radius: 50%;
   width: 0.6em;
   height: 0.6em;
-  background-image: radial-gradient(circle at center, var(--thisco-red) 0%, var(--thisco-red) 50%, transparent 50%) !important;
-  background-position: center !important;
-  background-size: 0% 0% !important;
-  background-repeat: no-repeat !important;
+  background-image: radial-gradient(circle at center, var(--thisco-red) 0%, var(--thisco-red) 50%, transparent 50%);
+  background-position: center;
+  background-size: 0% 0%;
+  background-repeat: no-repeat;
   border: 0.18em solid white;
   outline: 0.12em solid var(--thisco-red);
   display: block;
   transition: all 0.25s;
   box-sizing: content-box;
-  background-color: transparent !important;
-  background-size: 200% 200% !important;
+  background-color: transparent;
+  background-size: 200% 200%;
+}
+.Skin .ChoiceStructure li .LabelWrapper label.MultipleAnswer > span::before {
+  border-radius: 0px;
+}
+.Skin .ChoiceStructure li .LabelWrapper label.MultipleAnswer.q-checked > span::before, .Skin .ChoiceStructure li .LabelWrapper label.MultipleAnswer.q-checked.q-focused > span::before {
+  border-radius: 0px;
+  background-color: var(--thisco-red);
+  background-image: url("data:image/svg+xml,%3Csvg width='100%25' height='100%25' viewBox='0 0 24 20' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xml:space='preserve' xmlns:serif='http://www.serif.com/' style='fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;'%3E%3Cpath id='check' d='M23.051,2.843l-14.151,15.977c-0.19,0.214 -0.463,0.337 -0.749,0.337c-0.275,0 -0.538,-0.113 -0.727,-0.313l-7.152,-7.573c-0.341,-0.361 -0.364,-0.924 -0.054,-1.311l0.952,-1.19c0.293,-0.367 0.808,-0.48 1.228,-0.27l5.277,2.639l12.797,-10.902c0.395,-0.336 0.989,-0.312 1.356,0.055l1.181,1.181c0.372,0.372 0.39,0.977 0.042,1.37Z' style='fill:%23fff;fill-rule:nonzero;'/%3E%3C/svg%3E");
+  background-size: 110%;
+  border-color: transparent;
 }
 .Skin input {
   border-radius: 5px;
