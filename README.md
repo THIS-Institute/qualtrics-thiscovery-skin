@@ -10,6 +10,7 @@ Outputs:
 
 - 2.0.0 - simple header and footer over existing CSS shims (so requires both sets of CSS and js in header snippet)
 - 2.1.0 - new ground-up rewrite of the skin CSS (ie. not using existing CSS and JS, so will be backwardly _incompatible_ with older surveys)
+- 3.0.0 - same CSS/styling as 2.1+ but rewritten in anticipation of non-Qualtrics usage (ie. not .Skin etc)
 
 ## Installation
 
