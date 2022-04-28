@@ -1,6 +1,6 @@
 {
 	"name": "qualtrics-thiscovery-skin",
-	"version": "2.1.0",
+	"version": "3.0.0",
 	"latest_alias": "2.0.0",
 	"description": "Javascript and CSS to customise Qualtrics surveys",
 	"main": "./dist/thiscovery-skin.js",
@@ -47,6 +47,8 @@
 		"papaparse": "^5.3.2",
 		"postcss": "^8.4.6",
 		"postcss-cli": "^9.1.0",
+		"postcss-discard": "^2.0.0",
+		"postcss-use": "^3.0.0",
 		"sass": "^1.49.7",
 		"socket.io": "^4.4.1"
 	},

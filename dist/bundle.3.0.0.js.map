@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../src/v3.0.0/js/skin.js"],
+  "sourcesContent": ["// survey js\n// =========\n//\n// 3.0.0 is a forward-looking version for non-qualtrics surveys\n// and standardised markup\n\nconst BACK_LINK = window.location.search.includes(\"staging\") ? \"https://staging.thiscovery.org/my-tasks/\" : \"https://www.thiscovery.org/my-tasks/\";\n\n// skinjob snippet - only if localStorage contains thisco_dev\n\nif (localStorage.getItem(\"thisco_dev\") !== null) {\n    console.debug(\"Looking for skinjob server...\");\n    let skinsheet = new CSSStyleSheet();\n    document.adoptedStyleSheets = [ skinsheet ];\n    if (typeof io !== \"undefined\") {\n        const socket = io(\"ws://localhost:34567\",{transports : [\"websocket\"]});\n        socket.on(\"skinjob_update\",(cssstring)=>{\n            skinsheet.replaceSync(cssstring);\n        });\n    }\n}"],
+  "mappings": "MAMA,GAAM,GAAY,OAAO,SAAS,OAAO,SAAS,WAAa,2CAA6C,uCAI5G,GAAI,aAAa,QAAQ,gBAAkB,KAAM,CAC7C,QAAQ,MAAM,iCACd,GAAI,GAAY,GAAI,eACpB,SAAS,mBAAqB,CAAE,GAC5B,MAAO,KAAO,aAEd,AADe,GAAG,uBAAuB,CAAC,WAAa,CAAC,eACjD,GAAG,iBAAiB,AAAC,GAAY,CACpC,EAAU,YAAY",
+  "names": []
+}

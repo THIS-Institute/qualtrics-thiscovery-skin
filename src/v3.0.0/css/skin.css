@@ -1,0 +1,1206 @@
+/**
+ * Based on
+ *
+ *  - reset.css 2.0 by Eric Meyer
+      (public domain)
+ *    http://meyerweb.com/eric/tools/css/reset/
+ *
+ *  - normalize.css 8.0.1 by Nicolas Gallagher and Jonathan Neal
+ *    (licensed under MIT)
+ *    https://github.com/necolas/normalize.css
+ *
+ *  - Reboot from Bootstrap 4.5.3
+ *    (licensed under MIT)
+ *    https://github.com/twbs/bootstrap
+ */
+/**
+ * IE10+ doesn't honor `<meta name="viewport">` in some cases
+ */
+@-ms-viewport {
+  width: device-width;
+}
+/**
+ * general reset
+ */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video, main {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/**
+ * HTML5 display-role reset for older browsers
+ */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section,
+main, summary {
+  display: block;
+}
+
+/**
+ * inherit box model for all elements
+ */
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+/**
+ * html root rules
+ * 1. set border-box for inheritance
+ * 2. avoid 300ms click delay on touch devices that support the `touch-action`
+ *    CSS property
+ * 3. Prevent adjustments of font size after orientation changes in IE, on
+ *    Windows Phone and iOS.
+ * 4. Setting @viewport causes scrollbars to overlap content in IE11 and Edge,
+ *    so we force a non-overlapping, non-auto-hiding scrollbar to counteract.
+ * 5. Change the default tap highlight to be completely transparent in iOS.
+ */
+html {
+  /* 1 */
+  box-sizing: border-box;
+  /* 2 */
+  touch-action: manipulation;
+  /* 3 */
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  /* 4 */
+  -ms-overflow-style: scrollbar;
+  /* 5 */
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+/**
+ * body rules
+ * 1. reset line-height to 1
+ * 2. set base font-family to sans-serif
+ * 3. Set an explicit initial text-align value so that we can later use the
+ *    `inherit` value on things like `<th>` elements.
+ */
+body {
+  /* 1 */
+  line-height: 1;
+  /* 2 */
+  font-family: sans-serif;
+  /* 3 */
+  text-align: left;
+}
+
+/**
+ * Future-proof rule: in browsers that support :focus-visible, suppress the focus outline
+ * on elements that programmatically receive focus but wouldn't normally show a visible
+ * focus outline. In general, this would mean that the outline is only applied if the
+ * interaction that led to the element receiving programmatic focus was a keyboard interaction,
+ * or the browser has somehow determined that the user is primarily a keyboard user and/or
+ * wants focus outlines to always be presented.
+ *
+ * See https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-visible
+ * and https://developer.paciellogroup.com/blog/2018/03/focus-visible-and-backwards-compatibility/
+ */
+[tabindex="-1"]:focus:not(:focus-visible) {
+  outline: 0 !important;
+}
+
+/**
+ * Lists
+ */
+ol, ul {
+  list-style: none;
+}
+
+/**
+ * Quotes
+ */
+blockquote, q {
+  quotes: none;
+}
+
+blockquote::before,
+blockquote::after,
+q::before,
+q::after {
+  content: "";
+  content: none;
+}
+
+/**
+ * Tables
+ */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+caption {
+  caption-side: bottom;
+}
+
+/**
+ * Table Headers
+ * 1. Matches default `<td>` alignment by inheriting from the `<body>`, or the
+ *    closest parent with a set `text-align`.
+ * 2. Fix alignment for Safari
+ */
+th {
+  /* 1 */
+  text-align: inherit;
+  /* 2 */
+  text-align: -webkit-match-parent;
+}
+
+/**
+ * Horizontal Lines
+ * 1. Add the correct box sizing in Firefox.
+ * 2. Show the overflow in Edge and IE.
+ */
+hr {
+  /* 1 */
+  box-sizing: content-box;
+  height: 0;
+  /* 2 */
+  overflow: visible;
+}
+
+/**
+ * Preformatted Text
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Don't allow content to break outside
+ * 3. We have @viewport set which causes scrollbars to overlap content in IE11
+ *    and Edge, so we force a non-overlapping, non-auto-hiding scrollbar to
+ *    counteract.
+ */
+pre,
+code,
+kbd,
+samp {
+  /* 1 */
+  font-family: monospace, monospace;
+}
+
+pre {
+  /* 2 */
+  overflow: auto;
+  /* 3 */
+  -ms-overflow-style: scrollbar;
+}
+
+/**
+ * Links
+ * 1. Remove the gray background on active links in IE 10.
+ * 2. Remove gaps in links underline in iOS 8+ and Safari 8+.
+ */
+a {
+  /* 1 */
+  background-color: transparent;
+  /* 2 */
+  -webkit-text-decoration-skip: objects;
+}
+
+/**
+ * 1. Remove the bottom border in Chrome 57- and Firefox 39-
+ * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
+ * 3. Add explicit cursor to indicate changed behavior.
+ * 4. Prevent the text-decoration to be skipped.
+ */
+abbr[title] {
+  /* 1 */
+  border-bottom: 0;
+  /* 2 */
+  text-decoration: underline;
+  text-decoration: underline dotted;
+  /* 3 */
+  cursor: help;
+  /* 4 */
+  text-decoration-skip-ink: none;
+}
+
+address {
+  font-style: normal;
+  line-height: inherit;
+}
+
+/**
+ * Add the correct font weight in Chrome, Edge, and Safari.
+ */
+b,
+strong {
+  font-weight: bolder;
+}
+
+/**
+ * Add the correct font size in all browsers.
+ */
+small {
+  font-size: 80%;
+}
+
+/**
+ * Prevent `sub` and `sup` elements from affecting the line height in
+ * all browsers.
+ */
+sub,
+sup {
+  position: relative;
+  font-size: 75%;
+  line-height: 0;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+/**
+ * Prevent `em` being affected from global reset
+ */
+em {
+  font-style: italic;
+}
+
+/**
+ * Remove the border on images inside links in IE 10.
+ */
+img {
+  border-style: none;
+}
+
+/**
+ * Hide SVG overflow in IE
+ */
+svg:not(:root) {
+  overflow: hidden;
+}
+
+/**
+ * Remove the default `border-radius` that macOS Chrome adds.
+ * Details at https://github.com/twbs/bootstrap/issues/24093
+ */
+button {
+  border-radius: 0;
+}
+
+/**
+ * Work around a Firefox/IE bug where the transparent `button` background
+ * results in a loss of the default `button` focus styles.
+ * Credit: https://github.com/suitcss/base/
+ */
+button:focus {
+  outline: 1px dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+}
+
+/**
+ * form element resets
+ * 1. Remove the margin in Firefox and Safari
+ * 2. inherit font rules
+ */
+input,
+button,
+select,
+optgroup,
+textarea {
+  /* 1 */
+  margin: 0;
+  /* 2 */
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+/**
+ * 1. Prevent a WebKit bug where (2) destroys native `audio` and `video`
+ *    controls in Android 4.
+ * 2. Correct the inability to style clickable types in iOS and Safari.
+ */
+button,
+[type=reset],
+[type=submit],
+[type=button] {
+  /* 2 */
+  -webkit-appearance: button;
+}
+
+/**
+ * Remove the default appearance of temporal inputs to avoid a Mobile Safari
+ * bug where setting a custom line-height prevents text from being vertically
+ * centered within the input.
+ * See https://bugs.webkit.org/show_bug.cgi?id=139848
+ * and https://github.com/twbs/bootstrap/issues/11266
+ */
+input[type=date],
+input[type=time],
+input[type=datetime-local],
+input[type=month] {
+  -webkit-appearance: listbox;
+}
+
+/**
+ * 1. Remove the default vertical scrollbar in IE.
+ * 2. Textareas should really only resize vertically so they don't break their
+ *    (horizontal) containers.
+ */
+textarea {
+  overflow: auto;
+  resize: vertical;
+}
+
+/**
+ * Show the overflow in IE.
+ */
+button,
+input {
+  overflow: visible;
+}
+
+/**
+ * Remove the inheritance of text transform in Edge, Firefox, and IE.
+ */
+button,
+select {
+  text-transform: none;
+}
+
+/**
+ * Set the cursor for non-`<button>` buttons
+ * Details at https://github.com/twbs/bootstrap/pull/30562
+ */
+[role=button] {
+  cursor: pointer;
+}
+
+/**
+ * Remove the inheritance of word-wrap in Safari.
+ * See https://github.com/twbs/bootstrap/issues/24990
+ */
+select {
+  word-wrap: normal;
+}
+
+/**
+ * Remove inner border and padding from Firefox, but don't restore the outline
+ * like Normalize.
+ */
+button::-moz-focus-inner,
+[type=button]::-moz-focus-inner,
+[type=reset]::-moz-focus-inner,
+[type=submit]::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+/**
+ * 1. Add the correct box sizing in IE 10-
+ * 2. Remove the padding in IE 10-
+ */
+input[type=radio],
+input[type=checkbox] {
+  /* 1 */
+  box-sizing: border-box;
+  /* 2 */
+  padding: 0;
+}
+
+/**
+ * Suppress the focus outline on elements that cannot be accessed via keyboard.
+ * This prevents an unwanted focus outline from appearing around elements that
+ * might still respond to pointer events.
+ * Credit: https://github.com/suitcss/base
+ */
+[tabindex="-1"]:focus {
+  outline: 0 !important;
+}
+
+/**
+ * Browsers set a default `min-width: min-content` on fieldsets,
+ * unlike e.g. `<div>`s, which have `min-width: 0` by default.
+ * So we reset that to ensure fieldsets behave more like a standard block element.
+ * See https://github.com/twbs/bootstrap/issues/12359
+ * and https://html.spec.whatwg.org/multipage/#the-fieldset-and-legend-elements
+ */
+fieldset {
+  min-width: 0;
+}
+
+/**
+ * 1. Correct the text wrapping in Edge and IE.
+ * 2. Correct the color inheritance from `fieldset` elements in IE.
+ * 3. Set display to block for all browsers
+ */
+legend {
+  /* 1 */
+  max-width: 100%;
+  white-space: normal;
+  /* 2 */
+  color: inherit;
+  /* 3 */
+  display: block;
+}
+
+/**
+ * Add the correct vertical alignment in Chrome, Firefox, and Opera.
+ */
+progress {
+  vertical-align: baseline;
+}
+
+/**
+ * 1. Remove the default vertical scrollbar in IE 10+.
+ * 2. Textareas should really only resize vertically so they don't break their
+ *    (horizontal) containers.
+ */
+textarea {
+  /* 1 */
+  overflow: auto;
+  /* 2 */
+  resize: vertical;
+}
+
+/**
+ * 1. Add the correct box sizing in IE 10.
+ * 2. Remove the padding in IE 10.
+ */
+[type=checkbox],
+[type=radio] {
+  /* 1 */
+  box-sizing: border-box;
+  /* 2 */
+  padding: 0;
+}
+
+/**
+ * Correct the cursor style of increment and decrement buttons in Chrome.
+ */
+[type=number]::-webkit-inner-spin-button,
+[type=number]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/**
+ * 1. Correct the odd appearance in Chrome and Safari.
+ * 2. Correct the outline style in Safari.
+ */
+[type=search] {
+  /* 1 */
+  -webkit-appearance: textfield;
+  /* 2 */
+  outline-offset: -2px;
+}
+
+/**
+ * Remove the inner padding and cancel buttons in Chrome and Safari on macOS.
+ */
+[type=search]::-webkit-search-cancel-button,
+[type=search]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/**
+ * 1. Correct the inability to style clickable types in iOS and Safari.
+ * 2. Change font properties to `inherit` in Safari.
+ */
+::-webkit-file-upload-button {
+  /* 1 */
+  -webkit-appearance: button;
+  /* 2 */
+  font: inherit;
+}
+
+/**
+ * Correct element display for output
+ */
+output {
+  display: inline-block;
+}
+
+/**
+ * Add the correct display in IE 10+.
+ */
+template {
+  display: none;
+}
+
+/**
+ * Always hide an element with the `hidden` HTML attribute (from PureCSS).
+ * Needed for proper display in IE 10-.
+ */
+[hidden] {
+  display: none;
+}
+
+@font-face {
+  font-family: "thisco_Brown";
+  src: url("https://www.thiscovery.org/wp-content/themes/thiscovery/fonts/Brown-Regular.woff2") format("woff2"), url("https://www.thiscovery.org/wp-content/themes/thiscovery/fonts/Brown-Regular.woff") format("woff"), url("https://www.thiscovery.org/wp-content/themes/thiscovery/fonts/Brown-Regular.otf") format("opentype");
+  font-style: normal;
+  font-weight: 300 600;
+}
+@font-face {
+  font-family: "thisco_Brown";
+  src: url("https://www.thiscovery.org/wp-content/themes/thiscovery/fonts/Brown-Bold.woff2") format("woff2"), url("https://www.thiscovery.org/wp-content/themes/thiscovery/fonts/Brown-Bold.woff") format("woff"), url("https://www.thiscovery.org/wp-content/themes/thiscovery/fonts/Brown-Bold.otf") format("opentype");
+  font-style: normal;
+  font-weight: 700 900;
+}
+@font-face {
+  font-family: "thisco_Brown";
+  src: url("https://www.thiscovery.org/wp-content/themes/thiscovery/fonts/Brown-Light.woff2") format("woff2"), url("https://www.thiscovery.org/wp-content/themes/thiscovery/fonts/Brown-Light.woff") format("woff"), url("https://www.thiscovery.org/wp-content/themes/thiscovery/fonts/Brown-Light.otf") format("opentype");
+  font-style: normal;
+  font-weight: 100 200;
+}
+/* define official THIS colours */
+:root {
+  --thisco-dark-grey: rgb(58 60 66 / 1);
+  --thisco-light-grey: rgb(210 212 211 / 1);
+  --thisco-red: rgb(221, 0, 49);
+  --thisco-bright-blue: rgb(91, 194, 231);
+  --thisco-pale-blue: rgb(143, 172, 217);
+  --thisco-green: rgb(0, 187, 126);
+  --thisco-pink: rgb(243, 165, 185);
+  --thisco-aubergine: rgb(104 4 54 / 1);
+  --thisco-yellow: rgb(255 216 90 / 1);
+}
+
+/* 
+
+mobile-first layout ?? might be fighting against Qualtrics breakpoints....  
+Q breakpoints seem to be... [ <480px, <767px (some weird 770px ones?), <979px ]
+
+2.1.0 - ejects Q stylesheet
+
+*/
+html {
+  font-size: 14px;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--thisco-light-grey);
+}
+
+.Skin {
+  font-family: "thisco_Brown", "Brown-Regular", Arial, "Helvetica Neue", Helvetica, sans-serif;
+  color: rgba(0, 0, 0, 0.95);
+  font-weight: 100;
+  font-size: 18px;
+  line-height: 1.4;
+  background-color: white;
+  /* basic resets */
+  /* end resets */
+}
+@media (min-width: 481px) {
+  .Skin {
+    font-size: 18px;
+  }
+}
+@media (min-width: 768px) {
+  .Skin {
+    font-size: 20px;
+  }
+}
+.Skin h1, .Skin h2, .Skin h3, .Skin h4 {
+  line-height: 1.2;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+.Skin a, .Skin a:hover, .Skin a:visited, .Skin a:focus {
+  color: inherit;
+  text-decoration: none;
+}
+.Skin .SkinInner {
+  padding-top: 5rem;
+}
+@media (min-width: 768px) {
+  .Skin .SkinInner {
+    padding-top: 6rem;
+  }
+}
+.Skin #HeaderContainer {
+  background-color: var(--thisco-light-grey);
+  position: fixed;
+  left: 0px;
+  width: 100vw;
+  z-index: 100;
+  top: 0px;
+  box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.1);
+  padding: 0px 1rem;
+}
+.Skin #HeaderContainer #Header {
+  height: 5rem;
+  padding-bottom: 0px;
+  background-image: url("data:image/svg+xml,%3Csvg width='100%25' height='100%25' viewBox='0 0 1992 412' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xml:space='preserve' xmlns:serif='http://www.serif.com/' style='fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;'%3E%3Cpath d='M176.15,310.356c-7.129,2.516 -23.487,4.196 -33.971,4.196c-32.716,-0 -56.621,-10.905 -70.458,-29.359c-10.488,-13.837 -15.1,-31.875 -15.1,-60.812l-0,-71.3l-56.621,-0l0,-46.134l56.621,0l-0,-56.62l54.517,-0l-0,56.62l67.108,0l-0,46.134l-67.108,-0l-0,77.587c-0,12.584 2.104,20.134 6.716,25.588c5.45,6.287 14.259,10.062 27.679,10.062c7.967,0 18.45,-1.258 22.23,-2.096l8.387,46.134Z' style='fill:%23dd0932;fill-rule:nonzero;'/%3E%3Cpath d='M268.41,310.356l-54.52,-0l-0,-297.771l54.52,-0l0,109.042c15.1,-11.742 34.388,-18.875 55.359,-18.875c28.1,-0 53.683,12.583 70.462,32.712c13.417,15.942 20.971,36.492 20.971,71.3l0,103.592l-54.521,-0l0,-107.788c0,-20.129 -4.616,-30.612 -12.166,-38.158c-7.13,-7.138 -18.034,-11.329 -30.617,-11.329c-23.067,-0 -41.938,14.679 -49.488,25.162l0,132.113Z' style='fill:%23dd0932;fill-rule:nonzero;'/%3E%3Cpath d='M485.535,0c19.713,0 35.654,15.1 35.654,34.813c0,19.708 -15.941,34.808 -35.654,34.808c-19.712,-0 -35.646,-15.1 -35.646,-34.808c0,-19.713 15.934,-34.813 35.646,-34.813' style='fill:%23dd0932;fill-rule:nonzero;'/%3E%3Cpath d='M572.471,248.287c13.842,12.579 35.234,20.125 55.779,20.125c14.684,0 26.005,-7.129 26.005,-17.192c-0,-30.616 -98.555,-19.708 -98.555,-85.137c0,-39.004 37.742,-63.329 78.009,-63.329c26.421,-0 55.358,10.066 68.779,20.55l-25.588,39.425c-10.483,-7.55 -24.325,-13.842 -39,-13.842c-15.1,0 -27.679,5.871 -27.679,16.358c0,26.425 98.554,15.938 98.554,86.396c0,39 -38.162,62.909 -80.941,62.909c-28.104,-0 -57.879,-9.646 -81.784,-27.263l26.421,-39Z' style='fill:%23dd0932;fill-rule:nonzero;'/%3E%3Cpath d='M933.557,268.832c-23.904,31.879 -54.1,45.721 -92.266,45.721c-62.913,-0 -109.042,-46.98 -109.042,-105.692c0,-59.134 47.388,-106.108 109.463,-106.108c35.229,-0 66.679,16.358 85.558,40.683l-38.592,33.971c-10.9,-14.259 -27.258,-24.325 -46.966,-24.325c-31.459,-0 -54.942,24.745 -54.942,55.779c-0,31.875 23.062,55.362 56.2,55.362c22.225,0 39.842,-13.421 48.646,-26.846l41.941,31.455Z' style='fill:%23dd0932;fill-rule:nonzero;'/%3E%3Cpath d='M1051.85,264.221c31.871,0 53.684,-24.741 53.684,-55.362c-0,-30.613 -21.813,-55.779 -53.684,-55.779c-31.879,-0 -53.683,25.166 -53.683,55.779c0,30.621 21.804,55.362 53.683,55.362m0,-161.466c61.65,-0 108.205,47.391 108.205,106.104c-0,58.716 -46.555,105.691 -108.205,105.691c-61.654,0 -108.204,-46.975 -108.204,-105.691c0,-58.713 46.55,-106.104 108.204,-106.104' style='fill:%23dd0932;fill-rule:nonzero;'/%3E%3Cpath d='M1270.3,231.091l55.783,-124.146l56.621,0l-93.53,203.409l-37.741,-0l-93.534,-203.409l56.621,0l55.779,124.146Z' style='fill:%23dd0932;fill-rule:nonzero;'/%3E%3Cpath d='M1521.08,182.438c-1.675,-18.029 -18.038,-35.646 -40.267,-35.646c-22.65,0 -41.096,17.196 -43.612,35.646l83.879,0Zm50.746,95.625c-19.713,23.488 -52.005,36.488 -83.463,36.488c-60.812,-0 -106.525,-41.938 -106.525,-105.692c0,-56.617 38.584,-106.108 98.975,-106.108c56.2,-0 96.046,47.396 96.046,104.012c0,5.45 -0.421,10.909 -1.258,15.521l-140.917,0c2.938,28.517 26,48.233 54.942,48.233c23.058,0 41.516,-13.004 51.158,-23.487l31.042,31.033Z' style='fill:%23dd0932;fill-rule:nonzero;'/%3E%3Cpath d='M1733.75,155.178c-3.771,-1.258 -11.746,-2.096 -19.713,-2.096c-23.908,0 -42.779,17.196 -49.487,29.354l-0,127.921l-54.521,0l0,-203.412l52.425,-0l0,20.55c12.163,-15.092 34.388,-24.742 59.129,-24.742c7.975,-0 12.588,0.837 18.459,1.675l-6.292,50.75Z' style='fill:%23dd0932;fill-rule:nonzero;'/%3E%3Cpath d='M1794.19,411.011l56.204,-121.209l-91.012,-182.858l59.975,0l59.558,122.046l54.942,-122.046l57.458,0l-140.083,304.067l-57.042,-0Z' style='fill:%23dd0932;fill-rule:nonzero;'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: 10rem auto;
+  background-position: left 50%;
+}
+@media (min-width: 768px) {
+  .Skin #HeaderContainer #Header {
+    height: 6rem;
+    background-position: 1.6rem 50%;
+  }
+}
+@media (min-width: 1400px) {
+  .Skin #HeaderContainer #Header {
+    background-position: calc(50vw - 700px) 50%;
+  }
+}
+.Skin #HeaderContainer #Header .header-content {
+  height: 100%;
+  width: 100%;
+  max-width: 1400px;
+  display: grid;
+  grid-column-templates: 1fr 1fr 1fr;
+  align-items: center;
+}
+@media (min-width: 1400px) {
+  .Skin #HeaderContainer #Header .header-content {
+    margin-left: calc(50vw - 700px);
+  }
+}
+.Skin #HeaderContainer #Header .header-content .back-button {
+  grid-column-start: 3;
+  max-width: 24ch;
+  font-size: 0.7em;
+  padding: 10px 12px;
+  text-align: right;
+  justify-self: flex-end;
+  margin-right: 0rem;
+  font-weight: 400;
+}
+@media (min-width: 980px) {
+  .Skin #HeaderContainer #Header .header-content .back-button {
+    margin-right: 2rem;
+  }
+}
+.Skin .QuestionText, .Skin .DB .QuestionText {
+  color: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+.Skin .QuestionOuter {
+  padding: 0;
+}
+.Skin #Footer {
+  background-color: var(--thisco-light-grey);
+  position: absolute;
+  width: 100%;
+  max-width: initial;
+  margin-top: 0px;
+  padding: 5rem 1rem;
+  padding-bottom: 1rem;
+  width: 100vw;
+  font-size: 14px;
+}
+.Skin #Footer .footer-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1em;
+  align-items: flex-end;
+  width: clamp(80vw, 100%, 1400px);
+}
+@media (min-width: 1400px) {
+  .Skin #Footer .footer-content {
+    margin-left: calc(50vw - 700px);
+  }
+}
+@media (min-width: 768px) {
+  .Skin #Footer .footer-content {
+    grid-template-columns: 15rem 1fr;
+    padding-left: 2.1rem;
+  }
+}
+.Skin #Footer .footer-content .logo-holder {
+  border-right: 2px solid rgba(58, 60, 66, 0.25);
+}
+.Skin #Footer .footer-content .logo-container {
+  display: inline-block;
+  height: 2rem;
+  margin-right: 1em;
+  margin-bottom: 0.8em;
+}
+.Skin #Footer .footer-content .logo-container img {
+  max-width: 100%;
+}
+.Skin #Footer .footer-content .colophon ul {
+  list-style: none;
+  width: 100%;
+  padding: 0;
+  font-size: 0.75em;
+}
+.Skin #Footer .footer-content .colophon ul li.policy-link {
+  font-size: 1.35em;
+}
+.Skin #SkinContent {
+  min-height: calc(100vh - 25rem);
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.Skin #SkinContent > * {
+  flex-basis: 100%;
+}
+@media (min-width: 768px) {
+  .Skin #SkinContent {
+    max-width: 768px;
+    margin: auto;
+  }
+}
+@media (min-width: 980px) {
+  .Skin #SkinContent {
+    max-width: 980px;
+  }
+}
+@media (min-width: 1400px) {
+  .Skin #SkinContent {
+    max-width: 1400px;
+  }
+}
+.Skin #Plug {
+  visibility: hidden;
+  max-height: 0px;
+  overflow: hidden;
+}
+
+.thisco-survey {
+  font-family: "thisco_Brown", "Brown-Regular", Arial, "Helvetica Neue", Helvetica, sans-serif;
+  color: rgba(0, 0, 0, 0.95);
+  font-weight: 100;
+  font-size: 18px;
+  line-height: 1.4;
+  background-color: white;
+}
+
+/* define official THIS colours */
+:root {
+  --thisco-dark-grey: rgb(58 60 66 / 1);
+  --thisco-light-grey: rgb(210 212 211 / 1);
+  --thisco-red: rgb(221, 0, 49);
+  --thisco-bright-blue: rgb(91, 194, 231);
+  --thisco-pale-blue: rgb(143, 172, 217);
+  --thisco-green: rgb(0, 187, 126);
+  --thisco-pink: rgb(243, 165, 185);
+  --thisco-aubergine: rgb(104 4 54 / 1);
+  --thisco-yellow: rgb(255 216 90 / 1);
+}
+
+.Skin #Buttons {
+  /* reset */
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 1em;
+  overflow: hidden;
+  padding: 5px;
+  width: 100%;
+}
+@media (min-width: 481px) {
+  .Skin #Buttons {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .Skin #Buttons #NextButton {
+    grid-column-start: 3;
+  }
+}
+@media (min-width: 481px) {
+  .Skin #Buttons {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  }
+  .Skin #Buttons #NextButton {
+    grid-column-start: 5;
+  }
+}
+.Skin #Buttons #NextButton, .Skin #Buttons #PreviousButton {
+  width: 90%;
+  margin: auto;
+  font-size: 1em;
+  font-family: inherit;
+  font-weight: inherit;
+  border-radius: 999px;
+  transition: all 0.2s ease-in;
+  background-color: var(--thisco-red);
+  padding: 1em 3em;
+  line-height: 1;
+  border: 2px solid var(--thisco-red);
+  font-weight: 400;
+  color: white;
+}
+.Skin #Buttons #NextButton:hover, .Skin #Buttons #NextButton:active, .Skin #Buttons #NextButton:focus, .Skin #Buttons #PreviousButton:hover, .Skin #Buttons #PreviousButton:active, .Skin #Buttons #PreviousButton:focus {
+  transform: scale(1.03);
+  background-color: transparent;
+  color: var(--thisco-red);
+  border-color: var(--thisco-red);
+}
+@media (min-width: 481px) {
+  .Skin #Buttons #NextButton, .Skin #Buttons #PreviousButton {
+    width: 100%;
+    margin: initial;
+    font-size: 1em;
+  }
+}
+.Skin #Buttons #PreviousButton {
+  border-color: var(--thisco-dark-grey);
+  color: var(--thisco-dark-grey);
+  background: white;
+}
+.Skin #Buttons #PreviousButton:hover, .Skin #Buttons #PreviousButton:active, .Skin #Buttons #PreviousButton:focus {
+  background-color: var(--thisco-dark-grey);
+  color: white;
+  border-color: transparent;
+}
+.Skin .btn.thisco-btn {
+  border-radius: 999px;
+  transition: all 0.2s ease-in;
+  background-color: var(--thisco-red);
+  padding: 1em 3em;
+  line-height: 1;
+  border: 2px solid var(--thisco-red);
+  font-weight: 400;
+  color: white;
+}
+.Skin .btn.thisco-btn:hover, .Skin .btn.thisco-btn:active, .Skin .btn.thisco-btn:focus {
+  transform: scale(1.03);
+  background-color: transparent;
+  color: var(--thisco-red);
+  border-color: var(--thisco-red);
+}
+.Skin .btn.thisco-btn-inverse {
+  border-color: var(--thisco-dark-grey);
+  color: var(--thisco-dark-grey);
+  background: white;
+}
+.Skin .btn.thisco-btn-inverse:hover, .Skin .btn.thisco-btn-inverse:active, .Skin .btn.thisco-btn-inverse:focus {
+  background-color: var(--thisco-dark-grey);
+  color: white;
+  border-color: transparent;
+}
+.Skin .btn.thisco-btn-inverse-red {
+  border-color: var(--thisco-dark-grey);
+  color: var(--thisco-dark-grey);
+  background: white;
+  color: var(--thisco-red);
+  border-color: var(--thisco-red);
+}
+.Skin .btn.thisco-btn-inverse-red:hover, .Skin .btn.thisco-btn-inverse-red:active, .Skin .btn.thisco-btn-inverse-red:focus {
+  background-color: var(--thisco-dark-grey);
+  color: white;
+  border-color: transparent;
+}
+.Skin .btn.thisco-btn-inverse-red:hover, .Skin .btn.thisco-btn-inverse-red:active, .Skin .btn.thisco-btn-inverse-red:focus {
+  background-color: var(--thisco-red);
+  color: white;
+  border-color: transparent;
+}
+
+/* define official THIS colours */
+:root {
+  --thisco-dark-grey: rgb(58 60 66 / 1);
+  --thisco-light-grey: rgb(210 212 211 / 1);
+  --thisco-red: rgb(221, 0, 49);
+  --thisco-bright-blue: rgb(91, 194, 231);
+  --thisco-pale-blue: rgb(143, 172, 217);
+  --thisco-green: rgb(0, 187, 126);
+  --thisco-pink: rgb(243, 165, 185);
+  --thisco-aubergine: rgb(104 4 54 / 1);
+  --thisco-yellow: rgb(255 216 90 / 1);
+  --thisco-lighter-grey: #f4f4f4;
+}
+
+#thisco-privacy-modal.modal-curtain {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  height: 100vh;
+  z-index: 500;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+@media (min-width: 980px) {
+  #thisco-privacy-modal.modal-curtain {
+    position: fixed;
+  }
+}
+#thisco-privacy-modal .modal-contents {
+  overflow: hidden;
+  overflow-y: scroll;
+  width: 100%;
+  /* old font family rule */
+  font-family: Brown-Regular, sans-serif, Arial, "Helvetica Neue", Helvetica, sans-serif;
+  padding: 80px 20px 20px;
+  background-color: var(--thisco-lighter-grey);
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2);
+  display: block;
+}
+@media (min-width: 980px) {
+  #thisco-privacy-modal .modal-contents {
+    padding: 40px;
+    width: 90vw;
+    max-width: 900px;
+    max-height: 80vw;
+    position: absolute;
+    left: 50%;
+    top: 2rem;
+    transform: translateX(-50%);
+    border-radius: 6px;
+    overflow: unset;
+  }
+}
+#thisco-privacy-modal .modal-contents .modal-close-button {
+  background-color: var(--thisco-red);
+  border: none;
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  top: 20px;
+  right: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cg fill='%23FFF' fill-rule='evenodd'%3E%3Cpath d='M2.909 1.212l11.88 11.88a1.2 1.2 0 1 1-1.697 1.697L1.211 2.908a1.2 1.2 0 0 1 1.697-1.697z'/%3E%3Cpath d='M2.909 14.788l11.88-11.88a1.2 1.2 0 1 0-1.697-1.697l-11.88 11.88a1.2 1.2 0 0 0 1.697 1.697z'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 50%;
+}
+@media (min-width: 980px) {
+  #thisco-privacy-modal .modal-contents .modal-close-button {
+    top: -20px;
+    right: -20px;
+  }
+}
+#thisco-privacy-modal .modal-contents .modal-buttons {
+  display: flex;
+  align-items: flex-end;
+}
+#thisco-privacy-modal .modal-contents .modal-buttons button {
+  font-family: inherit;
+  font-size: 16px;
+  width: 50%;
+  border: none;
+  padding: 15px 0;
+  background-color: var(--thisco-light-grey);
+  border-top-right-radius: 10px;
+  transition: all 0.2s;
+  max-height: 46px;
+}
+#thisco-privacy-modal .modal-contents .modal-buttons button:nth-child(1) {
+  border-top-right-radius: 0px;
+  border-top-left-radius: 10px;
+}
+#thisco-privacy-modal .modal-contents .modal-buttons button:hover, #thisco-privacy-modal .modal-contents .modal-buttons button:active, #thisco-privacy-modal .modal-contents .modal-buttons button.active {
+  padding: 20px 0;
+  background-color: white;
+  color: var(--thisco-red);
+  max-height: 54px;
+}
+#thisco-privacy-modal .modal-contents #panel-privacy-policy, #thisco-privacy-modal .modal-contents #panel-terms-and-conditions {
+  display: none;
+}
+#thisco-privacy-modal .modal-contents #panel-privacy-policy.active, #thisco-privacy-modal .modal-contents #panel-terms-and-conditions.active {
+  display: block;
+}
+@media (min-width: 980px) {
+  #thisco-privacy-modal .modal-contents #panel-privacy-policy.active, #thisco-privacy-modal .modal-contents #panel-terms-and-conditions.active {
+    display: grid;
+    grid-template-columns: 15rem 1fr;
+    margin-top: 2rem;
+  }
+}
+#thisco-privacy-modal .modal-contents #panel-privacy-policy.active .sub-nav ul, #thisco-privacy-modal .modal-contents #panel-terms-and-conditions.active .sub-nav ul {
+  list-style: none;
+  padding-left: 0;
+  font-size: 1.2em;
+  line-height: 2;
+}
+@media (min-width: 980px) {
+  #thisco-privacy-modal .modal-contents #panel-privacy-policy.active .sub-nav ul, #thisco-privacy-modal .modal-contents #panel-terms-and-conditions.active .sub-nav ul {
+    margin-top: 0;
+  }
+}
+#thisco-privacy-modal .modal-contents #panel-privacy-policy.active .sub-nav ul li, #thisco-privacy-modal .modal-contents #panel-terms-and-conditions.active .sub-nav ul li {
+  opacity: 0.2;
+  cursor: pointer;
+}
+#thisco-privacy-modal .modal-contents #panel-privacy-policy.active .sub-nav ul li.active, #thisco-privacy-modal .modal-contents #panel-terms-and-conditions.active .sub-nav ul li.active {
+  opacity: 1;
+  color: var(--thisco-red);
+}
+#thisco-privacy-modal .modal-contents #panel-privacy-policy.active .panel-content, #thisco-privacy-modal .modal-contents #panel-terms-and-conditions.active .panel-content {
+  display: none;
+}
+#thisco-privacy-modal .modal-contents #panel-privacy-policy.active .panel-content.active, #thisco-privacy-modal .modal-contents #panel-terms-and-conditions.active .panel-content.active {
+  display: block;
+  padding: 20px;
+  background-color: white;
+  border-radius: 6px;
+  font-size: 18px;
+  line-height: 1.6;
+}
+@media (min-width: 980px) {
+  #thisco-privacy-modal .modal-contents #panel-privacy-policy.active .panel-content.active, #thisco-privacy-modal .modal-contents #panel-terms-and-conditions.active .panel-content.active {
+    overflow: scroll;
+    max-height: calc(80vh - 3rem);
+  }
+}
+#thisco-privacy-modal .modal-contents #panel-privacy-policy.active .panel-content.active h1, #thisco-privacy-modal .modal-contents #panel-privacy-policy.active .panel-content.active h2, #thisco-privacy-modal .modal-contents #panel-privacy-policy.active .panel-content.active h3, #thisco-privacy-modal .modal-contents #panel-privacy-policy.active .panel-content.active p, #thisco-privacy-modal .modal-contents #panel-privacy-policy.active .panel-content.active ul, #thisco-privacy-modal .modal-contents #panel-privacy-policy.active .panel-content.active ol, #thisco-privacy-modal .modal-contents #panel-terms-and-conditions.active .panel-content.active h1, #thisco-privacy-modal .modal-contents #panel-terms-and-conditions.active .panel-content.active h2, #thisco-privacy-modal .modal-contents #panel-terms-and-conditions.active .panel-content.active h3, #thisco-privacy-modal .modal-contents #panel-terms-and-conditions.active .panel-content.active p, #thisco-privacy-modal .modal-contents #panel-terms-and-conditions.active .panel-content.active ul, #thisco-privacy-modal .modal-contents #panel-terms-and-conditions.active .panel-content.active ol {
+  margin-bottom: 1rem;
+}
+#thisco-privacy-modal .modal-contents #panel-privacy-policy.active .panel-content.active a, #thisco-privacy-modal .modal-contents #panel-privacy-policy.active .panel-content.active a:visited, #thisco-privacy-modal .modal-contents #panel-terms-and-conditions.active .panel-content.active a, #thisco-privacy-modal .modal-contents #panel-terms-and-conditions.active .panel-content.active a:visited {
+  text-decoration: none;
+  color: var(--thisco-red);
+}
+#thisco-privacy-modal .modal-contents #panel-privacy-policy.active .panel-content.active a:active, #thisco-privacy-modal .modal-contents #panel-privacy-policy.active .panel-content.active a:hover, #thisco-privacy-modal .modal-contents #panel-privacy-policy.active .panel-content.active a:visited:active, #thisco-privacy-modal .modal-contents #panel-privacy-policy.active .panel-content.active a:visited:hover, #thisco-privacy-modal .modal-contents #panel-terms-and-conditions.active .panel-content.active a:active, #thisco-privacy-modal .modal-contents #panel-terms-and-conditions.active .panel-content.active a:hover, #thisco-privacy-modal .modal-contents #panel-terms-and-conditions.active .panel-content.active a:visited:active, #thisco-privacy-modal .modal-contents #panel-terms-and-conditions.active .panel-content.active a:visited:hover {
+  color: black;
+}
+
+aside {
+  border-radius: 25px;
+  padding: 1.8em;
+  background-color: var(--thisco-aubergine);
+  color: rgba(255, 255, 255, 0.95);
+  font-weight: 400;
+  margin-bottom: 1.6rem;
+  font-size: 0.7em;
+}
+
+/* Qualtrics compensatory styling */
+/*
+
+Qualtrics codes:
+    MC = Multiple Choice?
+
+*/
+/* radio buttons */
+/* basic question here for building on */
+.Skin #SkinContent {
+  padding: 1rem;
+}
+.Skin .QuestionText, .Skin .QuestionBody {
+  padding: 1rem;
+  padding-top: 0;
+}
+.Skin .ChoiceStructure {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.Skin .ChoiceStructure li {
+  min-height: 2.6rem;
+  border-radius: 15px;
+  background-color: rgba(0, 0, 0, 0.01);
+  background-image: linear-gradient(45deg, transparent, rgba(0, 0, 0, 0.005));
+  padding: 0.4rem 0.8rem;
+  margin-bottom: 0.6em;
+  display: flex;
+  transition: box-shadow 0.2s;
+}
+.Skin .ChoiceStructure li:hover {
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+}
+.Skin .ChoiceStructure li input[type=radio], .Skin .ChoiceStructure li input[type=checkbox] {
+  width: 4px;
+  height: 4px;
+  opacity: 0;
+  position: absolute;
+}
+.Skin .ChoiceStructure li input[type=radio] + label, .Skin .ChoiceStructure li input[type=checkbox] + label {
+  display: none;
+}
+.Skin .ChoiceStructure li .LabelWrapper {
+  margin-left: 1rem;
+}
+.Skin .ChoiceStructure li .LabelWrapper label.MultipleAnswer, .Skin .ChoiceStructure li .LabelWrapper label.SingleAnswer {
+  padding: 5px;
+}
+.Skin .ChoiceStructure li .LabelWrapper label.MultipleAnswer > span, .Skin .ChoiceStructure li .LabelWrapper label.SingleAnswer > span {
+  position: relative;
+}
+.Skin .ChoiceStructure li .LabelWrapper label.MultipleAnswer > span:focus-visible, .Skin .ChoiceStructure li .LabelWrapper label.SingleAnswer > span:focus-visible {
+  outline: none;
+}
+.Skin .ChoiceStructure li .LabelWrapper label.MultipleAnswer > span:focus-visible::before, .Skin .ChoiceStructure li .LabelWrapper label.SingleAnswer > span:focus-visible::before {
+  transform: scale(1.1);
+}
+.Skin .ChoiceStructure li .LabelWrapper label.MultipleAnswer > span:active::before, .Skin .ChoiceStructure li .LabelWrapper label.SingleAnswer > span:active::before {
+  transform: scale(0.9);
+}
+.Skin .ChoiceStructure li .LabelWrapper label.MultipleAnswer > span::before, .Skin .ChoiceStructure li .LabelWrapper label.SingleAnswer > span::before {
+  content: " ";
+  position: absolute;
+  left: -1.44em;
+  top: 0em;
+  margin-top: 0;
+  color: var(--thisco-red);
+  border-radius: 50%;
+  width: 0.6em;
+  height: 0.6em;
+  background-image: radial-gradient(circle at center, var(--thisco-red) 0%, var(--thisco-red) 50%, transparent 50%);
+  background-position: center;
+  background-size: 0% 0%;
+  background-repeat: no-repeat;
+  border: 0.18em solid white;
+  box-shadow: 0px 0px 0px 0.12em var(--thisco-red);
+  display: block;
+  transition: all 0.25s;
+  box-sizing: content-box;
+}
+.Skin .ChoiceStructure li .LabelWrapper label.MultipleAnswer.q-checked > span::before, .Skin .ChoiceStructure li .LabelWrapper label.MultipleAnswer.q-checked.q-focused > span::before, .Skin .ChoiceStructure li .LabelWrapper label.SingleAnswer.q-checked > span::before, .Skin .ChoiceStructure li .LabelWrapper label.SingleAnswer.q-checked.q-focused > span::before {
+  animation: none;
+  box-shadow: none;
+  color: var(--thisco-red);
+  border-radius: 50%;
+  width: 0.6em;
+  height: 0.6em;
+  background-image: radial-gradient(circle at center, var(--thisco-red) 0%, var(--thisco-red) 50%, transparent 50%);
+  background-position: center;
+  background-size: 0% 0%;
+  background-repeat: no-repeat;
+  border: 0.18em solid white;
+  box-shadow: 0px 0px 0px 0.12em var(--thisco-red);
+  display: block;
+  transition: all 0.25s;
+  box-sizing: content-box;
+  background-color: transparent;
+  background-size: 200% 200%;
+}
+.Skin .ChoiceStructure li .LabelWrapper label.MultipleAnswer > span::before {
+  border-radius: 0px;
+}
+.Skin .ChoiceStructure li .LabelWrapper label.MultipleAnswer.q-checked > span::before, .Skin .ChoiceStructure li .LabelWrapper label.MultipleAnswer.q-checked.q-focused > span::before {
+  border-radius: 0px;
+  background-color: var(--thisco-red);
+  background-image: url("data:image/svg+xml,%3Csvg width='100%25' height='100%25' viewBox='0 0 24 20' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xml:space='preserve' xmlns:serif='http://www.serif.com/' style='fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;'%3E%3Cpath id='check' d='M23.051,2.843l-14.151,15.977c-0.19,0.214 -0.463,0.337 -0.749,0.337c-0.275,0 -0.538,-0.113 -0.727,-0.313l-7.152,-7.573c-0.341,-0.361 -0.364,-0.924 -0.054,-1.311l0.952,-1.19c0.293,-0.367 0.808,-0.48 1.228,-0.27l5.277,2.639l12.797,-10.902c0.395,-0.336 0.989,-0.312 1.356,0.055l1.181,1.181c0.372,0.372 0.39,0.977 0.042,1.37Z' style='fill:%23fff;fill-rule:nonzero;'/%3E%3C/svg%3E");
+  background-size: 110%;
+  border-color: transparent;
+}
+.Skin .ChoiceStructure li input:not(:checked) ~ span input {
+  color: rgba(0, 0, 0, 0.3);
+}
+.Skin input {
+  border-radius: 5px;
+  border: 1px solid var(--thisco-light-grey);
+  box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.05);
+  font-weight: 400;
+  padding-left: 0.2em;
+  padding-right: 0.2em;
+}
+.Skin input:focus-visible {
+  border-color: var(--thisco-red);
+  box-shadow: 0px 0px 0px 1px var(--thisco-red);
+  outline: none;
+}
+
+/*# sourceMappingURL=skin.css.map */

@@ -1,0 +1,2 @@
+(()=>{var s=window.location.search.includes("staging")?"https://staging.thiscovery.org/my-tasks/":"https://www.thiscovery.org/my-tasks/";if(localStorage.getItem("thisco_dev")!==null){console.debug("Looking for skinjob server...");let e=new CSSStyleSheet;document.adoptedStyleSheets=[e],typeof io!="undefined"&&io("ws://localhost:34567",{transports:["websocket"]}).on("skinjob_update",t=>{e.replaceSync(t)})}})();
+//# sourceMappingURL=bundle.3.0.0.js.map

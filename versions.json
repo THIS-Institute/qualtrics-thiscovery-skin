@@ -1,4 +1,5 @@
 {
     "2.0.0" : "Basic header/footer non-iframe, overlays legacy Thiscovery CSS and JS",
-    "2.1.0" : "First ground-up version"
+    "2.1.0" : "First ground-up version",
+    "3.0.0" : "Non-Qualtrics build off of 2.1.x"
 }

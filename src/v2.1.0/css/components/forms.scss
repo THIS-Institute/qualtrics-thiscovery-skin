@@ -34,6 +34,21 @@ Qualtrics codes:
     background-size: 200% 200% ;
 }
 
+@mixin thisco-input () {
+    // generic style for majority of types, override as necessary
+    border-radius: 5px;
+    border: 1px solid var(--thisco-light-grey);
+    box-shadow: inset 1px 1px 1px rgb(0 0 0 / 0.05);
+    font-weight: 400;
+    padding-left: .2em;
+    padding-right: .2em;
+    &:focus-visible {
+        border-color: var(--thisco-red);
+        box-shadow: 0px 0px 0px 1px var(--thisco-red);
+        outline: none;
+    }
+}
+
 $min-response-height: 2.6rem;
 $radio-size: .6em;
 
@@ -83,6 +98,7 @@ $radio-size: .6em;
                     > span {
                         position: relative;
                         &:focus-visible {
+                            outline: none;
                             &::before {
                                 transform: scale(1.1);
                             }
@@ -139,17 +155,7 @@ $radio-size: .6em;
     }
 
     input {
-        // generic style for majority of types, override as necessary
-        border-radius: 5px;
-        border: 1px solid var(--thisco-light-grey);
-        box-shadow: inset 1px 1px 1px rgb(0 0 0 / 0.05);
-        font-weight: 400;
-        padding-left: .2em;
-        padding-right: .2em;
-        &:focus-visible {
-            border-color: var(--thisco-red);
-            box-shadow: 0px 0px 0px 1px var(--thisco-red);
-        }
+        @include thisco-input();
     }
 
 }
