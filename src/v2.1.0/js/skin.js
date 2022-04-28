@@ -12,10 +12,10 @@ import { forIn, startCase } from 'lodash';
 const markdown = require('markdown').markdown;
 
 const modalHtml = {
-    "cookies" : markdown.toHTML( require("../md/cookies.md") ),
-    "personal_information" : markdown.toHTML( require("../md/personal_information.md") ),
-    "terms_of_use" : markdown.toHTML( require("../md/terms_of_use.md") ),
-    "terms_of_participation" : markdown.toHTML( require("../md/terms_of_participation.md") )
+    "cookies" : markdown.toHTML( require("../../md/personal_information.md") ),
+    "personal_information" : markdown.toHTML( require("../../md/personal_information.md") ),
+    "terms_of_use" : markdown.toHTML( require("../../md/terms_of_use.md") ),
+    "terms_of_participation" : markdown.toHTML( require("../../md/terms_of_participation.md") )
 };
 
 const BACK_LINK = window.location.search.includes("staging") ? "https://staging.thiscovery.org/my-tasks/" : "https://www.thiscovery.org/my-tasks/";

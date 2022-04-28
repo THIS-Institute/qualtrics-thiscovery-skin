@@ -21,7 +21,8 @@ Qualtrics codes:
     background-size: 0% 0%;
     background-repeat: no-repeat ;
     border: ($size * .3) solid white;
-    outline: ($size * .2) solid var(--thisco-red);
+    // Safari does not support round outlines, so using box-shadow trick here
+    box-shadow: 0px 0px 0px ($size * .2) var(--thisco-red);
     display: block;
     transition: all .25s;
     box-sizing: content-box;
@@ -62,6 +63,10 @@ $radio-size: .6em;
             padding: .4rem .8rem;
             margin-bottom: .6em;
             display: flex;
+            transition: box-shadow .2s;
+            &:hover {
+                box-shadow: 1px 1px 5px rgb(0 0 0 / 0.1);
+            }
             input[type="radio"], input[type="checkbox"] {
                 width: 4px;
                 height: 4px;
@@ -123,6 +128,11 @@ $radio-size: .6em;
                 input.TextEntryBox {
                     // margin-left: 5px;
                     // margin-bottom: .4em;
+                }
+            }
+            input:not(:checked) ~ span {
+                input {
+                    color:rgb(0 0 0 / 0.3);
                 }
             }
         }
