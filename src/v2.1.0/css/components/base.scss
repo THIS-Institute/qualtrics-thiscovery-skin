@@ -291,4 +291,10 @@ body {
 
 .thisco-survey {
     @include thisco_base();
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    padding: 2rem;
+    justify-content: center;
+    align-items: center;
 }

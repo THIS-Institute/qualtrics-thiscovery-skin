@@ -9,14 +9,15 @@
 		"build:js": "esbuild ./src/v$npm_package_version/js/skin.js --bundle --minify --sourcemap --loader:.md=text --outfile=./dist/bundle.$npm_package_version.js --target=es2016,chrome94,firefox94,safari13,edge96,node12",
 		"build:scss": "sass ./src/v$npm_package_version/css/skin.scss ./src/v$npm_package_version/css/skin.css --embed-sources",
 		"build:copy_latest": "cp ./dist/bundle.$npm_package_version.css ./dist/bundle.latest.css & cp ./dist/bundle.$npm_package_version.js ./dist/bundle.latest.js",
-		"build:postcss": "postcss ./src/v$npm_package_version/css/skin.css -m -o ./dist/bundle.$npm_package_version.css --verbose",
+		"build:postcss": "node ./css_postprocess.js",
 		"dev": "node dev.js",
 		"dev_tasks": "run-p watch:js watch:scss",
 		"doiuse": "npx doiuse ./src/v$npm_package_version/css/skin.css",
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"skinjob": "node ./tools/skinjob/skinjob.js ./src/v$npm_package_version/css/skin.css --novalidation",
 		"watch:js": "chokidar --verbose \"src/v$npm_package_version/js/**/*.js\" -c \"npm run build:js\"",
-		"watch:scss": "chokidar --verbose \"src/v$npm_package_version/css/**/*.scss\" -c \"npm run build:scss\""
+		"watch:scss": "chokidar --verbose \"src/v$npm_package_version/css/**/*.scss\" -c \"npm run build:scss\"",
+		"watch:spesh3": "chokidar --verbose \"src/v2.1.0/css/**/*.scss\" -c \"npm run build:scss\""
 	},
 	"repository": {
 		"type": "git",

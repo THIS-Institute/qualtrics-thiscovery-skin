@@ -786,6 +786,12 @@ body {
   font-size: 18px;
   line-height: 1.4;
   background-color: white;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  padding: 2rem;
+  justify-content: center;
+  align-items: center;
 }
 
 /* define official THIS colours */
@@ -1103,7 +1109,7 @@ Qualtrics codes:
   background-color: rgba(0, 0, 0, 0.01);
   background-image: linear-gradient(45deg, transparent, rgba(0, 0, 0, 0.005));
   padding: 0.4rem 0.8rem;
-  margin-bottom: 0.6em;
+  margin-bottom: 1.6em;
   display: flex;
   transition: box-shadow 0.2s;
 }
@@ -1138,12 +1144,6 @@ Qualtrics codes:
   transform: scale(0.9);
 }
 .Skin .ChoiceStructure li .LabelWrapper label.MultipleAnswer > span::before, .Skin .ChoiceStructure li .LabelWrapper label.SingleAnswer > span::before {
-  content: " ";
-  position: absolute;
-  left: -1.44em;
-  top: 0em;
-  margin-top: 0;
-  color: var(--thisco-red);
   border-radius: 50%;
   width: 0.6em;
   height: 0.6em;
@@ -1154,13 +1154,19 @@ Qualtrics codes:
   border: 0.18em solid white;
   box-shadow: 0px 0px 0px 0.12em var(--thisco-red);
   display: block;
-  transition: all 0.25s;
+  transition: all 0.15s ease-out;
   box-sizing: content-box;
+  content: " ";
+  position: absolute;
+  left: 0.42em;
+  top: 0.48em;
+  margin-top: 0;
+  top: 0px;
+  left: -1.44em;
 }
 .Skin .ChoiceStructure li .LabelWrapper label.MultipleAnswer.q-checked > span::before, .Skin .ChoiceStructure li .LabelWrapper label.MultipleAnswer.q-checked.q-focused > span::before, .Skin .ChoiceStructure li .LabelWrapper label.SingleAnswer.q-checked > span::before, .Skin .ChoiceStructure li .LabelWrapper label.SingleAnswer.q-checked.q-focused > span::before {
   animation: none;
   box-shadow: none;
-  color: var(--thisco-red);
   border-radius: 50%;
   width: 0.6em;
   height: 0.6em;
@@ -1171,10 +1177,17 @@ Qualtrics codes:
   border: 0.18em solid white;
   box-shadow: 0px 0px 0px 0.12em var(--thisco-red);
   display: block;
-  transition: all 0.25s;
+  transition: all 0.15s ease-out;
   box-sizing: content-box;
+  content: " ";
+  position: absolute;
+  left: 0.42em;
+  top: 0.48em;
+  margin-top: 0;
   background-color: transparent;
   background-size: 200% 200%;
+  top: 0px;
+  left: -1.44em;
 }
 .Skin .ChoiceStructure li .LabelWrapper label.MultipleAnswer > span::before {
   border-radius: 0px;
@@ -1201,6 +1214,53 @@ Qualtrics codes:
   border-color: var(--thisco-red);
   box-shadow: 0px 0px 0px 1px var(--thisco-red);
   outline: none;
+}
+
+.thisco-survey form {
+  display: block;
+}
+.thisco-survey form > p {
+  margin-bottom: 1.6em;
+}
+.thisco-survey form fieldset input[type=radio], .thisco-survey form fieldset input[type=checkbox] {
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+}
+.thisco-survey form fieldset input[type=radio] + label, .thisco-survey form fieldset input[type=checkbox] + label {
+  padding-left: 2.25rem;
+}
+.thisco-survey form fieldset input[type=radio] + label::before, .thisco-survey form fieldset input[type=checkbox] + label::before {
+  border-radius: 50%;
+  width: 0.6em;
+  height: 0.6em;
+  background-image: radial-gradient(circle at center, var(--thisco-red) 0%, var(--thisco-red) 50%, transparent 50%);
+  background-position: center;
+  background-size: 0% 0%;
+  background-repeat: no-repeat;
+  border: 0.18em solid white;
+  box-shadow: 0px 0px 0px 0.12em var(--thisco-red);
+  display: block;
+  transition: all 0.15s ease-out;
+  box-sizing: content-box;
+  content: " ";
+  position: absolute;
+  left: 0.42em;
+  top: 0.48em;
+  margin-top: 0;
+}
+.thisco-survey form fieldset input[type=radio]:checked + label::before, .thisco-survey form fieldset input[type=checkbox]:checked + label::before {
+  background-color: transparent;
+  background-size: 200% 200%;
+}
+.thisco-survey form fieldset label {
+  display: block;
+  position: relative;
+  min-height: 2.6rem;
+  border-radius: 15px;
+  background-color: rgba(0, 0, 0, 0.01);
+  background-image: linear-gradient(45deg, transparent, rgba(0, 0, 0, 0.005));
+  padding: 0.4rem 0.8rem;
 }
 
 /*# sourceMappingURL=skin.css.map */

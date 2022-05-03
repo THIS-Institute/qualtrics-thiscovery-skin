@@ -10,7 +10,7 @@ Qualtrics codes:
 /* radio buttons */
 
 @mixin thiscovery-radio-button ($size) {
-    color : var(--thisco-red);
+    // color : var(--thisco-red);
     border-radius: 50%; // round
     width: $size;
     height: $size;
@@ -24,8 +24,13 @@ Qualtrics codes:
     // Safari does not support round outlines, so using box-shadow trick here
     box-shadow: 0px 0px 0px ($size * .2) var(--thisco-red);
     display: block;
-    transition: all .25s;
+    transition: all .15s ease-out;
     box-sizing: content-box;
+    content: " ";
+    position: absolute;
+    left:($radio-size * 0.7);
+    top:($radio-size * 0.8); // half line height?
+    margin-top: 0;
 }
 
 @mixin thiscovery-radio-button-checked () {
@@ -52,6 +57,16 @@ Qualtrics codes:
 $min-response-height: 2.6rem;
 $radio-size: .6em;
 
+@mixin thisco-response-label () {
+    min-height: $min-response-height;
+    border-radius: 15px;
+    // box-shadow: inset .5px .5px 0px rgb(0 0 0 / .05);
+    background-color: rgb(0 0 0 / 0.01);
+    background-image: linear-gradient(45deg, transparent, rgb(0 0 0 / 0.005));
+    padding: .4rem .8rem;
+    // margin-bottom: .6em;
+}
+
 /* basic question here for building on */
 
 .Skin {
@@ -76,7 +91,7 @@ $radio-size: .6em;
             background-color: rgb(0 0 0 / 0.01);
             background-image: linear-gradient(45deg, transparent, rgb(0 0 0 / 0.005));
             padding: .4rem .8rem;
-            margin-bottom: .6em;
+            margin-bottom: 1.6em;
             display: flex;
             transition: box-shadow .2s;
             &:hover {
@@ -97,6 +112,7 @@ $radio-size: .6em;
                     padding: 5px;
                     > span {
                         position: relative;
+                        // color : var(--thisco-red);
                         &:focus-visible {
                             outline: none;
                             &::before {
@@ -111,19 +127,19 @@ $radio-size: .6em;
                     }
 
                     > span::before {
-                        content: " ";
-                        position: absolute;
-                        left: -$radio-size * 2.4;
-                        top:($radio-size * 0);
-                        margin-top: 0;
+
                         @include thiscovery-radio-button($radio-size);
+                        top:0px;
+                        left: -$radio-size * 2.4;
                     }
                     &.q-checked, &.q-checked.q-focused {
                         > span::before {
                             animation: none;
                             box-shadow: none;
                             @include thiscovery-radio-button($radio-size);
-                            @include thiscovery-radio-button-checked();           
+                            @include thiscovery-radio-button-checked(); 
+                            top:0px;
+                            left: -$radio-size * 2.4;          
                         }
                     }
                 }
@@ -158,4 +174,38 @@ $radio-size: .6em;
         @include thisco-input();
     }
 
+}
+
+.thisco-survey {
+    form {
+        display: block;
+        > p {
+            margin-bottom: 1.6em;
+        }
+        fieldset {
+            // basic multiple choice
+            input {
+                &[type="radio"] ,&[type="checkbox"] {
+                    opacity: 0;
+                    width: 1px;
+                    height: 1px;
+                    & + label {
+                        padding-left: 2.25rem;
+                    }
+                    & + label::before {
+                        @include thiscovery-radio-button($radio-size);
+                    }
+                    &:checked + label::before {
+                        @include thiscovery-radio-button-checked();
+                    }
+                }
+            }
+            label {
+                display: block;
+                position: relative;
+                @include thisco-response-label();
+            }
+
+        }
+    }
 }
