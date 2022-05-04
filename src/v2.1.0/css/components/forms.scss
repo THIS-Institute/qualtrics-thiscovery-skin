@@ -39,6 +39,15 @@ Qualtrics codes:
     background-size: 200% 200% ;
 }
 
+// border-radius 0 for a checkbox
+
+@mixin thiscovery-checkbox-checked-addition () {
+    background-color: var(--thisco-red);
+    background-image: url("data:image/svg+xml,%3Csvg width='100%25' height='100%25' viewBox='0 0 24 20' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xml:space='preserve' xmlns:serif='http://www.serif.com/' style='fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;'%3E%3Cpath id='check' d='M23.051,2.843l-14.151,15.977c-0.19,0.214 -0.463,0.337 -0.749,0.337c-0.275,0 -0.538,-0.113 -0.727,-0.313l-7.152,-7.573c-0.341,-0.361 -0.364,-0.924 -0.054,-1.311l0.952,-1.19c0.293,-0.367 0.808,-0.48 1.228,-0.27l5.277,2.639l12.797,-10.902c0.395,-0.336 0.989,-0.312 1.356,0.055l1.181,1.181c0.372,0.372 0.39,0.977 0.042,1.37Z' style='fill:%23fff;fill-rule:nonzero;'/%3E%3C/svg%3E");
+    background-size: 110%;
+    border-color: transparent;    
+}
+
 @mixin thisco-input () {
     // generic style for majority of types, override as necessary
     border-radius: 5px;
@@ -62,7 +71,7 @@ $radio-size: .6em;
     border-radius: 15px;
     // box-shadow: inset .5px .5px 0px rgb(0 0 0 / .05);
     background-color: rgb(0 0 0 / 0.01);
-    background-image: linear-gradient(45deg, transparent, rgb(0 0 0 / 0.005));
+    background-image: linear-gradient(45deg, transparent, rgb(0 0 0 / 0.005) 80%);
     padding: .4rem .8rem;
     // margin-bottom: .6em;
 }
@@ -80,6 +89,10 @@ $radio-size: .6em;
         padding-top: 0;
     }
 
+    fieldset > legend {
+        margin-bottom: 1.6em;
+    }
+
     .ChoiceStructure {
         padding-left: 1rem;
         padding-right: 1rem;
@@ -91,7 +104,7 @@ $radio-size: .6em;
             background-color: rgb(0 0 0 / 0.01);
             background-image: linear-gradient(45deg, transparent, rgb(0 0 0 / 0.005));
             padding: .4rem .8rem;
-            margin-bottom: 1.6em;
+            margin-bottom: 1.2em;
             display: flex;
             transition: box-shadow .2s;
             &:hover {
@@ -179,7 +192,7 @@ $radio-size: .6em;
 .thisco-survey {
     form {
         display: block;
-        > p {
+        > p, > legend {
             margin-bottom: 1.6em;
         }
         fieldset {
@@ -198,6 +211,14 @@ $radio-size: .6em;
                     &:checked + label::before {
                         @include thiscovery-radio-button-checked();
                     }
+                }
+                &[type="checkbox"] {
+                    & + label::before {
+                        border-radius: 0px;
+                    }
+                    &:checked + label::before {
+                        @include thiscovery-checkbox-checked-addition();
+                    }                
                 }
             }
             label {
