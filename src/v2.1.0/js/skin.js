@@ -20,10 +20,25 @@ const modalHtml = {
 
 const BACK_LINK = window.location.search.includes("staging") ? "https://staging.thiscovery.org/my-tasks/" : "https://www.thiscovery.org/my-tasks/";
 
+// can support skinJob?
+
+let supportSJ = false, skinsheet;
+
+try {
+    skinsheet = new CSSStyleSheet();
+    supportSJ = true;
+} catch (error) {
+    if (error instanceof TypeError) {
+        console.warn("CSSStyleSheet not supported in this browser");
+    }
+    else {
+        console.error(error);
+    }
+}
+
 // skinjob snippet - only if localStorage contains thisco_dev
 
-if (localStorage.getItem("thisco_dev") !== null) {
-    let skinsheet = new CSSStyleSheet();
+if (supportSJ && (localStorage.getItem("thisco_dev") !== null)) {
     document.adoptedStyleSheets = [ skinsheet ];
     if (typeof io !== "undefined") {
         const socket = io("ws://localhost:34567",{transports : ["websocket"]});
