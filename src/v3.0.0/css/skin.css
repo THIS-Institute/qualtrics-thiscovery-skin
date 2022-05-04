@@ -1162,7 +1162,7 @@ Qualtrics codes:
   content: " ";
   position: absolute;
   left: 0.42em;
-  top: 0.48em;
+  top: 0.6em;
   margin-top: 0;
   top: 0px;
   left: -1.44em;
@@ -1185,7 +1185,7 @@ Qualtrics codes:
   content: " ";
   position: absolute;
   left: 0.42em;
-  top: 0.48em;
+  top: 0.6em;
   margin-top: 0;
   background-color: transparent;
   background-size: 200% 200%;
@@ -1219,6 +1219,9 @@ Qualtrics codes:
   outline: none;
 }
 
+.thisco-survey {
+  font-size: 16px;
+}
 .thisco-survey form {
   display: block;
 }
@@ -1249,7 +1252,7 @@ Qualtrics codes:
   content: " ";
   position: absolute;
   left: 0.42em;
-  top: 0.48em;
+  top: 0.6em;
   margin-top: 0;
 }
 .thisco-survey form fieldset input[type=radio]:checked + label::before, .thisco-survey form fieldset input[type=checkbox]:checked + label::before {
@@ -1265,6 +1268,9 @@ Qualtrics codes:
   background-size: 110%;
   border-color: transparent;
 }
+.thisco-survey form fieldset input:not(:checked) + label input {
+  color: rgba(0, 0, 0, 0.3);
+}
 .thisco-survey form fieldset label {
   display: block;
   position: relative;
@@ -1273,6 +1279,20 @@ Qualtrics codes:
   background-color: rgba(0, 0, 0, 0.01);
   background-image: linear-gradient(45deg, transparent, rgba(0, 0, 0, 0.005) 80%);
   padding: 0.4rem 0.8rem;
+}
+.thisco-survey form fieldset label > input {
+  margin-left: 0.5em;
+  border-radius: 5px;
+  border: 1px solid var(--thisco-light-grey);
+  box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.05);
+  font-weight: 400;
+  padding-left: 0.2em;
+  padding-right: 0.2em;
+}
+.thisco-survey form fieldset label > input:focus-visible {
+  border-color: var(--thisco-red);
+  box-shadow: 0px 0px 0px 1px var(--thisco-red);
+  outline: none;
 }
 
 /*# sourceMappingURL=skin.css.map */

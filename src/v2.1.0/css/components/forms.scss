@@ -29,7 +29,7 @@ Qualtrics codes:
     content: " ";
     position: absolute;
     left:($radio-size * 0.7);
-    top:($radio-size * 0.8); // half line height?
+    top:($radio-size * 1); // half line height?
     margin-top: 0;
 }
 
@@ -190,6 +190,7 @@ $radio-size: .6em;
 }
 
 .thisco-survey {
+    font-size: 16px;
     form {
         display: block;
         > p, > legend {
@@ -221,10 +222,20 @@ $radio-size: .6em;
                     }                
                 }
             }
+            input:not(:checked) + label {
+                input {
+                    color:rgb(0 0 0 / 0.3);
+                }
+            }
             label {
                 display: block;
                 position: relative;
                 @include thisco-response-label();
+                > input {
+                    // 'Other' inputs within labels
+                    margin-left: .5em;
+                    @include thisco-input();
+                }
             }
 
         }
