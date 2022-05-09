@@ -792,6 +792,10 @@ body {
   padding: 2rem;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
+}
+.thisco-survey > * {
+  flex-basis: 100%;
 }
 
 /* define official THIS colours */
