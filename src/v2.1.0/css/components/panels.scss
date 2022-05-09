@@ -4,6 +4,8 @@
     background-color: var(--thisco-aubergine);
     color: rgb(255 255 255 / 0.95);
     font-weight: 400;
+    max-width: 65ch;
+    margin: 0 auto;
     margin-bottom: 1.6rem;
 }
 
@@ -11,4 +13,11 @@
 aside {
     @include panel-basic();
     font-size: .7em;
+}
+
+blockquote {
+    @include panel-basic();
+    background-color: var(--thisco-light-pink);
+    color: rgb(0 0 0 / .95);
+    font-weight: 100;
 }

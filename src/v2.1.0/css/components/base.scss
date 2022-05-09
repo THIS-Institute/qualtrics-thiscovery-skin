@@ -30,6 +30,8 @@
     --thisco-pink: rgb(243, 165, 185);
     --thisco-aubergine: rgb(104 4 54 / 1);
     --thisco-yellow: rgb(255 216 90 / 1);
+    --thisco-pale-pink: #fce9ed;
+    --thisco-light-pink: #fad2dd;
 }
 
 /* 
@@ -129,9 +131,9 @@ body {
     /* end resets */
 
     .SkinInner {
-        padding-top:5rem;
+        padding-top:7rem;
         @include respond-above(sm) {
-            padding-top: 6rem;
+            padding-top: 8.5rem;
         }
     }
 
@@ -276,9 +278,9 @@ body {
         @include respond-above(md) {
             max-width: 980px;
         }
-        @include respond-above(lg) {
-            max-width: 1400px;
-        }
+        // @include respond-above(lg) {
+        //     max-width: 1400px;
+        // }
     }
 
     #Plug {

@@ -575,6 +575,8 @@ template {
   --thisco-pink: rgb(243, 165, 185);
   --thisco-aubergine: rgb(104 4 54 / 1);
   --thisco-yellow: rgb(255 216 90 / 1);
+  --thisco-pale-pink: #fce9ed;
+  --thisco-light-pink: #fad2dd;
 }
 
 /* 
@@ -624,11 +626,11 @@ body {
   text-decoration: none;
 }
 .Skin .SkinInner {
-  padding-top: 5rem;
+  padding-top: 7rem;
 }
 @media (min-width: 768px) {
   .Skin .SkinInner {
-    padding-top: 6rem;
+    padding-top: 8.5rem;
   }
 }
 .Skin #HeaderContainer {
@@ -766,11 +768,6 @@ body {
 @media (min-width: 980px) {
   .Skin #SkinContent {
     max-width: 980px;
-  }
-}
-@media (min-width: 1400px) {
-  .Skin #SkinContent {
-    max-width: 1400px;
   }
 }
 .Skin #Plug {
@@ -1084,8 +1081,24 @@ aside {
   background-color: var(--thisco-aubergine);
   color: rgba(255, 255, 255, 0.95);
   font-weight: 400;
+  max-width: 65ch;
+  margin: 0 auto;
   margin-bottom: 1.6rem;
   font-size: 0.7em;
+}
+
+blockquote {
+  border-radius: 25px;
+  padding: 1.8em;
+  background-color: var(--thisco-aubergine);
+  color: rgba(255, 255, 255, 0.95);
+  font-weight: 400;
+  max-width: 65ch;
+  margin: 0 auto;
+  margin-bottom: 1.6rem;
+  background-color: var(--thisco-light-pink);
+  color: rgba(0, 0, 0, 0.95);
+  font-weight: 100;
 }
 
 /* Qualtrics compensatory styling */
@@ -1104,8 +1117,11 @@ Qualtrics codes:
   padding: 1rem;
   padding-top: 0;
 }
-.Skin fieldset > legend {
+.Skin .QuestionText > *, .Skin .QuestionBody > * {
   margin-bottom: 1.6em;
+}
+.Skin .QuestionText > *:last-child, .Skin .QuestionBody > *:last-child {
+  margin-bottom: 0;
 }
 .Skin .ChoiceStructure {
   padding-left: 1rem;
@@ -1236,6 +1252,9 @@ Qualtrics codes:
   display: block;
 }
 .thisco-survey form > p, .thisco-survey form > fieldset, .thisco-survey form > div {
+  margin-bottom: 1.6em;
+}
+.thisco-survey form fieldset legend {
   margin-bottom: 1.6em;
 }
 .thisco-survey form fieldset input[type=radio], .thisco-survey form fieldset input[type=checkbox] {

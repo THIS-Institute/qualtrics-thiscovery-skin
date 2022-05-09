@@ -92,10 +92,16 @@ $radio-size: .6em;
     .QuestionText, .QuestionBody {
         padding: 1rem;
         padding-top: 0;
+        > * {
+            margin-bottom: 1.6em;
+        }
+        > *:last-child {
+            margin-bottom: 0;
+        }
     }
 
     fieldset > legend {
-        margin-bottom: 1.6em;
+        // margin-bottom: 1.6em;
     }
 
     .ChoiceStructure {
@@ -202,6 +208,9 @@ $radio-size: .6em;
             margin-bottom: 1.6em;
         }
         fieldset {
+            legend {
+                margin-bottom: 1.6em;
+            }
             // basic multiple choice
             input {
                 &[type="radio"] ,&[type="checkbox"] {
