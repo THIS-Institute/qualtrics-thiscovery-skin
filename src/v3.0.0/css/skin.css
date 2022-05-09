@@ -796,6 +796,7 @@ body {
 }
 .thisco-survey > * {
   flex-basis: 100%;
+  margin-bottom: 1.6em;
 }
 
 /* define official THIS colours */
