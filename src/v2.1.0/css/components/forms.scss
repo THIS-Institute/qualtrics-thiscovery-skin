@@ -61,6 +61,11 @@ Qualtrics codes:
         box-shadow: 0px 0px 0px 1px var(--thisco-red);
         outline: none;
     }
+    &::placeholder {
+        font-weight: 100;
+        font-style: italic;
+        opacity: .8;
+    }
 }
 
 $min-response-height: 2.6rem;

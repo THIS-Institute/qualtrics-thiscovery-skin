@@ -1218,6 +1218,11 @@ Qualtrics codes:
   box-shadow: 0px 0px 0px 1px var(--thisco-red);
   outline: none;
 }
+.Skin input::placeholder {
+  font-weight: 100;
+  font-style: italic;
+  opacity: 0.8;
+}
 
 .thisco-survey {
   font-size: 16px;
@@ -1293,6 +1298,11 @@ Qualtrics codes:
   border-color: var(--thisco-red);
   box-shadow: 0px 0px 0px 1px var(--thisco-red);
   outline: none;
+}
+.thisco-survey form fieldset label > input::placeholder {
+  font-weight: 100;
+  font-style: italic;
+  opacity: 0.8;
 }
 
 /*# sourceMappingURL=skin.css.map */
