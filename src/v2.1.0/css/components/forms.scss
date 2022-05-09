@@ -193,7 +193,7 @@ $radio-size: .6em;
     font-size: 16px;
     form {
         display: block;
-        > p, > legend {
+        > p, > fieldset, > div {
             margin-bottom: 1.6em;
         }
         fieldset {

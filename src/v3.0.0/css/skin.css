@@ -1225,7 +1225,7 @@ Qualtrics codes:
 .thisco-survey form {
   display: block;
 }
-.thisco-survey form > p, .thisco-survey form > legend {
+.thisco-survey form > p, .thisco-survey form > fieldset, .thisco-survey form > div {
   margin-bottom: 1.6em;
 }
 .thisco-survey form fieldset input[type=radio], .thisco-survey form fieldset input[type=checkbox] {
