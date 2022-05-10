@@ -1101,6 +1101,49 @@ blockquote {
   font-weight: 100;
 }
 
+div.alert-warning {
+  border-radius: 25px;
+  padding: 1.8em;
+  background-color: var(--thisco-aubergine);
+  color: rgba(255, 255, 255, 0.95);
+  font-weight: 400;
+  max-width: 65ch;
+  margin: 0 auto;
+  margin-bottom: 1.6rem;
+  background-color: var(--thisco-yellow);
+  color: #92400e;
+  font-weight: 100;
+}
+
+div.alert-error {
+  border-radius: 25px;
+  padding: 1.8em;
+  background-color: var(--thisco-aubergine);
+  color: rgba(255, 255, 255, 0.95);
+  font-weight: 400;
+  max-width: 65ch;
+  margin: 0 auto;
+  margin-bottom: 1.6rem;
+  background-color: var(--thisco-red);
+  color: rgba(255, 255, 255, 0.95);
+  font-weight: 100;
+}
+
+pre {
+  border-radius: 25px;
+  padding: 1.8em;
+  background-color: var(--thisco-aubergine);
+  color: rgba(255, 255, 255, 0.95);
+  font-weight: 400;
+  max-width: 65ch;
+  margin: 0 auto;
+  margin-bottom: 1.6rem;
+  color: var(--thisco-dark-grey);
+  background-color: #F4F4F4;
+  font-size: 0.9em;
+  white-space: pre-wrap;
+}
+
 /* Qualtrics compensatory styling */
 /*
 
@@ -1242,7 +1285,7 @@ Qualtrics codes:
 .Skin input::placeholder {
   font-weight: 100;
   font-style: italic;
-  opacity: 0.8;
+  color: rgba(0, 0, 0, 0.5);
 }
 
 .thisco-survey {
@@ -1326,7 +1369,7 @@ Qualtrics codes:
 .thisco-survey form fieldset label > input::placeholder {
   font-weight: 100;
   font-style: italic;
-  opacity: 0.8;
+  color: rgba(0, 0, 0, 0.5);
 }
 
 /*# sourceMappingURL=skin.css.map */

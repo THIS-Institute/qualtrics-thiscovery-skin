@@ -21,3 +21,25 @@ blockquote {
     color: rgb(0 0 0 / .95);
     font-weight: 100;
 }
+
+div.alert-warning {
+    @include panel-basic();
+    background-color: var(--thisco-yellow);
+    color: rgb(146 64 14 / 1 );
+    font-weight: 100;
+}
+
+div.alert-error {
+    @include panel-basic();
+    background-color: var(--thisco-red);
+    color: rgb(255 255 255 / 0.95 );
+    font-weight: 100;
+}
+
+pre {
+    @include panel-basic();
+    color: var(--thisco-dark-grey);
+    background-color: #F4F4F4;
+    font-size: .9em;
+    white-space: pre-wrap;
+}
