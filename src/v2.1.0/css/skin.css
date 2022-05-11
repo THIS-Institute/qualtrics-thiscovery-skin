@@ -575,6 +575,8 @@ template {
   --thisco-pink: rgb(243, 165, 185);
   --thisco-aubergine: rgb(104 4 54 / 1);
   --thisco-yellow: rgb(255 216 90 / 1);
+  --thisco-pale-pink: #fce9ed;
+  --thisco-light-pink: #fad2dd;
 }
 
 /* 
@@ -623,13 +625,26 @@ body {
   color: inherit;
   text-decoration: none;
 }
+.Skin img, .Skin iframe {
+  max-width: 100%;
+}
 .Skin .SkinInner {
-  padding-top: 5rem;
+  padding-top: 7rem;
 }
 @media (min-width: 768px) {
   .Skin .SkinInner {
-    padding-top: 6rem;
+    padding-top: 8.5rem;
   }
+}
+.Skin .SkinInner img, .Skin .SkinInner iframe, .Skin .SkinInner embed {
+  max-width: 90%;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.Skin .SkinInner iframe, .Skin .SkinInner embed {
+  aspect-ratio: 16/9;
+  height: auto !important;
 }
 .Skin #HeaderContainer {
   background-color: var(--thisco-light-grey);
@@ -768,11 +783,6 @@ body {
     max-width: 980px;
   }
 }
-@media (min-width: 1400px) {
-  .Skin #SkinContent {
-    max-width: 1400px;
-  }
-}
 .Skin #Plug {
   visibility: hidden;
   max-height: 0px;
@@ -792,6 +802,23 @@ body {
   padding: 2rem;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
+}
+.thisco-survey > * {
+  flex-basis: 100%;
+  margin-bottom: 1.6em;
+}
+.thisco-survey img {
+  max-width: 90%;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.thisco-survey iframe, .thisco-survey embed {
+  aspect-ratio: 16/9;
+  height: auto !important;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
 /* define official THIS colours */
@@ -846,6 +873,7 @@ body {
   border: 2px solid var(--thisco-red);
   font-weight: 400;
   color: white;
+  cursor: pointer;
 }
 .Skin #Buttons #NextButton:hover, .Skin #Buttons #NextButton:active, .Skin #Buttons #NextButton:focus, .Skin #Buttons #PreviousButton:hover, .Skin #Buttons #PreviousButton:active, .Skin #Buttons #PreviousButton:focus {
   transform: scale(1.03);
@@ -879,6 +907,7 @@ body {
   border: 2px solid var(--thisco-red);
   font-weight: 400;
   color: white;
+  cursor: pointer;
 }
 .Skin .btn.thisco-btn:hover, .Skin .btn.thisco-btn:active, .Skin .btn.thisco-btn:focus {
   transform: scale(1.03);
@@ -912,6 +941,47 @@ body {
   background-color: var(--thisco-red);
   color: white;
   border-color: transparent;
+}
+
+/* special */
+.close-dialog-button {
+  border-radius: 999px;
+  transition: all 0.2s ease-in;
+  background-color: var(--thisco-red);
+  padding: 1em 3em;
+  line-height: 1;
+  border: 2px solid var(--thisco-red);
+  font-weight: 400;
+  color: white;
+  cursor: pointer;
+  padding: 3px 5px;
+  font-size: 0.8em;
+  display: flex;
+  align-items: center;
+  float: right;
+  clear: left;
+  margin-left: 100%;
+  margin-bottom: 0.6em;
+  transition: all 0.15s linear;
+}
+.close-dialog-button:hover, .close-dialog-button:active, .close-dialog-button:focus {
+  transform: scale(1.03);
+  background-color: transparent;
+  color: var(--thisco-red);
+  border-color: var(--thisco-red);
+}
+.close-dialog-button:hover, .close-dialog-button:active, .close-dialog-button:focus {
+  transform: scale(1.1);
+  background-color: var(--thisco-red);
+  color: white;
+  border-color: var(--thisco-red);
+}
+.close-dialog-button:focus {
+  background-color: var(--thisco-aubergine);
+  border-color: var(--thisco-aubergine);
+}
+.close-dialog-button:active {
+  transform: scale(0.9);
 }
 
 /* define official THIS colours */
@@ -1079,8 +1149,67 @@ aside {
   background-color: var(--thisco-aubergine);
   color: rgba(255, 255, 255, 0.95);
   font-weight: 400;
+  max-width: 65ch;
+  margin: 0 auto;
   margin-bottom: 1.6rem;
   font-size: 0.7em;
+}
+
+blockquote {
+  border-radius: 25px;
+  padding: 1.8em;
+  background-color: var(--thisco-aubergine);
+  color: rgba(255, 255, 255, 0.95);
+  font-weight: 400;
+  max-width: 65ch;
+  margin: 0 auto;
+  margin-bottom: 1.6rem;
+  background-color: var(--thisco-light-pink);
+  color: rgba(0, 0, 0, 0.95);
+  font-weight: 100;
+}
+
+div.alert-warning {
+  border-radius: 25px;
+  padding: 1.8em;
+  background-color: var(--thisco-aubergine);
+  color: rgba(255, 255, 255, 0.95);
+  font-weight: 400;
+  max-width: 65ch;
+  margin: 0 auto;
+  margin-bottom: 1.6rem;
+  background-color: var(--thisco-yellow);
+  color: #92400e;
+  font-weight: 100;
+}
+
+div.alert-error {
+  border-radius: 25px;
+  padding: 1.8em;
+  background-color: var(--thisco-aubergine);
+  color: rgba(255, 255, 255, 0.95);
+  font-weight: 400;
+  max-width: 65ch;
+  margin: 0 auto;
+  margin-bottom: 1.6rem;
+  background-color: var(--thisco-red);
+  color: rgba(255, 255, 255, 0.95);
+  font-weight: 100;
+}
+
+pre {
+  border-radius: 25px;
+  padding: 1.8em;
+  background-color: var(--thisco-aubergine);
+  color: rgba(255, 255, 255, 0.95);
+  font-weight: 400;
+  max-width: 65ch;
+  margin: 0 auto;
+  margin-bottom: 1.6rem;
+  color: var(--thisco-dark-grey);
+  background-color: #F4F4F4;
+  font-size: 0.9em;
+  white-space: pre-wrap;
 }
 
 /* Qualtrics compensatory styling */
@@ -1099,8 +1228,11 @@ Qualtrics codes:
   padding: 1rem;
   padding-top: 0;
 }
-.Skin fieldset > legend {
+.Skin .QuestionText > *, .Skin .QuestionBody > * {
   margin-bottom: 1.6em;
+}
+.Skin .QuestionText > *:last-child, .Skin .QuestionBody > *:last-child {
+  margin-bottom: 0;
 }
 .Skin .ChoiceStructure {
   padding-left: 1rem;
@@ -1162,7 +1294,7 @@ Qualtrics codes:
   content: " ";
   position: absolute;
   left: 0.42em;
-  top: 0.48em;
+  top: 0.6em;
   margin-top: 0;
   top: 0px;
   left: -1.44em;
@@ -1185,7 +1317,7 @@ Qualtrics codes:
   content: " ";
   position: absolute;
   left: 0.42em;
-  top: 0.48em;
+  top: 0.6em;
   margin-top: 0;
   background-color: transparent;
   background-size: 200% 200%;
@@ -1218,11 +1350,22 @@ Qualtrics codes:
   box-shadow: 0px 0px 0px 1px var(--thisco-red);
   outline: none;
 }
+.Skin input::placeholder {
+  font-weight: 100;
+  font-style: italic;
+  color: rgba(0, 0, 0, 0.5);
+}
 
+.thisco-survey {
+  font-size: 16px;
+}
 .thisco-survey form {
   display: block;
 }
-.thisco-survey form > p, .thisco-survey form > legend {
+.thisco-survey form > p, .thisco-survey form > fieldset, .thisco-survey form > div {
+  margin-bottom: 1.6em;
+}
+.thisco-survey form fieldset legend {
   margin-bottom: 1.6em;
 }
 .thisco-survey form fieldset input[type=radio], .thisco-survey form fieldset input[type=checkbox] {
@@ -1249,7 +1392,7 @@ Qualtrics codes:
   content: " ";
   position: absolute;
   left: 0.42em;
-  top: 0.48em;
+  top: 0.6em;
   margin-top: 0;
 }
 .thisco-survey form fieldset input[type=radio]:checked + label::before, .thisco-survey form fieldset input[type=checkbox]:checked + label::before {
@@ -1265,6 +1408,9 @@ Qualtrics codes:
   background-size: 110%;
   border-color: transparent;
 }
+.thisco-survey form fieldset input:not(:checked) + label input {
+  color: rgba(0, 0, 0, 0.3);
+}
 .thisco-survey form fieldset label {
   display: block;
   position: relative;
@@ -1273,6 +1419,106 @@ Qualtrics codes:
   background-color: rgba(0, 0, 0, 0.01);
   background-image: linear-gradient(45deg, transparent, rgba(0, 0, 0, 0.005) 80%);
   padding: 0.4rem 0.8rem;
+}
+.thisco-survey form fieldset label > input {
+  margin-left: 0.5em;
+  border-radius: 5px;
+  border: 1px solid var(--thisco-light-grey);
+  box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.05);
+  font-weight: 400;
+  padding-left: 0.2em;
+  padding-right: 0.2em;
+}
+.thisco-survey form fieldset label > input:focus-visible {
+  border-color: var(--thisco-red);
+  box-shadow: 0px 0px 0px 1px var(--thisco-red);
+  outline: none;
+}
+.thisco-survey form fieldset label > input::placeholder {
+  font-weight: 100;
+  font-style: italic;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+/* define official THIS colours */
+:root {
+  --thisco-dark-grey: rgb(58 60 66 / 1);
+  --thisco-light-grey: rgb(210 212 211 / 1);
+  --thisco-red: rgb(221, 0, 49);
+  --thisco-bright-blue: rgb(91, 194, 231);
+  --thisco-pale-blue: rgb(143, 172, 217);
+  --thisco-green: rgb(0, 187, 126);
+  --thisco-pink: rgb(243, 165, 185);
+  --thisco-aubergine: rgb(104 4 54 / 1);
+  --thisco-yellow: rgb(255 216 90 / 1);
+  --thisco-lighter-grey: #f4f4f4;
+}
+
+.dialog-container,
+.dialog-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.dialog-container {
+  z-index: 2;
+  display: flex;
+  padding: 2rem;
+}
+
+.dialog-container[aria-hidden=true] {
+  display: none;
+}
+
+.dialog-overlay {
+  background-color: rgba(43, 46, 56, 0.9);
+}
+
+.dialog-content {
+  margin: auto;
+  z-index: 2;
+  position: relative;
+  background-color: white;
+  border-radius: 25px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+  padding: 1.6rem 1rem;
+  max-width: 92%;
+}
+@media (min-width: 768px) {
+  .dialog-content {
+    max-width: 620px;
+  }
+}
+@media (min-width: 980px) {
+  .dialog-content {
+    max-width: 820px;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+@keyframes slide-up {
+  from {
+    transform: translateY(10%);
+  }
+}
+.dialog-overlay {
+  animation: fade-in 150ms both;
+}
+
+/**
+ * 1. Add an animation delay equal to the overlay animation duration to
+ *    wait for the overlay to appear before animation in the dialog.
+ */
+.dialog-content {
+  animation: fade-in 300ms 150ms both, slide-up 300ms 150ms both;
+  /* 1 */
 }
 
 /*# sourceMappingURL=skin.css.map */

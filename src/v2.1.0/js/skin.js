@@ -5,8 +5,6 @@
 //
 // JS bundle for various DOM fixes, dev  etc.
 
-// import { io } from "socket.io-client";
-const io = require('socket.io-client');
 const BlissfulJs = require('blissfuljs'); // module adds Bliss to window object for us
 import { forIn, startCase } from 'lodash';
 const markdown = require('markdown').markdown;
@@ -20,44 +18,21 @@ const modalHtml = {
 
 const BACK_LINK = window.location.search.includes("staging") ? "https://staging.thiscovery.org/my-tasks/" : "https://www.thiscovery.org/my-tasks/";
 
-// can support skinJob?
+// skinjob client
+require("../../shared_js/skinjob_client.js")();
 
-let supportSJ = false, skinsheet;
+// eject Qualtrics stylesheet
 
-try {
-    skinsheet = new CSSStyleSheet();
-    supportSJ = true;
-} catch (error) {
-    if (error instanceof TypeError) {
-        console.warn("CSSStyleSheet not supported in this browser");
-    }
-    else {
-        console.error(error);
-    }
-}
-
-// skinjob snippet - only if localStorage contains thisco_dev
-
-if (supportSJ && (localStorage.getItem("thisco_dev") !== null)) {
-    document.adoptedStyleSheets = [ skinsheet ];
-    if (typeof io !== "undefined") {
-        const socket = io("ws://localhost:34567",{transports : ["websocket"]});
-        socket.on("skinjob_update",(cssstring)=>{
-            skinsheet.replaceSync(cssstring);
-        });
-    }
-}
-
-// eject Qualtrics stylesheet if in dev
-
-// if (localStorage.getItem("thisco_dev") !== null) {
-    Bliss.$("link[rel='stylesheet']").forEach(el=>{
-        console.debug({el});
-        if (!(el.getAttribute('href') || "").includes('thiscovery')) el.remove(); // bye!
-    });
-// }
+Bliss.$("link[rel='stylesheet']").forEach(el=>{
+    console.debug({el});
+    if (!(el.getAttribute('href') || "").includes('thiscovery')) el.remove(); // bye!
+});
 
 // markup additions
+
+// modals
+
+require("../../shared_js/thisco_modals.js")();
 
 // header
 

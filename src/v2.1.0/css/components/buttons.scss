@@ -20,6 +20,7 @@
     border: 2px solid var(--thisco-red);
     font-weight: 400;
     color: white;
+    cursor: pointer;
     &:hover, &:active, &:focus {
         transform: scale(1.03);
         background-color: transparent;
@@ -108,4 +109,32 @@
         }
     }
 
+}
+
+/* special */
+
+.close-dialog-button {
+    @include thisco-button();
+    padding: 3px 5px;
+    font-size: .8em;
+    display: flex;
+    align-items: center;
+    float: right;
+    clear: left;
+    margin-left: 100%;
+    margin-bottom: .6em;
+    transition: all .15s linear;
+    &:hover, &:active, &:focus {
+        transform: scale(1.1);
+        background-color: var(--thisco-red);
+        color: white;
+        border-color: var(--thisco-red);
+    }
+    &:focus {
+        background-color: var(--thisco-aubergine);
+        border-color: var(--thisco-aubergine);
+    }
+    &:active {
+        transform: scale(0.9);
+    }
 }
