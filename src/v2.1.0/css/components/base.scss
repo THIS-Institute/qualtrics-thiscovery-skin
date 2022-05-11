@@ -128,6 +128,10 @@ body {
         text-decoration: none;
     }
 
+    img, iframe {
+        max-width: 100%;
+    }
+
     /* end resets */
 
     .SkinInner {
@@ -135,6 +139,19 @@ body {
         @include respond-above(sm) {
             padding-top: 8.5rem;
         }
+
+        img, iframe, embed {
+            max-width: 90%;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        iframe, embed {
+            aspect-ratio: 16 / 9;
+            height: auto !important; // embeds likely to have a height attribure
+        }
+
     }
 
     #HeaderContainer {
@@ -303,5 +320,18 @@ body {
     > * {
         flex-basis: 100%;
         margin-bottom: 1.6em;
+    }
+    img {
+        max-width: 90%;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    iframe, embed {
+        aspect-ratio: 16 / 9;
+        height: auto !important; // embeds likely to have a height attribure
+        padding-left: 2rem;
+        padding-right: 2rem;
     }
 }

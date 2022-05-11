@@ -625,6 +625,9 @@ body {
   color: inherit;
   text-decoration: none;
 }
+.Skin img, .Skin iframe {
+  max-width: 100%;
+}
 .Skin .SkinInner {
   padding-top: 7rem;
 }
@@ -632,6 +635,16 @@ body {
   .Skin .SkinInner {
     padding-top: 8.5rem;
   }
+}
+.Skin .SkinInner img, .Skin .SkinInner iframe, .Skin .SkinInner embed {
+  max-width: 90%;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.Skin .SkinInner iframe, .Skin .SkinInner embed {
+  aspect-ratio: 16/9;
+  height: auto !important;
 }
 .Skin #HeaderContainer {
   background-color: var(--thisco-light-grey);
@@ -794,6 +807,18 @@ body {
 .thisco-survey > * {
   flex-basis: 100%;
   margin-bottom: 1.6em;
+}
+.thisco-survey img {
+  max-width: 90%;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.thisco-survey iframe, .thisco-survey embed {
+  aspect-ratio: 16/9;
+  height: auto !important;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
 /* define official THIS colours */
