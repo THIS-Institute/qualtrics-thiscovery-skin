@@ -814,6 +814,16 @@ body {
   align-items: center;
   flex-wrap: wrap;
 }
+.thisco-survey a, .thisco-survey a:hover, .thisco-survey a:visited, .thisco-survey a:focus, .thisco-survey a:active {
+  color: var(--thisco-red);
+  transition: all 0.15s;
+}
+.thisco-survey a:hover, .thisco-survey a:focus {
+  text-decoration: underline;
+}
+.thisco-survey a:focus {
+  outline: 1px solid var(--thisco-pink);
+}
 .thisco-survey > * {
   flex-basis: 100%;
   margin-bottom: 1.6em;
@@ -987,6 +997,29 @@ body {
   border-color: var(--thisco-aubergine);
 }
 .close-dialog-button:active {
+  transform: scale(0.9);
+}
+
+a.link-button {
+  display: inline-block;
+  font-size: 0.95em;
+  padding: 0.5em 1em;
+  font-weight: 400;
+  text-align: center;
+}
+a.link-button, a.link-button:focus, a.link-button:hover, a.link-button:visited, a.link-button:active {
+  border-radius: 999px;
+  transition: all 0.2s ease-in;
+  background-color: var(--thisco-aubergine);
+  color: white;
+  border-color: transparent;
+  text-decoration: none;
+  outline: none;
+}
+a.link-button:hover, a.link-button:focus {
+  transform: scale(1.05);
+}
+a.link-button:active {
   transform: scale(0.9);
 }
 
@@ -1513,7 +1546,10 @@ dialog {
   justify-content: flex-end;
 }
 .dialog-content .dialog-body {
-  padding: 1rem;
+  padding: 1.25rem 1rem;
+}
+.dialog-content .dialog-body > * {
+  margin-bottom: 0.6em;
 }
 
 @keyframes fade-in {

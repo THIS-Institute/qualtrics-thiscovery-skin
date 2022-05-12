@@ -104,7 +104,7 @@ $breakpoints: (
     a:hover, a:focus {
         text-decoration: underline;
     }
-    
+
     a:focus {
         @include thisco_focus();
     }
@@ -335,6 +335,7 @@ body {
 
 .thisco-survey {
     @include thisco_base();
+    @include thisco_links();
     width: 100vw;
     height: 100vh;
     display: flex;

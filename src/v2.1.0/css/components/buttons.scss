@@ -134,3 +134,26 @@
         transform: scale(0.9);
     }
 }
+
+a.link-button {
+    &, &:focus, &:hover, &:visited, &:active {
+        border-radius: 999px;
+        transition: all .2s ease-in;
+        background-color: var(--thisco-aubergine);
+        color: white;
+        border-color: transparent;
+        text-decoration: none;
+        outline: none;
+    }
+    display: inline-block;
+    font-size: .95em;
+    padding: .5em 1em;
+    font-weight: 400;
+    text-align: center;
+    &:hover, &:focus {
+        transform: scale(1.05);
+    }
+    &:active {
+        transform: scale(0.9);
+    }
+}
