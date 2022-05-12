@@ -628,6 +628,16 @@ body {
 .Skin img, .Skin iframe {
   max-width: 100%;
 }
+.Skin a, .Skin a:hover, .Skin a:visited, .Skin a:focus, .Skin a:active {
+  color: var(--thisco-red);
+  transition: all 0.15s;
+}
+.Skin a:hover, .Skin a:focus {
+  text-decoration: underline;
+}
+.Skin a:focus {
+  outline: 1px solid var(--thisco-pink);
+}
 .Skin .SkinInner {
   padding-top: 7rem;
 }
@@ -958,10 +968,6 @@ body {
   font-size: 0.8em;
   display: flex;
   align-items: center;
-  float: right;
-  clear: left;
-  margin-left: 100%;
-  margin-bottom: 0.6em;
   transition: all 0.15s linear;
 }
 .close-dialog-button:hover, .close-dialog-button:active, .close-dialog-button:focus {
@@ -1017,7 +1023,7 @@ body {
   overflow-y: scroll;
   width: 100%;
   /* old font family rule */
-  font-family: Brown-Regular, sans-serif, Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-family: "thisco_Brown", Brown-Regular, sans-serif, Arial, "Helvetica Neue", Helvetica, sans-serif;
   padding: 80px 20px 20px;
   background-color: var(--thisco-lighter-grey);
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2);
@@ -1454,6 +1460,10 @@ Qualtrics codes:
   --thisco-lighter-grey: #f4f4f4;
 }
 
+dialog {
+  visibility: hidden;
+}
+
 .dialog-container,
 .dialog-overlay {
   position: fixed;
@@ -1484,7 +1494,6 @@ Qualtrics codes:
   background-color: white;
   border-radius: 25px;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
-  padding: 1.6rem 1.4rem;
   max-width: 92%;
 }
 @media (min-width: 768px) {
@@ -1496,6 +1505,15 @@ Qualtrics codes:
   .dialog-content {
     max-width: 820px;
   }
+}
+.dialog-content .dialog-header {
+  padding: 1rem;
+  border-bottom: 1px solid var(--thisco-light-grey);
+  display: flex;
+  justify-content: flex-end;
+}
+.dialog-content .dialog-body {
+  padding: 1rem;
 }
 
 @keyframes fade-in {

@@ -119,10 +119,6 @@
     font-size: .8em;
     display: flex;
     align-items: center;
-    float: right;
-    clear: left;
-    margin-left: 100%;
-    margin-bottom: .6em;
     transition: all .15s linear;
     &:hover, &:active, &:focus {
         transform: scale(1.1);

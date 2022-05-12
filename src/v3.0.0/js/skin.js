@@ -32,3 +32,7 @@ $$(`input[type="radio"] + label > input, input[type="checkbox"] + label > input`
 // modals
 
 require("../../shared_js/thisco_modals.js")();
+
+// link buttons
+
+require("../../shared_js/link_buttons.js")();

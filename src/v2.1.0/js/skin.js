@@ -34,6 +34,10 @@ Bliss.$("link[rel='stylesheet']").forEach(el=>{
 
 require("../../shared_js/thisco_modals.js")();
 
+// link buttons
+
+require("../../shared_js/link_buttons.js")();
+
 // header
 
 const header = document.getElementById("Header");

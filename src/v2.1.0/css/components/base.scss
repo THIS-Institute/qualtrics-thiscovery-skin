@@ -90,6 +90,29 @@ $breakpoints: (
     background-color: white;
 }
 
+@mixin thisco_focus(){
+    outline: 1px solid var(--thisco-pink);
+}
+
+@mixin thisco_links(){
+
+    a, a:hover, a:visited, a:focus, a:active {
+        color: var(--thisco-red);
+        transition: all .15s;
+    }
+
+    a:hover, a:focus {
+        text-decoration: underline;
+    }
+    
+    a:focus {
+        @include thisco_focus();
+    }
+
+}
+
+
+
 // * {
 //     outline: 1px dotted gray;
 // }
@@ -133,6 +156,8 @@ body {
     }
 
     /* end resets */
+
+    @include thisco_links();
 
     .SkinInner {
         padding-top:7rem;
