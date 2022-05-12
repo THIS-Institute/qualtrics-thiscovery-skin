@@ -631,6 +631,7 @@ body {
 .Skin a, .Skin a:hover, .Skin a:visited, .Skin a:focus, .Skin a:active {
   color: var(--thisco-red);
   transition: all 0.15s;
+  text-decoration: none;
 }
 .Skin a:hover, .Skin a:focus {
   text-decoration: underline;
@@ -817,6 +818,7 @@ body {
 .thisco-survey a, .thisco-survey a:hover, .thisco-survey a:visited, .thisco-survey a:focus, .thisco-survey a:active {
   color: var(--thisco-red);
   transition: all 0.15s;
+  text-decoration: none;
 }
 .thisco-survey a:hover, .thisco-survey a:focus {
   text-decoration: underline;
@@ -1206,6 +1208,13 @@ blockquote {
   background-color: var(--thisco-light-pink);
   color: rgba(0, 0, 0, 0.95);
   font-weight: 100;
+}
+blockquote > cite {
+  font-size: 0.8em;
+  float: right;
+  display: inline-block;
+  max-width: 40%;
+  margin: 0.2em;
 }
 
 div.alert-warning {

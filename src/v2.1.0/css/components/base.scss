@@ -99,6 +99,7 @@ $breakpoints: (
     a, a:hover, a:visited, a:focus, a:active {
         color: var(--thisco-red);
         transition: all .15s;
+        text-decoration: none;
     }
 
     a:hover, a:focus {
