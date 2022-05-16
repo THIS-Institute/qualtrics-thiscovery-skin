@@ -1,40 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-
 <body>
     <div id="Header"></div>
     <div class="thisco-survey">
         <form>
-        <fieldset aria-describedby="QR~QID18~VALIDATION QR~QID18~SDPVALIDATION">
-            <legend> <label class="QuestionText BorderColor" for="QR~QID18"><strong>Which</strong> is your favourite
-                    city in the United Kingdom beginning with 'C'?</label></legend>
-            <select name="QR~QID18"
-                    id="QR~QID18">
-                    <option aria-label="Blank" value="QR~QID18~null"></option>
-                    <option class="Selection" value="1" id="QR~QID18~1">Cambridge</option>
-                    <option class="Selection" value="2" id="QR~QID18~2">Canterbury</option>
-                    <option class="Selection" value="3" id="QR~QID18~3">Cardiff</option>
-                    <option class="Selection" value="8" id="QR~QID18~8">Carlisle</option>
-                    <option class="Selection" value="4" id="QR~QID18~4">Chelmsford</option>
-                    <option class="Selection" value="5" id="QR~QID18~5">Chester</option>
-                    <option class="Selection" value="6" id="QR~QID18~6">Chichester</option>
-                    <option class="Selection" value="7" id="QR~QID18~7">Coventry</option>
-                </select>
-        </fieldset>
+            <p><strong>Who</strong> is your favourite Beatle? (Select one)</p>
+            <fieldset>
+                <input type="radio" name="beatle" id="George" value="George"><label for="George">George</label>
+                <input type="radio" name="beatle" id="Ringo" value="Ringo"><label for="Ringo">Ringo</label>
+                <input type="radio" name="beatle" id="Groucho" value="Groucho"><label for="Groucho">Groucho</label>
+                <input type="radio" name="beatle" id="Other" value="Other"><label for="Other">Other <input type="text" name="textentry"></label>
+            </fieldset>
         </form>
     </div>
     <div id="Footer"></div>
-    <script src="https://cdn.socket.io/4.5.0/socket.io.min.js"
-        integrity="sha384-7EyYLQZgWBi67fBtVxw60/OWl1kjsfrPFcaU0pp0nAh+i8FD068QogUvg85Ewy1k" crossorigin="anonymous">
-    </script>
+    <script src="https://cdn.socket.io/4.5.0/socket.io.min.js" integrity="sha384-7EyYLQZgWBi67fBtVxw60/OWl1kjsfrPFcaU0pp0nAh+i8FD068QogUvg85Ewy1k" crossorigin="anonymous"></script>    
     <script src="/dist/bundle.3.0.0.js"></script>
 </body>
-
 </html>

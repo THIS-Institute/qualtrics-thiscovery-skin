@@ -230,6 +230,26 @@ $radio-size: .6em;
             legend {
                 margin-bottom: 1.6em;
             }
+            input:not(:checked) + label {
+                @include thisco-response-label();
+                input {
+                    color:rgb(0 0 0 / 0.3);
+                }
+            }
+            label {
+                display: block;
+                position: relative;
+                @include thisco-response-label();
+
+                > input {
+                    // 'Other' inputs within labels
+                    margin-left: .5em;
+                    @include thisco-input();
+                }
+            }
+            select {
+                @include thisco-select();
+            }
             // basic multiple choice
             input {
                 &[type="radio"] ,&[type="checkbox"] {
@@ -254,24 +274,6 @@ $radio-size: .6em;
                         @include thiscovery-checkbox-checked-addition();
                     }                
                 }
-            }
-            input:not(:checked) + label {
-                @include thisco-response-label();
-                input {
-                    color:rgb(0 0 0 / 0.3);
-                }
-            }
-            label {
-                display: block;
-                position: relative;
-                > input {
-                    // 'Other' inputs within labels
-                    margin-left: .5em;
-                    @include thisco-input();
-                }
-            }
-            select {
-                @include thisco-select();
             }        
         }
     }
