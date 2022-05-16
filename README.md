@@ -26,11 +26,13 @@ You can run tasks separately using package.json scripts:
 
 `npm run watch:scss` - watches all .scss in `/src/css` and creates .css files (skinjob script is set to watch /src)
 
-`npm run skinjob` - run the 'skinjob' server to do live updating of a published survey (if it has this script in its header)
+`npm run skinjob` - run the 'skinjob' server to do live updating of a published survey (if it has this script in its header) __see notes below for setting this up__
 
 ## Build / Deploy
 
-Build in dev.js or run `npm run build` to do scss and postcss (autoprefixer and cssnano), and then use `esbuild` to bundle and minify the js.  When the repo is pushed, AWS copies to S3, which is where survey looks for it.
+Make sure you are set to the right version you want to build by using `npm run dev`.  Then build in using the same script, or if you want to do it 'manually' run `npm run build` to do scss and postcss (autoprefixer and cssnano), and then use `esbuild` to bundle and minify the js.  
+
+When the repo is pushed, AWS automatically copies to the S3 bucket, which is where the Qualtrics survey, the survey manual pages etc look for it.
 
 <hr>
 
@@ -42,8 +44,7 @@ This is the node script to run fast reloading and development of the main skin s
 
 ```npm run skinjob ```
 
-The command currently watches `src/css/skin.css`.
+The command currently watches `src/css/skin.css`. (So when dev rebuilds the SCSS to skin.css, this triggers skinjob)
 
-Then add a `thisco_dev=anything` key-value-pair to localStorage in the browser developer tools (usually under 'Application' or 'Storage') and reload survey. This activates the snippet in the js listening for the websocket.  Browsers will probably need some flags set to allow the comms to happen.  eg. in Firefox, in `about:config` set both `layout.css.constructable-stylesheets.enabled` and `network.websocket.allowInsecureFromHTTPS` to true (though remembers the latter flag needs switching off again at some point for security!).
-
-**NB** The script won't start watching CSS until a websocket connects.
+1. Add a `thisco_dev=anything` key-value-pair to localStorage in the browser developer tools (usually under 'Application' or 'Storage') and reload survey. This activates the snippet in the js listening for the websocket.  
+2. Browsers will probably need some flags set to allow the comms to happen.  eg. in Firefox (recommended), in `about:config` set both `layout.css.constructable-stylesheets.enabled` and `network.websocket.allowInsecureFromHTTPS` to true (though remembers the latter flag needs switching off again at some point for security!).
