@@ -30,6 +30,20 @@ Bliss.$("link[rel='stylesheet']").forEach(el=>{
 
 // markup additions
 
+// horizontal radio group into notched scale (NOT a range input)
+
+const tableChoiceStructure = Bliss("table.ChoiceStructure");
+const testRadio = Bliss("td input[type='radio']");
+if (tableChoiceStructure && testRadio) {
+    Bliss.$("td",tableChoiceStructure).forEach(el=>{
+        const labelActual = Bliss("span.LabelWrapper > label",el);
+        const inputActual = Bliss("input[type='radio']",el);
+        const [notch,notchText] = labelActual.innerText.split(":");
+        labelActual.innerText = notchText;
+        inputActual.dataset.notchNumber = notch;
+    });
+}
+
 // modals
 
 require("../../shared_js/thisco_modals.js")();
