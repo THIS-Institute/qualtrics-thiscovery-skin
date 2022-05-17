@@ -1,0 +1,117 @@
+// A map of breakpoints.
+$breakpoints: (
+  xs: 481px,
+  sm: 768px,
+  md: 980px,
+  lg: 1400px
+);
+
+//
+//  RESPOND ABOVE
+//––––––––––––––––––––––––––––––––––––––––––––––––––
+
+// @include respond-above(sm) {}
+@mixin respond-above($breakpoint) {
+
+    // If the breakpoint exists in the map.
+    @if map-has-key($breakpoints, $breakpoint) {
+  
+      // Get the breakpoint value.
+      $breakpoint-value: map-get($breakpoints, $breakpoint);
+  
+      // Write the media query.
+      @media (min-width: $breakpoint-value) {
+        @content;
+      }
+    
+    // If the breakpoint doesn't exist in the map.
+    } @else {
+  
+      // Log a warning.
+      @warn 'Invalid breakpoint: #{$breakpoint}.';
+    }
+}
+
+.Skin {
+    table.ChoiceStructure {
+        width: 110%;
+        position: relative;
+        left: -5%;
+        td {
+            vertical-align: bottom;
+            span.LabelWrapper {
+                display: flex;
+                align-items: flex-end;
+                justify-content: center;
+                text-align: center;
+                > label {
+                    width: 75%;
+                    display: flex;
+                    align-items: flex-end;
+                    justify-content: center;
+                    color: var(--thisco-red);
+                    font-weight: 400;
+                    font-size: .55em;
+                    @include respond-above(xs) {
+                        font-size: .65em;
+                    }
+                    @include respond-above(sm) {
+                        font-size: .75em;
+                    }
+                }
+            }
+            input[type="radio"] {
+                appearance: none;
+                border: none;
+                display: block;
+                width: 100%;
+                height: 3rem;
+                background-color: transparent;
+                border-radius: 0;
+                box-shadow: none;
+                background-image: radial-gradient(circle at center, var(--thisco-red) 39%, transparent 40%), 
+                                    linear-gradient(var(--thisco-light-grey),var(--thisco-light-grey));
+                background-size: 2.2rem 2.2rem, 100% .3rem;
+                background-repeat: no-repeat;
+                background-position: center;
+                position: relative;
+                transition: all .2s;
+                &:after {
+                    content: attr(data-notch-number);
+                    position: absolute;
+                    left: 50%;
+                    top: calc(50% + 3rem);
+                    transform: translate(-52%,-50%);
+                    color:var(--thisco-red);
+                    line-height: 0;
+                    transition: all .2s;
+                }
+                &:checked {
+                    background-size: 3.9rem 3.9rem, 100% .3rem;
+                    &::after {
+                        color: white;
+                        top: 52%;
+                    }
+                }
+            }
+            &:first-of-type {
+                input[type="radio"] {
+                    background-size: 2.2rem 2.2rem, 50% .3rem;
+                    background-position: center, right center;
+                    &:checked {
+                        background-size: 3.9rem 3.9rem, 50% .3rem;
+                    }
+                }
+            }
+            &:last-of-type {
+                input[type="radio"] {
+                    background-size: 2.2rem 2.2rem, 50% .3rem;
+                    background-position: center, left center;
+                    &:checked {
+                        background-size: 3.9rem 3.9rem, 50% .3rem;
+                    }
+                }
+            }
+        }
+    }
+}
