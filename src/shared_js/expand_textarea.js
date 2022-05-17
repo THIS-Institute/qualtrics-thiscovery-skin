@@ -9,7 +9,8 @@ module.exports = function(){
             "height" : `${ta.scrollHeight}px`
         });
     },500);
-    Bliss.$('.thisco-survey textarea').forEach(el=>{
+    Bliss.$('.Skin textarea, .thisco-survey textarea').forEach(el=>{
+        console.debug(`Auto-expand on textarea :`,el);
         el.addEventListener('keyup',expand);
     });
 }
