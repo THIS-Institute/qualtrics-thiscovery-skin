@@ -356,6 +356,7 @@ body {
     }
 
     iframe, embed {
+        min-height: 10vw;
         aspect-ratio: 16 / 9;
         height: auto !important; // embeds likely to have a height attribure
         padding-left: 2rem;

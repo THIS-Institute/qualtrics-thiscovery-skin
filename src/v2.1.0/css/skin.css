@@ -837,6 +837,7 @@ body {
   transform: translateX(-50%);
 }
 .thisco-survey iframe, .thisco-survey embed {
+  min-height: 10vw;
   aspect-ratio: 16/9;
   height: auto !important;
   padding-left: 2rem;
@@ -1283,109 +1284,6 @@ Qualtrics codes:
 .Skin .QuestionText > *:last-child, .Skin .QuestionBody > *:last-child {
   margin-bottom: 0;
 }
-.Skin .ChoiceStructure {
-  padding-left: 1rem;
-  padding-right: 1rem;
-}
-.Skin .ChoiceStructure li {
-  min-height: 2.6rem;
-  border-radius: 15px;
-  background-color: rgba(0, 0, 0, 0.01);
-  background-image: linear-gradient(45deg, transparent, rgba(0, 0, 0, 0.005));
-  padding: 0.4rem 0.8rem;
-  margin-bottom: 1.2em;
-  display: flex;
-  transition: box-shadow 0.2s;
-}
-.Skin .ChoiceStructure li:hover {
-  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
-}
-.Skin .ChoiceStructure li input[type=radio], .Skin .ChoiceStructure li input[type=checkbox] {
-  width: 4px;
-  height: 4px;
-  opacity: 0;
-  position: absolute;
-}
-.Skin .ChoiceStructure li input[type=radio] + label, .Skin .ChoiceStructure li input[type=checkbox] + label {
-  display: none;
-}
-.Skin .ChoiceStructure li .LabelWrapper {
-  margin-left: 1rem;
-}
-.Skin .ChoiceStructure li .LabelWrapper label.MultipleAnswer, .Skin .ChoiceStructure li .LabelWrapper label.SingleAnswer {
-  padding: 5px;
-}
-.Skin .ChoiceStructure li .LabelWrapper label.MultipleAnswer > span, .Skin .ChoiceStructure li .LabelWrapper label.SingleAnswer > span {
-  position: relative;
-}
-.Skin .ChoiceStructure li .LabelWrapper label.MultipleAnswer > span:focus-visible, .Skin .ChoiceStructure li .LabelWrapper label.SingleAnswer > span:focus-visible {
-  outline: none;
-}
-.Skin .ChoiceStructure li .LabelWrapper label.MultipleAnswer > span:focus-visible::before, .Skin .ChoiceStructure li .LabelWrapper label.SingleAnswer > span:focus-visible::before {
-  transform: scale(1.1);
-}
-.Skin .ChoiceStructure li .LabelWrapper label.MultipleAnswer > span:active::before, .Skin .ChoiceStructure li .LabelWrapper label.SingleAnswer > span:active::before {
-  transform: scale(0.9);
-}
-.Skin .ChoiceStructure li .LabelWrapper label.MultipleAnswer > span::before, .Skin .ChoiceStructure li .LabelWrapper label.SingleAnswer > span::before {
-  border-radius: 50%;
-  width: 0.6em;
-  height: 0.6em;
-  background-image: radial-gradient(circle at center, var(--thisco-red) 0%, var(--thisco-red) 50%, transparent 50%);
-  background-position: center;
-  background-size: 0% 0%;
-  background-repeat: no-repeat;
-  border: 0.18em solid white;
-  box-shadow: 0px 0px 0px 0.12em var(--thisco-red);
-  display: block;
-  transition: all 0.15s ease-out;
-  box-sizing: content-box;
-  content: " ";
-  position: absolute;
-  left: 0.42em;
-  top: 0.6em;
-  margin-top: 0;
-  top: 0px;
-  left: -1.44em;
-}
-.Skin .ChoiceStructure li .LabelWrapper label.MultipleAnswer.q-checked > span::before, .Skin .ChoiceStructure li .LabelWrapper label.MultipleAnswer.q-checked.q-focused > span::before, .Skin .ChoiceStructure li .LabelWrapper label.SingleAnswer.q-checked > span::before, .Skin .ChoiceStructure li .LabelWrapper label.SingleAnswer.q-checked.q-focused > span::before {
-  animation: none;
-  box-shadow: none;
-  border-radius: 50%;
-  width: 0.6em;
-  height: 0.6em;
-  background-image: radial-gradient(circle at center, var(--thisco-red) 0%, var(--thisco-red) 50%, transparent 50%);
-  background-position: center;
-  background-size: 0% 0%;
-  background-repeat: no-repeat;
-  border: 0.18em solid white;
-  box-shadow: 0px 0px 0px 0.12em var(--thisco-red);
-  display: block;
-  transition: all 0.15s ease-out;
-  box-sizing: content-box;
-  content: " ";
-  position: absolute;
-  left: 0.42em;
-  top: 0.6em;
-  margin-top: 0;
-  background-color: transparent;
-  background-size: 200% 200%;
-  top: 0px;
-  left: -1.44em;
-}
-.Skin .ChoiceStructure li .LabelWrapper label.MultipleAnswer > span::before {
-  border-radius: 0px;
-}
-.Skin .ChoiceStructure li .LabelWrapper label.MultipleAnswer.q-checked > span::before, .Skin .ChoiceStructure li .LabelWrapper label.MultipleAnswer.q-checked.q-focused > span::before {
-  border-radius: 0px;
-  background-color: var(--thisco-red);
-  background-image: url("data:image/svg+xml,%3Csvg width='100%25' height='100%25' viewBox='0 0 24 20' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xml:space='preserve' xmlns:serif='http://www.serif.com/' style='fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;'%3E%3Cpath id='check' d='M23.051,2.843l-14.151,15.977c-0.19,0.214 -0.463,0.337 -0.749,0.337c-0.275,0 -0.538,-0.113 -0.727,-0.313l-7.152,-7.573c-0.341,-0.361 -0.364,-0.924 -0.054,-1.311l0.952,-1.19c0.293,-0.367 0.808,-0.48 1.228,-0.27l5.277,2.639l12.797,-10.902c0.395,-0.336 0.989,-0.312 1.356,0.055l1.181,1.181c0.372,0.372 0.39,0.977 0.042,1.37Z' style='fill:%23fff;fill-rule:nonzero;'/%3E%3C/svg%3E");
-  background-size: 110%;
-  border-color: transparent;
-}
-.Skin .ChoiceStructure li input:not(:checked) ~ span input {
-  color: rgba(0, 0, 0, 0.3);
-}
 .Skin input {
   border-radius: 5px;
   border: 1px solid var(--thisco-light-grey);
@@ -1417,6 +1315,132 @@ Qualtrics codes:
   background-position: right center;
   background-size: 1.4em;
 }
+.Skin textarea {
+  border-radius: 5px;
+  border: 1px solid var(--thisco-light-grey);
+  box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.05);
+  font-weight: 400;
+  padding-left: 0.2em;
+  padding-right: 0.2em;
+  width: 90%;
+  resize: none;
+  min-height: 4.8rem;
+}
+.Skin textarea:focus-visible {
+  border-color: var(--thisco-red);
+  box-shadow: 0px 0px 0px 1px var(--thisco-red);
+  outline: none;
+}
+.Skin textarea::placeholder {
+  font-weight: 100;
+  color: rgba(0, 0, 0, 0.5);
+}
+.Skin ul.ChoiceStructure {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.Skin ul.ChoiceStructure li {
+  min-height: 2.6rem;
+  border-radius: 15px;
+  background-color: rgba(0, 0, 0, 0.01);
+  background-image: linear-gradient(45deg, transparent, rgba(0, 0, 0, 0.005));
+  padding: 0.4rem 0.8rem;
+  margin-bottom: 1.2em;
+  display: flex;
+  transition: box-shadow 0.2s;
+}
+.Skin ul.ChoiceStructure li:hover {
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+}
+.Skin ul.ChoiceStructure li input[type=radio], .Skin ul.ChoiceStructure li input[type=checkbox] {
+  width: 4px;
+  height: 4px;
+  opacity: 0;
+  position: absolute;
+}
+.Skin ul.ChoiceStructure li input[type=radio] + label, .Skin ul.ChoiceStructure li input[type=checkbox] + label {
+  display: none;
+}
+.Skin ul.ChoiceStructure li .LabelWrapper {
+  margin-left: 1rem;
+}
+.Skin ul.ChoiceStructure li .LabelWrapper label.MultipleAnswer, .Skin ul.ChoiceStructure li .LabelWrapper label.SingleAnswer {
+  padding: 5px;
+}
+.Skin ul.ChoiceStructure li .LabelWrapper label.MultipleAnswer > span, .Skin ul.ChoiceStructure li .LabelWrapper label.SingleAnswer > span {
+  position: relative;
+}
+.Skin ul.ChoiceStructure li .LabelWrapper label.MultipleAnswer > span:focus-visible, .Skin ul.ChoiceStructure li .LabelWrapper label.SingleAnswer > span:focus-visible {
+  outline: none;
+}
+.Skin ul.ChoiceStructure li .LabelWrapper label.MultipleAnswer > span:focus-visible::before, .Skin ul.ChoiceStructure li .LabelWrapper label.SingleAnswer > span:focus-visible::before {
+  transform: scale(1.1);
+}
+.Skin ul.ChoiceStructure li .LabelWrapper label.MultipleAnswer > span:active::before, .Skin ul.ChoiceStructure li .LabelWrapper label.SingleAnswer > span:active::before {
+  transform: scale(0.9);
+}
+.Skin ul.ChoiceStructure li .LabelWrapper label.MultipleAnswer > span::before, .Skin ul.ChoiceStructure li .LabelWrapper label.SingleAnswer > span::before {
+  border-radius: 50%;
+  width: 0.6em;
+  height: 0.6em;
+  background-image: radial-gradient(circle at center, var(--thisco-red) 0%, var(--thisco-red) 50%, transparent 50%);
+  background-position: center;
+  background-size: 0% 0%;
+  background-repeat: no-repeat;
+  border: 0.18em solid white;
+  box-shadow: 0px 0px 0px 0.12em var(--thisco-red);
+  display: block;
+  transition: all 0.15s ease-out;
+  box-sizing: content-box;
+  content: " ";
+  position: absolute;
+  left: 0.42em;
+  top: 0.6em;
+  margin-top: 0;
+  top: 0px;
+  left: -1.44em;
+}
+.Skin ul.ChoiceStructure li .LabelWrapper label.MultipleAnswer.q-checked > span::before, .Skin ul.ChoiceStructure li .LabelWrapper label.MultipleAnswer.q-checked.q-focused > span::before, .Skin ul.ChoiceStructure li .LabelWrapper label.SingleAnswer.q-checked > span::before, .Skin ul.ChoiceStructure li .LabelWrapper label.SingleAnswer.q-checked.q-focused > span::before {
+  animation: none;
+  box-shadow: none;
+  border-radius: 50%;
+  width: 0.6em;
+  height: 0.6em;
+  background-image: radial-gradient(circle at center, var(--thisco-red) 0%, var(--thisco-red) 50%, transparent 50%);
+  background-position: center;
+  background-size: 0% 0%;
+  background-repeat: no-repeat;
+  border: 0.18em solid white;
+  box-shadow: 0px 0px 0px 0.12em var(--thisco-red);
+  display: block;
+  transition: all 0.15s ease-out;
+  box-sizing: content-box;
+  content: " ";
+  position: absolute;
+  left: 0.42em;
+  top: 0.6em;
+  margin-top: 0;
+  background-color: transparent;
+  background-size: 200% 200%;
+  top: 0px;
+  left: -1.44em;
+}
+.Skin ul.ChoiceStructure li .LabelWrapper label.MultipleAnswer > span::before {
+  border-radius: 0px;
+}
+.Skin ul.ChoiceStructure li .LabelWrapper label.MultipleAnswer.q-checked > span::before, .Skin ul.ChoiceStructure li .LabelWrapper label.MultipleAnswer.q-checked.q-focused > span::before {
+  border-radius: 0px;
+  background-color: var(--thisco-red);
+  background-image: url("data:image/svg+xml,%3Csvg width='100%25' height='100%25' viewBox='0 0 24 20' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xml:space='preserve' xmlns:serif='http://www.serif.com/' style='fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;'%3E%3Cpath id='check' d='M23.051,2.843l-14.151,15.977c-0.19,0.214 -0.463,0.337 -0.749,0.337c-0.275,0 -0.538,-0.113 -0.727,-0.313l-7.152,-7.573c-0.341,-0.361 -0.364,-0.924 -0.054,-1.311l0.952,-1.19c0.293,-0.367 0.808,-0.48 1.228,-0.27l5.277,2.639l12.797,-10.902c0.395,-0.336 0.989,-0.312 1.356,0.055l1.181,1.181c0.372,0.372 0.39,0.977 0.042,1.37Z' style='fill:%23fff;fill-rule:nonzero;'/%3E%3C/svg%3E");
+  background-size: 110%;
+  border-color: transparent;
+}
+.Skin ul.ChoiceStructure li input:not(:checked) ~ span input {
+  color: rgba(0, 0, 0, 0.3);
+}
+.Skin div.ChoiceStructure input[type=text] {
+  width: 90%;
+}
 
 .thisco-survey {
   font-size: 16px;
@@ -1429,6 +1453,77 @@ Qualtrics codes:
 }
 .thisco-survey form fieldset legend {
   margin-bottom: 1.6em;
+}
+.thisco-survey form fieldset input:not(:checked) + label {
+  min-height: 2.6rem;
+  border-radius: 15px;
+  background-color: rgba(0, 0, 0, 0.01);
+  background-image: linear-gradient(45deg, transparent, rgba(0, 0, 0, 0.005) 80%);
+  padding: 0.4rem 0.8rem;
+}
+.thisco-survey form fieldset input:not(:checked) + label input {
+  color: rgba(0, 0, 0, 0.3);
+}
+.thisco-survey form fieldset label {
+  display: block;
+  position: relative;
+  min-height: 2.6rem;
+  border-radius: 15px;
+  background-color: rgba(0, 0, 0, 0.01);
+  background-image: linear-gradient(45deg, transparent, rgba(0, 0, 0, 0.005) 80%);
+  padding: 0.4rem 0.8rem;
+}
+.thisco-survey form fieldset label > input {
+  margin-left: 0.5em;
+  border-radius: 5px;
+  border: 1px solid var(--thisco-light-grey);
+  box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.05);
+  font-weight: 400;
+  padding-left: 0.2em;
+  padding-right: 0.2em;
+}
+.thisco-survey form fieldset label > input:focus-visible {
+  border-color: var(--thisco-red);
+  box-shadow: 0px 0px 0px 1px var(--thisco-red);
+  outline: none;
+}
+.thisco-survey form fieldset label > input::placeholder {
+  font-weight: 100;
+  color: rgba(0, 0, 0, 0.5);
+}
+.thisco-survey form fieldset select {
+  background: white;
+  border: 1px solid var(--thisco-light-grey);
+  border-radius: 5px;
+  font-size: 1em;
+  padding: 0.2em 0.3em;
+  min-width: 70%;
+  appearance: none;
+  padding-right: 2em;
+  background-image: url("data:image/svg+xml,%3Csvg width='100%25' height='100%25' viewBox='0 0 800 600' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xml:space='preserve' xmlns:serif='http://www.serif.com/' style='fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;'%3E%3Cg transform='matrix(1,6.12323e-17,-6.12323e-17,-0.5,2.06668e-14,475)'%3E%3Cpath d='M194.797,459.594L374.797,99.594C383.193,82.802 396.807,82.802 405.203,99.594L585.203,459.594C593.593,476.376 593.593,503.624 585.203,520.406C576.812,537.187 563.188,537.187 554.797,520.406C554.797,520.406 433.405,277.622 390,190.811C390,190.811 225.203,520.406 225.203,520.406C216.812,537.187 203.188,537.187 194.797,520.406C186.407,503.624 186.407,476.376 194.797,459.594Z'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: 1.4em;
+}
+.thisco-survey form fieldset textarea {
+  border-radius: 5px;
+  border: 1px solid var(--thisco-light-grey);
+  box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.05);
+  font-weight: 400;
+  padding-left: 0.2em;
+  padding-right: 0.2em;
+  width: 90%;
+  resize: none;
+  min-height: 4.8rem;
+}
+.thisco-survey form fieldset textarea:focus-visible {
+  border-color: var(--thisco-red);
+  box-shadow: 0px 0px 0px 1px var(--thisco-red);
+  outline: none;
+}
+.thisco-survey form fieldset textarea::placeholder {
+  font-weight: 100;
+  color: rgba(0, 0, 0, 0.5);
 }
 .thisco-survey form fieldset input[type=radio], .thisco-survey form fieldset input[type=checkbox] {
   opacity: 0;
@@ -1469,52 +1564,6 @@ Qualtrics codes:
   background-image: url("data:image/svg+xml,%3Csvg width='100%25' height='100%25' viewBox='0 0 24 20' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xml:space='preserve' xmlns:serif='http://www.serif.com/' style='fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;'%3E%3Cpath id='check' d='M23.051,2.843l-14.151,15.977c-0.19,0.214 -0.463,0.337 -0.749,0.337c-0.275,0 -0.538,-0.113 -0.727,-0.313l-7.152,-7.573c-0.341,-0.361 -0.364,-0.924 -0.054,-1.311l0.952,-1.19c0.293,-0.367 0.808,-0.48 1.228,-0.27l5.277,2.639l12.797,-10.902c0.395,-0.336 0.989,-0.312 1.356,0.055l1.181,1.181c0.372,0.372 0.39,0.977 0.042,1.37Z' style='fill:%23fff;fill-rule:nonzero;'/%3E%3C/svg%3E");
   background-size: 110%;
   border-color: transparent;
-}
-.thisco-survey form fieldset input:not(:checked) + label {
-  min-height: 2.6rem;
-  border-radius: 15px;
-  background-color: rgba(0, 0, 0, 0.01);
-  background-image: linear-gradient(45deg, transparent, rgba(0, 0, 0, 0.005) 80%);
-  padding: 0.4rem 0.8rem;
-}
-.thisco-survey form fieldset input:not(:checked) + label input {
-  color: rgba(0, 0, 0, 0.3);
-}
-.thisco-survey form fieldset label {
-  display: block;
-  position: relative;
-}
-.thisco-survey form fieldset label > input {
-  margin-left: 0.5em;
-  border-radius: 5px;
-  border: 1px solid var(--thisco-light-grey);
-  box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.05);
-  font-weight: 400;
-  padding-left: 0.2em;
-  padding-right: 0.2em;
-}
-.thisco-survey form fieldset label > input:focus-visible {
-  border-color: var(--thisco-red);
-  box-shadow: 0px 0px 0px 1px var(--thisco-red);
-  outline: none;
-}
-.thisco-survey form fieldset label > input::placeholder {
-  font-weight: 100;
-  color: rgba(0, 0, 0, 0.5);
-}
-.thisco-survey form fieldset select {
-  background: white;
-  border: 1px solid var(--thisco-light-grey);
-  border-radius: 5px;
-  font-size: 1em;
-  padding: 0.2em 0.3em;
-  min-width: 70%;
-  appearance: none;
-  padding-right: 2em;
-  background-image: url("data:image/svg+xml,%3Csvg width='100%25' height='100%25' viewBox='0 0 800 600' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xml:space='preserve' xmlns:serif='http://www.serif.com/' style='fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;'%3E%3Cg transform='matrix(1,6.12323e-17,-6.12323e-17,-0.5,2.06668e-14,475)'%3E%3Cpath d='M194.797,459.594L374.797,99.594C383.193,82.802 396.807,82.802 405.203,99.594L585.203,459.594C593.593,476.376 593.593,503.624 585.203,520.406C576.812,537.187 563.188,537.187 554.797,520.406C554.797,520.406 433.405,277.622 390,190.811C390,190.811 225.203,520.406 225.203,520.406C216.812,537.187 203.188,537.187 194.797,520.406C186.407,503.624 186.407,476.376 194.797,459.594Z'/%3E%3C/g%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right center;
-  background-size: 1.4em;
 }
 
 /* define official THIS colours */

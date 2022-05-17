@@ -38,6 +38,10 @@ require("../../shared_js/thisco_modals.js")();
 
 require("../../shared_js/link_buttons.js")();
 
+// textareas
+
+require("../../shared_js/expand_textarea.js")();
+
 // header
 
 const header = document.getElementById("Header");

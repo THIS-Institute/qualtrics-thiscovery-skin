@@ -67,6 +67,13 @@ Qualtrics codes:
     }
 }
 
+@mixin thisco-textarea () {
+    @include thisco-input();
+    width: 90%;
+    resize: none;
+    min-height: 4.8rem;
+}
+
 @mixin thisco-select() {
     background: white;
     border: 1px solid var(--thisco-light-grey);
@@ -79,7 +86,7 @@ Qualtrics codes:
     background-image: url("data:image/svg+xml,%3Csvg width='100%25' height='100%25' viewBox='0 0 800 600' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xml:space='preserve' xmlns:serif='http://www.serif.com/' style='fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;'%3E%3Cg transform='matrix(1,6.12323e-17,-6.12323e-17,-0.5,2.06668e-14,475)'%3E%3Cpath d='M194.797,459.594L374.797,99.594C383.193,82.802 396.807,82.802 405.203,99.594L585.203,459.594C593.593,476.376 593.593,503.624 585.203,520.406C576.812,537.187 563.188,537.187 554.797,520.406C554.797,520.406 433.405,277.622 390,190.811C390,190.811 225.203,520.406 225.203,520.406C216.812,537.187 203.188,537.187 194.797,520.406C186.407,503.624 186.407,476.376 194.797,459.594Z'/%3E%3C/g%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: right center;
-    background-size: 1.4em;    
+    background-size: 1.4em;  
 }
 
 $min-response-height: 2.6rem;
@@ -119,7 +126,19 @@ $radio-size: .6em;
         // margin-bottom: 1.6em;
     }
 
-    .ChoiceStructure {
+    input {
+        @include thisco-input();
+    }
+
+    select {
+        @include thisco-select();
+    }
+
+    textarea {
+        @include thisco-textarea();
+    }
+
+    ul.ChoiceStructure {
         padding-left: 1rem;
         padding-right: 1rem;
         li {
@@ -209,12 +228,10 @@ $radio-size: .6em;
         }
     }
 
-    input {
-        @include thisco-input();
-    }
-
-    select {
-        @include thisco-select();
+    div.ChoiceStructure {
+        input[type="text"] {
+            width: 90%;
+        }
     }
 
 }
@@ -249,6 +266,9 @@ $radio-size: .6em;
             }
             select {
                 @include thisco-select();
+            }
+            textarea {
+                @include thisco-textarea();
             }
             // basic multiple choice
             input {

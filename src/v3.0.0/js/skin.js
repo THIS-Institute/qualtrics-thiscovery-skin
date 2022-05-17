@@ -31,8 +31,15 @@ $$(`input[type="radio"] + label > input, input[type="checkbox"] + label > input`
 
 // modals
 
+console.debug('thisco modals');
 require("../../shared_js/thisco_modals.js")();
 
 // link buttons
 
+console.debug('link buttons');
 require("../../shared_js/link_buttons.js")();
+
+// textareas
+
+console.debug('expanding textareas');
+require("../../shared_js/expand_textarea.js")();
