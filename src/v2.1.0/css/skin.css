@@ -865,6 +865,7 @@ body {
   overflow: hidden;
   padding: 5px;
   width: 100%;
+  margin-top: 7rem;
 }
 @media (min-width: 481px) {
   .Skin #Buttons {
@@ -1660,6 +1661,87 @@ dialog {
 .dialog-content {
   animation: fade-in 300ms 150ms both, slide-up 300ms 150ms both;
   /* 1 */
+}
+
+.Skin table.ChoiceStructure {
+  width: 110%;
+  position: relative;
+  left: -5%;
+}
+.Skin table.ChoiceStructure td {
+  vertical-align: bottom;
+}
+.Skin table.ChoiceStructure td span.LabelWrapper {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  text-align: center;
+}
+.Skin table.ChoiceStructure td span.LabelWrapper > label {
+  width: 75%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  color: var(--thisco-red);
+  font-weight: 400;
+  font-size: 0.55em;
+}
+@media (min-width: 481px) {
+  .Skin table.ChoiceStructure td span.LabelWrapper > label {
+    font-size: 0.65em;
+  }
+}
+@media (min-width: 768px) {
+  .Skin table.ChoiceStructure td span.LabelWrapper > label {
+    font-size: 0.75em;
+  }
+}
+.Skin table.ChoiceStructure td input[type=radio] {
+  appearance: none;
+  border: none;
+  display: block;
+  width: auto;
+  height: 3rem;
+  background-color: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  background-image: radial-gradient(circle at center, var(--thisco-red) 39%, transparent 40%), linear-gradient(var(--thisco-light-grey), var(--thisco-light-grey));
+  background-size: 2.2rem 2.2rem, 100% 0.3rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+  transition: all 0.2s;
+}
+.Skin table.ChoiceStructure td input[type=radio]:after {
+  content: attr(data-notch-number);
+  position: absolute;
+  left: 50%;
+  top: calc(50% + 3rem);
+  transform: translate(-52%, -50%);
+  color: var(--thisco-red);
+  line-height: 0;
+  transition: all 0.2s;
+}
+.Skin table.ChoiceStructure td input[type=radio]:checked {
+  background-size: 3.9rem 3.9rem, 100% 0.3rem;
+}
+.Skin table.ChoiceStructure td input[type=radio]:checked::after {
+  color: white;
+  top: 52%;
+}
+.Skin table.ChoiceStructure td:first-of-type input[type=radio] {
+  background-size: 2.2rem 2.2rem, 50% 0.3rem;
+  background-position: center, right center;
+}
+.Skin table.ChoiceStructure td:first-of-type input[type=radio]:checked {
+  background-size: 3.9rem 3.9rem, 50% 0.3rem;
+}
+.Skin table.ChoiceStructure td:last-of-type input[type=radio] {
+  background-size: 2.2rem 2.2rem, 50% 0.3rem;
+  background-position: center, left center;
+}
+.Skin table.ChoiceStructure td:last-of-type input[type=radio]:checked {
+  background-size: 3.9rem 3.9rem, 50% 0.3rem;
 }
 
 /*# sourceMappingURL=skin.css.map */
