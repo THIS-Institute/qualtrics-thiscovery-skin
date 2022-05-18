@@ -49,14 +49,17 @@ $breakpoints: (
                     display: flex;
                     align-items: flex-end;
                     justify-content: center;
-                    color: var(--thisco-red);
+                    color: var(--thisco-dark-grey);
                     font-weight: 400;
-                    font-size: .55em;
+                    font-size: .65em;
                     @include respond-above(xs) {
-                        font-size: .65em;
+                        font-size: .7em;
                     }
                     @include respond-above(sm) {
                         font-size: .75em;
+                    }
+                    &.q-checked {
+                        color: var(--thisco-red);
                     }
                 }
             }
@@ -69,9 +72,12 @@ $breakpoints: (
                 background-color: transparent;
                 border-radius: 0;
                 box-shadow: none;
-                background-image: radial-gradient(circle at center, var(--thisco-red) 39%, transparent 40%), 
+                background-image: radial-gradient(circle at center, var(--thisco-light-grey) 39%, transparent 40%), 
                                     linear-gradient(var(--thisco-light-grey),var(--thisco-light-grey));
-                background-size: 2.2rem 2.2rem, 100% .3rem;
+                background-size: 1.7rem 1.7rem, 100% .3rem;
+                @include respond-above(xs) {
+                    background-size: 2.2rem 2.2rem, 100% .3rem;
+                }
                 background-repeat: no-repeat;
                 background-position: center;
                 position: relative;
@@ -82,34 +88,42 @@ $breakpoints: (
                     left: 50%;
                     top: calc(50% + 3rem);
                     transform: translate(-52%,-50%);
-                    color:var(--thisco-red);
+                    color:var(--thisco-dark-grey);
                     line-height: 0;
                     transition: all .2s;
                 }
+                &:indeterminate {
+                    background-image: radial-gradient(circle at center, var(--thisco-red) 39%, transparent 40%), 
+                    linear-gradient(var(--thisco-light-grey),var(--thisco-light-grey));
+                    &:after {
+                        color: var(--thisco-red);
+                    }
+                }
                 &:checked {
                     background-size: 3.9rem 3.9rem, 100% .3rem;
+                    background-image: radial-gradient(circle at center, var(--thisco-red) 39%, transparent 40%), 
+                    linear-gradient(var(--thisco-light-grey),var(--thisco-light-grey));
                     &::after {
                         color: white;
                         top: 52%;
                     }
                 }
             }
-            &:first-of-type {
+            &:first-of-type, &:last-of-type {
                 input[type="radio"] {
-                    background-size: 2.2rem 2.2rem, 50% .3rem;
-                    background-position: center, right center;
+                    background-size: 1.7rem 1.7rem, 50% .3rem;
+                    @include respond-above(xs) {
+                        background-size: 2.2rem 2.2rem, 50% .3rem;
+                    }
                     &:checked {
                         background-size: 3.9rem 3.9rem, 50% .3rem;
                     }
+                    background-position: center, right center;
                 }
             }
             &:last-of-type {
                 input[type="radio"] {
-                    background-size: 2.2rem 2.2rem, 50% .3rem;
                     background-position: center, left center;
-                    &:checked {
-                        background-size: 3.9rem 3.9rem, 50% .3rem;
-                    }
                 }
             }
         }
