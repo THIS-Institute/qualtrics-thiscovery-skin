@@ -1842,6 +1842,7 @@ dialog {
   display: flex;
   text-align: center;
   align-items: flex-end;
+  justify-content: center;
   color: var(--thisco-dark-grey);
   font-weight: 400;
   font-size: 0.65em;

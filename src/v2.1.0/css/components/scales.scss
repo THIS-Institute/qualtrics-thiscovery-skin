@@ -161,6 +161,7 @@ $breakpoints: (
                 display:flex;
                 text-align: center;
                 align-items: flex-end;
+                justify-content: center;
                 @include thisco-scale-label();
             }
 
