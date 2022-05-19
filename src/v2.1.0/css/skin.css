@@ -898,12 +898,16 @@ body {
   font-weight: 400;
   color: white;
   cursor: pointer;
+  box-shadow: none;
 }
 .Skin #Buttons #NextButton:hover, .Skin #Buttons #NextButton:active, .Skin #Buttons #NextButton:focus, .Skin #Buttons #PreviousButton:hover, .Skin #Buttons #PreviousButton:active, .Skin #Buttons #PreviousButton:focus {
   transform: scale(1.03);
   background-color: transparent;
   color: var(--thisco-red);
   border-color: var(--thisco-red);
+}
+.Skin #Buttons #NextButton:active, .Skin #Buttons #PreviousButton:active {
+  transform: scale(0.9);
 }
 @media (min-width: 481px) {
   .Skin #Buttons #NextButton, .Skin #Buttons #PreviousButton {
@@ -913,14 +917,31 @@ body {
   }
 }
 .Skin #Buttons #PreviousButton {
-  border-color: var(--thisco-dark-grey);
-  color: var(--thisco-dark-grey);
-  background: white;
+  border-radius: 999px;
+  transition: all 0.2s ease-in;
+  background-color: var(--thisco-dark-grey);
+  padding: 1em 3em;
+  line-height: 1;
+  border: 2px solid var(--thisco-dark-grey);
+  font-weight: 400;
+  color: white;
+  cursor: pointer;
+  box-shadow: none;
+  grid-row-start: 2;
 }
 .Skin #Buttons #PreviousButton:hover, .Skin #Buttons #PreviousButton:active, .Skin #Buttons #PreviousButton:focus {
-  background-color: var(--thisco-dark-grey);
-  color: white;
-  border-color: transparent;
+  transform: scale(1.03);
+  background-color: transparent;
+  color: var(--thisco-dark-grey);
+  border-color: var(--thisco-dark-grey);
+}
+.Skin #Buttons #PreviousButton:active {
+  transform: scale(0.9);
+}
+@media (min-width: 481px) {
+  .Skin #Buttons #PreviousButton {
+    grid-row-start: 1;
+  }
 }
 .Skin .btn.thisco-btn {
   border-radius: 999px;
@@ -932,12 +953,16 @@ body {
   font-weight: 400;
   color: white;
   cursor: pointer;
+  box-shadow: none;
 }
 .Skin .btn.thisco-btn:hover, .Skin .btn.thisco-btn:active, .Skin .btn.thisco-btn:focus {
   transform: scale(1.03);
   background-color: transparent;
   color: var(--thisco-red);
   border-color: var(--thisco-red);
+}
+.Skin .btn.thisco-btn:active {
+  transform: scale(0.9);
 }
 .Skin .btn.thisco-btn-inverse {
   border-color: var(--thisco-dark-grey);
@@ -978,6 +1003,7 @@ body {
   font-weight: 400;
   color: white;
   cursor: pointer;
+  box-shadow: none;
   padding: 3px 5px;
   font-size: 0.8em;
   display: flex;
@@ -989,6 +1015,9 @@ body {
   background-color: transparent;
   color: var(--thisco-red);
   border-color: var(--thisco-red);
+}
+.close-dialog-button:active {
+  transform: scale(0.9);
 }
 .close-dialog-button:hover, .close-dialog-button:active, .close-dialog-button:focus {
   transform: scale(1.1);
@@ -1739,6 +1768,11 @@ dialog {
 .Skin table.ChoiceStructure td input[type=radio]:checked {
   background-size: 3.9rem 3.9rem, 100% 0.3rem;
   background-image: radial-gradient(circle at center, var(--thisco-red) 39%, transparent 40%), linear-gradient(var(--thisco-light-grey), var(--thisco-light-grey));
+}
+@media (min-width: 980px) {
+  .Skin table.ChoiceStructure td input[type=radio]:checked {
+    background-size: 4.2rem 4.2rem, 100% 0.3rem;
+  }
 }
 .Skin table.ChoiceStructure td input[type=radio]:checked::after {
   color: white;

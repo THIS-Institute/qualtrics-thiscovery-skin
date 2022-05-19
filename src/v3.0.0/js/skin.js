@@ -43,3 +43,43 @@ require("../../shared_js/link_buttons.js")();
 
 console.debug('expanding textareas');
 require("../../shared_js/expand_textarea.js")();
+
+// custom likert scale
+
+const likertScale = $$("fieldset.likert-scale");
+if (likertScale.length) {
+    likertScale.forEach(el=>{
+        el.classList.add(`likert-width-${$$("input[type='radio']").length}`);
+        // cycle and modify labels and inputs
+        $$("label",el).forEach((label,i)=>{
+            const radio = $(`input[type='radio'][id='${label.getAttribute('for')}']`);
+            if (!radio) {
+                console.warn('likertScale called on incorrect markup');
+                return;
+            }
+            const current = label.innerText;
+            let [notch,notchLabel] = current.split(":");
+            notch = notch || (i+1).toString();
+            notchLabel = notchLabel || ""; // in case undefined
+            label.innerHTML = "";
+            label._.set({
+                className : 'likert-label',
+                contents : [{
+                    tag: "span",
+                    className : "sr-only",
+                    contents : current
+                },{
+                    tag: "span",
+                    className : "sr-hidden",
+                    "aria-hidden" : true,
+                    contents : notchLabel
+                }]
+            });
+            radio._.set({
+                "data-notch-number" : notch,
+                className : "likert-input"
+            });
+        });
+
+    });
+}

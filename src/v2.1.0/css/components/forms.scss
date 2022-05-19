@@ -253,7 +253,7 @@ $radio-size: .6em;
                     color:rgb(0 0 0 / 0.3);
                 }
             }
-            label {
+            label:not(.likert-label) {
                 display: block;
                 position: relative;
                 @include thisco-response-label();
@@ -272,7 +272,7 @@ $radio-size: .6em;
             }
             // basic multiple choice
             input {
-                &[type="radio"] ,&[type="checkbox"] {
+                &[type="radio"]:not(.likert-input) ,&[type="checkbox"] {
                     opacity: 0;
                     width: 1px;
                     height: 1px;

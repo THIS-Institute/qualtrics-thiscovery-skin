@@ -844,6 +844,19 @@ body {
   padding-right: 2rem;
 }
 
+/* misc utils */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
 /* define official THIS colours */
 :root {
   --thisco-dark-grey: rgb(58 60 66 / 1);
@@ -865,6 +878,7 @@ body {
   overflow: hidden;
   padding: 5px;
   width: 100%;
+  margin-top: 7rem;
 }
 @media (min-width: 481px) {
   .Skin #Buttons {
@@ -897,12 +911,16 @@ body {
   font-weight: 400;
   color: white;
   cursor: pointer;
+  box-shadow: none;
 }
 .Skin #Buttons #NextButton:hover, .Skin #Buttons #NextButton:active, .Skin #Buttons #NextButton:focus, .Skin #Buttons #PreviousButton:hover, .Skin #Buttons #PreviousButton:active, .Skin #Buttons #PreviousButton:focus {
   transform: scale(1.03);
   background-color: transparent;
   color: var(--thisco-red);
   border-color: var(--thisco-red);
+}
+.Skin #Buttons #NextButton:active, .Skin #Buttons #PreviousButton:active {
+  transform: scale(0.9);
 }
 @media (min-width: 481px) {
   .Skin #Buttons #NextButton, .Skin #Buttons #PreviousButton {
@@ -912,14 +930,31 @@ body {
   }
 }
 .Skin #Buttons #PreviousButton {
-  border-color: var(--thisco-dark-grey);
-  color: var(--thisco-dark-grey);
-  background: white;
+  border-radius: 999px;
+  transition: all 0.2s ease-in;
+  background-color: var(--thisco-dark-grey);
+  padding: 1em 3em;
+  line-height: 1;
+  border: 2px solid var(--thisco-dark-grey);
+  font-weight: 400;
+  color: white;
+  cursor: pointer;
+  box-shadow: none;
+  grid-row-start: 2;
 }
 .Skin #Buttons #PreviousButton:hover, .Skin #Buttons #PreviousButton:active, .Skin #Buttons #PreviousButton:focus {
-  background-color: var(--thisco-dark-grey);
-  color: white;
-  border-color: transparent;
+  transform: scale(1.03);
+  background-color: transparent;
+  color: var(--thisco-dark-grey);
+  border-color: var(--thisco-dark-grey);
+}
+.Skin #Buttons #PreviousButton:active {
+  transform: scale(0.9);
+}
+@media (min-width: 481px) {
+  .Skin #Buttons #PreviousButton {
+    grid-row-start: 1;
+  }
 }
 .Skin .btn.thisco-btn {
   border-radius: 999px;
@@ -931,12 +966,16 @@ body {
   font-weight: 400;
   color: white;
   cursor: pointer;
+  box-shadow: none;
 }
 .Skin .btn.thisco-btn:hover, .Skin .btn.thisco-btn:active, .Skin .btn.thisco-btn:focus {
   transform: scale(1.03);
   background-color: transparent;
   color: var(--thisco-red);
   border-color: var(--thisco-red);
+}
+.Skin .btn.thisco-btn:active {
+  transform: scale(0.9);
 }
 .Skin .btn.thisco-btn-inverse {
   border-color: var(--thisco-dark-grey);
@@ -977,6 +1016,7 @@ body {
   font-weight: 400;
   color: white;
   cursor: pointer;
+  box-shadow: none;
   padding: 3px 5px;
   font-size: 0.8em;
   display: flex;
@@ -988,6 +1028,9 @@ body {
   background-color: transparent;
   color: var(--thisco-red);
   border-color: var(--thisco-red);
+}
+.close-dialog-button:active {
+  transform: scale(0.9);
 }
 .close-dialog-button:hover, .close-dialog-button:active, .close-dialog-button:focus {
   transform: scale(1.1);
@@ -1464,7 +1507,7 @@ Qualtrics codes:
 .thisco-survey form fieldset input:not(:checked) + label input {
   color: rgba(0, 0, 0, 0.3);
 }
-.thisco-survey form fieldset label {
+.thisco-survey form fieldset label:not(.likert-label) {
   display: block;
   position: relative;
   min-height: 2.6rem;
@@ -1473,7 +1516,7 @@ Qualtrics codes:
   background-image: linear-gradient(45deg, transparent, rgba(0, 0, 0, 0.005) 80%);
   padding: 0.4rem 0.8rem;
 }
-.thisco-survey form fieldset label > input {
+.thisco-survey form fieldset label:not(.likert-label) > input {
   margin-left: 0.5em;
   border-radius: 5px;
   border: 1px solid var(--thisco-light-grey);
@@ -1482,12 +1525,12 @@ Qualtrics codes:
   padding-left: 0.2em;
   padding-right: 0.2em;
 }
-.thisco-survey form fieldset label > input:focus-visible {
+.thisco-survey form fieldset label:not(.likert-label) > input:focus-visible {
   border-color: var(--thisco-red);
   box-shadow: 0px 0px 0px 1px var(--thisco-red);
   outline: none;
 }
-.thisco-survey form fieldset label > input::placeholder {
+.thisco-survey form fieldset label:not(.likert-label) > input::placeholder {
   font-weight: 100;
   color: rgba(0, 0, 0, 0.5);
 }
@@ -1525,15 +1568,15 @@ Qualtrics codes:
   font-weight: 100;
   color: rgba(0, 0, 0, 0.5);
 }
-.thisco-survey form fieldset input[type=radio], .thisco-survey form fieldset input[type=checkbox] {
+.thisco-survey form fieldset input[type=radio]:not(.likert-input), .thisco-survey form fieldset input[type=checkbox] {
   opacity: 0;
   width: 1px;
   height: 1px;
 }
-.thisco-survey form fieldset input[type=radio] + label, .thisco-survey form fieldset input[type=checkbox] + label {
+.thisco-survey form fieldset input[type=radio]:not(.likert-input) + label, .thisco-survey form fieldset input[type=checkbox] + label {
   padding-left: 2.25rem;
 }
-.thisco-survey form fieldset input[type=radio] + label::before, .thisco-survey form fieldset input[type=checkbox] + label::before {
+.thisco-survey form fieldset input[type=radio]:not(.likert-input) + label::before, .thisco-survey form fieldset input[type=checkbox] + label::before {
   border-radius: 50%;
   width: 0.6em;
   height: 0.6em;
@@ -1552,7 +1595,7 @@ Qualtrics codes:
   top: 0.6em;
   margin-top: 0;
 }
-.thisco-survey form fieldset input[type=radio]:checked + label::before, .thisco-survey form fieldset input[type=checkbox]:checked + label::before {
+.thisco-survey form fieldset input[type=radio]:not(.likert-input):checked + label::before, .thisco-survey form fieldset input[type=checkbox]:checked + label::before {
   background-color: transparent;
   background-size: 200% 200%;
 }
@@ -1660,6 +1703,227 @@ dialog {
 .dialog-content {
   animation: fade-in 300ms 150ms both, slide-up 300ms 150ms both;
   /* 1 */
+}
+
+.Skin table.ChoiceStructure {
+  width: 110%;
+  position: relative;
+  left: -5%;
+}
+.Skin table.ChoiceStructure td {
+  vertical-align: bottom;
+}
+.Skin table.ChoiceStructure td span.LabelWrapper {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  text-align: center;
+}
+.Skin table.ChoiceStructure td span.LabelWrapper > label {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  color: var(--thisco-dark-grey);
+  font-weight: 400;
+  font-size: 0.65em;
+  width: 75%;
+}
+@media (min-width: 481px) {
+  .Skin table.ChoiceStructure td span.LabelWrapper > label {
+    font-size: 0.7em;
+  }
+}
+@media (min-width: 768px) {
+  .Skin table.ChoiceStructure td span.LabelWrapper > label {
+    font-size: 0.75em;
+  }
+}
+.Skin table.ChoiceStructure td span.LabelWrapper > label.q-checked {
+  color: var(--thisco-red);
+}
+.Skin table.ChoiceStructure td input[type=radio] {
+  appearance: none;
+  border: none;
+  display: block;
+  width: 100%;
+  height: 3rem;
+  background-color: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  background-image: radial-gradient(circle at center, var(--thisco-light-grey) 39%, transparent 40%), linear-gradient(var(--thisco-light-grey), var(--thisco-light-grey));
+  background-size: 1.7rem 1.7rem, 100% 0.3rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+  transition: all 0.2s;
+}
+@media (min-width: 481px) {
+  .Skin table.ChoiceStructure td input[type=radio] {
+    background-size: 2.2rem 2.2rem, 100% 0.3rem;
+  }
+}
+.Skin table.ChoiceStructure td input[type=radio]:after {
+  content: attr(data-notch-number);
+  position: absolute;
+  left: 50%;
+  top: calc(50% + 3rem);
+  transform: translate(-52%, -50%);
+  color: var(--thisco-dark-grey);
+  line-height: 0;
+  transition: all 0.2s;
+}
+.Skin table.ChoiceStructure td input[type=radio]:indeterminate {
+  background-image: radial-gradient(circle at center, var(--thisco-red) 39%, transparent 40%), linear-gradient(var(--thisco-light-grey), var(--thisco-light-grey));
+}
+.Skin table.ChoiceStructure td input[type=radio]:indeterminate:after {
+  color: var(--thisco-red);
+}
+.Skin table.ChoiceStructure td input[type=radio]:checked {
+  background-size: 3.9rem 3.9rem, 100% 0.3rem;
+  background-image: radial-gradient(circle at center, var(--thisco-red) 39%, transparent 40%), linear-gradient(var(--thisco-light-grey), var(--thisco-light-grey));
+}
+@media (min-width: 980px) {
+  .Skin table.ChoiceStructure td input[type=radio]:checked {
+    background-size: 4.2rem 4.2rem, 100% 0.3rem;
+  }
+}
+.Skin table.ChoiceStructure td input[type=radio]:checked::after {
+  color: white;
+  top: 52%;
+}
+.Skin table.ChoiceStructure td input[type=radio]:first-of-type input[type=radio], .Skin table.ChoiceStructure td input[type=radio]:first-of-type.likert-input, .Skin table.ChoiceStructure td input[type=radio]:last-of-type input[type=radio], .Skin table.ChoiceStructure td input[type=radio]:last-of-type.likert-input {
+  background-size: 1.7rem 1.7rem, 50% 0.3rem;
+  background-position: center, right center;
+}
+@media (min-width: 481px) {
+  .Skin table.ChoiceStructure td input[type=radio]:first-of-type input[type=radio], .Skin table.ChoiceStructure td input[type=radio]:first-of-type.likert-input, .Skin table.ChoiceStructure td input[type=radio]:last-of-type input[type=radio], .Skin table.ChoiceStructure td input[type=radio]:last-of-type.likert-input {
+    background-size: 2.2rem 2.2rem, 50% 0.3rem;
+  }
+}
+.Skin table.ChoiceStructure td input[type=radio]:first-of-type input[type=radio]:checked, .Skin table.ChoiceStructure td input[type=radio]:first-of-type.likert-input:checked, .Skin table.ChoiceStructure td input[type=radio]:last-of-type input[type=radio]:checked, .Skin table.ChoiceStructure td input[type=radio]:last-of-type.likert-input:checked {
+  background-size: 3.9rem 3.9rem, 50% 0.3rem;
+}
+.Skin table.ChoiceStructure td input[type=radio]:last-of-type input[type=radio], .Skin table.ChoiceStructure td input[type=radio]:last-of-type.likert-input {
+  background-position: center, left center;
+}
+
+.thisco-survey form fieldset.likert-scale {
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  justify-items: flex-start;
+}
+.thisco-survey form fieldset.likert-scale.likert-width-3 {
+  grid-template-columns: repeat(3, 33.3333333333%);
+}
+.thisco-survey form fieldset.likert-scale.likert-width-4 {
+  grid-template-columns: repeat(4, 25%);
+}
+.thisco-survey form fieldset.likert-scale.likert-width-5 {
+  grid-template-columns: repeat(5, 20%);
+}
+.thisco-survey form fieldset.likert-scale.likert-width-6 {
+  grid-template-columns: repeat(6, 16.6666666667%);
+}
+.thisco-survey form fieldset.likert-scale.likert-width-7 {
+  grid-template-columns: repeat(7, 14.2857142857%);
+}
+.thisco-survey form fieldset.likert-scale.likert-width-8 {
+  grid-template-columns: repeat(8, 12.5%);
+}
+.thisco-survey form fieldset.likert-scale.likert-width-9 {
+  grid-template-columns: repeat(9, 11.1111111111%);
+}
+.thisco-survey form fieldset.likert-scale label.likert-label {
+  grid-row: 2/3;
+  background: none;
+  border-radius: 0;
+  padding: 0;
+  width: 100%;
+  display: flex;
+  text-align: center;
+  align-items: flex-end;
+  color: var(--thisco-dark-grey);
+  font-weight: 400;
+  font-size: 0.65em;
+}
+@media (min-width: 481px) {
+  .thisco-survey form fieldset.likert-scale label.likert-label {
+    font-size: 0.7em;
+  }
+}
+@media (min-width: 768px) {
+  .thisco-survey form fieldset.likert-scale label.likert-label {
+    font-size: 0.75em;
+  }
+}
+.thisco-survey form fieldset.likert-scale input[type=radio].likert-input {
+  appearance: none;
+  border: none;
+  display: block;
+  width: 100%;
+  height: 3rem;
+  background-color: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  background-image: radial-gradient(circle at center, var(--thisco-light-grey) 39%, transparent 40%), linear-gradient(var(--thisco-light-grey), var(--thisco-light-grey));
+  background-size: 1.7rem 1.7rem, 100% 0.3rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+  transition: all 0.2s;
+  grid-row: 3/4;
+}
+@media (min-width: 481px) {
+  .thisco-survey form fieldset.likert-scale input[type=radio].likert-input {
+    background-size: 2.2rem 2.2rem, 100% 0.3rem;
+  }
+}
+.thisco-survey form fieldset.likert-scale input[type=radio].likert-input:after {
+  content: attr(data-notch-number);
+  position: absolute;
+  left: 50%;
+  top: calc(50% + 3rem);
+  transform: translate(-52%, -50%);
+  color: var(--thisco-dark-grey);
+  line-height: 0;
+  transition: all 0.2s;
+}
+.thisco-survey form fieldset.likert-scale input[type=radio].likert-input:indeterminate {
+  background-image: radial-gradient(circle at center, var(--thisco-red) 39%, transparent 40%), linear-gradient(var(--thisco-light-grey), var(--thisco-light-grey));
+}
+.thisco-survey form fieldset.likert-scale input[type=radio].likert-input:indeterminate:after {
+  color: var(--thisco-red);
+}
+.thisco-survey form fieldset.likert-scale input[type=radio].likert-input:checked {
+  background-size: 3.9rem 3.9rem, 100% 0.3rem;
+  background-image: radial-gradient(circle at center, var(--thisco-red) 39%, transparent 40%), linear-gradient(var(--thisco-light-grey), var(--thisco-light-grey));
+}
+@media (min-width: 980px) {
+  .thisco-survey form fieldset.likert-scale input[type=radio].likert-input:checked {
+    background-size: 4.2rem 4.2rem, 100% 0.3rem;
+  }
+}
+.thisco-survey form fieldset.likert-scale input[type=radio].likert-input:checked::after {
+  color: white;
+  top: 52%;
+}
+.thisco-survey form fieldset.likert-scale input[type=radio].likert-input:first-of-type input[type=radio], .thisco-survey form fieldset.likert-scale input[type=radio].likert-input:first-of-type.likert-input, .thisco-survey form fieldset.likert-scale input[type=radio].likert-input:last-of-type input[type=radio], .thisco-survey form fieldset.likert-scale input[type=radio].likert-input:last-of-type.likert-input {
+  background-size: 1.7rem 1.7rem, 50% 0.3rem;
+  background-position: center, right center;
+}
+@media (min-width: 481px) {
+  .thisco-survey form fieldset.likert-scale input[type=radio].likert-input:first-of-type input[type=radio], .thisco-survey form fieldset.likert-scale input[type=radio].likert-input:first-of-type.likert-input, .thisco-survey form fieldset.likert-scale input[type=radio].likert-input:last-of-type input[type=radio], .thisco-survey form fieldset.likert-scale input[type=radio].likert-input:last-of-type.likert-input {
+    background-size: 2.2rem 2.2rem, 50% 0.3rem;
+  }
+}
+.thisco-survey form fieldset.likert-scale input[type=radio].likert-input:first-of-type input[type=radio]:checked, .thisco-survey form fieldset.likert-scale input[type=radio].likert-input:first-of-type.likert-input:checked, .thisco-survey form fieldset.likert-scale input[type=radio].likert-input:last-of-type input[type=radio]:checked, .thisco-survey form fieldset.likert-scale input[type=radio].likert-input:last-of-type.likert-input:checked {
+  background-size: 3.9rem 3.9rem, 50% 0.3rem;
+}
+.thisco-survey form fieldset.likert-scale input[type=radio].likert-input:last-of-type input[type=radio], .thisco-survey form fieldset.likert-scale input[type=radio].likert-input:last-of-type.likert-input {
+  background-position: center, left center;
+}
+.thisco-survey form fieldset.likert-scale input[type=radio].likert-input:checked + label.likert-label {
+  color: var(--thisco-red);
 }
 
 /*# sourceMappingURL=skin.css.map */

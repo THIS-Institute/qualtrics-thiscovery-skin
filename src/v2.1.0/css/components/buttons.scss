@@ -11,21 +11,59 @@
     --thisco-yellow: rgb(255 216 90 / 1);
 }
 
-@mixin thisco-button() {
+// A map of breakpoints.
+$breakpoints: (
+  xs: 481px,
+  sm: 768px,
+  md: 980px,
+  lg: 1400px
+);
+
+//
+//  RESPOND ABOVE
+//––––––––––––––––––––––––––––––––––––––––––––––––––
+
+// @include respond-above(sm) {}
+@mixin respond-above($breakpoint) {
+
+    // If the breakpoint exists in the map.
+    @if map-has-key($breakpoints, $breakpoint) {
+  
+      // Get the breakpoint value.
+      $breakpoint-value: map-get($breakpoints, $breakpoint);
+  
+      // Write the media query.
+      @media (min-width: $breakpoint-value) {
+        @content;
+      }
+    
+    // If the breakpoint doesn't exist in the map.
+    } @else {
+  
+      // Log a warning.
+      @warn 'Invalid breakpoint: #{$breakpoint}.';
+    }
+}
+
+@mixin thisco-button($col : var(--thisco-red)) {
     border-radius: 999px;
     transition: all .2s ease-in;
-    background-color: var(--thisco-red);
+    background-color: $col;
     padding: 1em 3em;
     line-height: 1;
-    border: 2px solid var(--thisco-red);
+    border: 2px solid $col;
     font-weight: 400;
     color: white;
     cursor: pointer;
+    box-shadow: none;
     &:hover, &:active, &:focus {
         transform: scale(1.03);
         background-color: transparent;
-        color: var(--thisco-red);
-        border-color: var(--thisco-red);
+        color: $col;
+        border-color: $col;
+    }
+    &:active {
+        transform: scale(0.9);
     }
 }
 
@@ -85,8 +123,11 @@
         }
 
         #PreviousButton {
-            @include thisco-button-inverse();
-            // grid-row-start: 2;
+            @include thisco-button(var(--thisco-dark-grey));
+            grid-row-start: 2;
+            @include respond-above(xs){
+                grid-row-start: 1;
+            }
         }
 
     }

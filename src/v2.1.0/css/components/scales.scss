@@ -32,6 +32,85 @@ $breakpoints: (
     }
 }
 
+@mixin thisco-scale-input(){
+    appearance: none;
+    border: none;
+    display: block;
+    width: 100%;
+    height: 3rem;
+    background-color: transparent;
+    border-radius: 0;
+    box-shadow: none;
+    background-image: radial-gradient(circle at center, var(--thisco-light-grey) 39%, transparent 40%), 
+                        linear-gradient(var(--thisco-light-grey),var(--thisco-light-grey));
+    background-size: 1.7rem 1.7rem, 100% .3rem;
+    @include respond-above(xs) {
+        background-size: 2.2rem 2.2rem, 100% .3rem;
+    }
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    transition: all .2s;
+    &:after {
+        content: attr(data-notch-number);
+        position: absolute;
+        left: 50%;
+        top: calc(50% + 3rem);
+        transform: translate(-52%,-50%);
+        color:var(--thisco-dark-grey);
+        line-height: 0;
+        transition: all .2s;
+    }
+    &:indeterminate {
+        background-image: radial-gradient(circle at center, var(--thisco-red) 39%, transparent 40%), 
+        linear-gradient(var(--thisco-light-grey),var(--thisco-light-grey));
+        &:after {
+            color: var(--thisco-red);
+        }
+    }
+    &:checked {
+        background-size: 3.9rem 3.9rem, 100% .3rem;
+        @include respond-above(md) {
+            background-size: 4.2rem 4.2rem, 100% .3rem; 
+        }
+        background-image: radial-gradient(circle at center, var(--thisco-red) 39%, transparent 40%), 
+        linear-gradient(var(--thisco-light-grey),var(--thisco-light-grey));
+        &::after {
+            color: white;
+            top: 52%;
+        }
+    }
+    &:first-of-type, &:last-of-type {
+        input[type="radio"], &.likert-input {
+            background-size: 1.7rem 1.7rem, 50% .3rem;
+            @include respond-above(xs) {
+                background-size: 2.2rem 2.2rem, 50% .3rem;
+            }
+            &:checked {
+                background-size: 3.9rem 3.9rem, 50% .3rem;
+            }
+            background-position: center, right center;
+        }
+    }
+    &:last-of-type {
+        input[type="radio"], &.likert-input {
+            background-position: center, left center;
+        }
+    }
+}
+
+@mixin thisco-scale-label () {
+    color: var(--thisco-dark-grey);
+    font-weight: 400;
+    font-size: .65em;
+    @include respond-above(xs) {
+        font-size: .7em;
+    }
+    @include respond-above(sm) {
+        font-size: .75em;
+    }
+}
+
 .Skin {
     table.ChoiceStructure {
         width: 110%;
@@ -45,86 +124,52 @@ $breakpoints: (
                 justify-content: center;
                 text-align: center;
                 > label {
-                    width: 75%;
                     display: flex;
                     align-items: flex-end;
                     justify-content: center;
-                    color: var(--thisco-dark-grey);
-                    font-weight: 400;
-                    font-size: .65em;
-                    @include respond-above(xs) {
-                        font-size: .7em;
-                    }
-                    @include respond-above(sm) {
-                        font-size: .75em;
-                    }
+                    @include thisco-scale-label();
+                    width: 75%;
                     &.q-checked {
                         color: var(--thisco-red);
                     }
                 }
             }
             input[type="radio"] {
-                appearance: none;
-                border: none;
-                display: block;
-                width: 100%;
-                height: 3rem;
-                background-color: transparent;
+                @include thisco-scale-input();
+            }
+        }
+    }
+}
+
+.thisco-survey {
+    form {
+        fieldset.likert-scale {
+            @for $i from 3 through 9 {
+                &.likert-width-#{$i} {
+                    grid-template-columns: repeat( $i, calc(100% / $i) );
+                }
+            }
+            display: grid;
+            grid-template-rows: repeat(3, 1fr);
+            justify-items: flex-start;
+            label.likert-label {
+                grid-row: 2 / 3;
+                background: none;
                 border-radius: 0;
-                box-shadow: none;
-                background-image: radial-gradient(circle at center, var(--thisco-light-grey) 39%, transparent 40%), 
-                                    linear-gradient(var(--thisco-light-grey),var(--thisco-light-grey));
-                background-size: 1.7rem 1.7rem, 100% .3rem;
-                @include respond-above(xs) {
-                    background-size: 2.2rem 2.2rem, 100% .3rem;
-                }
-                background-repeat: no-repeat;
-                background-position: center;
-                position: relative;
-                transition: all .2s;
-                &:after {
-                    content: attr(data-notch-number);
-                    position: absolute;
-                    left: 50%;
-                    top: calc(50% + 3rem);
-                    transform: translate(-52%,-50%);
-                    color:var(--thisco-dark-grey);
-                    line-height: 0;
-                    transition: all .2s;
-                }
-                &:indeterminate {
-                    background-image: radial-gradient(circle at center, var(--thisco-red) 39%, transparent 40%), 
-                    linear-gradient(var(--thisco-light-grey),var(--thisco-light-grey));
-                    &:after {
-                        color: var(--thisco-red);
-                    }
-                }
-                &:checked {
-                    background-size: 3.9rem 3.9rem, 100% .3rem;
-                    background-image: radial-gradient(circle at center, var(--thisco-red) 39%, transparent 40%), 
-                    linear-gradient(var(--thisco-light-grey),var(--thisco-light-grey));
-                    &::after {
-                        color: white;
-                        top: 52%;
-                    }
-                }
+                padding: 0;
+                width: 100%;
+                display:flex;
+                text-align: center;
+                align-items: flex-end;
+                @include thisco-scale-label();
             }
-            &:first-of-type, &:last-of-type {
-                input[type="radio"] {
-                    background-size: 1.7rem 1.7rem, 50% .3rem;
-                    @include respond-above(xs) {
-                        background-size: 2.2rem 2.2rem, 50% .3rem;
-                    }
-                    &:checked {
-                        background-size: 3.9rem 3.9rem, 50% .3rem;
-                    }
-                    background-position: center, right center;
-                }
+
+            input[type="radio"].likert-input {
+                @include thisco-scale-input();
+                grid-row: 3 / 4;
             }
-            &:last-of-type {
-                input[type="radio"] {
-                    background-position: center, left center;
-                }
+            input[type="radio"].likert-input:checked + label.likert-label {
+                color: var(--thisco-red);
             }
         }
     }
