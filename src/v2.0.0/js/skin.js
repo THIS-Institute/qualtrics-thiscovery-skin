@@ -294,4 +294,17 @@ const addHSpot = function(){
 }
 addHSpot();
 
+// thisco-graph script pull
+
+const graphs = Bliss.$('.thisco-graph');
+if (graphs.length) graphs.forEach(el=>{
+    const targetScript = (el.dataset || {}).graphlink;
+    if (!targetScript) return;
+    else {
+        const scriptIn = document.createElement("script");
+        scriptIn.setAttribute("src",targetScript);
+        document.body.appendChild(scriptIn);
+    }
+});
+
 // shopping list
