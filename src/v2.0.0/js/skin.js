@@ -303,7 +303,9 @@ if (graphs.length) graphs.forEach(el=>{
     else {
         const scriptIn = document.createElement("script");
         scriptIn.setAttribute("src",targetScript);
-        document.body.appendChild(scriptIn);
+        scriptIn.setAttribute('defer',true);
+        scriptIn.setAttribute('async',true);
+        document.head.appendChild(scriptIn);
     }
 });
 
