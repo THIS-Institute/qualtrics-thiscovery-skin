@@ -3,7 +3,10 @@
 // skin.js
 // =======
 //
-// JS bundle for various DOM fixes, dev  etc.
+// JS bundle for various DOM fixes, dev  etc
+
+const version = "2.1.0";
+console.log(`Thiscovery survey skin version ${version}`);
 
 const BlissfulJs = require('blissfuljs'); // module adds Bliss to window object for us
 import { forIn, startCase } from 'lodash';
@@ -24,7 +27,6 @@ require("../../shared_js/skinjob_client.js")();
 // eject Qualtrics stylesheet
 
 Bliss.$("link[rel='stylesheet']").forEach(el=>{
-    console.debug({el});
     if (!(el.getAttribute('href') || "").includes('thiscovery')) el.remove(); // bye!
 });
 

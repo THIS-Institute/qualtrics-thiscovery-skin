@@ -318,9 +318,9 @@ body {
             max-width: 768px;
             margin: auto;
         }
-        @include respond-above(md) {
-            max-width: 980px;
-        }
+        // @include respond-above(md) {
+        //     max-width: 980px;
+        // }
         // @include respond-above(lg) {
         //     max-width: 1400px;
         // }

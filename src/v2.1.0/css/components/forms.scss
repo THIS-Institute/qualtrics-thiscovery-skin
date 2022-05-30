@@ -123,7 +123,7 @@ $radio-size: .6em;
     }
 
     fieldset > legend {
-        // margin-bottom: 1.6em;
+        margin-bottom: 1.6em;
     }
 
     input {
@@ -165,7 +165,7 @@ $radio-size: .6em;
                 position: absolute;
             }
             .LabelWrapper {
-                margin-left: 1rem;
+                margin-left: 2rem;
                 label.MultipleAnswer, label.SingleAnswer {
                     padding: 5px;
                     > span {
@@ -188,16 +188,16 @@ $radio-size: .6em;
 
                         @include thiscovery-radio-button($radio-size);
                         top:0px;
-                        left: -$radio-size * 2.4;
+                        left: -$radio-size * 2.8;
                     }
                     &.q-checked, &.q-checked.q-focused {
                         > span::before {
                             animation: none;
                             box-shadow: none;
                             @include thiscovery-radio-button($radio-size);
-                            @include thiscovery-radio-button-checked(); 
-                            top:0px;
-                            left: -$radio-size * 2.4;          
+                            @include thiscovery-radio-button-checked();
+                            top:0px; 
+                            left: -$radio-size * 2.8;          
                         }
                     }
                 }
