@@ -182,8 +182,8 @@ a.link-button {
     &, &:focus, &:hover, &:visited, &:active {
         border-radius: 999px;
         transition: all .2s ease-in;
-        background-color: var(--thisco-aubergine);
-        color: white;
+        background-color: var(--thisco-light-grey);
+        color: black;
         border-color: transparent;
         text-decoration: none;
         outline: none;

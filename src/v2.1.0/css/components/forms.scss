@@ -138,10 +138,10 @@ $radio-size: .6em;
         @include thisco-textarea();
     }
 
-    ul.ChoiceStructure {
+    ul.ChoiceStructure, ul.ChoiceGroupStructure {
         padding-left: 1rem;
         padding-right: 1rem;
-        li {
+        > li:not(.ChoiceGroup) {
             // hide native - Q js handles events, clicks on whole li element *NOT* label as per standards
             min-height: $min-response-height;
             border-radius: 15px;
@@ -225,6 +225,11 @@ $radio-size: .6em;
                     color:rgb(0 0 0 / 0.3);
                 }
             }
+        }
+        li.ChoiceGroup {
+            margin-bottom: 1.2em;
+            padding-top: 1.6em;
+            font-weight: 400;
         }
     }
 

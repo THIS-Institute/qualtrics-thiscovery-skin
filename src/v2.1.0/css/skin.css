@@ -620,6 +620,21 @@ body {
   line-height: 1.2;
   margin-top: 1em;
   margin-bottom: 1em;
+  font-weight: 400;
+}
+.Skin h1 {
+  font-size: 2.2em;
+  font-weight: 900;
+}
+.Skin h2 {
+  font-size: 1.6em;
+  font-weight: 700;
+}
+.Skin h3 {
+  font-size: 1.4em;
+}
+.Skin h4 {
+  font-size: 1.2em;
 }
 .Skin a, .Skin a:hover, .Skin a:visited, .Skin a:focus {
   color: inherit;
@@ -641,6 +656,26 @@ body {
 }
 .Skin .SkinInner {
   padding-top: 7rem;
+}
+.Skin .SkinInner ul:not(.ChoiceStructure):not(.ChoiceGroupStructure) {
+  padding-left: 2.8em;
+}
+.Skin .SkinInner ul:not(.ChoiceStructure):not(.ChoiceGroupStructure) > li {
+  display: list-item;
+  position: relative;
+  margin-bottom: 0.4em;
+}
+.Skin .SkinInner ul:not(.ChoiceStructure):not(.ChoiceGroupStructure) > li:before {
+  content: " ";
+  color: var(--thisco-red);
+  position: absolute;
+  display: inline-block;
+  height: 0.7ch;
+  width: 0.7ch;
+  border-radius: 50%;
+  background-color: var(--thisco-red);
+  top: 0.8ch;
+  left: -2ch;
 }
 @media (min-width: 768px) {
   .Skin .SkinInner {
@@ -820,6 +855,26 @@ body {
 }
 .thisco-survey a:focus {
   outline: 1px solid var(--thisco-pink);
+}
+.thisco-survey ul:not(.ChoiceStructure):not(.ChoiceGroupStructure) {
+  padding-left: 2.8em;
+}
+.thisco-survey ul:not(.ChoiceStructure):not(.ChoiceGroupStructure) > li {
+  display: list-item;
+  position: relative;
+  margin-bottom: 0.4em;
+}
+.thisco-survey ul:not(.ChoiceStructure):not(.ChoiceGroupStructure) > li:before {
+  content: " ";
+  color: var(--thisco-red);
+  position: absolute;
+  display: inline-block;
+  height: 0.7ch;
+  width: 0.7ch;
+  border-radius: 50%;
+  background-color: var(--thisco-red);
+  top: 0.8ch;
+  left: -2ch;
 }
 .thisco-survey > * {
   flex-basis: 100%;
@@ -1051,8 +1106,8 @@ a.link-button {
 a.link-button, a.link-button:focus, a.link-button:hover, a.link-button:visited, a.link-button:active {
   border-radius: 999px;
   transition: all 0.2s ease-in;
-  background-color: var(--thisco-aubergine);
-  color: white;
+  background-color: var(--thisco-light-grey);
+  color: black;
   border-color: transparent;
   text-decoration: none;
   outline: none;
@@ -1376,11 +1431,11 @@ Qualtrics codes:
   font-weight: 100;
   color: rgba(0, 0, 0, 0.5);
 }
-.Skin ul.ChoiceStructure {
+.Skin ul.ChoiceStructure, .Skin ul.ChoiceGroupStructure {
   padding-left: 1rem;
   padding-right: 1rem;
 }
-.Skin ul.ChoiceStructure li {
+.Skin ul.ChoiceStructure > li:not(.ChoiceGroup), .Skin ul.ChoiceGroupStructure > li:not(.ChoiceGroup) {
   min-height: 2.6rem;
   border-radius: 15px;
   background-color: rgba(0, 0, 0, 0.01);
@@ -1390,37 +1445,37 @@ Qualtrics codes:
   display: flex;
   transition: box-shadow 0.2s;
 }
-.Skin ul.ChoiceStructure li:hover {
+.Skin ul.ChoiceStructure > li:not(.ChoiceGroup):hover, .Skin ul.ChoiceGroupStructure > li:not(.ChoiceGroup):hover {
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
 }
-.Skin ul.ChoiceStructure li input[type=radio], .Skin ul.ChoiceStructure li input[type=checkbox] {
+.Skin ul.ChoiceStructure > li:not(.ChoiceGroup) input[type=radio], .Skin ul.ChoiceStructure > li:not(.ChoiceGroup) input[type=checkbox], .Skin ul.ChoiceGroupStructure > li:not(.ChoiceGroup) input[type=radio], .Skin ul.ChoiceGroupStructure > li:not(.ChoiceGroup) input[type=checkbox] {
   width: 4px;
   height: 4px;
   opacity: 0;
   position: absolute;
 }
-.Skin ul.ChoiceStructure li input[type=radio] + label, .Skin ul.ChoiceStructure li input[type=checkbox] + label {
+.Skin ul.ChoiceStructure > li:not(.ChoiceGroup) input[type=radio] + label, .Skin ul.ChoiceStructure > li:not(.ChoiceGroup) input[type=checkbox] + label, .Skin ul.ChoiceGroupStructure > li:not(.ChoiceGroup) input[type=radio] + label, .Skin ul.ChoiceGroupStructure > li:not(.ChoiceGroup) input[type=checkbox] + label {
   display: none;
 }
-.Skin ul.ChoiceStructure li .LabelWrapper {
+.Skin ul.ChoiceStructure > li:not(.ChoiceGroup) .LabelWrapper, .Skin ul.ChoiceGroupStructure > li:not(.ChoiceGroup) .LabelWrapper {
   margin-left: 2rem;
 }
-.Skin ul.ChoiceStructure li .LabelWrapper label.MultipleAnswer, .Skin ul.ChoiceStructure li .LabelWrapper label.SingleAnswer {
+.Skin ul.ChoiceStructure > li:not(.ChoiceGroup) .LabelWrapper label.MultipleAnswer, .Skin ul.ChoiceStructure > li:not(.ChoiceGroup) .LabelWrapper label.SingleAnswer, .Skin ul.ChoiceGroupStructure > li:not(.ChoiceGroup) .LabelWrapper label.MultipleAnswer, .Skin ul.ChoiceGroupStructure > li:not(.ChoiceGroup) .LabelWrapper label.SingleAnswer {
   padding: 5px;
 }
-.Skin ul.ChoiceStructure li .LabelWrapper label.MultipleAnswer > span, .Skin ul.ChoiceStructure li .LabelWrapper label.SingleAnswer > span {
+.Skin ul.ChoiceStructure > li:not(.ChoiceGroup) .LabelWrapper label.MultipleAnswer > span, .Skin ul.ChoiceStructure > li:not(.ChoiceGroup) .LabelWrapper label.SingleAnswer > span, .Skin ul.ChoiceGroupStructure > li:not(.ChoiceGroup) .LabelWrapper label.MultipleAnswer > span, .Skin ul.ChoiceGroupStructure > li:not(.ChoiceGroup) .LabelWrapper label.SingleAnswer > span {
   position: relative;
 }
-.Skin ul.ChoiceStructure li .LabelWrapper label.MultipleAnswer > span:focus-visible, .Skin ul.ChoiceStructure li .LabelWrapper label.SingleAnswer > span:focus-visible {
+.Skin ul.ChoiceStructure > li:not(.ChoiceGroup) .LabelWrapper label.MultipleAnswer > span:focus-visible, .Skin ul.ChoiceStructure > li:not(.ChoiceGroup) .LabelWrapper label.SingleAnswer > span:focus-visible, .Skin ul.ChoiceGroupStructure > li:not(.ChoiceGroup) .LabelWrapper label.MultipleAnswer > span:focus-visible, .Skin ul.ChoiceGroupStructure > li:not(.ChoiceGroup) .LabelWrapper label.SingleAnswer > span:focus-visible {
   outline: none;
 }
-.Skin ul.ChoiceStructure li .LabelWrapper label.MultipleAnswer > span:focus-visible::before, .Skin ul.ChoiceStructure li .LabelWrapper label.SingleAnswer > span:focus-visible::before {
+.Skin ul.ChoiceStructure > li:not(.ChoiceGroup) .LabelWrapper label.MultipleAnswer > span:focus-visible::before, .Skin ul.ChoiceStructure > li:not(.ChoiceGroup) .LabelWrapper label.SingleAnswer > span:focus-visible::before, .Skin ul.ChoiceGroupStructure > li:not(.ChoiceGroup) .LabelWrapper label.MultipleAnswer > span:focus-visible::before, .Skin ul.ChoiceGroupStructure > li:not(.ChoiceGroup) .LabelWrapper label.SingleAnswer > span:focus-visible::before {
   transform: scale(1.1);
 }
-.Skin ul.ChoiceStructure li .LabelWrapper label.MultipleAnswer > span:active::before, .Skin ul.ChoiceStructure li .LabelWrapper label.SingleAnswer > span:active::before {
+.Skin ul.ChoiceStructure > li:not(.ChoiceGroup) .LabelWrapper label.MultipleAnswer > span:active::before, .Skin ul.ChoiceStructure > li:not(.ChoiceGroup) .LabelWrapper label.SingleAnswer > span:active::before, .Skin ul.ChoiceGroupStructure > li:not(.ChoiceGroup) .LabelWrapper label.MultipleAnswer > span:active::before, .Skin ul.ChoiceGroupStructure > li:not(.ChoiceGroup) .LabelWrapper label.SingleAnswer > span:active::before {
   transform: scale(0.9);
 }
-.Skin ul.ChoiceStructure li .LabelWrapper label.MultipleAnswer > span::before, .Skin ul.ChoiceStructure li .LabelWrapper label.SingleAnswer > span::before {
+.Skin ul.ChoiceStructure > li:not(.ChoiceGroup) .LabelWrapper label.MultipleAnswer > span::before, .Skin ul.ChoiceStructure > li:not(.ChoiceGroup) .LabelWrapper label.SingleAnswer > span::before, .Skin ul.ChoiceGroupStructure > li:not(.ChoiceGroup) .LabelWrapper label.MultipleAnswer > span::before, .Skin ul.ChoiceGroupStructure > li:not(.ChoiceGroup) .LabelWrapper label.SingleAnswer > span::before {
   border-radius: 50%;
   width: 0.6em;
   height: 0.6em;
@@ -1441,7 +1496,7 @@ Qualtrics codes:
   top: 0px;
   left: -1.68em;
 }
-.Skin ul.ChoiceStructure li .LabelWrapper label.MultipleAnswer.q-checked > span::before, .Skin ul.ChoiceStructure li .LabelWrapper label.MultipleAnswer.q-checked.q-focused > span::before, .Skin ul.ChoiceStructure li .LabelWrapper label.SingleAnswer.q-checked > span::before, .Skin ul.ChoiceStructure li .LabelWrapper label.SingleAnswer.q-checked.q-focused > span::before {
+.Skin ul.ChoiceStructure > li:not(.ChoiceGroup) .LabelWrapper label.MultipleAnswer.q-checked > span::before, .Skin ul.ChoiceStructure > li:not(.ChoiceGroup) .LabelWrapper label.MultipleAnswer.q-checked.q-focused > span::before, .Skin ul.ChoiceStructure > li:not(.ChoiceGroup) .LabelWrapper label.SingleAnswer.q-checked > span::before, .Skin ul.ChoiceStructure > li:not(.ChoiceGroup) .LabelWrapper label.SingleAnswer.q-checked.q-focused > span::before, .Skin ul.ChoiceGroupStructure > li:not(.ChoiceGroup) .LabelWrapper label.MultipleAnswer.q-checked > span::before, .Skin ul.ChoiceGroupStructure > li:not(.ChoiceGroup) .LabelWrapper label.MultipleAnswer.q-checked.q-focused > span::before, .Skin ul.ChoiceGroupStructure > li:not(.ChoiceGroup) .LabelWrapper label.SingleAnswer.q-checked > span::before, .Skin ul.ChoiceGroupStructure > li:not(.ChoiceGroup) .LabelWrapper label.SingleAnswer.q-checked.q-focused > span::before {
   animation: none;
   box-shadow: none;
   border-radius: 50%;
@@ -1466,18 +1521,23 @@ Qualtrics codes:
   top: 0px;
   left: -1.68em;
 }
-.Skin ul.ChoiceStructure li .LabelWrapper label.MultipleAnswer > span::before {
+.Skin ul.ChoiceStructure > li:not(.ChoiceGroup) .LabelWrapper label.MultipleAnswer > span::before, .Skin ul.ChoiceGroupStructure > li:not(.ChoiceGroup) .LabelWrapper label.MultipleAnswer > span::before {
   border-radius: 0px;
 }
-.Skin ul.ChoiceStructure li .LabelWrapper label.MultipleAnswer.q-checked > span::before, .Skin ul.ChoiceStructure li .LabelWrapper label.MultipleAnswer.q-checked.q-focused > span::before {
+.Skin ul.ChoiceStructure > li:not(.ChoiceGroup) .LabelWrapper label.MultipleAnswer.q-checked > span::before, .Skin ul.ChoiceStructure > li:not(.ChoiceGroup) .LabelWrapper label.MultipleAnswer.q-checked.q-focused > span::before, .Skin ul.ChoiceGroupStructure > li:not(.ChoiceGroup) .LabelWrapper label.MultipleAnswer.q-checked > span::before, .Skin ul.ChoiceGroupStructure > li:not(.ChoiceGroup) .LabelWrapper label.MultipleAnswer.q-checked.q-focused > span::before {
   border-radius: 0px;
   background-color: var(--thisco-red);
   background-image: url("data:image/svg+xml,%3Csvg width='100%25' height='100%25' viewBox='0 0 24 20' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xml:space='preserve' xmlns:serif='http://www.serif.com/' style='fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;'%3E%3Cpath id='check' d='M23.051,2.843l-14.151,15.977c-0.19,0.214 -0.463,0.337 -0.749,0.337c-0.275,0 -0.538,-0.113 -0.727,-0.313l-7.152,-7.573c-0.341,-0.361 -0.364,-0.924 -0.054,-1.311l0.952,-1.19c0.293,-0.367 0.808,-0.48 1.228,-0.27l5.277,2.639l12.797,-10.902c0.395,-0.336 0.989,-0.312 1.356,0.055l1.181,1.181c0.372,0.372 0.39,0.977 0.042,1.37Z' style='fill:%23fff;fill-rule:nonzero;'/%3E%3C/svg%3E");
   background-size: 110%;
   border-color: transparent;
 }
-.Skin ul.ChoiceStructure li input:not(:checked) ~ span input {
+.Skin ul.ChoiceStructure > li:not(.ChoiceGroup) input:not(:checked) ~ span input, .Skin ul.ChoiceGroupStructure > li:not(.ChoiceGroup) input:not(:checked) ~ span input {
   color: rgba(0, 0, 0, 0.3);
+}
+.Skin ul.ChoiceStructure li.ChoiceGroup, .Skin ul.ChoiceGroupStructure li.ChoiceGroup {
+  margin-bottom: 1.2em;
+  padding-top: 1.6em;
+  font-weight: 400;
 }
 .Skin div.ChoiceStructure input[type=text] {
   width: 90%;
@@ -1707,6 +1767,7 @@ dialog {
   width: 110%;
   position: relative;
   left: -5%;
+  table-layout: fixed;
 }
 .Skin table.ChoiceStructure td {
   vertical-align: bottom;
@@ -1754,6 +1815,7 @@ dialog {
   background-position: center;
   position: relative;
   transition: all 0.2s;
+  margin-bottom: 4em;
 }
 @media (min-width: 481px) {
   .Skin table.ChoiceStructure td input[type=radio] {
@@ -1802,6 +1864,21 @@ dialog {
   background-size: 3.9rem 3.9rem, 50% 0.3rem;
 }
 .Skin table.ChoiceStructure td input[type=radio]:last-of-type input[type=radio], .Skin table.ChoiceStructure td input[type=radio]:last-of-type.likert-input {
+  background-position: center, left center;
+}
+.Skin table.ChoiceStructure td:first-of-type input[type=radio], .Skin table.ChoiceStructure td:last-of-type input[type=radio] {
+  background-size: 1.7rem 1.7rem, 50% 0.3rem;
+  background-position: center, right center;
+}
+@media (min-width: 481px) {
+  .Skin table.ChoiceStructure td:first-of-type input[type=radio], .Skin table.ChoiceStructure td:last-of-type input[type=radio] {
+    background-size: 2.2rem 2.2rem, 50% 0.3rem;
+  }
+}
+.Skin table.ChoiceStructure td:first-of-type input[type=radio]:checked, .Skin table.ChoiceStructure td:last-of-type input[type=radio]:checked {
+  background-size: 3.9rem 3.9rem, 50% 0.3rem;
+}
+.Skin table.ChoiceStructure td:last-of-type input[type=radio] {
   background-position: center, left center;
 }
 

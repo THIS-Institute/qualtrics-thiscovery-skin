@@ -116,6 +116,7 @@ $breakpoints: (
         width: 110%;
         position: relative;
         left: -5%;
+        table-layout: fixed;
         td {
             vertical-align: bottom;
             span.LabelWrapper {
@@ -136,6 +137,25 @@ $breakpoints: (
             }
             input[type="radio"] {
                 @include thisco-scale-input();
+                margin-bottom: 4em;
+            }
+            // Q markup fix
+            &:first-of-type, &:last-of-type {
+                input[type="radio"] {
+                    background-size: 1.7rem 1.7rem, 50% .3rem;
+                    @include respond-above(xs) {
+                        background-size: 2.2rem 2.2rem, 50% .3rem;
+                    }
+                    &:checked {
+                        background-size: 3.9rem 3.9rem, 50% .3rem;
+                    }
+                    background-position: center, right center;
+                }
+            }
+            &:last-of-type {
+                input[type="radio"] {
+                    background-position: center, left center;
+                }
             }
         }
     }

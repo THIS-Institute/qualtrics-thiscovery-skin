@@ -112,6 +112,29 @@ $breakpoints: (
 
 }
 
+@mixin thisco_lists(){
+    ul:not(.ChoiceStructure):not(.ChoiceGroupStructure) {
+        padding-left: 2.8em;
+        > li {
+            display: list-item;
+            position: relative;
+            margin-bottom: .4em;
+            &:before {
+                content: " ";
+                color: var(--thisco-red);
+                position: absolute;
+                display: inline-block;
+                height: .7ch;
+                width: .7ch;
+                border-radius: 50%;
+                background-color: var(--thisco-red);
+                top: .8ch;
+                left: -2ch;
+            }
+        }
+    }
+}
+
 
 
 // * {
@@ -144,6 +167,25 @@ body {
         line-height: 1.2;
         margin-top: 1em;
         margin-bottom: 1em;
+        font-weight: 400;
+    }
+
+    h1 {
+        font-size: 2.2em;
+        font-weight: 900;
+    }
+
+    h2 {
+        font-size: 1.6em;
+        font-weight: 700;
+    }
+
+    h3 {
+        font-size: 1.4em;
+    }
+
+    h4 {
+        font-size: 1.2em;
     }
 
     a, a:hover, a:visited, a:focus {
@@ -161,6 +203,9 @@ body {
     @include thisco_links();
 
     .SkinInner {
+
+        @include thisco_lists();
+
         padding-top:7rem;
         @include respond-above(sm) {
             padding-top: 8.5rem;
@@ -337,6 +382,7 @@ body {
 .thisco-survey {
     @include thisco_base();
     @include thisco_links();
+    @include thisco_lists();
     width: 100vw;
     height: 100vh;
     display: flex;
