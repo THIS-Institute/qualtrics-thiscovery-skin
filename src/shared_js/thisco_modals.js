@@ -47,9 +47,9 @@ module.exports = function(){
         // set link
         open_link._.set({
             "data-a11y-dialog-show" : el.id,
-            "href": null,
             "name":`modalOpener-${el.id}`
         });
+        open_link.removeAttribute('href');
 
         el.parentNode.appendChild(modal);
         el.remove();
