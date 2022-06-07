@@ -412,6 +412,20 @@ body {
 
 /* misc utils */
 
+.number-bubble {
+	color: white;
+	background-color:rgb(221 0 49);
+	display:inline-block;
+	border-radius: 50%;
+	height: 2.2ch;
+	width: 2.2ch;
+	line-height: 2.1ch;
+	text-align: center;
+    letter-spacing: -0.01ch;
+    font-size: .9em;
+    border: 2px solid rgb(221 0 49);
+}
+
 .sr-only {
     position: absolute;
     width: 1px;

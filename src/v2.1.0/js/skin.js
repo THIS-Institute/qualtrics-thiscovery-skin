@@ -12,6 +12,8 @@ const BlissfulJs = require('blissfuljs'); // module adds Bliss to window object 
 import { forIn, startCase } from 'lodash';
 const markdown = require('markdown').markdown;
 
+const THISCO_DEV = localStorage.getItem("thisco_dev") !== null;
+
 const modalHtml = {
     "cookies" : markdown.toHTML( require("../../md/personal_information.md") ),
     "personal_information" : markdown.toHTML( require("../../md/personal_information.md") ),
@@ -316,5 +318,32 @@ const addHSpot = function(){
     document.head.appendChild(hb);
 }
 addHSpot();
+
+// consent form Qualtrics addition
+
+const isConsentForm = Bliss.$(".consent-checklist").length > 0;
+if (isConsentForm) {
+    if (!window.Qualtrics) throw ("Unable to set up consent webhook - no Qualtrics on global object");
+    Qualtrics.SurveyEngine.addOnPageSubmit(function(){
+        // pull all consent statements and their status
+        let statements = {};
+        Bliss.$(".consent-checklist").forEach(checklist=>{
+            let fset = checklist.closest("fieldset");
+            Bliss.$("input[type='checkbox']").forEach(stControl=>{
+                const text = stControl.closest("li").innerText;
+                const agreement = stControl.checked ? "Yes" : "No";
+                statements[text] = agreement;
+            });
+        });
+        if (THISCO_DEV) {
+            console.warn(`I would have attached : ${JSON.stringify(statements)}`);
+        }
+        else {
+            Qualtrics.SurveyEngine.setEmbeddedData('consent_statements', JSON.stringify(statements));
+        }
+    });
+;
+
+}
 
 // shopping list
