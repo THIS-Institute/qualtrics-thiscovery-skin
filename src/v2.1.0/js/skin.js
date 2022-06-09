@@ -9,7 +9,7 @@ const version = "2.1.0";
 console.log(`Thiscovery survey skin version ${version}`);
 
 const BlissfulJs = require('blissfuljs'); // module adds Bliss to window object for us
-import { forIn, startCase, trim } from 'lodash';
+import { forIn, fromPairs, startCase, trim } from 'lodash';
 const markdown = require('markdown').markdown;
 const sanitizeHtml = require('sanitize-html');
 
@@ -334,13 +334,13 @@ if (isConsentForm) {
     if (!window.Qualtrics) throw ("Unable to set up consent webhook - no Qualtrics on global object");
     Qualtrics.SurveyEngine.addOnPageSubmit(function(){
         // pull all consent statements and their status
-        let statements = {};
+        let statements = [];
         Bliss.$(".consent-checklist").forEach(checklist=>{
             let fset = checklist.closest("fieldset");
             Bliss.$("input[type='checkbox']").forEach(stControl=>{
                 const text = trim(processHtml(stControl.closest("li").innerHTML));
                 const agreement = stControl.checked ? "Yes" : "No";
-                statements[text] = agreement;
+                statements.push(fromPairs([[text,agreement]]));
             });
         });
         if (THISCO_DEV) {
