@@ -333,12 +333,15 @@ const isConsentForm = Bliss.$(".consent-checklist").length > 0;
 if (isConsentForm) {
     if (!window.Qualtrics) throw ("Unable to set up consent webhook - no Qualtrics on global object");
     Qualtrics.SurveyEngine.addOnPageSubmit(function(){
-        // pull all consent statements and their status
         let statements = [];
+        // Pull any instance of a consent checklist
         Bliss.$(".consent-checklist").forEach(checklist=>{
             let fset = checklist.closest("fieldset");
+            // cycle through checkbox inputs
             Bliss.$("input[type='checkbox']").forEach(stControl=>{
+                // pull statement HTML from the input's parent list item
                 const text = trim(processHtml(stControl.closest("li").innerHTML));
+                // add to statements array 
                 const agreement = stControl.checked ? "Yes" : "No";
                 statements.push(fromPairs([[text,agreement]]));
             });

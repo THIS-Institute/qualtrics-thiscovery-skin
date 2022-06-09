@@ -1,20 +1,20 @@
 @font-face {
     font-family: "thisco_Brown";
-    src: url("https://www.thiscovery.org/wp-content/themes/thiscovery/fonts/Brown-Regular.woff2") format("woff2"), url("https://www.thiscovery.org/wp-content/themes/thiscovery/fonts/Brown-Regular.woff") format("woff"), url("https://www.thiscovery.org/wp-content/themes/thiscovery/fonts/Brown-Regular.otf") format("opentype");
+    src: url("https://thiscovery-public-assets.s3.eu-west-1.amazonaws.com/fonts/lineto-brown-regular.woff2") format("woff2"), url("https://thiscovery-public-assets.s3.eu-west-1.amazonaws.com/fonts/lineto-brown-regular.woff") format("woff"), url("https://thiscovery-public-assets.s3.eu-west-1.amazonaws.com/fonts/BrownTT-Regular.ttf") format("truetype");
     font-style: normal;
     font-weight: 300 600;
   }
     
 @font-face {
     font-family: "thisco_Brown";
-    src: url("https://www.thiscovery.org/wp-content/themes/thiscovery/fonts/Brown-Bold.woff2") format("woff2"), url("https://www.thiscovery.org/wp-content/themes/thiscovery/fonts/Brown-Bold.woff") format("woff"), url("https://www.thiscovery.org/wp-content/themes/thiscovery/fonts/Brown-Bold.otf") format("opentype");
+    src: url("https://thiscovery-public-assets.s3.eu-west-1.amazonaws.com/fonts/lineto-brown-bold.woff2") format("woff2"), url("https://thiscovery-public-assets.s3.eu-west-1.amazonaws.com/fonts/lineto-brown-bold.woff") format("woff"), url("https://thiscovery-public-assets.s3.eu-west-1.amazonaws.com/fonts/BrownTT-Bold.ttf") format("truetype");
     font-style: normal;
     font-weight: 700 900;
 }
     
 @font-face {
     font-family: "thisco_Brown";
-    src: url("https://www.thiscovery.org/wp-content/themes/thiscovery/fonts/Brown-Light.woff2") format("woff2"), url("https://www.thiscovery.org/wp-content/themes/thiscovery/fonts/Brown-Light.woff") format("woff"), url("https://www.thiscovery.org/wp-content/themes/thiscovery/fonts/Brown-Light.otf") format("opentype");
+    src: url("https://thiscovery-public-assets.s3.eu-west-1.amazonaws.com/fonts/lineto-brown-light.woff2") format("woff2"), url("https://thiscovery-public-assets.s3.eu-west-1.amazonaws.com/fonts/lineto-brown-light.woff") format("woff"), url("https://thiscovery-public-assets.s3.eu-west-1.amazonaws.com/fonts/BrownTT-Light.ttf") format("truetype");
     font-style: normal;
     font-weight: 100 200;
 }
@@ -419,7 +419,7 @@ body {
 	border-radius: 50%;
 	height: 2.2ch;
 	width: 2.2ch;
-	line-height: 2.1ch;
+	line-height: 1.7ch;
 	text-align: center;
     letter-spacing: -0.01ch;
     font-size: .9em;
