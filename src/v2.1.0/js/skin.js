@@ -9,7 +9,7 @@ const version = "2.1.0";
 console.log(`Thiscovery survey skin version ${version}`);
 
 const BlissfulJs = require('blissfuljs'); // module adds Bliss to window object for us
-import { forIn, startCase } from 'lodash';
+import { forIn, startCase, trim } from 'lodash';
 const markdown = require('markdown').markdown;
 const sanitizeHtml = require('sanitize-html');
 
@@ -338,7 +338,7 @@ if (isConsentForm) {
         Bliss.$(".consent-checklist").forEach(checklist=>{
             let fset = checklist.closest("fieldset");
             Bliss.$("input[type='checkbox']").forEach(stControl=>{
-                const text = processHtml(stControl.closest("li").innerHTML);
+                const text = trim(processHtml(stControl.closest("li").innerHTML));
                 const agreement = stControl.checked ? "Yes" : "No";
                 statements[text] = agreement;
             });
