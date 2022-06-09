@@ -322,7 +322,7 @@ addHSpot();
 
 // consent form Qualtrics addition
 
-const processHtml = sanitizeHtml(dirty, {
+const processHtml = (dirty)=>sanitizeHtml(dirty, {
     allowedTags : ["a","ul","li","strong","b","i","em"],
     allowedAttributes : {
         "a": ["href","alt"]
