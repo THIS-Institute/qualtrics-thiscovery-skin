@@ -2099,6 +2099,7 @@ fieldset.ranking-question .ranking-item > div {
   padding: 0.4rem 0.8rem;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   min-height: 5rem;
 }
 fieldset.ranking-question .ranking-item > div input {

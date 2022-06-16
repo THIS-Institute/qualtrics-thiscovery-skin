@@ -44,6 +44,7 @@ fieldset.ranking-question {
         @include thisco-ranking-label();
         display: flex;
         align-items: center;
+        justify-content: space-between;
         min-height: $control-width;
         input {
             width: $control-width;
