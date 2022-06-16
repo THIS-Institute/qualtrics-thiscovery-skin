@@ -1,3 +1,37 @@
+// A map of breakpoints.
+$breakpoints: (
+  xs: 481px,
+  sm: 768px,
+  md: 980px,
+  lg: 1400px
+);
+
+//
+//  RESPOND ABOVE
+//––––––––––––––––––––––––––––––––––––––––––––––––––
+
+// @include respond-above(sm) {}
+@mixin respond-above($breakpoint) {
+
+    // If the breakpoint exists in the map.
+    @if map-has-key($breakpoints, $breakpoint) {
+  
+      // Get the breakpoint value.
+      $breakpoint-value: map-get($breakpoints, $breakpoint);
+  
+      // Write the media query.
+      @media (min-width: $breakpoint-value) {
+        @content;
+      }
+    
+    // If the breakpoint doesn't exist in the map.
+    } @else {
+  
+      // Log a warning.
+      @warn 'Invalid breakpoint: #{$breakpoint}.';
+    }
+}
+
 @mixin panel-basic() {
     border-radius: 25px;
     padding: 1.8em;
@@ -49,4 +83,43 @@ pre {
     background-color: #F4F4F4;
     font-size: .9em;
     white-space: pre-wrap;
+}
+
+/* special */
+
+.Skin .SkinInner ul.thisco-grid-list, ul.thisco-grid-list {
+    padding-left: 0px;
+    max-width: 65ch;
+    margin:0;
+    margin-bottom: 1.6rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: 1fr;
+    grid-gap: .6em;
+    list-style: none;
+    line-height: 1.25;
+    font-size: .9em;
+    @include respond-above(xs) {
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 1em;    
+        li {
+            line-height: 1.4;
+            font-size: 1em;
+        }
+    }
+    li {
+        &::before {
+            visibility: hidden;
+        }
+        @include panel-basic();
+        border-radius: 15px;
+        background-color: var(--thisco-light-pink);
+        color: black;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        margin:0;
+    }
 }

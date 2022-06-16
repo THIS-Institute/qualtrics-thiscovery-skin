@@ -113,7 +113,7 @@ $breakpoints: (
 }
 
 @mixin thisco_lists(){
-    ul:not(.ChoiceStructure):not(.ChoiceGroupStructure) {
+    ul:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list) {
         padding-left: 2.8em;
         > li {
             display: list-item;
@@ -383,6 +383,15 @@ body {
     @include thisco_base();
     @include thisco_links();
     @include thisco_lists();
+
+    @include respond-above(xs){
+        font-size:18px;
+    }
+
+    @include respond-above(sm){
+        font-size:20px;
+    }
+
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -410,6 +419,17 @@ body {
     }
 }
 
+.survey-container {
+    @include respond-above(sm) {
+        max-width: 768px;
+        margin: auto;
+    }
+    .thisco-survey {
+        width: 100%;
+        height: auto;
+    }
+}
+
 /* misc utils */
 
 .number-bubble {
@@ -425,6 +445,7 @@ body {
     font-size: .9em;
     border: 2px solid rgb(221 0 49);
 }
+
 
 .sr-only {
     position: absolute;

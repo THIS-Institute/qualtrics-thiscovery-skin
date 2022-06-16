@@ -4,7 +4,7 @@ import A11yDialog from 'a11y-dialog';
 
 module.exports = function(){
     const dialogs = Bliss.$("dialog").forEach(el=>{
-        el.close(); // close all dialogs on setup
+        if (el.close) el.close(); // close all dialogs on setup
         const open_link = Bliss.$(`a[href="modal?${el.id}"]`)[0];
         if (!open_link) {
             console.warn("Dialog element included but has no anchor connected to open it");

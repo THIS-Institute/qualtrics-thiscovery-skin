@@ -1,6 +1,6 @@
 {
 	"name": "qualtrics-thiscovery-skin",
-	"version": "2.1.0",
+	"version": "3.0.0",
 	"latest_alias": "2.0.0",
 	"description": "Javascript and CSS to customise Qualtrics surveys",
 	"main": "./dist/thiscovery-skin.js",
@@ -54,8 +54,10 @@
 	},
 	"dependencies": {
 		"a11y-dialog": "^7.4.0",
+		"animate-css-grid": "^1.4.3",
 		"blissfuljs": "^1.0.6",
 		"css-reset-and-normalize": "^2.3.6",
+		"dialog-polyfill": "^0.5.6",
 		"lodash": "^4.17.21",
 		"markdown": "^0.5.0",
 		"sanitize-html": "^2.7.0",

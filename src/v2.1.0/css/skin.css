@@ -657,15 +657,15 @@ body {
 .Skin .SkinInner {
   padding-top: 7rem;
 }
-.Skin .SkinInner ul:not(.ChoiceStructure):not(.ChoiceGroupStructure) {
+.Skin .SkinInner ul:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list) {
   padding-left: 2.8em;
 }
-.Skin .SkinInner ul:not(.ChoiceStructure):not(.ChoiceGroupStructure) > li {
+.Skin .SkinInner ul:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list) > li {
   display: list-item;
   position: relative;
   margin-bottom: 0.4em;
 }
-.Skin .SkinInner ul:not(.ChoiceStructure):not(.ChoiceGroupStructure) > li:before {
+.Skin .SkinInner ul:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list) > li:before {
   content: " ";
   color: var(--thisco-red);
   position: absolute;
@@ -856,15 +856,15 @@ body {
 .thisco-survey a:focus {
   outline: 1px solid var(--thisco-pink);
 }
-.thisco-survey ul:not(.ChoiceStructure):not(.ChoiceGroupStructure) {
+.thisco-survey ul:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list) {
   padding-left: 2.8em;
 }
-.thisco-survey ul:not(.ChoiceStructure):not(.ChoiceGroupStructure) > li {
+.thisco-survey ul:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list) > li {
   display: list-item;
   position: relative;
   margin-bottom: 0.4em;
 }
-.thisco-survey ul:not(.ChoiceStructure):not(.ChoiceGroupStructure) > li:before {
+.thisco-survey ul:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list) > li:before {
   content: " ";
   color: var(--thisco-red);
   position: absolute;
@@ -875,6 +875,16 @@ body {
   background-color: var(--thisco-red);
   top: 0.8ch;
   left: -2ch;
+}
+@media (min-width: 481px) {
+  .thisco-survey {
+    font-size: 18px;
+  }
+}
+@media (min-width: 768px) {
+  .thisco-survey {
+    font-size: 20px;
+  }
 }
 .thisco-survey > * {
   flex-basis: 100%;
@@ -892,6 +902,17 @@ body {
   height: auto !important;
   padding-left: 2rem;
   padding-right: 2rem;
+}
+
+@media (min-width: 768px) {
+  .survey-container {
+    max-width: 768px;
+    margin: auto;
+  }
+}
+.survey-container .thisco-survey {
+  width: 100%;
+  height: auto;
 }
 
 /* misc utils */
@@ -1366,6 +1387,45 @@ pre {
   background-color: #F4F4F4;
   font-size: 0.9em;
   white-space: pre-wrap;
+}
+
+/* special */
+.Skin .SkinInner ul.thisco-grid-list, ul.thisco-grid-list {
+  padding-left: 0px;
+  max-width: 65ch;
+  margin: 0;
+  margin-bottom: 1.6rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 0.6em;
+  list-style: none;
+}
+@media (min-width: 481px) {
+  .Skin .SkinInner ul.thisco-grid-list, ul.thisco-grid-list {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 1em;
+  }
+}
+.Skin .SkinInner ul.thisco-grid-list li, ul.thisco-grid-list li {
+  border-radius: 25px;
+  padding: 1.8em;
+  background-color: var(--thisco-aubergine);
+  color: rgba(255, 255, 255, 0.95);
+  font-weight: 400;
+  max-width: 65ch;
+  margin: 0 auto;
+  margin-bottom: 1.6rem;
+  background-color: var(--thisco-light-pink);
+  color: black;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 0;
+}
+.Skin .SkinInner ul.thisco-grid-list li::before, ul.thisco-grid-list li::before {
+  visibility: hidden;
 }
 
 /* Qualtrics compensatory styling */
@@ -2014,6 +2074,123 @@ dialog {
 }
 .thisco-survey form fieldset.likert-scale input[type=radio].likert-input:checked + label.likert-label {
   color: var(--thisco-red);
+}
+
+fieldset.ranking-question > legend > * {
+  margin-bottom: 1.6em;
+}
+fieldset.ranking-question .ranking-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 0.6em;
+}
+fieldset.ranking-question .ranking-item > div {
+  border-radius: 15px;
+  background-color: rgba(0, 0, 0, 0.01);
+  background-image: linear-gradient(45deg, transparent, rgba(0, 0, 0, 0.005) 80%);
+  padding: 0.4rem 0.8rem;
+  display: flex;
+  align-items: center;
+  min-height: 7rem;
+}
+fieldset.ranking-question .ranking-item > div input {
+  width: 7rem;
+}
+fieldset.ranking-question .ranking-item > div label {
+  font-size: 0.8em;
+  padding-right: 0.75em;
+}
+fieldset.ranking-question .ranking-row-1 {
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+fieldset.ranking-question .ranking-row-2 {
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+fieldset.ranking-question .ranking-row-3 {
+  grid-row-start: 3;
+  grid-row-end: 4;
+}
+fieldset.ranking-question .ranking-row-4 {
+  grid-row-start: 4;
+  grid-row-end: 5;
+}
+fieldset.ranking-question .ranking-row-5 {
+  grid-row-start: 5;
+  grid-row-end: 6;
+}
+fieldset.ranking-question .ranking-row-6 {
+  grid-row-start: 6;
+  grid-row-end: 7;
+}
+fieldset.ranking-question .ranking-row-7 {
+  grid-row-start: 7;
+  grid-row-end: 8;
+}
+fieldset.ranking-question .ranking-row-8 {
+  grid-row-start: 8;
+  grid-row-end: 9;
+}
+fieldset.ranking-question .ranking-row-9 {
+  grid-row-start: 9;
+  grid-row-end: 10;
+}
+fieldset.ranking-question .ranking-row-10 {
+  grid-row-start: 10;
+  grid-row-end: 11;
+}
+fieldset.ranking-question .ranking-row-11 {
+  grid-row-start: 11;
+  grid-row-end: 12;
+}
+fieldset.ranking-question .ranking-row-12 {
+  grid-row-start: 12;
+  grid-row-end: 13;
+}
+fieldset.ranking-question .ranking-row-13 {
+  grid-row-start: 13;
+  grid-row-end: 14;
+}
+fieldset.ranking-question .ranking-row-14 {
+  grid-row-start: 14;
+  grid-row-end: 15;
+}
+fieldset.ranking-question .ranking-row-15 {
+  grid-row-start: 15;
+  grid-row-end: 16;
+}
+fieldset.ranking-question .ranking-row-16 {
+  grid-row-start: 16;
+  grid-row-end: 17;
+}
+fieldset.ranking-question .ranking-row-17 {
+  grid-row-start: 17;
+  grid-row-end: 18;
+}
+fieldset.ranking-question .ranking-row-18 {
+  grid-row-start: 18;
+  grid-row-end: 19;
+}
+fieldset.ranking-question .ranking-row-19 {
+  grid-row-start: 19;
+  grid-row-end: 20;
+}
+fieldset.ranking-question .ranking-row-20 {
+  grid-row-start: 20;
+  grid-row-end: 21;
+}
+fieldset.ranking-question .ranking-item[data-rank-value="1"] {
+  background: #f3d4d4;
+}
+fieldset.ranking-question .ranking-item[data-rank-value="2"] {
+  background: #f2f3d4;
+}
+fieldset.ranking-question .ranking-item[data-rank-value="3"] {
+  background: #d4f3d4;
+}
+fieldset.ranking-question .ranking-item[data-rank-value="4"] {
+  background: #9fb9f2;
 }
 
 /*# sourceMappingURL=skin.css.map */

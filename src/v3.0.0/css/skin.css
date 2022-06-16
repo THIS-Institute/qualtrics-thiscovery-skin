@@ -548,19 +548,19 @@ template {
 
 @font-face {
   font-family: "thisco_Brown";
-  src: url("https://www.thiscovery.org/wp-content/themes/thiscovery/fonts/Brown-Regular.woff2") format("woff2"), url("https://www.thiscovery.org/wp-content/themes/thiscovery/fonts/Brown-Regular.woff") format("woff"), url("https://www.thiscovery.org/wp-content/themes/thiscovery/fonts/Brown-Regular.otf") format("opentype");
+  src: url("https://thiscovery-public-assets.s3.eu-west-1.amazonaws.com/fonts/lineto-brown-regular.woff2") format("woff2"), url("https://thiscovery-public-assets.s3.eu-west-1.amazonaws.com/fonts/lineto-brown-regular.woff") format("woff"), url("https://thiscovery-public-assets.s3.eu-west-1.amazonaws.com/fonts/BrownTT-Regular.ttf") format("truetype");
   font-style: normal;
   font-weight: 300 600;
 }
 @font-face {
   font-family: "thisco_Brown";
-  src: url("https://www.thiscovery.org/wp-content/themes/thiscovery/fonts/Brown-Bold.woff2") format("woff2"), url("https://www.thiscovery.org/wp-content/themes/thiscovery/fonts/Brown-Bold.woff") format("woff"), url("https://www.thiscovery.org/wp-content/themes/thiscovery/fonts/Brown-Bold.otf") format("opentype");
+  src: url("https://thiscovery-public-assets.s3.eu-west-1.amazonaws.com/fonts/lineto-brown-bold.woff2") format("woff2"), url("https://thiscovery-public-assets.s3.eu-west-1.amazonaws.com/fonts/lineto-brown-bold.woff") format("woff"), url("https://thiscovery-public-assets.s3.eu-west-1.amazonaws.com/fonts/BrownTT-Bold.ttf") format("truetype");
   font-style: normal;
   font-weight: 700 900;
 }
 @font-face {
   font-family: "thisco_Brown";
-  src: url("https://www.thiscovery.org/wp-content/themes/thiscovery/fonts/Brown-Light.woff2") format("woff2"), url("https://www.thiscovery.org/wp-content/themes/thiscovery/fonts/Brown-Light.woff") format("woff"), url("https://www.thiscovery.org/wp-content/themes/thiscovery/fonts/Brown-Light.otf") format("opentype");
+  src: url("https://thiscovery-public-assets.s3.eu-west-1.amazonaws.com/fonts/lineto-brown-light.woff2") format("woff2"), url("https://thiscovery-public-assets.s3.eu-west-1.amazonaws.com/fonts/lineto-brown-light.woff") format("woff"), url("https://thiscovery-public-assets.s3.eu-west-1.amazonaws.com/fonts/BrownTT-Light.ttf") format("truetype");
   font-style: normal;
   font-weight: 100 200;
 }
@@ -620,6 +620,21 @@ body {
   line-height: 1.2;
   margin-top: 1em;
   margin-bottom: 1em;
+  font-weight: 400;
+}
+.Skin h1 {
+  font-size: 2.2em;
+  font-weight: 900;
+}
+.Skin h2 {
+  font-size: 1.6em;
+  font-weight: 700;
+}
+.Skin h3 {
+  font-size: 1.4em;
+}
+.Skin h4 {
+  font-size: 1.2em;
 }
 .Skin a, .Skin a:hover, .Skin a:visited, .Skin a:focus {
   color: inherit;
@@ -641,6 +656,26 @@ body {
 }
 .Skin .SkinInner {
   padding-top: 7rem;
+}
+.Skin .SkinInner ul:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list) {
+  padding-left: 2.8em;
+}
+.Skin .SkinInner ul:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list) > li {
+  display: list-item;
+  position: relative;
+  margin-bottom: 0.4em;
+}
+.Skin .SkinInner ul:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list) > li:before {
+  content: " ";
+  color: var(--thisco-red);
+  position: absolute;
+  display: inline-block;
+  height: 0.7ch;
+  width: 0.7ch;
+  border-radius: 50%;
+  background-color: var(--thisco-red);
+  top: 0.8ch;
+  left: -2ch;
 }
 @media (min-width: 768px) {
   .Skin .SkinInner {
@@ -789,11 +824,6 @@ body {
     margin: auto;
   }
 }
-@media (min-width: 980px) {
-  .Skin #SkinContent {
-    max-width: 980px;
-  }
-}
 .Skin #Plug {
   visibility: hidden;
   max-height: 0px;
@@ -826,6 +856,36 @@ body {
 .thisco-survey a:focus {
   outline: 1px solid var(--thisco-pink);
 }
+.thisco-survey ul:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list) {
+  padding-left: 2.8em;
+}
+.thisco-survey ul:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list) > li {
+  display: list-item;
+  position: relative;
+  margin-bottom: 0.4em;
+}
+.thisco-survey ul:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list) > li:before {
+  content: " ";
+  color: var(--thisco-red);
+  position: absolute;
+  display: inline-block;
+  height: 0.7ch;
+  width: 0.7ch;
+  border-radius: 50%;
+  background-color: var(--thisco-red);
+  top: 0.8ch;
+  left: -2ch;
+}
+@media (min-width: 481px) {
+  .thisco-survey {
+    font-size: 18px;
+  }
+}
+@media (min-width: 768px) {
+  .thisco-survey {
+    font-size: 20px;
+  }
+}
 .thisco-survey > * {
   flex-basis: 100%;
   margin-bottom: 1.6em;
@@ -844,7 +904,32 @@ body {
   padding-right: 2rem;
 }
 
+@media (min-width: 768px) {
+  .survey-container {
+    max-width: 768px;
+    margin: auto;
+  }
+}
+.survey-container .thisco-survey {
+  width: 100%;
+  height: auto;
+}
+
 /* misc utils */
+.number-bubble {
+  color: white;
+  background-color: #dd0031;
+  display: inline-block;
+  border-radius: 50%;
+  height: 2.2ch;
+  width: 2.2ch;
+  line-height: 1.7ch;
+  text-align: center;
+  letter-spacing: -0.01ch;
+  font-size: 0.9em;
+  border: 2px solid #dd0031;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
@@ -878,7 +963,7 @@ body {
   overflow: hidden;
   padding: 5px;
   width: 100%;
-  margin-top: 7rem;
+  margin-top: 4rem;
 }
 @media (min-width: 481px) {
   .Skin #Buttons {
@@ -1056,8 +1141,8 @@ a.link-button {
 a.link-button, a.link-button:focus, a.link-button:hover, a.link-button:visited, a.link-button:active {
   border-radius: 999px;
   transition: all 0.2s ease-in;
-  background-color: var(--thisco-aubergine);
-  color: white;
+  background-color: var(--thisco-light-grey);
+  color: black;
   border-color: transparent;
   text-decoration: none;
   outline: none;
@@ -1304,6 +1389,53 @@ pre {
   white-space: pre-wrap;
 }
 
+/* special */
+.Skin .SkinInner ul.thisco-grid-list, ul.thisco-grid-list {
+  padding-left: 0px;
+  max-width: 65ch;
+  margin: 0;
+  margin-bottom: 1.6rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-rows: 1fr;
+  grid-gap: 0.6em;
+  list-style: none;
+  line-height: 1.25;
+  font-size: 0.9em;
+}
+@media (min-width: 481px) {
+  .Skin .SkinInner ul.thisco-grid-list, ul.thisco-grid-list {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 1em;
+  }
+  .Skin .SkinInner ul.thisco-grid-list li, ul.thisco-grid-list li {
+    line-height: 1.4;
+    font-size: 1em;
+  }
+}
+.Skin .SkinInner ul.thisco-grid-list li, ul.thisco-grid-list li {
+  border-radius: 25px;
+  padding: 1.8em;
+  background-color: var(--thisco-aubergine);
+  color: rgba(255, 255, 255, 0.95);
+  font-weight: 400;
+  max-width: 65ch;
+  margin: 0 auto;
+  margin-bottom: 1.6rem;
+  border-radius: 15px;
+  background-color: var(--thisco-light-pink);
+  color: black;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 0;
+}
+.Skin .SkinInner ul.thisco-grid-list li::before, ul.thisco-grid-list li::before {
+  visibility: hidden;
+}
+
 /* Qualtrics compensatory styling */
 /*
 
@@ -1326,6 +1458,9 @@ Qualtrics codes:
 }
 .Skin .QuestionText > *:last-child, .Skin .QuestionBody > *:last-child {
   margin-bottom: 0;
+}
+.Skin fieldset > legend {
+  margin-bottom: 1.6em;
 }
 .Skin input {
   border-radius: 5px;
@@ -1378,11 +1513,11 @@ Qualtrics codes:
   font-weight: 100;
   color: rgba(0, 0, 0, 0.5);
 }
-.Skin ul.ChoiceStructure {
+.Skin ul.ChoiceStructure, .Skin ul.ChoiceGroupStructure {
   padding-left: 1rem;
   padding-right: 1rem;
 }
-.Skin ul.ChoiceStructure li {
+.Skin ul.ChoiceStructure > li:not(.ChoiceGroup), .Skin ul.ChoiceGroupStructure > li:not(.ChoiceGroup) {
   min-height: 2.6rem;
   border-radius: 15px;
   background-color: rgba(0, 0, 0, 0.01);
@@ -1392,37 +1527,37 @@ Qualtrics codes:
   display: flex;
   transition: box-shadow 0.2s;
 }
-.Skin ul.ChoiceStructure li:hover {
+.Skin ul.ChoiceStructure > li:not(.ChoiceGroup):hover, .Skin ul.ChoiceGroupStructure > li:not(.ChoiceGroup):hover {
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
 }
-.Skin ul.ChoiceStructure li input[type=radio], .Skin ul.ChoiceStructure li input[type=checkbox] {
+.Skin ul.ChoiceStructure > li:not(.ChoiceGroup) input[type=radio], .Skin ul.ChoiceStructure > li:not(.ChoiceGroup) input[type=checkbox], .Skin ul.ChoiceGroupStructure > li:not(.ChoiceGroup) input[type=radio], .Skin ul.ChoiceGroupStructure > li:not(.ChoiceGroup) input[type=checkbox] {
   width: 4px;
   height: 4px;
   opacity: 0;
   position: absolute;
 }
-.Skin ul.ChoiceStructure li input[type=radio] + label, .Skin ul.ChoiceStructure li input[type=checkbox] + label {
+.Skin ul.ChoiceStructure > li:not(.ChoiceGroup) input[type=radio] + label, .Skin ul.ChoiceStructure > li:not(.ChoiceGroup) input[type=checkbox] + label, .Skin ul.ChoiceGroupStructure > li:not(.ChoiceGroup) input[type=radio] + label, .Skin ul.ChoiceGroupStructure > li:not(.ChoiceGroup) input[type=checkbox] + label {
   display: none;
 }
-.Skin ul.ChoiceStructure li .LabelWrapper {
-  margin-left: 1rem;
+.Skin ul.ChoiceStructure > li:not(.ChoiceGroup) .LabelWrapper, .Skin ul.ChoiceGroupStructure > li:not(.ChoiceGroup) .LabelWrapper {
+  margin-left: 2rem;
 }
-.Skin ul.ChoiceStructure li .LabelWrapper label.MultipleAnswer, .Skin ul.ChoiceStructure li .LabelWrapper label.SingleAnswer {
+.Skin ul.ChoiceStructure > li:not(.ChoiceGroup) .LabelWrapper label.MultipleAnswer, .Skin ul.ChoiceStructure > li:not(.ChoiceGroup) .LabelWrapper label.SingleAnswer, .Skin ul.ChoiceGroupStructure > li:not(.ChoiceGroup) .LabelWrapper label.MultipleAnswer, .Skin ul.ChoiceGroupStructure > li:not(.ChoiceGroup) .LabelWrapper label.SingleAnswer {
   padding: 5px;
 }
-.Skin ul.ChoiceStructure li .LabelWrapper label.MultipleAnswer > span, .Skin ul.ChoiceStructure li .LabelWrapper label.SingleAnswer > span {
+.Skin ul.ChoiceStructure > li:not(.ChoiceGroup) .LabelWrapper label.MultipleAnswer > span, .Skin ul.ChoiceStructure > li:not(.ChoiceGroup) .LabelWrapper label.SingleAnswer > span, .Skin ul.ChoiceGroupStructure > li:not(.ChoiceGroup) .LabelWrapper label.MultipleAnswer > span, .Skin ul.ChoiceGroupStructure > li:not(.ChoiceGroup) .LabelWrapper label.SingleAnswer > span {
   position: relative;
 }
-.Skin ul.ChoiceStructure li .LabelWrapper label.MultipleAnswer > span:focus-visible, .Skin ul.ChoiceStructure li .LabelWrapper label.SingleAnswer > span:focus-visible {
+.Skin ul.ChoiceStructure > li:not(.ChoiceGroup) .LabelWrapper label.MultipleAnswer > span:focus-visible, .Skin ul.ChoiceStructure > li:not(.ChoiceGroup) .LabelWrapper label.SingleAnswer > span:focus-visible, .Skin ul.ChoiceGroupStructure > li:not(.ChoiceGroup) .LabelWrapper label.MultipleAnswer > span:focus-visible, .Skin ul.ChoiceGroupStructure > li:not(.ChoiceGroup) .LabelWrapper label.SingleAnswer > span:focus-visible {
   outline: none;
 }
-.Skin ul.ChoiceStructure li .LabelWrapper label.MultipleAnswer > span:focus-visible::before, .Skin ul.ChoiceStructure li .LabelWrapper label.SingleAnswer > span:focus-visible::before {
+.Skin ul.ChoiceStructure > li:not(.ChoiceGroup) .LabelWrapper label.MultipleAnswer > span:focus-visible::before, .Skin ul.ChoiceStructure > li:not(.ChoiceGroup) .LabelWrapper label.SingleAnswer > span:focus-visible::before, .Skin ul.ChoiceGroupStructure > li:not(.ChoiceGroup) .LabelWrapper label.MultipleAnswer > span:focus-visible::before, .Skin ul.ChoiceGroupStructure > li:not(.ChoiceGroup) .LabelWrapper label.SingleAnswer > span:focus-visible::before {
   transform: scale(1.1);
 }
-.Skin ul.ChoiceStructure li .LabelWrapper label.MultipleAnswer > span:active::before, .Skin ul.ChoiceStructure li .LabelWrapper label.SingleAnswer > span:active::before {
+.Skin ul.ChoiceStructure > li:not(.ChoiceGroup) .LabelWrapper label.MultipleAnswer > span:active::before, .Skin ul.ChoiceStructure > li:not(.ChoiceGroup) .LabelWrapper label.SingleAnswer > span:active::before, .Skin ul.ChoiceGroupStructure > li:not(.ChoiceGroup) .LabelWrapper label.MultipleAnswer > span:active::before, .Skin ul.ChoiceGroupStructure > li:not(.ChoiceGroup) .LabelWrapper label.SingleAnswer > span:active::before {
   transform: scale(0.9);
 }
-.Skin ul.ChoiceStructure li .LabelWrapper label.MultipleAnswer > span::before, .Skin ul.ChoiceStructure li .LabelWrapper label.SingleAnswer > span::before {
+.Skin ul.ChoiceStructure > li:not(.ChoiceGroup) .LabelWrapper label.MultipleAnswer > span::before, .Skin ul.ChoiceStructure > li:not(.ChoiceGroup) .LabelWrapper label.SingleAnswer > span::before, .Skin ul.ChoiceGroupStructure > li:not(.ChoiceGroup) .LabelWrapper label.MultipleAnswer > span::before, .Skin ul.ChoiceGroupStructure > li:not(.ChoiceGroup) .LabelWrapper label.SingleAnswer > span::before {
   border-radius: 50%;
   width: 0.6em;
   height: 0.6em;
@@ -1441,9 +1576,9 @@ Qualtrics codes:
   top: 0.6em;
   margin-top: 0;
   top: 0px;
-  left: -1.44em;
+  left: -1.68em;
 }
-.Skin ul.ChoiceStructure li .LabelWrapper label.MultipleAnswer.q-checked > span::before, .Skin ul.ChoiceStructure li .LabelWrapper label.MultipleAnswer.q-checked.q-focused > span::before, .Skin ul.ChoiceStructure li .LabelWrapper label.SingleAnswer.q-checked > span::before, .Skin ul.ChoiceStructure li .LabelWrapper label.SingleAnswer.q-checked.q-focused > span::before {
+.Skin ul.ChoiceStructure > li:not(.ChoiceGroup) .LabelWrapper label.MultipleAnswer.q-checked > span::before, .Skin ul.ChoiceStructure > li:not(.ChoiceGroup) .LabelWrapper label.MultipleAnswer.q-checked.q-focused > span::before, .Skin ul.ChoiceStructure > li:not(.ChoiceGroup) .LabelWrapper label.SingleAnswer.q-checked > span::before, .Skin ul.ChoiceStructure > li:not(.ChoiceGroup) .LabelWrapper label.SingleAnswer.q-checked.q-focused > span::before, .Skin ul.ChoiceGroupStructure > li:not(.ChoiceGroup) .LabelWrapper label.MultipleAnswer.q-checked > span::before, .Skin ul.ChoiceGroupStructure > li:not(.ChoiceGroup) .LabelWrapper label.MultipleAnswer.q-checked.q-focused > span::before, .Skin ul.ChoiceGroupStructure > li:not(.ChoiceGroup) .LabelWrapper label.SingleAnswer.q-checked > span::before, .Skin ul.ChoiceGroupStructure > li:not(.ChoiceGroup) .LabelWrapper label.SingleAnswer.q-checked.q-focused > span::before {
   animation: none;
   box-shadow: none;
   border-radius: 50%;
@@ -1466,20 +1601,25 @@ Qualtrics codes:
   background-color: transparent;
   background-size: 200% 200%;
   top: 0px;
-  left: -1.44em;
+  left: -1.68em;
 }
-.Skin ul.ChoiceStructure li .LabelWrapper label.MultipleAnswer > span::before {
+.Skin ul.ChoiceStructure > li:not(.ChoiceGroup) .LabelWrapper label.MultipleAnswer > span::before, .Skin ul.ChoiceGroupStructure > li:not(.ChoiceGroup) .LabelWrapper label.MultipleAnswer > span::before {
   border-radius: 0px;
 }
-.Skin ul.ChoiceStructure li .LabelWrapper label.MultipleAnswer.q-checked > span::before, .Skin ul.ChoiceStructure li .LabelWrapper label.MultipleAnswer.q-checked.q-focused > span::before {
+.Skin ul.ChoiceStructure > li:not(.ChoiceGroup) .LabelWrapper label.MultipleAnswer.q-checked > span::before, .Skin ul.ChoiceStructure > li:not(.ChoiceGroup) .LabelWrapper label.MultipleAnswer.q-checked.q-focused > span::before, .Skin ul.ChoiceGroupStructure > li:not(.ChoiceGroup) .LabelWrapper label.MultipleAnswer.q-checked > span::before, .Skin ul.ChoiceGroupStructure > li:not(.ChoiceGroup) .LabelWrapper label.MultipleAnswer.q-checked.q-focused > span::before {
   border-radius: 0px;
   background-color: var(--thisco-red);
   background-image: url("data:image/svg+xml,%3Csvg width='100%25' height='100%25' viewBox='0 0 24 20' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xml:space='preserve' xmlns:serif='http://www.serif.com/' style='fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;'%3E%3Cpath id='check' d='M23.051,2.843l-14.151,15.977c-0.19,0.214 -0.463,0.337 -0.749,0.337c-0.275,0 -0.538,-0.113 -0.727,-0.313l-7.152,-7.573c-0.341,-0.361 -0.364,-0.924 -0.054,-1.311l0.952,-1.19c0.293,-0.367 0.808,-0.48 1.228,-0.27l5.277,2.639l12.797,-10.902c0.395,-0.336 0.989,-0.312 1.356,0.055l1.181,1.181c0.372,0.372 0.39,0.977 0.042,1.37Z' style='fill:%23fff;fill-rule:nonzero;'/%3E%3C/svg%3E");
   background-size: 110%;
   border-color: transparent;
 }
-.Skin ul.ChoiceStructure li input:not(:checked) ~ span input {
+.Skin ul.ChoiceStructure > li:not(.ChoiceGroup) input:not(:checked) ~ span input, .Skin ul.ChoiceGroupStructure > li:not(.ChoiceGroup) input:not(:checked) ~ span input {
   color: rgba(0, 0, 0, 0.3);
+}
+.Skin ul.ChoiceStructure li.ChoiceGroup, .Skin ul.ChoiceGroupStructure li.ChoiceGroup {
+  margin-bottom: 1.2em;
+  padding-top: 1.6em;
+  font-weight: 400;
 }
 .Skin div.ChoiceStructure input[type=text] {
   width: 90%;
@@ -1709,6 +1849,7 @@ dialog {
   width: 110%;
   position: relative;
   left: -5%;
+  table-layout: fixed;
 }
 .Skin table.ChoiceStructure td {
   vertical-align: bottom;
@@ -1756,6 +1897,7 @@ dialog {
   background-position: center;
   position: relative;
   transition: all 0.2s;
+  margin-bottom: 4em;
 }
 @media (min-width: 481px) {
   .Skin table.ChoiceStructure td input[type=radio] {
@@ -1804,6 +1946,21 @@ dialog {
   background-size: 3.9rem 3.9rem, 50% 0.3rem;
 }
 .Skin table.ChoiceStructure td input[type=radio]:last-of-type input[type=radio], .Skin table.ChoiceStructure td input[type=radio]:last-of-type.likert-input {
+  background-position: center, left center;
+}
+.Skin table.ChoiceStructure td:first-of-type input[type=radio], .Skin table.ChoiceStructure td:last-of-type input[type=radio] {
+  background-size: 1.7rem 1.7rem, 50% 0.3rem;
+  background-position: center, right center;
+}
+@media (min-width: 481px) {
+  .Skin table.ChoiceStructure td:first-of-type input[type=radio], .Skin table.ChoiceStructure td:last-of-type input[type=radio] {
+    background-size: 2.2rem 2.2rem, 50% 0.3rem;
+  }
+}
+.Skin table.ChoiceStructure td:first-of-type input[type=radio]:checked, .Skin table.ChoiceStructure td:last-of-type input[type=radio]:checked {
+  background-size: 3.9rem 3.9rem, 50% 0.3rem;
+}
+.Skin table.ChoiceStructure td:last-of-type input[type=radio] {
   background-position: center, left center;
 }
 
@@ -1925,6 +2082,856 @@ dialog {
 }
 .thisco-survey form fieldset.likert-scale input[type=radio].likert-input:checked + label.likert-label {
   color: var(--thisco-red);
+}
+
+fieldset.ranking-question > legend > * {
+  margin-bottom: 1.6em;
+}
+fieldset.ranking-question .ranking-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 0.6em;
+}
+fieldset.ranking-question .ranking-item > div {
+  border-radius: 15px;
+  background-color: rgba(0, 0, 0, 0.01);
+  background-image: linear-gradient(45deg, transparent, rgba(0, 0, 0, 0.005) 80%);
+  padding: 0.4rem 0.8rem;
+  display: flex;
+  align-items: center;
+  min-height: 5rem;
+}
+fieldset.ranking-question .ranking-item > div input {
+  width: 5rem;
+  appearance: textfield;
+}
+fieldset.ranking-question .ranking-item > div label {
+  font-size: 0.8em;
+  padding-right: 0.75em;
+  padding-left: 2.2ch;
+}
+fieldset.ranking-question .ranking-item.ranking-row-1 {
+  grid-row-start: 1;
+  grid-row-end: 2;
+  position: relative;
+}
+fieldset.ranking-question .ranking-item.ranking-row-1::before {
+  content: attr(data-rank-value);
+  display: block;
+  position: absolute;
+  width: 2.1ch;
+  height: 100%;
+  background: var(--thisco-red);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  transition: all 0.7s 0.5s;
+}
+fieldset.ranking-question .ranking-item[data-rank-value=null]::before {
+  display: none;
+}
+fieldset.ranking-question .ranking-item[data-rank-value="2"]::before, fieldset.ranking-question .ranking-item[data-rank-value="8"]::before, fieldset.ranking-question .ranking-item[data-rank-value="14"]::before, fieldset.ranking-question .ranking-item[data-rank-value="20"]::before {
+  background: var(--thisco-pink);
+}
+fieldset.ranking-question .ranking-item[data-rank-value="3"]::before, fieldset.ranking-question .ranking-item[data-rank-value="9"]::before, fieldset.ranking-question .ranking-item[data-rank-value="15"]::before {
+  background: var(--thisco-yellow);
+  color: black;
+}
+fieldset.ranking-question .ranking-item[data-rank-value="4"]::before, fieldset.ranking-question .ranking-item[data-rank-value="10"]::before, fieldset.ranking-question .ranking-item[data-rank-value="16"]::before {
+  background: var(--thisco-green);
+}
+fieldset.ranking-question .ranking-item[data-rank-value="5"]::before, fieldset.ranking-question .ranking-item[data-rank-value="11"]::before, fieldset.ranking-question .ranking-item[data-rank-value="17"]::before {
+  background: var(--thisco-pale-blue);
+}
+fieldset.ranking-question .ranking-item[data-rank-value="6"]::before, fieldset.ranking-question .ranking-item[data-rank-value="12"]::before, fieldset.ranking-question .ranking-item[data-rank-value="18"]::before {
+  background: var(--thisco-aubergine);
+}
+fieldset.ranking-question .ranking-item.ranking-row-2 {
+  grid-row-start: 2;
+  grid-row-end: 3;
+  position: relative;
+}
+fieldset.ranking-question .ranking-item.ranking-row-2::before {
+  content: attr(data-rank-value);
+  display: block;
+  position: absolute;
+  width: 2.1ch;
+  height: 100%;
+  background: var(--thisco-red);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  transition: all 0.7s 0.5s;
+}
+fieldset.ranking-question .ranking-item[data-rank-value=null]::before {
+  display: none;
+}
+fieldset.ranking-question .ranking-item[data-rank-value="2"]::before, fieldset.ranking-question .ranking-item[data-rank-value="8"]::before, fieldset.ranking-question .ranking-item[data-rank-value="14"]::before, fieldset.ranking-question .ranking-item[data-rank-value="20"]::before {
+  background: var(--thisco-pink);
+}
+fieldset.ranking-question .ranking-item[data-rank-value="3"]::before, fieldset.ranking-question .ranking-item[data-rank-value="9"]::before, fieldset.ranking-question .ranking-item[data-rank-value="15"]::before {
+  background: var(--thisco-yellow);
+  color: black;
+}
+fieldset.ranking-question .ranking-item[data-rank-value="4"]::before, fieldset.ranking-question .ranking-item[data-rank-value="10"]::before, fieldset.ranking-question .ranking-item[data-rank-value="16"]::before {
+  background: var(--thisco-green);
+}
+fieldset.ranking-question .ranking-item[data-rank-value="5"]::before, fieldset.ranking-question .ranking-item[data-rank-value="11"]::before, fieldset.ranking-question .ranking-item[data-rank-value="17"]::before {
+  background: var(--thisco-pale-blue);
+}
+fieldset.ranking-question .ranking-item[data-rank-value="6"]::before, fieldset.ranking-question .ranking-item[data-rank-value="12"]::before, fieldset.ranking-question .ranking-item[data-rank-value="18"]::before {
+  background: var(--thisco-aubergine);
+}
+fieldset.ranking-question .ranking-item.ranking-row-3 {
+  grid-row-start: 3;
+  grid-row-end: 4;
+  position: relative;
+}
+fieldset.ranking-question .ranking-item.ranking-row-3::before {
+  content: attr(data-rank-value);
+  display: block;
+  position: absolute;
+  width: 2.1ch;
+  height: 100%;
+  background: var(--thisco-red);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  transition: all 0.7s 0.5s;
+}
+fieldset.ranking-question .ranking-item[data-rank-value=null]::before {
+  display: none;
+}
+fieldset.ranking-question .ranking-item[data-rank-value="2"]::before, fieldset.ranking-question .ranking-item[data-rank-value="8"]::before, fieldset.ranking-question .ranking-item[data-rank-value="14"]::before, fieldset.ranking-question .ranking-item[data-rank-value="20"]::before {
+  background: var(--thisco-pink);
+}
+fieldset.ranking-question .ranking-item[data-rank-value="3"]::before, fieldset.ranking-question .ranking-item[data-rank-value="9"]::before, fieldset.ranking-question .ranking-item[data-rank-value="15"]::before {
+  background: var(--thisco-yellow);
+  color: black;
+}
+fieldset.ranking-question .ranking-item[data-rank-value="4"]::before, fieldset.ranking-question .ranking-item[data-rank-value="10"]::before, fieldset.ranking-question .ranking-item[data-rank-value="16"]::before {
+  background: var(--thisco-green);
+}
+fieldset.ranking-question .ranking-item[data-rank-value="5"]::before, fieldset.ranking-question .ranking-item[data-rank-value="11"]::before, fieldset.ranking-question .ranking-item[data-rank-value="17"]::before {
+  background: var(--thisco-pale-blue);
+}
+fieldset.ranking-question .ranking-item[data-rank-value="6"]::before, fieldset.ranking-question .ranking-item[data-rank-value="12"]::before, fieldset.ranking-question .ranking-item[data-rank-value="18"]::before {
+  background: var(--thisco-aubergine);
+}
+fieldset.ranking-question .ranking-item.ranking-row-4 {
+  grid-row-start: 4;
+  grid-row-end: 5;
+  position: relative;
+}
+fieldset.ranking-question .ranking-item.ranking-row-4::before {
+  content: attr(data-rank-value);
+  display: block;
+  position: absolute;
+  width: 2.1ch;
+  height: 100%;
+  background: var(--thisco-red);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  transition: all 0.7s 0.5s;
+}
+fieldset.ranking-question .ranking-item[data-rank-value=null]::before {
+  display: none;
+}
+fieldset.ranking-question .ranking-item[data-rank-value="2"]::before, fieldset.ranking-question .ranking-item[data-rank-value="8"]::before, fieldset.ranking-question .ranking-item[data-rank-value="14"]::before, fieldset.ranking-question .ranking-item[data-rank-value="20"]::before {
+  background: var(--thisco-pink);
+}
+fieldset.ranking-question .ranking-item[data-rank-value="3"]::before, fieldset.ranking-question .ranking-item[data-rank-value="9"]::before, fieldset.ranking-question .ranking-item[data-rank-value="15"]::before {
+  background: var(--thisco-yellow);
+  color: black;
+}
+fieldset.ranking-question .ranking-item[data-rank-value="4"]::before, fieldset.ranking-question .ranking-item[data-rank-value="10"]::before, fieldset.ranking-question .ranking-item[data-rank-value="16"]::before {
+  background: var(--thisco-green);
+}
+fieldset.ranking-question .ranking-item[data-rank-value="5"]::before, fieldset.ranking-question .ranking-item[data-rank-value="11"]::before, fieldset.ranking-question .ranking-item[data-rank-value="17"]::before {
+  background: var(--thisco-pale-blue);
+}
+fieldset.ranking-question .ranking-item[data-rank-value="6"]::before, fieldset.ranking-question .ranking-item[data-rank-value="12"]::before, fieldset.ranking-question .ranking-item[data-rank-value="18"]::before {
+  background: var(--thisco-aubergine);
+}
+fieldset.ranking-question .ranking-item.ranking-row-5 {
+  grid-row-start: 5;
+  grid-row-end: 6;
+  position: relative;
+}
+fieldset.ranking-question .ranking-item.ranking-row-5::before {
+  content: attr(data-rank-value);
+  display: block;
+  position: absolute;
+  width: 2.1ch;
+  height: 100%;
+  background: var(--thisco-red);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  transition: all 0.7s 0.5s;
+}
+fieldset.ranking-question .ranking-item[data-rank-value=null]::before {
+  display: none;
+}
+fieldset.ranking-question .ranking-item[data-rank-value="2"]::before, fieldset.ranking-question .ranking-item[data-rank-value="8"]::before, fieldset.ranking-question .ranking-item[data-rank-value="14"]::before, fieldset.ranking-question .ranking-item[data-rank-value="20"]::before {
+  background: var(--thisco-pink);
+}
+fieldset.ranking-question .ranking-item[data-rank-value="3"]::before, fieldset.ranking-question .ranking-item[data-rank-value="9"]::before, fieldset.ranking-question .ranking-item[data-rank-value="15"]::before {
+  background: var(--thisco-yellow);
+  color: black;
+}
+fieldset.ranking-question .ranking-item[data-rank-value="4"]::before, fieldset.ranking-question .ranking-item[data-rank-value="10"]::before, fieldset.ranking-question .ranking-item[data-rank-value="16"]::before {
+  background: var(--thisco-green);
+}
+fieldset.ranking-question .ranking-item[data-rank-value="5"]::before, fieldset.ranking-question .ranking-item[data-rank-value="11"]::before, fieldset.ranking-question .ranking-item[data-rank-value="17"]::before {
+  background: var(--thisco-pale-blue);
+}
+fieldset.ranking-question .ranking-item[data-rank-value="6"]::before, fieldset.ranking-question .ranking-item[data-rank-value="12"]::before, fieldset.ranking-question .ranking-item[data-rank-value="18"]::before {
+  background: var(--thisco-aubergine);
+}
+fieldset.ranking-question .ranking-item.ranking-row-6 {
+  grid-row-start: 6;
+  grid-row-end: 7;
+  position: relative;
+}
+fieldset.ranking-question .ranking-item.ranking-row-6::before {
+  content: attr(data-rank-value);
+  display: block;
+  position: absolute;
+  width: 2.1ch;
+  height: 100%;
+  background: var(--thisco-red);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  transition: all 0.7s 0.5s;
+}
+fieldset.ranking-question .ranking-item[data-rank-value=null]::before {
+  display: none;
+}
+fieldset.ranking-question .ranking-item[data-rank-value="2"]::before, fieldset.ranking-question .ranking-item[data-rank-value="8"]::before, fieldset.ranking-question .ranking-item[data-rank-value="14"]::before, fieldset.ranking-question .ranking-item[data-rank-value="20"]::before {
+  background: var(--thisco-pink);
+}
+fieldset.ranking-question .ranking-item[data-rank-value="3"]::before, fieldset.ranking-question .ranking-item[data-rank-value="9"]::before, fieldset.ranking-question .ranking-item[data-rank-value="15"]::before {
+  background: var(--thisco-yellow);
+  color: black;
+}
+fieldset.ranking-question .ranking-item[data-rank-value="4"]::before, fieldset.ranking-question .ranking-item[data-rank-value="10"]::before, fieldset.ranking-question .ranking-item[data-rank-value="16"]::before {
+  background: var(--thisco-green);
+}
+fieldset.ranking-question .ranking-item[data-rank-value="5"]::before, fieldset.ranking-question .ranking-item[data-rank-value="11"]::before, fieldset.ranking-question .ranking-item[data-rank-value="17"]::before {
+  background: var(--thisco-pale-blue);
+}
+fieldset.ranking-question .ranking-item[data-rank-value="6"]::before, fieldset.ranking-question .ranking-item[data-rank-value="12"]::before, fieldset.ranking-question .ranking-item[data-rank-value="18"]::before {
+  background: var(--thisco-aubergine);
+}
+fieldset.ranking-question .ranking-item.ranking-row-7 {
+  grid-row-start: 7;
+  grid-row-end: 8;
+  position: relative;
+}
+fieldset.ranking-question .ranking-item.ranking-row-7::before {
+  content: attr(data-rank-value);
+  display: block;
+  position: absolute;
+  width: 2.1ch;
+  height: 100%;
+  background: var(--thisco-red);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  transition: all 0.7s 0.5s;
+}
+fieldset.ranking-question .ranking-item[data-rank-value=null]::before {
+  display: none;
+}
+fieldset.ranking-question .ranking-item[data-rank-value="2"]::before, fieldset.ranking-question .ranking-item[data-rank-value="8"]::before, fieldset.ranking-question .ranking-item[data-rank-value="14"]::before, fieldset.ranking-question .ranking-item[data-rank-value="20"]::before {
+  background: var(--thisco-pink);
+}
+fieldset.ranking-question .ranking-item[data-rank-value="3"]::before, fieldset.ranking-question .ranking-item[data-rank-value="9"]::before, fieldset.ranking-question .ranking-item[data-rank-value="15"]::before {
+  background: var(--thisco-yellow);
+  color: black;
+}
+fieldset.ranking-question .ranking-item[data-rank-value="4"]::before, fieldset.ranking-question .ranking-item[data-rank-value="10"]::before, fieldset.ranking-question .ranking-item[data-rank-value="16"]::before {
+  background: var(--thisco-green);
+}
+fieldset.ranking-question .ranking-item[data-rank-value="5"]::before, fieldset.ranking-question .ranking-item[data-rank-value="11"]::before, fieldset.ranking-question .ranking-item[data-rank-value="17"]::before {
+  background: var(--thisco-pale-blue);
+}
+fieldset.ranking-question .ranking-item[data-rank-value="6"]::before, fieldset.ranking-question .ranking-item[data-rank-value="12"]::before, fieldset.ranking-question .ranking-item[data-rank-value="18"]::before {
+  background: var(--thisco-aubergine);
+}
+fieldset.ranking-question .ranking-item.ranking-row-8 {
+  grid-row-start: 8;
+  grid-row-end: 9;
+  position: relative;
+}
+fieldset.ranking-question .ranking-item.ranking-row-8::before {
+  content: attr(data-rank-value);
+  display: block;
+  position: absolute;
+  width: 2.1ch;
+  height: 100%;
+  background: var(--thisco-red);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  transition: all 0.7s 0.5s;
+}
+fieldset.ranking-question .ranking-item[data-rank-value=null]::before {
+  display: none;
+}
+fieldset.ranking-question .ranking-item[data-rank-value="2"]::before, fieldset.ranking-question .ranking-item[data-rank-value="8"]::before, fieldset.ranking-question .ranking-item[data-rank-value="14"]::before, fieldset.ranking-question .ranking-item[data-rank-value="20"]::before {
+  background: var(--thisco-pink);
+}
+fieldset.ranking-question .ranking-item[data-rank-value="3"]::before, fieldset.ranking-question .ranking-item[data-rank-value="9"]::before, fieldset.ranking-question .ranking-item[data-rank-value="15"]::before {
+  background: var(--thisco-yellow);
+  color: black;
+}
+fieldset.ranking-question .ranking-item[data-rank-value="4"]::before, fieldset.ranking-question .ranking-item[data-rank-value="10"]::before, fieldset.ranking-question .ranking-item[data-rank-value="16"]::before {
+  background: var(--thisco-green);
+}
+fieldset.ranking-question .ranking-item[data-rank-value="5"]::before, fieldset.ranking-question .ranking-item[data-rank-value="11"]::before, fieldset.ranking-question .ranking-item[data-rank-value="17"]::before {
+  background: var(--thisco-pale-blue);
+}
+fieldset.ranking-question .ranking-item[data-rank-value="6"]::before, fieldset.ranking-question .ranking-item[data-rank-value="12"]::before, fieldset.ranking-question .ranking-item[data-rank-value="18"]::before {
+  background: var(--thisco-aubergine);
+}
+fieldset.ranking-question .ranking-item.ranking-row-9 {
+  grid-row-start: 9;
+  grid-row-end: 10;
+  position: relative;
+}
+fieldset.ranking-question .ranking-item.ranking-row-9::before {
+  content: attr(data-rank-value);
+  display: block;
+  position: absolute;
+  width: 2.1ch;
+  height: 100%;
+  background: var(--thisco-red);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  transition: all 0.7s 0.5s;
+}
+fieldset.ranking-question .ranking-item[data-rank-value=null]::before {
+  display: none;
+}
+fieldset.ranking-question .ranking-item[data-rank-value="2"]::before, fieldset.ranking-question .ranking-item[data-rank-value="8"]::before, fieldset.ranking-question .ranking-item[data-rank-value="14"]::before, fieldset.ranking-question .ranking-item[data-rank-value="20"]::before {
+  background: var(--thisco-pink);
+}
+fieldset.ranking-question .ranking-item[data-rank-value="3"]::before, fieldset.ranking-question .ranking-item[data-rank-value="9"]::before, fieldset.ranking-question .ranking-item[data-rank-value="15"]::before {
+  background: var(--thisco-yellow);
+  color: black;
+}
+fieldset.ranking-question .ranking-item[data-rank-value="4"]::before, fieldset.ranking-question .ranking-item[data-rank-value="10"]::before, fieldset.ranking-question .ranking-item[data-rank-value="16"]::before {
+  background: var(--thisco-green);
+}
+fieldset.ranking-question .ranking-item[data-rank-value="5"]::before, fieldset.ranking-question .ranking-item[data-rank-value="11"]::before, fieldset.ranking-question .ranking-item[data-rank-value="17"]::before {
+  background: var(--thisco-pale-blue);
+}
+fieldset.ranking-question .ranking-item[data-rank-value="6"]::before, fieldset.ranking-question .ranking-item[data-rank-value="12"]::before, fieldset.ranking-question .ranking-item[data-rank-value="18"]::before {
+  background: var(--thisco-aubergine);
+}
+fieldset.ranking-question .ranking-item.ranking-row-10 {
+  grid-row-start: 10;
+  grid-row-end: 11;
+  position: relative;
+}
+fieldset.ranking-question .ranking-item.ranking-row-10::before {
+  content: attr(data-rank-value);
+  display: block;
+  position: absolute;
+  width: 2.1ch;
+  height: 100%;
+  background: var(--thisco-red);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  transition: all 0.7s 0.5s;
+}
+fieldset.ranking-question .ranking-item[data-rank-value=null]::before {
+  display: none;
+}
+fieldset.ranking-question .ranking-item[data-rank-value="2"]::before, fieldset.ranking-question .ranking-item[data-rank-value="8"]::before, fieldset.ranking-question .ranking-item[data-rank-value="14"]::before, fieldset.ranking-question .ranking-item[data-rank-value="20"]::before {
+  background: var(--thisco-pink);
+}
+fieldset.ranking-question .ranking-item[data-rank-value="3"]::before, fieldset.ranking-question .ranking-item[data-rank-value="9"]::before, fieldset.ranking-question .ranking-item[data-rank-value="15"]::before {
+  background: var(--thisco-yellow);
+  color: black;
+}
+fieldset.ranking-question .ranking-item[data-rank-value="4"]::before, fieldset.ranking-question .ranking-item[data-rank-value="10"]::before, fieldset.ranking-question .ranking-item[data-rank-value="16"]::before {
+  background: var(--thisco-green);
+}
+fieldset.ranking-question .ranking-item[data-rank-value="5"]::before, fieldset.ranking-question .ranking-item[data-rank-value="11"]::before, fieldset.ranking-question .ranking-item[data-rank-value="17"]::before {
+  background: var(--thisco-pale-blue);
+}
+fieldset.ranking-question .ranking-item[data-rank-value="6"]::before, fieldset.ranking-question .ranking-item[data-rank-value="12"]::before, fieldset.ranking-question .ranking-item[data-rank-value="18"]::before {
+  background: var(--thisco-aubergine);
+}
+fieldset.ranking-question .ranking-item.ranking-row-11 {
+  grid-row-start: 11;
+  grid-row-end: 12;
+  position: relative;
+}
+fieldset.ranking-question .ranking-item.ranking-row-11::before {
+  content: attr(data-rank-value);
+  display: block;
+  position: absolute;
+  width: 2.1ch;
+  height: 100%;
+  background: var(--thisco-red);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  transition: all 0.7s 0.5s;
+}
+fieldset.ranking-question .ranking-item[data-rank-value=null]::before {
+  display: none;
+}
+fieldset.ranking-question .ranking-item[data-rank-value="2"]::before, fieldset.ranking-question .ranking-item[data-rank-value="8"]::before, fieldset.ranking-question .ranking-item[data-rank-value="14"]::before, fieldset.ranking-question .ranking-item[data-rank-value="20"]::before {
+  background: var(--thisco-pink);
+}
+fieldset.ranking-question .ranking-item[data-rank-value="3"]::before, fieldset.ranking-question .ranking-item[data-rank-value="9"]::before, fieldset.ranking-question .ranking-item[data-rank-value="15"]::before {
+  background: var(--thisco-yellow);
+  color: black;
+}
+fieldset.ranking-question .ranking-item[data-rank-value="4"]::before, fieldset.ranking-question .ranking-item[data-rank-value="10"]::before, fieldset.ranking-question .ranking-item[data-rank-value="16"]::before {
+  background: var(--thisco-green);
+}
+fieldset.ranking-question .ranking-item[data-rank-value="5"]::before, fieldset.ranking-question .ranking-item[data-rank-value="11"]::before, fieldset.ranking-question .ranking-item[data-rank-value="17"]::before {
+  background: var(--thisco-pale-blue);
+}
+fieldset.ranking-question .ranking-item[data-rank-value="6"]::before, fieldset.ranking-question .ranking-item[data-rank-value="12"]::before, fieldset.ranking-question .ranking-item[data-rank-value="18"]::before {
+  background: var(--thisco-aubergine);
+}
+fieldset.ranking-question .ranking-item.ranking-row-12 {
+  grid-row-start: 12;
+  grid-row-end: 13;
+  position: relative;
+}
+fieldset.ranking-question .ranking-item.ranking-row-12::before {
+  content: attr(data-rank-value);
+  display: block;
+  position: absolute;
+  width: 2.1ch;
+  height: 100%;
+  background: var(--thisco-red);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  transition: all 0.7s 0.5s;
+}
+fieldset.ranking-question .ranking-item[data-rank-value=null]::before {
+  display: none;
+}
+fieldset.ranking-question .ranking-item[data-rank-value="2"]::before, fieldset.ranking-question .ranking-item[data-rank-value="8"]::before, fieldset.ranking-question .ranking-item[data-rank-value="14"]::before, fieldset.ranking-question .ranking-item[data-rank-value="20"]::before {
+  background: var(--thisco-pink);
+}
+fieldset.ranking-question .ranking-item[data-rank-value="3"]::before, fieldset.ranking-question .ranking-item[data-rank-value="9"]::before, fieldset.ranking-question .ranking-item[data-rank-value="15"]::before {
+  background: var(--thisco-yellow);
+  color: black;
+}
+fieldset.ranking-question .ranking-item[data-rank-value="4"]::before, fieldset.ranking-question .ranking-item[data-rank-value="10"]::before, fieldset.ranking-question .ranking-item[data-rank-value="16"]::before {
+  background: var(--thisco-green);
+}
+fieldset.ranking-question .ranking-item[data-rank-value="5"]::before, fieldset.ranking-question .ranking-item[data-rank-value="11"]::before, fieldset.ranking-question .ranking-item[data-rank-value="17"]::before {
+  background: var(--thisco-pale-blue);
+}
+fieldset.ranking-question .ranking-item[data-rank-value="6"]::before, fieldset.ranking-question .ranking-item[data-rank-value="12"]::before, fieldset.ranking-question .ranking-item[data-rank-value="18"]::before {
+  background: var(--thisco-aubergine);
+}
+fieldset.ranking-question .ranking-item.ranking-row-13 {
+  grid-row-start: 13;
+  grid-row-end: 14;
+  position: relative;
+}
+fieldset.ranking-question .ranking-item.ranking-row-13::before {
+  content: attr(data-rank-value);
+  display: block;
+  position: absolute;
+  width: 2.1ch;
+  height: 100%;
+  background: var(--thisco-red);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  transition: all 0.7s 0.5s;
+}
+fieldset.ranking-question .ranking-item[data-rank-value=null]::before {
+  display: none;
+}
+fieldset.ranking-question .ranking-item[data-rank-value="2"]::before, fieldset.ranking-question .ranking-item[data-rank-value="8"]::before, fieldset.ranking-question .ranking-item[data-rank-value="14"]::before, fieldset.ranking-question .ranking-item[data-rank-value="20"]::before {
+  background: var(--thisco-pink);
+}
+fieldset.ranking-question .ranking-item[data-rank-value="3"]::before, fieldset.ranking-question .ranking-item[data-rank-value="9"]::before, fieldset.ranking-question .ranking-item[data-rank-value="15"]::before {
+  background: var(--thisco-yellow);
+  color: black;
+}
+fieldset.ranking-question .ranking-item[data-rank-value="4"]::before, fieldset.ranking-question .ranking-item[data-rank-value="10"]::before, fieldset.ranking-question .ranking-item[data-rank-value="16"]::before {
+  background: var(--thisco-green);
+}
+fieldset.ranking-question .ranking-item[data-rank-value="5"]::before, fieldset.ranking-question .ranking-item[data-rank-value="11"]::before, fieldset.ranking-question .ranking-item[data-rank-value="17"]::before {
+  background: var(--thisco-pale-blue);
+}
+fieldset.ranking-question .ranking-item[data-rank-value="6"]::before, fieldset.ranking-question .ranking-item[data-rank-value="12"]::before, fieldset.ranking-question .ranking-item[data-rank-value="18"]::before {
+  background: var(--thisco-aubergine);
+}
+fieldset.ranking-question .ranking-item.ranking-row-14 {
+  grid-row-start: 14;
+  grid-row-end: 15;
+  position: relative;
+}
+fieldset.ranking-question .ranking-item.ranking-row-14::before {
+  content: attr(data-rank-value);
+  display: block;
+  position: absolute;
+  width: 2.1ch;
+  height: 100%;
+  background: var(--thisco-red);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  transition: all 0.7s 0.5s;
+}
+fieldset.ranking-question .ranking-item[data-rank-value=null]::before {
+  display: none;
+}
+fieldset.ranking-question .ranking-item[data-rank-value="2"]::before, fieldset.ranking-question .ranking-item[data-rank-value="8"]::before, fieldset.ranking-question .ranking-item[data-rank-value="14"]::before, fieldset.ranking-question .ranking-item[data-rank-value="20"]::before {
+  background: var(--thisco-pink);
+}
+fieldset.ranking-question .ranking-item[data-rank-value="3"]::before, fieldset.ranking-question .ranking-item[data-rank-value="9"]::before, fieldset.ranking-question .ranking-item[data-rank-value="15"]::before {
+  background: var(--thisco-yellow);
+  color: black;
+}
+fieldset.ranking-question .ranking-item[data-rank-value="4"]::before, fieldset.ranking-question .ranking-item[data-rank-value="10"]::before, fieldset.ranking-question .ranking-item[data-rank-value="16"]::before {
+  background: var(--thisco-green);
+}
+fieldset.ranking-question .ranking-item[data-rank-value="5"]::before, fieldset.ranking-question .ranking-item[data-rank-value="11"]::before, fieldset.ranking-question .ranking-item[data-rank-value="17"]::before {
+  background: var(--thisco-pale-blue);
+}
+fieldset.ranking-question .ranking-item[data-rank-value="6"]::before, fieldset.ranking-question .ranking-item[data-rank-value="12"]::before, fieldset.ranking-question .ranking-item[data-rank-value="18"]::before {
+  background: var(--thisco-aubergine);
+}
+fieldset.ranking-question .ranking-item.ranking-row-15 {
+  grid-row-start: 15;
+  grid-row-end: 16;
+  position: relative;
+}
+fieldset.ranking-question .ranking-item.ranking-row-15::before {
+  content: attr(data-rank-value);
+  display: block;
+  position: absolute;
+  width: 2.1ch;
+  height: 100%;
+  background: var(--thisco-red);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  transition: all 0.7s 0.5s;
+}
+fieldset.ranking-question .ranking-item[data-rank-value=null]::before {
+  display: none;
+}
+fieldset.ranking-question .ranking-item[data-rank-value="2"]::before, fieldset.ranking-question .ranking-item[data-rank-value="8"]::before, fieldset.ranking-question .ranking-item[data-rank-value="14"]::before, fieldset.ranking-question .ranking-item[data-rank-value="20"]::before {
+  background: var(--thisco-pink);
+}
+fieldset.ranking-question .ranking-item[data-rank-value="3"]::before, fieldset.ranking-question .ranking-item[data-rank-value="9"]::before, fieldset.ranking-question .ranking-item[data-rank-value="15"]::before {
+  background: var(--thisco-yellow);
+  color: black;
+}
+fieldset.ranking-question .ranking-item[data-rank-value="4"]::before, fieldset.ranking-question .ranking-item[data-rank-value="10"]::before, fieldset.ranking-question .ranking-item[data-rank-value="16"]::before {
+  background: var(--thisco-green);
+}
+fieldset.ranking-question .ranking-item[data-rank-value="5"]::before, fieldset.ranking-question .ranking-item[data-rank-value="11"]::before, fieldset.ranking-question .ranking-item[data-rank-value="17"]::before {
+  background: var(--thisco-pale-blue);
+}
+fieldset.ranking-question .ranking-item[data-rank-value="6"]::before, fieldset.ranking-question .ranking-item[data-rank-value="12"]::before, fieldset.ranking-question .ranking-item[data-rank-value="18"]::before {
+  background: var(--thisco-aubergine);
+}
+fieldset.ranking-question .ranking-item.ranking-row-16 {
+  grid-row-start: 16;
+  grid-row-end: 17;
+  position: relative;
+}
+fieldset.ranking-question .ranking-item.ranking-row-16::before {
+  content: attr(data-rank-value);
+  display: block;
+  position: absolute;
+  width: 2.1ch;
+  height: 100%;
+  background: var(--thisco-red);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  transition: all 0.7s 0.5s;
+}
+fieldset.ranking-question .ranking-item[data-rank-value=null]::before {
+  display: none;
+}
+fieldset.ranking-question .ranking-item[data-rank-value="2"]::before, fieldset.ranking-question .ranking-item[data-rank-value="8"]::before, fieldset.ranking-question .ranking-item[data-rank-value="14"]::before, fieldset.ranking-question .ranking-item[data-rank-value="20"]::before {
+  background: var(--thisco-pink);
+}
+fieldset.ranking-question .ranking-item[data-rank-value="3"]::before, fieldset.ranking-question .ranking-item[data-rank-value="9"]::before, fieldset.ranking-question .ranking-item[data-rank-value="15"]::before {
+  background: var(--thisco-yellow);
+  color: black;
+}
+fieldset.ranking-question .ranking-item[data-rank-value="4"]::before, fieldset.ranking-question .ranking-item[data-rank-value="10"]::before, fieldset.ranking-question .ranking-item[data-rank-value="16"]::before {
+  background: var(--thisco-green);
+}
+fieldset.ranking-question .ranking-item[data-rank-value="5"]::before, fieldset.ranking-question .ranking-item[data-rank-value="11"]::before, fieldset.ranking-question .ranking-item[data-rank-value="17"]::before {
+  background: var(--thisco-pale-blue);
+}
+fieldset.ranking-question .ranking-item[data-rank-value="6"]::before, fieldset.ranking-question .ranking-item[data-rank-value="12"]::before, fieldset.ranking-question .ranking-item[data-rank-value="18"]::before {
+  background: var(--thisco-aubergine);
+}
+fieldset.ranking-question .ranking-item.ranking-row-17 {
+  grid-row-start: 17;
+  grid-row-end: 18;
+  position: relative;
+}
+fieldset.ranking-question .ranking-item.ranking-row-17::before {
+  content: attr(data-rank-value);
+  display: block;
+  position: absolute;
+  width: 2.1ch;
+  height: 100%;
+  background: var(--thisco-red);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  transition: all 0.7s 0.5s;
+}
+fieldset.ranking-question .ranking-item[data-rank-value=null]::before {
+  display: none;
+}
+fieldset.ranking-question .ranking-item[data-rank-value="2"]::before, fieldset.ranking-question .ranking-item[data-rank-value="8"]::before, fieldset.ranking-question .ranking-item[data-rank-value="14"]::before, fieldset.ranking-question .ranking-item[data-rank-value="20"]::before {
+  background: var(--thisco-pink);
+}
+fieldset.ranking-question .ranking-item[data-rank-value="3"]::before, fieldset.ranking-question .ranking-item[data-rank-value="9"]::before, fieldset.ranking-question .ranking-item[data-rank-value="15"]::before {
+  background: var(--thisco-yellow);
+  color: black;
+}
+fieldset.ranking-question .ranking-item[data-rank-value="4"]::before, fieldset.ranking-question .ranking-item[data-rank-value="10"]::before, fieldset.ranking-question .ranking-item[data-rank-value="16"]::before {
+  background: var(--thisco-green);
+}
+fieldset.ranking-question .ranking-item[data-rank-value="5"]::before, fieldset.ranking-question .ranking-item[data-rank-value="11"]::before, fieldset.ranking-question .ranking-item[data-rank-value="17"]::before {
+  background: var(--thisco-pale-blue);
+}
+fieldset.ranking-question .ranking-item[data-rank-value="6"]::before, fieldset.ranking-question .ranking-item[data-rank-value="12"]::before, fieldset.ranking-question .ranking-item[data-rank-value="18"]::before {
+  background: var(--thisco-aubergine);
+}
+fieldset.ranking-question .ranking-item.ranking-row-18 {
+  grid-row-start: 18;
+  grid-row-end: 19;
+  position: relative;
+}
+fieldset.ranking-question .ranking-item.ranking-row-18::before {
+  content: attr(data-rank-value);
+  display: block;
+  position: absolute;
+  width: 2.1ch;
+  height: 100%;
+  background: var(--thisco-red);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  transition: all 0.7s 0.5s;
+}
+fieldset.ranking-question .ranking-item[data-rank-value=null]::before {
+  display: none;
+}
+fieldset.ranking-question .ranking-item[data-rank-value="2"]::before, fieldset.ranking-question .ranking-item[data-rank-value="8"]::before, fieldset.ranking-question .ranking-item[data-rank-value="14"]::before, fieldset.ranking-question .ranking-item[data-rank-value="20"]::before {
+  background: var(--thisco-pink);
+}
+fieldset.ranking-question .ranking-item[data-rank-value="3"]::before, fieldset.ranking-question .ranking-item[data-rank-value="9"]::before, fieldset.ranking-question .ranking-item[data-rank-value="15"]::before {
+  background: var(--thisco-yellow);
+  color: black;
+}
+fieldset.ranking-question .ranking-item[data-rank-value="4"]::before, fieldset.ranking-question .ranking-item[data-rank-value="10"]::before, fieldset.ranking-question .ranking-item[data-rank-value="16"]::before {
+  background: var(--thisco-green);
+}
+fieldset.ranking-question .ranking-item[data-rank-value="5"]::before, fieldset.ranking-question .ranking-item[data-rank-value="11"]::before, fieldset.ranking-question .ranking-item[data-rank-value="17"]::before {
+  background: var(--thisco-pale-blue);
+}
+fieldset.ranking-question .ranking-item[data-rank-value="6"]::before, fieldset.ranking-question .ranking-item[data-rank-value="12"]::before, fieldset.ranking-question .ranking-item[data-rank-value="18"]::before {
+  background: var(--thisco-aubergine);
+}
+fieldset.ranking-question .ranking-item.ranking-row-19 {
+  grid-row-start: 19;
+  grid-row-end: 20;
+  position: relative;
+}
+fieldset.ranking-question .ranking-item.ranking-row-19::before {
+  content: attr(data-rank-value);
+  display: block;
+  position: absolute;
+  width: 2.1ch;
+  height: 100%;
+  background: var(--thisco-red);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  transition: all 0.7s 0.5s;
+}
+fieldset.ranking-question .ranking-item[data-rank-value=null]::before {
+  display: none;
+}
+fieldset.ranking-question .ranking-item[data-rank-value="2"]::before, fieldset.ranking-question .ranking-item[data-rank-value="8"]::before, fieldset.ranking-question .ranking-item[data-rank-value="14"]::before, fieldset.ranking-question .ranking-item[data-rank-value="20"]::before {
+  background: var(--thisco-pink);
+}
+fieldset.ranking-question .ranking-item[data-rank-value="3"]::before, fieldset.ranking-question .ranking-item[data-rank-value="9"]::before, fieldset.ranking-question .ranking-item[data-rank-value="15"]::before {
+  background: var(--thisco-yellow);
+  color: black;
+}
+fieldset.ranking-question .ranking-item[data-rank-value="4"]::before, fieldset.ranking-question .ranking-item[data-rank-value="10"]::before, fieldset.ranking-question .ranking-item[data-rank-value="16"]::before {
+  background: var(--thisco-green);
+}
+fieldset.ranking-question .ranking-item[data-rank-value="5"]::before, fieldset.ranking-question .ranking-item[data-rank-value="11"]::before, fieldset.ranking-question .ranking-item[data-rank-value="17"]::before {
+  background: var(--thisco-pale-blue);
+}
+fieldset.ranking-question .ranking-item[data-rank-value="6"]::before, fieldset.ranking-question .ranking-item[data-rank-value="12"]::before, fieldset.ranking-question .ranking-item[data-rank-value="18"]::before {
+  background: var(--thisco-aubergine);
+}
+fieldset.ranking-question .ranking-item.ranking-row-20 {
+  grid-row-start: 20;
+  grid-row-end: 21;
+  position: relative;
+}
+fieldset.ranking-question .ranking-item.ranking-row-20::before {
+  content: attr(data-rank-value);
+  display: block;
+  position: absolute;
+  width: 2.1ch;
+  height: 100%;
+  background: var(--thisco-red);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  transition: all 0.7s 0.5s;
+}
+fieldset.ranking-question .ranking-item[data-rank-value=null]::before {
+  display: none;
+}
+fieldset.ranking-question .ranking-item[data-rank-value="2"]::before, fieldset.ranking-question .ranking-item[data-rank-value="8"]::before, fieldset.ranking-question .ranking-item[data-rank-value="14"]::before, fieldset.ranking-question .ranking-item[data-rank-value="20"]::before {
+  background: var(--thisco-pink);
+}
+fieldset.ranking-question .ranking-item[data-rank-value="3"]::before, fieldset.ranking-question .ranking-item[data-rank-value="9"]::before, fieldset.ranking-question .ranking-item[data-rank-value="15"]::before {
+  background: var(--thisco-yellow);
+  color: black;
+}
+fieldset.ranking-question .ranking-item[data-rank-value="4"]::before, fieldset.ranking-question .ranking-item[data-rank-value="10"]::before, fieldset.ranking-question .ranking-item[data-rank-value="16"]::before {
+  background: var(--thisco-green);
+}
+fieldset.ranking-question .ranking-item[data-rank-value="5"]::before, fieldset.ranking-question .ranking-item[data-rank-value="11"]::before, fieldset.ranking-question .ranking-item[data-rank-value="17"]::before {
+  background: var(--thisco-pale-blue);
+}
+fieldset.ranking-question .ranking-item[data-rank-value="6"]::before, fieldset.ranking-question .ranking-item[data-rank-value="12"]::before, fieldset.ranking-question .ranking-item[data-rank-value="18"]::before {
+  background: var(--thisco-aubergine);
+}
+fieldset.ranking-question .input-number-wrapper {
+  font-size: 1.2em;
+  display: flex;
+  align-items: center;
+}
+fieldset.ranking-question .input-number-wrapper input {
+  max-width: 3ch;
+  margin: 5px;
+  text-align: center;
+  border-radius: 5px;
+  border: 1px solid var(--thisco-light-grey);
+  box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.1);
+  font-weight: 400;
+  padding-left: 0.2em;
+  padding-right: 0.2em;
+}
+fieldset.ranking-question .input-number-wrapper input:focus-visible {
+  border-color: var(--thisco-red);
+  box-shadow: 0px 0px 0px 1px var(--thisco-red);
+  outline: none;
+}
+fieldset.ranking-question .input-number-wrapper input::placeholder {
+  font-weight: 100;
+  color: rgba(0, 0, 0, 0.5);
+}
+fieldset.ranking-question .input-number-wrapper button {
+  transition: all 0.2s ease-in;
+}
+fieldset.ranking-question .input-number-wrapper button:active {
+  transform: scale(0.8);
+}
+fieldset.ranking-question .input-number-wrapper button.button-decrement {
+  background-image: linear-gradient(#f9d2dc, #f9d2dc);
+  background-size: 80% 3px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+fieldset.ranking-question .input-number-wrapper button.button-increment {
+  background-image: linear-gradient(#f9d2dc, #f9d2dc), linear-gradient(#f9d2dc, #f9d2dc);
+  background-size: 80% 3px, 3px 80%;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 /*# sourceMappingURL=skin.css.map */

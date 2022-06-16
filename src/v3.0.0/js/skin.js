@@ -83,3 +83,9 @@ if (likertScale.length) {
 
     });
 }
+
+// ranking question
+
+console.debug('ranking questions');
+require("../../shared_js/ranking_question.js")();
+

@@ -1,0 +1,141 @@
+@mixin thisco-ranking-label () {
+    border-radius: 15px;
+    background-color: rgb(0 0 0 / 0.01);
+    background-image: linear-gradient(45deg, transparent, rgb(0 0 0 / 0.005) 80%);
+    padding: .4rem .8rem;
+}
+
+@mixin thisco-input () {
+  // generic style for majority of types, override as necessary
+  border-radius: 5px;
+  border: 1px solid var(--thisco-light-grey);
+  box-shadow: inset 1px 1px 3px rgb(0 0 0 / 0.1);
+  font-weight: 400;
+  padding-left: .2em;
+  padding-right: .2em;
+  &:focus-visible {
+      border-color: var(--thisco-red);
+      box-shadow: 0px 0px 0px 1px var(--thisco-red);
+      outline: none;
+  }
+  &::placeholder {
+      font-weight: 100;
+      color: rgb(0 0 0 / 0.5);
+  }
+}
+
+$control-width: 5rem;
+$thisco-red: rgb(221, 0, 49);
+$thisco-pink: rgb(243, 165, 185);
+
+fieldset.ranking-question {
+    > legend {
+        > * {
+            margin-bottom: 1.6em;
+        }
+    }
+    .ranking-container {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: .6em;
+    }
+    .ranking-item {
+        > div {
+        @include thisco-ranking-label();
+        display: flex;
+        align-items: center;
+        min-height: $control-width;
+        input {
+            width: $control-width;
+            appearance: textfield;
+        }
+        label {
+            font-size: .8em;
+            padding-right: .75em;
+            padding-left: 2.2ch;
+        }
+      }
+    }
+    @for $i from 1 through 20 {
+      .ranking-item.ranking-row-#{$i} {
+        grid-row-start: $i;
+        grid-row-end:$i+1;
+        position: relative;
+        &::before {
+          content: attr(data-rank-value);
+          display: block;
+          position: absolute;
+          width: 2.1ch;
+          height: 100%;
+          background: var(--thisco-red);
+          color: white;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-top-left-radius: 25px;
+          border-bottom-left-radius: 25px;
+          transition: all .7s .5s;
+        }
+      }
+      .ranking-item[data-rank-value="null"] {
+        &::before {
+          display: none;
+        }
+      }
+      .ranking-item[data-rank-value="2"], .ranking-item[data-rank-value="8"], .ranking-item[data-rank-value="14"], .ranking-item[data-rank-value="20"] {
+        &::before {
+          background: var(--thisco-pink);
+        }
+      }
+      .ranking-item[data-rank-value="3"], .ranking-item[data-rank-value="9"], .ranking-item[data-rank-value="15"] {
+        &::before {
+          background: var(--thisco-yellow);
+          color:black;
+        }
+      }
+      .ranking-item[data-rank-value="4"], .ranking-item[data-rank-value="10"], .ranking-item[data-rank-value="16"] {
+        &::before {
+          background: var(--thisco-green);
+        }
+      }
+      .ranking-item[data-rank-value="5"], .ranking-item[data-rank-value="11"], .ranking-item[data-rank-value="17"] {
+        &::before {
+          background: var(--thisco-pale-blue);
+        }
+      }
+      .ranking-item[data-rank-value="6"], .ranking-item[data-rank-value="12"], .ranking-item[data-rank-value="18"] {
+        &::before {
+          background: var(--thisco-aubergine);
+        }
+      }
+    }
+    .input-number-wrapper {
+      font-size: 1.2em;
+      display: flex;
+      align-items: center;
+      input {
+        max-width: 3ch;
+        margin:5px;
+        text-align: center;
+        @include thisco-input();
+      }
+      button {
+        transition: all .2s ease-in;
+        &:active {
+            transform: scale(0.8);
+        }
+      }
+      button.button-decrement {
+        background-image: linear-gradient(lighten($thisco-pink,10%),lighten($thisco-pink,10%));
+        background-size: 80% 3px;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+      button.button-increment {
+        background-image: linear-gradient(lighten($thisco-pink,10%),lighten($thisco-pink,10%)), linear-gradient(lighten($thisco-pink,10%),lighten($thisco-pink,10%));
+        background-size: 80% 3px, 3px 80%;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+    }
+}
