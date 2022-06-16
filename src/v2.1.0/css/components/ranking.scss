@@ -49,6 +49,11 @@ fieldset.ranking-question {
         input {
             width: $control-width;
             appearance: textfield;
+            &::-webkit-inner-spin-button, &::-webkit-outer-spin-button {
+              -webkit-appearance: none;
+              appearance: none;
+              margin:0;
+            }
         }
         label {
             font-size: .8em;
@@ -68,8 +73,8 @@ fieldset.ranking-question {
           position: absolute;
           width: 2.1ch;
           height: 100%;
-          background: var(--thisco-red);
-          color: white;
+          color: black;
+          background: var(--thisco-light-grey);
           display: flex;
           align-items: center;
           justify-content: center;
@@ -78,36 +83,37 @@ fieldset.ranking-question {
           transition: all .7s .5s;
         }
       }
-      .ranking-item[data-rank-value="null"] {
-        &::before {
-          display: none;
-        }
+    }
+    .ranking-item[data-rank-value="null"] {
+      &::before {
+        display: none;
       }
-      .ranking-item[data-rank-value="2"], .ranking-item[data-rank-value="8"], .ranking-item[data-rank-value="14"], .ranking-item[data-rank-value="20"] {
-        &::before {
-          background: var(--thisco-pink);
-        }
+    }
+    .ranking-item[data-rank-value="1"] {
+      &::before {
+        background: var(--thisco-red);
+        color: white;
       }
-      .ranking-item[data-rank-value="3"], .ranking-item[data-rank-value="9"], .ranking-item[data-rank-value="15"] {
-        &::before {
-          background: var(--thisco-yellow);
-          color:black;
-        }
+    }
+    .ranking-item[data-rank-value="2"] {
+      &::before {
+        background: var(--thisco-pink);
       }
-      .ranking-item[data-rank-value="4"], .ranking-item[data-rank-value="10"], .ranking-item[data-rank-value="16"] {
-        &::before {
-          background: var(--thisco-green);
-        }
+    }
+    .ranking-item[data-rank-value="3"] {
+      &::before {
+        background: var(--thisco-yellow);
       }
-      .ranking-item[data-rank-value="5"], .ranking-item[data-rank-value="11"], .ranking-item[data-rank-value="17"] {
-        &::before {
-          background: var(--thisco-pale-blue);
-        }
+    }
+    .ranking-item[data-rank-value="4"] {
+      &::before {
+        background: var(--thisco-aubergine);
+        color: white;
       }
-      .ranking-item[data-rank-value="6"], .ranking-item[data-rank-value="12"], .ranking-item[data-rank-value="18"] {
-        &::before {
-          background: var(--thisco-aubergine);
-        }
+    }
+    .ranking-item[data-rank-value="5"] {
+      &::before {
+        background: var(--thisco-light-grey);
       }
     }
     .input-number-wrapper {
@@ -122,21 +128,27 @@ fieldset.ranking-question {
       }
       button {
         transition: all .2s ease-in;
+        border: 0;
+        width: 1.6rem;
+        height: 2rem;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-color: transparent;
         &:active {
             transform: scale(0.8);
         }
       }
       button.button-decrement {
-        background-image: linear-gradient(lighten($thisco-pink,10%),lighten($thisco-pink,10%));
-        background-size: 80% 3px;
-        background-repeat: no-repeat;
-        background-position: center;
+        background-image: linear-gradient(lighten($thisco-pink,10%),lighten($thisco-pink,10%)), 
+                          radial-gradient(circle at center, $thisco-red 60%, transparent 61%);
+        background-size: 1rem 3px, 100% 100%;
+
       }
       button.button-increment {
-        background-image: linear-gradient(lighten($thisco-pink,10%),lighten($thisco-pink,10%)), linear-gradient(lighten($thisco-pink,10%),lighten($thisco-pink,10%));
-        background-size: 80% 3px, 3px 80%;
-        background-repeat: no-repeat;
-        background-position: center;
+        background-image: linear-gradient(lighten($thisco-pink,10%),lighten($thisco-pink,10%)), 
+                          linear-gradient(lighten($thisco-pink,10%),lighten($thisco-pink,10%)),
+                          radial-gradient(circle at center, $thisco-red 60%, transparent 61%);
+        background-size: 1rem 3px, 3px 1rem, 100% 100%;
       }
     }
 }

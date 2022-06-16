@@ -2106,6 +2106,11 @@ fieldset.ranking-question .ranking-item > div input {
   width: 5rem;
   appearance: textfield;
 }
+fieldset.ranking-question .ranking-item > div input::-webkit-inner-spin-button, fieldset.ranking-question .ranking-item > div input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+}
 fieldset.ranking-question .ranking-item > div label {
   font-size: 0.8em;
   padding-right: 0.75em;
@@ -2122,33 +2127,14 @@ fieldset.ranking-question .ranking-item.ranking-row-1::before {
   position: absolute;
   width: 2.1ch;
   height: 100%;
-  background: var(--thisco-red);
-  color: white;
+  color: black;
+  background: var(--thisco-light-grey);
   display: flex;
   align-items: center;
   justify-content: center;
   border-top-left-radius: 25px;
   border-bottom-left-radius: 25px;
   transition: all 0.7s 0.5s;
-}
-fieldset.ranking-question .ranking-item[data-rank-value=null]::before {
-  display: none;
-}
-fieldset.ranking-question .ranking-item[data-rank-value="2"]::before, fieldset.ranking-question .ranking-item[data-rank-value="8"]::before, fieldset.ranking-question .ranking-item[data-rank-value="14"]::before, fieldset.ranking-question .ranking-item[data-rank-value="20"]::before {
-  background: var(--thisco-pink);
-}
-fieldset.ranking-question .ranking-item[data-rank-value="3"]::before, fieldset.ranking-question .ranking-item[data-rank-value="9"]::before, fieldset.ranking-question .ranking-item[data-rank-value="15"]::before {
-  background: var(--thisco-yellow);
-  color: black;
-}
-fieldset.ranking-question .ranking-item[data-rank-value="4"]::before, fieldset.ranking-question .ranking-item[data-rank-value="10"]::before, fieldset.ranking-question .ranking-item[data-rank-value="16"]::before {
-  background: var(--thisco-green);
-}
-fieldset.ranking-question .ranking-item[data-rank-value="5"]::before, fieldset.ranking-question .ranking-item[data-rank-value="11"]::before, fieldset.ranking-question .ranking-item[data-rank-value="17"]::before {
-  background: var(--thisco-pale-blue);
-}
-fieldset.ranking-question .ranking-item[data-rank-value="6"]::before, fieldset.ranking-question .ranking-item[data-rank-value="12"]::before, fieldset.ranking-question .ranking-item[data-rank-value="18"]::before {
-  background: var(--thisco-aubergine);
 }
 fieldset.ranking-question .ranking-item.ranking-row-2 {
   grid-row-start: 2;
@@ -2161,33 +2147,14 @@ fieldset.ranking-question .ranking-item.ranking-row-2::before {
   position: absolute;
   width: 2.1ch;
   height: 100%;
-  background: var(--thisco-red);
-  color: white;
+  color: black;
+  background: var(--thisco-light-grey);
   display: flex;
   align-items: center;
   justify-content: center;
   border-top-left-radius: 25px;
   border-bottom-left-radius: 25px;
   transition: all 0.7s 0.5s;
-}
-fieldset.ranking-question .ranking-item[data-rank-value=null]::before {
-  display: none;
-}
-fieldset.ranking-question .ranking-item[data-rank-value="2"]::before, fieldset.ranking-question .ranking-item[data-rank-value="8"]::before, fieldset.ranking-question .ranking-item[data-rank-value="14"]::before, fieldset.ranking-question .ranking-item[data-rank-value="20"]::before {
-  background: var(--thisco-pink);
-}
-fieldset.ranking-question .ranking-item[data-rank-value="3"]::before, fieldset.ranking-question .ranking-item[data-rank-value="9"]::before, fieldset.ranking-question .ranking-item[data-rank-value="15"]::before {
-  background: var(--thisco-yellow);
-  color: black;
-}
-fieldset.ranking-question .ranking-item[data-rank-value="4"]::before, fieldset.ranking-question .ranking-item[data-rank-value="10"]::before, fieldset.ranking-question .ranking-item[data-rank-value="16"]::before {
-  background: var(--thisco-green);
-}
-fieldset.ranking-question .ranking-item[data-rank-value="5"]::before, fieldset.ranking-question .ranking-item[data-rank-value="11"]::before, fieldset.ranking-question .ranking-item[data-rank-value="17"]::before {
-  background: var(--thisco-pale-blue);
-}
-fieldset.ranking-question .ranking-item[data-rank-value="6"]::before, fieldset.ranking-question .ranking-item[data-rank-value="12"]::before, fieldset.ranking-question .ranking-item[data-rank-value="18"]::before {
-  background: var(--thisco-aubergine);
 }
 fieldset.ranking-question .ranking-item.ranking-row-3 {
   grid-row-start: 3;
@@ -2200,33 +2167,14 @@ fieldset.ranking-question .ranking-item.ranking-row-3::before {
   position: absolute;
   width: 2.1ch;
   height: 100%;
-  background: var(--thisco-red);
-  color: white;
+  color: black;
+  background: var(--thisco-light-grey);
   display: flex;
   align-items: center;
   justify-content: center;
   border-top-left-radius: 25px;
   border-bottom-left-radius: 25px;
   transition: all 0.7s 0.5s;
-}
-fieldset.ranking-question .ranking-item[data-rank-value=null]::before {
-  display: none;
-}
-fieldset.ranking-question .ranking-item[data-rank-value="2"]::before, fieldset.ranking-question .ranking-item[data-rank-value="8"]::before, fieldset.ranking-question .ranking-item[data-rank-value="14"]::before, fieldset.ranking-question .ranking-item[data-rank-value="20"]::before {
-  background: var(--thisco-pink);
-}
-fieldset.ranking-question .ranking-item[data-rank-value="3"]::before, fieldset.ranking-question .ranking-item[data-rank-value="9"]::before, fieldset.ranking-question .ranking-item[data-rank-value="15"]::before {
-  background: var(--thisco-yellow);
-  color: black;
-}
-fieldset.ranking-question .ranking-item[data-rank-value="4"]::before, fieldset.ranking-question .ranking-item[data-rank-value="10"]::before, fieldset.ranking-question .ranking-item[data-rank-value="16"]::before {
-  background: var(--thisco-green);
-}
-fieldset.ranking-question .ranking-item[data-rank-value="5"]::before, fieldset.ranking-question .ranking-item[data-rank-value="11"]::before, fieldset.ranking-question .ranking-item[data-rank-value="17"]::before {
-  background: var(--thisco-pale-blue);
-}
-fieldset.ranking-question .ranking-item[data-rank-value="6"]::before, fieldset.ranking-question .ranking-item[data-rank-value="12"]::before, fieldset.ranking-question .ranking-item[data-rank-value="18"]::before {
-  background: var(--thisco-aubergine);
 }
 fieldset.ranking-question .ranking-item.ranking-row-4 {
   grid-row-start: 4;
@@ -2239,33 +2187,14 @@ fieldset.ranking-question .ranking-item.ranking-row-4::before {
   position: absolute;
   width: 2.1ch;
   height: 100%;
-  background: var(--thisco-red);
-  color: white;
+  color: black;
+  background: var(--thisco-light-grey);
   display: flex;
   align-items: center;
   justify-content: center;
   border-top-left-radius: 25px;
   border-bottom-left-radius: 25px;
   transition: all 0.7s 0.5s;
-}
-fieldset.ranking-question .ranking-item[data-rank-value=null]::before {
-  display: none;
-}
-fieldset.ranking-question .ranking-item[data-rank-value="2"]::before, fieldset.ranking-question .ranking-item[data-rank-value="8"]::before, fieldset.ranking-question .ranking-item[data-rank-value="14"]::before, fieldset.ranking-question .ranking-item[data-rank-value="20"]::before {
-  background: var(--thisco-pink);
-}
-fieldset.ranking-question .ranking-item[data-rank-value="3"]::before, fieldset.ranking-question .ranking-item[data-rank-value="9"]::before, fieldset.ranking-question .ranking-item[data-rank-value="15"]::before {
-  background: var(--thisco-yellow);
-  color: black;
-}
-fieldset.ranking-question .ranking-item[data-rank-value="4"]::before, fieldset.ranking-question .ranking-item[data-rank-value="10"]::before, fieldset.ranking-question .ranking-item[data-rank-value="16"]::before {
-  background: var(--thisco-green);
-}
-fieldset.ranking-question .ranking-item[data-rank-value="5"]::before, fieldset.ranking-question .ranking-item[data-rank-value="11"]::before, fieldset.ranking-question .ranking-item[data-rank-value="17"]::before {
-  background: var(--thisco-pale-blue);
-}
-fieldset.ranking-question .ranking-item[data-rank-value="6"]::before, fieldset.ranking-question .ranking-item[data-rank-value="12"]::before, fieldset.ranking-question .ranking-item[data-rank-value="18"]::before {
-  background: var(--thisco-aubergine);
 }
 fieldset.ranking-question .ranking-item.ranking-row-5 {
   grid-row-start: 5;
@@ -2278,33 +2207,14 @@ fieldset.ranking-question .ranking-item.ranking-row-5::before {
   position: absolute;
   width: 2.1ch;
   height: 100%;
-  background: var(--thisco-red);
-  color: white;
+  color: black;
+  background: var(--thisco-light-grey);
   display: flex;
   align-items: center;
   justify-content: center;
   border-top-left-radius: 25px;
   border-bottom-left-radius: 25px;
   transition: all 0.7s 0.5s;
-}
-fieldset.ranking-question .ranking-item[data-rank-value=null]::before {
-  display: none;
-}
-fieldset.ranking-question .ranking-item[data-rank-value="2"]::before, fieldset.ranking-question .ranking-item[data-rank-value="8"]::before, fieldset.ranking-question .ranking-item[data-rank-value="14"]::before, fieldset.ranking-question .ranking-item[data-rank-value="20"]::before {
-  background: var(--thisco-pink);
-}
-fieldset.ranking-question .ranking-item[data-rank-value="3"]::before, fieldset.ranking-question .ranking-item[data-rank-value="9"]::before, fieldset.ranking-question .ranking-item[data-rank-value="15"]::before {
-  background: var(--thisco-yellow);
-  color: black;
-}
-fieldset.ranking-question .ranking-item[data-rank-value="4"]::before, fieldset.ranking-question .ranking-item[data-rank-value="10"]::before, fieldset.ranking-question .ranking-item[data-rank-value="16"]::before {
-  background: var(--thisco-green);
-}
-fieldset.ranking-question .ranking-item[data-rank-value="5"]::before, fieldset.ranking-question .ranking-item[data-rank-value="11"]::before, fieldset.ranking-question .ranking-item[data-rank-value="17"]::before {
-  background: var(--thisco-pale-blue);
-}
-fieldset.ranking-question .ranking-item[data-rank-value="6"]::before, fieldset.ranking-question .ranking-item[data-rank-value="12"]::before, fieldset.ranking-question .ranking-item[data-rank-value="18"]::before {
-  background: var(--thisco-aubergine);
 }
 fieldset.ranking-question .ranking-item.ranking-row-6 {
   grid-row-start: 6;
@@ -2317,33 +2227,14 @@ fieldset.ranking-question .ranking-item.ranking-row-6::before {
   position: absolute;
   width: 2.1ch;
   height: 100%;
-  background: var(--thisco-red);
-  color: white;
+  color: black;
+  background: var(--thisco-light-grey);
   display: flex;
   align-items: center;
   justify-content: center;
   border-top-left-radius: 25px;
   border-bottom-left-radius: 25px;
   transition: all 0.7s 0.5s;
-}
-fieldset.ranking-question .ranking-item[data-rank-value=null]::before {
-  display: none;
-}
-fieldset.ranking-question .ranking-item[data-rank-value="2"]::before, fieldset.ranking-question .ranking-item[data-rank-value="8"]::before, fieldset.ranking-question .ranking-item[data-rank-value="14"]::before, fieldset.ranking-question .ranking-item[data-rank-value="20"]::before {
-  background: var(--thisco-pink);
-}
-fieldset.ranking-question .ranking-item[data-rank-value="3"]::before, fieldset.ranking-question .ranking-item[data-rank-value="9"]::before, fieldset.ranking-question .ranking-item[data-rank-value="15"]::before {
-  background: var(--thisco-yellow);
-  color: black;
-}
-fieldset.ranking-question .ranking-item[data-rank-value="4"]::before, fieldset.ranking-question .ranking-item[data-rank-value="10"]::before, fieldset.ranking-question .ranking-item[data-rank-value="16"]::before {
-  background: var(--thisco-green);
-}
-fieldset.ranking-question .ranking-item[data-rank-value="5"]::before, fieldset.ranking-question .ranking-item[data-rank-value="11"]::before, fieldset.ranking-question .ranking-item[data-rank-value="17"]::before {
-  background: var(--thisco-pale-blue);
-}
-fieldset.ranking-question .ranking-item[data-rank-value="6"]::before, fieldset.ranking-question .ranking-item[data-rank-value="12"]::before, fieldset.ranking-question .ranking-item[data-rank-value="18"]::before {
-  background: var(--thisco-aubergine);
 }
 fieldset.ranking-question .ranking-item.ranking-row-7 {
   grid-row-start: 7;
@@ -2356,33 +2247,14 @@ fieldset.ranking-question .ranking-item.ranking-row-7::before {
   position: absolute;
   width: 2.1ch;
   height: 100%;
-  background: var(--thisco-red);
-  color: white;
+  color: black;
+  background: var(--thisco-light-grey);
   display: flex;
   align-items: center;
   justify-content: center;
   border-top-left-radius: 25px;
   border-bottom-left-radius: 25px;
   transition: all 0.7s 0.5s;
-}
-fieldset.ranking-question .ranking-item[data-rank-value=null]::before {
-  display: none;
-}
-fieldset.ranking-question .ranking-item[data-rank-value="2"]::before, fieldset.ranking-question .ranking-item[data-rank-value="8"]::before, fieldset.ranking-question .ranking-item[data-rank-value="14"]::before, fieldset.ranking-question .ranking-item[data-rank-value="20"]::before {
-  background: var(--thisco-pink);
-}
-fieldset.ranking-question .ranking-item[data-rank-value="3"]::before, fieldset.ranking-question .ranking-item[data-rank-value="9"]::before, fieldset.ranking-question .ranking-item[data-rank-value="15"]::before {
-  background: var(--thisco-yellow);
-  color: black;
-}
-fieldset.ranking-question .ranking-item[data-rank-value="4"]::before, fieldset.ranking-question .ranking-item[data-rank-value="10"]::before, fieldset.ranking-question .ranking-item[data-rank-value="16"]::before {
-  background: var(--thisco-green);
-}
-fieldset.ranking-question .ranking-item[data-rank-value="5"]::before, fieldset.ranking-question .ranking-item[data-rank-value="11"]::before, fieldset.ranking-question .ranking-item[data-rank-value="17"]::before {
-  background: var(--thisco-pale-blue);
-}
-fieldset.ranking-question .ranking-item[data-rank-value="6"]::before, fieldset.ranking-question .ranking-item[data-rank-value="12"]::before, fieldset.ranking-question .ranking-item[data-rank-value="18"]::before {
-  background: var(--thisco-aubergine);
 }
 fieldset.ranking-question .ranking-item.ranking-row-8 {
   grid-row-start: 8;
@@ -2395,33 +2267,14 @@ fieldset.ranking-question .ranking-item.ranking-row-8::before {
   position: absolute;
   width: 2.1ch;
   height: 100%;
-  background: var(--thisco-red);
-  color: white;
+  color: black;
+  background: var(--thisco-light-grey);
   display: flex;
   align-items: center;
   justify-content: center;
   border-top-left-radius: 25px;
   border-bottom-left-radius: 25px;
   transition: all 0.7s 0.5s;
-}
-fieldset.ranking-question .ranking-item[data-rank-value=null]::before {
-  display: none;
-}
-fieldset.ranking-question .ranking-item[data-rank-value="2"]::before, fieldset.ranking-question .ranking-item[data-rank-value="8"]::before, fieldset.ranking-question .ranking-item[data-rank-value="14"]::before, fieldset.ranking-question .ranking-item[data-rank-value="20"]::before {
-  background: var(--thisco-pink);
-}
-fieldset.ranking-question .ranking-item[data-rank-value="3"]::before, fieldset.ranking-question .ranking-item[data-rank-value="9"]::before, fieldset.ranking-question .ranking-item[data-rank-value="15"]::before {
-  background: var(--thisco-yellow);
-  color: black;
-}
-fieldset.ranking-question .ranking-item[data-rank-value="4"]::before, fieldset.ranking-question .ranking-item[data-rank-value="10"]::before, fieldset.ranking-question .ranking-item[data-rank-value="16"]::before {
-  background: var(--thisco-green);
-}
-fieldset.ranking-question .ranking-item[data-rank-value="5"]::before, fieldset.ranking-question .ranking-item[data-rank-value="11"]::before, fieldset.ranking-question .ranking-item[data-rank-value="17"]::before {
-  background: var(--thisco-pale-blue);
-}
-fieldset.ranking-question .ranking-item[data-rank-value="6"]::before, fieldset.ranking-question .ranking-item[data-rank-value="12"]::before, fieldset.ranking-question .ranking-item[data-rank-value="18"]::before {
-  background: var(--thisco-aubergine);
 }
 fieldset.ranking-question .ranking-item.ranking-row-9 {
   grid-row-start: 9;
@@ -2434,33 +2287,14 @@ fieldset.ranking-question .ranking-item.ranking-row-9::before {
   position: absolute;
   width: 2.1ch;
   height: 100%;
-  background: var(--thisco-red);
-  color: white;
+  color: black;
+  background: var(--thisco-light-grey);
   display: flex;
   align-items: center;
   justify-content: center;
   border-top-left-radius: 25px;
   border-bottom-left-radius: 25px;
   transition: all 0.7s 0.5s;
-}
-fieldset.ranking-question .ranking-item[data-rank-value=null]::before {
-  display: none;
-}
-fieldset.ranking-question .ranking-item[data-rank-value="2"]::before, fieldset.ranking-question .ranking-item[data-rank-value="8"]::before, fieldset.ranking-question .ranking-item[data-rank-value="14"]::before, fieldset.ranking-question .ranking-item[data-rank-value="20"]::before {
-  background: var(--thisco-pink);
-}
-fieldset.ranking-question .ranking-item[data-rank-value="3"]::before, fieldset.ranking-question .ranking-item[data-rank-value="9"]::before, fieldset.ranking-question .ranking-item[data-rank-value="15"]::before {
-  background: var(--thisco-yellow);
-  color: black;
-}
-fieldset.ranking-question .ranking-item[data-rank-value="4"]::before, fieldset.ranking-question .ranking-item[data-rank-value="10"]::before, fieldset.ranking-question .ranking-item[data-rank-value="16"]::before {
-  background: var(--thisco-green);
-}
-fieldset.ranking-question .ranking-item[data-rank-value="5"]::before, fieldset.ranking-question .ranking-item[data-rank-value="11"]::before, fieldset.ranking-question .ranking-item[data-rank-value="17"]::before {
-  background: var(--thisco-pale-blue);
-}
-fieldset.ranking-question .ranking-item[data-rank-value="6"]::before, fieldset.ranking-question .ranking-item[data-rank-value="12"]::before, fieldset.ranking-question .ranking-item[data-rank-value="18"]::before {
-  background: var(--thisco-aubergine);
 }
 fieldset.ranking-question .ranking-item.ranking-row-10 {
   grid-row-start: 10;
@@ -2473,33 +2307,14 @@ fieldset.ranking-question .ranking-item.ranking-row-10::before {
   position: absolute;
   width: 2.1ch;
   height: 100%;
-  background: var(--thisco-red);
-  color: white;
+  color: black;
+  background: var(--thisco-light-grey);
   display: flex;
   align-items: center;
   justify-content: center;
   border-top-left-radius: 25px;
   border-bottom-left-radius: 25px;
   transition: all 0.7s 0.5s;
-}
-fieldset.ranking-question .ranking-item[data-rank-value=null]::before {
-  display: none;
-}
-fieldset.ranking-question .ranking-item[data-rank-value="2"]::before, fieldset.ranking-question .ranking-item[data-rank-value="8"]::before, fieldset.ranking-question .ranking-item[data-rank-value="14"]::before, fieldset.ranking-question .ranking-item[data-rank-value="20"]::before {
-  background: var(--thisco-pink);
-}
-fieldset.ranking-question .ranking-item[data-rank-value="3"]::before, fieldset.ranking-question .ranking-item[data-rank-value="9"]::before, fieldset.ranking-question .ranking-item[data-rank-value="15"]::before {
-  background: var(--thisco-yellow);
-  color: black;
-}
-fieldset.ranking-question .ranking-item[data-rank-value="4"]::before, fieldset.ranking-question .ranking-item[data-rank-value="10"]::before, fieldset.ranking-question .ranking-item[data-rank-value="16"]::before {
-  background: var(--thisco-green);
-}
-fieldset.ranking-question .ranking-item[data-rank-value="5"]::before, fieldset.ranking-question .ranking-item[data-rank-value="11"]::before, fieldset.ranking-question .ranking-item[data-rank-value="17"]::before {
-  background: var(--thisco-pale-blue);
-}
-fieldset.ranking-question .ranking-item[data-rank-value="6"]::before, fieldset.ranking-question .ranking-item[data-rank-value="12"]::before, fieldset.ranking-question .ranking-item[data-rank-value="18"]::before {
-  background: var(--thisco-aubergine);
 }
 fieldset.ranking-question .ranking-item.ranking-row-11 {
   grid-row-start: 11;
@@ -2512,33 +2327,14 @@ fieldset.ranking-question .ranking-item.ranking-row-11::before {
   position: absolute;
   width: 2.1ch;
   height: 100%;
-  background: var(--thisco-red);
-  color: white;
+  color: black;
+  background: var(--thisco-light-grey);
   display: flex;
   align-items: center;
   justify-content: center;
   border-top-left-radius: 25px;
   border-bottom-left-radius: 25px;
   transition: all 0.7s 0.5s;
-}
-fieldset.ranking-question .ranking-item[data-rank-value=null]::before {
-  display: none;
-}
-fieldset.ranking-question .ranking-item[data-rank-value="2"]::before, fieldset.ranking-question .ranking-item[data-rank-value="8"]::before, fieldset.ranking-question .ranking-item[data-rank-value="14"]::before, fieldset.ranking-question .ranking-item[data-rank-value="20"]::before {
-  background: var(--thisco-pink);
-}
-fieldset.ranking-question .ranking-item[data-rank-value="3"]::before, fieldset.ranking-question .ranking-item[data-rank-value="9"]::before, fieldset.ranking-question .ranking-item[data-rank-value="15"]::before {
-  background: var(--thisco-yellow);
-  color: black;
-}
-fieldset.ranking-question .ranking-item[data-rank-value="4"]::before, fieldset.ranking-question .ranking-item[data-rank-value="10"]::before, fieldset.ranking-question .ranking-item[data-rank-value="16"]::before {
-  background: var(--thisco-green);
-}
-fieldset.ranking-question .ranking-item[data-rank-value="5"]::before, fieldset.ranking-question .ranking-item[data-rank-value="11"]::before, fieldset.ranking-question .ranking-item[data-rank-value="17"]::before {
-  background: var(--thisco-pale-blue);
-}
-fieldset.ranking-question .ranking-item[data-rank-value="6"]::before, fieldset.ranking-question .ranking-item[data-rank-value="12"]::before, fieldset.ranking-question .ranking-item[data-rank-value="18"]::before {
-  background: var(--thisco-aubergine);
 }
 fieldset.ranking-question .ranking-item.ranking-row-12 {
   grid-row-start: 12;
@@ -2551,33 +2347,14 @@ fieldset.ranking-question .ranking-item.ranking-row-12::before {
   position: absolute;
   width: 2.1ch;
   height: 100%;
-  background: var(--thisco-red);
-  color: white;
+  color: black;
+  background: var(--thisco-light-grey);
   display: flex;
   align-items: center;
   justify-content: center;
   border-top-left-radius: 25px;
   border-bottom-left-radius: 25px;
   transition: all 0.7s 0.5s;
-}
-fieldset.ranking-question .ranking-item[data-rank-value=null]::before {
-  display: none;
-}
-fieldset.ranking-question .ranking-item[data-rank-value="2"]::before, fieldset.ranking-question .ranking-item[data-rank-value="8"]::before, fieldset.ranking-question .ranking-item[data-rank-value="14"]::before, fieldset.ranking-question .ranking-item[data-rank-value="20"]::before {
-  background: var(--thisco-pink);
-}
-fieldset.ranking-question .ranking-item[data-rank-value="3"]::before, fieldset.ranking-question .ranking-item[data-rank-value="9"]::before, fieldset.ranking-question .ranking-item[data-rank-value="15"]::before {
-  background: var(--thisco-yellow);
-  color: black;
-}
-fieldset.ranking-question .ranking-item[data-rank-value="4"]::before, fieldset.ranking-question .ranking-item[data-rank-value="10"]::before, fieldset.ranking-question .ranking-item[data-rank-value="16"]::before {
-  background: var(--thisco-green);
-}
-fieldset.ranking-question .ranking-item[data-rank-value="5"]::before, fieldset.ranking-question .ranking-item[data-rank-value="11"]::before, fieldset.ranking-question .ranking-item[data-rank-value="17"]::before {
-  background: var(--thisco-pale-blue);
-}
-fieldset.ranking-question .ranking-item[data-rank-value="6"]::before, fieldset.ranking-question .ranking-item[data-rank-value="12"]::before, fieldset.ranking-question .ranking-item[data-rank-value="18"]::before {
-  background: var(--thisco-aubergine);
 }
 fieldset.ranking-question .ranking-item.ranking-row-13 {
   grid-row-start: 13;
@@ -2590,33 +2367,14 @@ fieldset.ranking-question .ranking-item.ranking-row-13::before {
   position: absolute;
   width: 2.1ch;
   height: 100%;
-  background: var(--thisco-red);
-  color: white;
+  color: black;
+  background: var(--thisco-light-grey);
   display: flex;
   align-items: center;
   justify-content: center;
   border-top-left-radius: 25px;
   border-bottom-left-radius: 25px;
   transition: all 0.7s 0.5s;
-}
-fieldset.ranking-question .ranking-item[data-rank-value=null]::before {
-  display: none;
-}
-fieldset.ranking-question .ranking-item[data-rank-value="2"]::before, fieldset.ranking-question .ranking-item[data-rank-value="8"]::before, fieldset.ranking-question .ranking-item[data-rank-value="14"]::before, fieldset.ranking-question .ranking-item[data-rank-value="20"]::before {
-  background: var(--thisco-pink);
-}
-fieldset.ranking-question .ranking-item[data-rank-value="3"]::before, fieldset.ranking-question .ranking-item[data-rank-value="9"]::before, fieldset.ranking-question .ranking-item[data-rank-value="15"]::before {
-  background: var(--thisco-yellow);
-  color: black;
-}
-fieldset.ranking-question .ranking-item[data-rank-value="4"]::before, fieldset.ranking-question .ranking-item[data-rank-value="10"]::before, fieldset.ranking-question .ranking-item[data-rank-value="16"]::before {
-  background: var(--thisco-green);
-}
-fieldset.ranking-question .ranking-item[data-rank-value="5"]::before, fieldset.ranking-question .ranking-item[data-rank-value="11"]::before, fieldset.ranking-question .ranking-item[data-rank-value="17"]::before {
-  background: var(--thisco-pale-blue);
-}
-fieldset.ranking-question .ranking-item[data-rank-value="6"]::before, fieldset.ranking-question .ranking-item[data-rank-value="12"]::before, fieldset.ranking-question .ranking-item[data-rank-value="18"]::before {
-  background: var(--thisco-aubergine);
 }
 fieldset.ranking-question .ranking-item.ranking-row-14 {
   grid-row-start: 14;
@@ -2629,33 +2387,14 @@ fieldset.ranking-question .ranking-item.ranking-row-14::before {
   position: absolute;
   width: 2.1ch;
   height: 100%;
-  background: var(--thisco-red);
-  color: white;
+  color: black;
+  background: var(--thisco-light-grey);
   display: flex;
   align-items: center;
   justify-content: center;
   border-top-left-radius: 25px;
   border-bottom-left-radius: 25px;
   transition: all 0.7s 0.5s;
-}
-fieldset.ranking-question .ranking-item[data-rank-value=null]::before {
-  display: none;
-}
-fieldset.ranking-question .ranking-item[data-rank-value="2"]::before, fieldset.ranking-question .ranking-item[data-rank-value="8"]::before, fieldset.ranking-question .ranking-item[data-rank-value="14"]::before, fieldset.ranking-question .ranking-item[data-rank-value="20"]::before {
-  background: var(--thisco-pink);
-}
-fieldset.ranking-question .ranking-item[data-rank-value="3"]::before, fieldset.ranking-question .ranking-item[data-rank-value="9"]::before, fieldset.ranking-question .ranking-item[data-rank-value="15"]::before {
-  background: var(--thisco-yellow);
-  color: black;
-}
-fieldset.ranking-question .ranking-item[data-rank-value="4"]::before, fieldset.ranking-question .ranking-item[data-rank-value="10"]::before, fieldset.ranking-question .ranking-item[data-rank-value="16"]::before {
-  background: var(--thisco-green);
-}
-fieldset.ranking-question .ranking-item[data-rank-value="5"]::before, fieldset.ranking-question .ranking-item[data-rank-value="11"]::before, fieldset.ranking-question .ranking-item[data-rank-value="17"]::before {
-  background: var(--thisco-pale-blue);
-}
-fieldset.ranking-question .ranking-item[data-rank-value="6"]::before, fieldset.ranking-question .ranking-item[data-rank-value="12"]::before, fieldset.ranking-question .ranking-item[data-rank-value="18"]::before {
-  background: var(--thisco-aubergine);
 }
 fieldset.ranking-question .ranking-item.ranking-row-15 {
   grid-row-start: 15;
@@ -2668,33 +2407,14 @@ fieldset.ranking-question .ranking-item.ranking-row-15::before {
   position: absolute;
   width: 2.1ch;
   height: 100%;
-  background: var(--thisco-red);
-  color: white;
+  color: black;
+  background: var(--thisco-light-grey);
   display: flex;
   align-items: center;
   justify-content: center;
   border-top-left-radius: 25px;
   border-bottom-left-radius: 25px;
   transition: all 0.7s 0.5s;
-}
-fieldset.ranking-question .ranking-item[data-rank-value=null]::before {
-  display: none;
-}
-fieldset.ranking-question .ranking-item[data-rank-value="2"]::before, fieldset.ranking-question .ranking-item[data-rank-value="8"]::before, fieldset.ranking-question .ranking-item[data-rank-value="14"]::before, fieldset.ranking-question .ranking-item[data-rank-value="20"]::before {
-  background: var(--thisco-pink);
-}
-fieldset.ranking-question .ranking-item[data-rank-value="3"]::before, fieldset.ranking-question .ranking-item[data-rank-value="9"]::before, fieldset.ranking-question .ranking-item[data-rank-value="15"]::before {
-  background: var(--thisco-yellow);
-  color: black;
-}
-fieldset.ranking-question .ranking-item[data-rank-value="4"]::before, fieldset.ranking-question .ranking-item[data-rank-value="10"]::before, fieldset.ranking-question .ranking-item[data-rank-value="16"]::before {
-  background: var(--thisco-green);
-}
-fieldset.ranking-question .ranking-item[data-rank-value="5"]::before, fieldset.ranking-question .ranking-item[data-rank-value="11"]::before, fieldset.ranking-question .ranking-item[data-rank-value="17"]::before {
-  background: var(--thisco-pale-blue);
-}
-fieldset.ranking-question .ranking-item[data-rank-value="6"]::before, fieldset.ranking-question .ranking-item[data-rank-value="12"]::before, fieldset.ranking-question .ranking-item[data-rank-value="18"]::before {
-  background: var(--thisco-aubergine);
 }
 fieldset.ranking-question .ranking-item.ranking-row-16 {
   grid-row-start: 16;
@@ -2707,33 +2427,14 @@ fieldset.ranking-question .ranking-item.ranking-row-16::before {
   position: absolute;
   width: 2.1ch;
   height: 100%;
-  background: var(--thisco-red);
-  color: white;
+  color: black;
+  background: var(--thisco-light-grey);
   display: flex;
   align-items: center;
   justify-content: center;
   border-top-left-radius: 25px;
   border-bottom-left-radius: 25px;
   transition: all 0.7s 0.5s;
-}
-fieldset.ranking-question .ranking-item[data-rank-value=null]::before {
-  display: none;
-}
-fieldset.ranking-question .ranking-item[data-rank-value="2"]::before, fieldset.ranking-question .ranking-item[data-rank-value="8"]::before, fieldset.ranking-question .ranking-item[data-rank-value="14"]::before, fieldset.ranking-question .ranking-item[data-rank-value="20"]::before {
-  background: var(--thisco-pink);
-}
-fieldset.ranking-question .ranking-item[data-rank-value="3"]::before, fieldset.ranking-question .ranking-item[data-rank-value="9"]::before, fieldset.ranking-question .ranking-item[data-rank-value="15"]::before {
-  background: var(--thisco-yellow);
-  color: black;
-}
-fieldset.ranking-question .ranking-item[data-rank-value="4"]::before, fieldset.ranking-question .ranking-item[data-rank-value="10"]::before, fieldset.ranking-question .ranking-item[data-rank-value="16"]::before {
-  background: var(--thisco-green);
-}
-fieldset.ranking-question .ranking-item[data-rank-value="5"]::before, fieldset.ranking-question .ranking-item[data-rank-value="11"]::before, fieldset.ranking-question .ranking-item[data-rank-value="17"]::before {
-  background: var(--thisco-pale-blue);
-}
-fieldset.ranking-question .ranking-item[data-rank-value="6"]::before, fieldset.ranking-question .ranking-item[data-rank-value="12"]::before, fieldset.ranking-question .ranking-item[data-rank-value="18"]::before {
-  background: var(--thisco-aubergine);
 }
 fieldset.ranking-question .ranking-item.ranking-row-17 {
   grid-row-start: 17;
@@ -2746,33 +2447,14 @@ fieldset.ranking-question .ranking-item.ranking-row-17::before {
   position: absolute;
   width: 2.1ch;
   height: 100%;
-  background: var(--thisco-red);
-  color: white;
+  color: black;
+  background: var(--thisco-light-grey);
   display: flex;
   align-items: center;
   justify-content: center;
   border-top-left-radius: 25px;
   border-bottom-left-radius: 25px;
   transition: all 0.7s 0.5s;
-}
-fieldset.ranking-question .ranking-item[data-rank-value=null]::before {
-  display: none;
-}
-fieldset.ranking-question .ranking-item[data-rank-value="2"]::before, fieldset.ranking-question .ranking-item[data-rank-value="8"]::before, fieldset.ranking-question .ranking-item[data-rank-value="14"]::before, fieldset.ranking-question .ranking-item[data-rank-value="20"]::before {
-  background: var(--thisco-pink);
-}
-fieldset.ranking-question .ranking-item[data-rank-value="3"]::before, fieldset.ranking-question .ranking-item[data-rank-value="9"]::before, fieldset.ranking-question .ranking-item[data-rank-value="15"]::before {
-  background: var(--thisco-yellow);
-  color: black;
-}
-fieldset.ranking-question .ranking-item[data-rank-value="4"]::before, fieldset.ranking-question .ranking-item[data-rank-value="10"]::before, fieldset.ranking-question .ranking-item[data-rank-value="16"]::before {
-  background: var(--thisco-green);
-}
-fieldset.ranking-question .ranking-item[data-rank-value="5"]::before, fieldset.ranking-question .ranking-item[data-rank-value="11"]::before, fieldset.ranking-question .ranking-item[data-rank-value="17"]::before {
-  background: var(--thisco-pale-blue);
-}
-fieldset.ranking-question .ranking-item[data-rank-value="6"]::before, fieldset.ranking-question .ranking-item[data-rank-value="12"]::before, fieldset.ranking-question .ranking-item[data-rank-value="18"]::before {
-  background: var(--thisco-aubergine);
 }
 fieldset.ranking-question .ranking-item.ranking-row-18 {
   grid-row-start: 18;
@@ -2785,33 +2467,14 @@ fieldset.ranking-question .ranking-item.ranking-row-18::before {
   position: absolute;
   width: 2.1ch;
   height: 100%;
-  background: var(--thisco-red);
-  color: white;
+  color: black;
+  background: var(--thisco-light-grey);
   display: flex;
   align-items: center;
   justify-content: center;
   border-top-left-radius: 25px;
   border-bottom-left-radius: 25px;
   transition: all 0.7s 0.5s;
-}
-fieldset.ranking-question .ranking-item[data-rank-value=null]::before {
-  display: none;
-}
-fieldset.ranking-question .ranking-item[data-rank-value="2"]::before, fieldset.ranking-question .ranking-item[data-rank-value="8"]::before, fieldset.ranking-question .ranking-item[data-rank-value="14"]::before, fieldset.ranking-question .ranking-item[data-rank-value="20"]::before {
-  background: var(--thisco-pink);
-}
-fieldset.ranking-question .ranking-item[data-rank-value="3"]::before, fieldset.ranking-question .ranking-item[data-rank-value="9"]::before, fieldset.ranking-question .ranking-item[data-rank-value="15"]::before {
-  background: var(--thisco-yellow);
-  color: black;
-}
-fieldset.ranking-question .ranking-item[data-rank-value="4"]::before, fieldset.ranking-question .ranking-item[data-rank-value="10"]::before, fieldset.ranking-question .ranking-item[data-rank-value="16"]::before {
-  background: var(--thisco-green);
-}
-fieldset.ranking-question .ranking-item[data-rank-value="5"]::before, fieldset.ranking-question .ranking-item[data-rank-value="11"]::before, fieldset.ranking-question .ranking-item[data-rank-value="17"]::before {
-  background: var(--thisco-pale-blue);
-}
-fieldset.ranking-question .ranking-item[data-rank-value="6"]::before, fieldset.ranking-question .ranking-item[data-rank-value="12"]::before, fieldset.ranking-question .ranking-item[data-rank-value="18"]::before {
-  background: var(--thisco-aubergine);
 }
 fieldset.ranking-question .ranking-item.ranking-row-19 {
   grid-row-start: 19;
@@ -2824,33 +2487,14 @@ fieldset.ranking-question .ranking-item.ranking-row-19::before {
   position: absolute;
   width: 2.1ch;
   height: 100%;
-  background: var(--thisco-red);
-  color: white;
+  color: black;
+  background: var(--thisco-light-grey);
   display: flex;
   align-items: center;
   justify-content: center;
   border-top-left-radius: 25px;
   border-bottom-left-radius: 25px;
   transition: all 0.7s 0.5s;
-}
-fieldset.ranking-question .ranking-item[data-rank-value=null]::before {
-  display: none;
-}
-fieldset.ranking-question .ranking-item[data-rank-value="2"]::before, fieldset.ranking-question .ranking-item[data-rank-value="8"]::before, fieldset.ranking-question .ranking-item[data-rank-value="14"]::before, fieldset.ranking-question .ranking-item[data-rank-value="20"]::before {
-  background: var(--thisco-pink);
-}
-fieldset.ranking-question .ranking-item[data-rank-value="3"]::before, fieldset.ranking-question .ranking-item[data-rank-value="9"]::before, fieldset.ranking-question .ranking-item[data-rank-value="15"]::before {
-  background: var(--thisco-yellow);
-  color: black;
-}
-fieldset.ranking-question .ranking-item[data-rank-value="4"]::before, fieldset.ranking-question .ranking-item[data-rank-value="10"]::before, fieldset.ranking-question .ranking-item[data-rank-value="16"]::before {
-  background: var(--thisco-green);
-}
-fieldset.ranking-question .ranking-item[data-rank-value="5"]::before, fieldset.ranking-question .ranking-item[data-rank-value="11"]::before, fieldset.ranking-question .ranking-item[data-rank-value="17"]::before {
-  background: var(--thisco-pale-blue);
-}
-fieldset.ranking-question .ranking-item[data-rank-value="6"]::before, fieldset.ranking-question .ranking-item[data-rank-value="12"]::before, fieldset.ranking-question .ranking-item[data-rank-value="18"]::before {
-  background: var(--thisco-aubergine);
 }
 fieldset.ranking-question .ranking-item.ranking-row-20 {
   grid-row-start: 20;
@@ -2863,8 +2507,8 @@ fieldset.ranking-question .ranking-item.ranking-row-20::before {
   position: absolute;
   width: 2.1ch;
   height: 100%;
-  background: var(--thisco-red);
-  color: white;
+  color: black;
+  background: var(--thisco-light-grey);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2875,21 +2519,22 @@ fieldset.ranking-question .ranking-item.ranking-row-20::before {
 fieldset.ranking-question .ranking-item[data-rank-value=null]::before {
   display: none;
 }
-fieldset.ranking-question .ranking-item[data-rank-value="2"]::before, fieldset.ranking-question .ranking-item[data-rank-value="8"]::before, fieldset.ranking-question .ranking-item[data-rank-value="14"]::before, fieldset.ranking-question .ranking-item[data-rank-value="20"]::before {
+fieldset.ranking-question .ranking-item[data-rank-value="1"]::before {
+  background: var(--thisco-red);
+  color: white;
+}
+fieldset.ranking-question .ranking-item[data-rank-value="2"]::before {
   background: var(--thisco-pink);
 }
-fieldset.ranking-question .ranking-item[data-rank-value="3"]::before, fieldset.ranking-question .ranking-item[data-rank-value="9"]::before, fieldset.ranking-question .ranking-item[data-rank-value="15"]::before {
+fieldset.ranking-question .ranking-item[data-rank-value="3"]::before {
   background: var(--thisco-yellow);
-  color: black;
 }
-fieldset.ranking-question .ranking-item[data-rank-value="4"]::before, fieldset.ranking-question .ranking-item[data-rank-value="10"]::before, fieldset.ranking-question .ranking-item[data-rank-value="16"]::before {
-  background: var(--thisco-green);
-}
-fieldset.ranking-question .ranking-item[data-rank-value="5"]::before, fieldset.ranking-question .ranking-item[data-rank-value="11"]::before, fieldset.ranking-question .ranking-item[data-rank-value="17"]::before {
-  background: var(--thisco-pale-blue);
-}
-fieldset.ranking-question .ranking-item[data-rank-value="6"]::before, fieldset.ranking-question .ranking-item[data-rank-value="12"]::before, fieldset.ranking-question .ranking-item[data-rank-value="18"]::before {
+fieldset.ranking-question .ranking-item[data-rank-value="4"]::before {
   background: var(--thisco-aubergine);
+  color: white;
+}
+fieldset.ranking-question .ranking-item[data-rank-value="5"]::before {
+  background: var(--thisco-light-grey);
 }
 fieldset.ranking-question .input-number-wrapper {
   font-size: 1.2em;
@@ -2918,21 +2563,23 @@ fieldset.ranking-question .input-number-wrapper input::placeholder {
 }
 fieldset.ranking-question .input-number-wrapper button {
   transition: all 0.2s ease-in;
+  border: 0;
+  width: 1.6rem;
+  height: 2rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: transparent;
 }
 fieldset.ranking-question .input-number-wrapper button:active {
   transform: scale(0.8);
 }
 fieldset.ranking-question .input-number-wrapper button.button-decrement {
-  background-image: linear-gradient(#f9d2dc, #f9d2dc);
-  background-size: 80% 3px;
-  background-repeat: no-repeat;
-  background-position: center;
+  background-image: linear-gradient(#f9d2dc, #f9d2dc), radial-gradient(circle at center, #dd0031 60%, transparent 61%);
+  background-size: 1rem 3px, 100% 100%;
 }
 fieldset.ranking-question .input-number-wrapper button.button-increment {
-  background-image: linear-gradient(#f9d2dc, #f9d2dc), linear-gradient(#f9d2dc, #f9d2dc);
-  background-size: 80% 3px, 3px 80%;
-  background-repeat: no-repeat;
-  background-position: center;
+  background-image: linear-gradient(#f9d2dc, #f9d2dc), linear-gradient(#f9d2dc, #f9d2dc), radial-gradient(circle at center, #dd0031 60%, transparent 61%);
+  background-size: 1rem 3px, 3px 1rem, 100% 100%;
 }
 
 /*# sourceMappingURL=skin.css.map */

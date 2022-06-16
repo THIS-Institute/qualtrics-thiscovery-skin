@@ -72,11 +72,12 @@ module.exports = function(){
                 input.insertAdjacentElement("afterend",wrapper);
                 Bliss.contents(wrapper,[{
                     tag : "button",
-                    className : "number-bubble button-decrement",
+                    className : "button-decrement",
                     contents : " ",
                     events : {
                         click : debounce((evt)=>{
                             evt.stopPropagation();
+                            evt.preventDefault();
                             if (!isFinite(parseInt(input.value))) return; // no affect on empty rank
                             input.stepDown();
                             fire("input",input);
@@ -85,12 +86,16 @@ module.exports = function(){
                     tabindex : "-1"
                 },input,{
                     tag : "button",
-                    className : "number-bubble button-increment",
+                    className : "button-increment",
                     contents : " ",
                     events : {
                         click : debounce((evt)=>{
                             evt.stopPropagation();
-                            input.stepUp();
+                            evt.preventDefault();
+                            if (!isFinite(parseInt(input.value))) { 
+                                input.value = 1; 
+                            } // fix for iOS
+                            else { input.stepUp(); }
                             fire("input",input);
                         },50)
                     },
