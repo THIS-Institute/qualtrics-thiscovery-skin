@@ -2,6 +2,8 @@ const BlissfulJs = require('blissfuljs'); // module adds Bliss to window object 
 const { debounce, startsWith, isString, clamp, inRange, isFunction, sortBy } = require('lodash');
 import { wrapGrid } from 'animate-css-grid'
 
+const RANKING_VERSION = "1.1";
+
 // ranking question
 // to create 1-x ranked list out of x+ items
 
@@ -18,6 +20,7 @@ module.exports = function(){
 
     if (Bliss.$(".ranking-question").length) {
         // game on
+        console.debug(`ranking_question.js v${RANKING_VERSION}`);
         Bliss.$(".ranking-question").forEach(tagged=>{
 
             const fset = tagged.closest('fieldset');
@@ -49,7 +52,7 @@ module.exports = function(){
 
             // cycle input[number]
             Bliss.$("input[type='number']").forEach(input=>{
-                const label = Bliss(`label[for='${input.id}']`);
+                const label = Bliss.$(`label[for='${input.id}'], label[for='${input.name}']`)[0];
                 if (!label) return; // skip inputs w/out matching label
                 const wrap = Bliss.create("div",{
                     className : "ranking-item",
