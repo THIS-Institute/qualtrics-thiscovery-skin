@@ -71,7 +71,7 @@ module.exports = function(){
 
             // get ranking items number and ranking max
 
-            const rankMaxClasses = Array.from(tagged.classList.values()).filter(v=>startsWith(v,'ranking-q-max'));
+            let rankMaxClasses = tagged.className.split(" ").filter(v=>startsWith(v,'ranking-q-max'));
             let rankMax = isString(rankMaxClasses[0]) ? parseInt(rankMaxClasses[0].slice(-1)) : rankContainer.children.length;
             rankMax = clamp(rankMax,1,rankContainer.children.length); // in case class labelled incorrectly
             tagged.classList.remove("ranking-question");
