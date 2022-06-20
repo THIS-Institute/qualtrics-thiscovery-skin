@@ -71,11 +71,11 @@ module.exports = function(){
 
             // get ranking items number and ranking max
 
-            let rankMax = Array.from(tagged.classList.values()).filter(v=>startsWith(v,'ranking-q-max'));
-            rankMax = isString(rankMax[0]) ? parseInt(rankMax[0].slice(-1)) : rankContainer.children.length;
+            const rankMaxClasses = Array.from(tagged.classList.values()).filter(v=>startsWith(v,'ranking-q-max'));
+            let rankMax = isString(rankMaxClasses[0]) ? parseInt(rankMaxClasses[0].slice(-1)) : rankContainer.children.length;
             rankMax = clamp(rankMax,1,rankContainer.children.length); // in case class labelled incorrectly
             tagged.classList.remove("ranking-question");
-            tagged.classList.remove((rankMax[0] || "nope").toString());
+            tagged.classList.remove((rankMaxClasses[0] || "nope").toString());
 
             rankContainer._.set({
                 "data-rank-max" : rankMax
@@ -187,7 +187,7 @@ module.exports = function(){
             };
 
             const updateRowClasses = ()=>{
-                let rows = sortBy(Bliss.$(".ranking-item"),item=>item.dataset.rankValue);
+                let rows = sortBy(Bliss.$(".ranking-item"),item=>parseInt(item.dataset.rankValue));
                 rows.forEach((item,i)=>{
                     item.className = item.className.replace(/ranking-row-./,"");
                     item.classList.add(`ranking-row-${i+1}`);
