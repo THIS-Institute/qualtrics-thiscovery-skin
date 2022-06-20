@@ -24,6 +24,17 @@ module.exports = function(){
             const legend = Bliss("legend",fset);
             fset.classList.add("ranking-question");
 
+            // Qualtrics pre-mod
+            // change type on inputs to number
+
+            const QItems = Bliss.$(".Skin .ChoiceStructure li>input");
+            const isQualtrics = QItems.length > 0;
+            if (isQualtrics) {
+                QItems.forEach(item=>{
+                    item.type = "number";
+                });
+            }
+
             // normalise and wrap ranking items
 
             const rankContainer = Bliss.create("div",{

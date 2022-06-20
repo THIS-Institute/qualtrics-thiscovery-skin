@@ -309,4 +309,8 @@ if (graphs.length) graphs.forEach(el=>{
     }
 });
 
+// ranking Qs
+
+require("../../shared_js/ranking_question.js")();
+
 // shopping list

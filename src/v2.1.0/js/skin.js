@@ -61,6 +61,10 @@ require("../../shared_js/link_buttons.js")();
 
 require("../../shared_js/expand_textarea.js")();
 
+// ranking Qs
+
+require("../../shared_js/ranking_question.js")();
+
 // header
 
 const header = document.getElementById("Header");

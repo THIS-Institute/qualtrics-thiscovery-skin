@@ -148,6 +148,19 @@ Q breakpoints seem to be... [ <480px, <767px (some weird 770px ones?), <979px ]
   overflow: hidden;
 }
 
+.number-bubble {
+  color: white;
+  background-color: #dd0031;
+  display: inline-block;
+  border-radius: 999px;
+  vertical-align: baseline;
+  padding: 4px;
+  height: 2.2ch;
+  width: 2.2ch;
+  line-height: 1;
+  text-align: center;
+}
+
 /* define official THIS colours */
 :root {
   --thisco-dark-grey: rgb(58 60 66 / 1);
