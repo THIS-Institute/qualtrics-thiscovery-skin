@@ -36,6 +36,11 @@ module.exports = function(){
                 QItems.forEach(item=>{
                     item.type = "number";
                 });
+                Bliss(".ChoiceStructure")._.style({
+                    "opacity" : 0,
+                    "height": "0px",
+                    "font-size":"0px"
+                });
             }
 
             // normalise and wrap ranking items
