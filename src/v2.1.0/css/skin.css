@@ -2116,6 +2116,86 @@ fieldset.ranking-question .ranking-item > div label {
   padding-right: 0.75em;
   padding-left: 2.2ch;
 }
+fieldset.ranking-question > div:nth-last-of-type(1) {
+  grid-row-start: 20;
+  grid-row-end: 21;
+}
+fieldset.ranking-question > div:nth-last-of-type(2) {
+  grid-row-start: 19;
+  grid-row-end: 20;
+}
+fieldset.ranking-question > div:nth-last-of-type(3) {
+  grid-row-start: 18;
+  grid-row-end: 19;
+}
+fieldset.ranking-question > div:nth-last-of-type(4) {
+  grid-row-start: 17;
+  grid-row-end: 18;
+}
+fieldset.ranking-question > div:nth-last-of-type(5) {
+  grid-row-start: 16;
+  grid-row-end: 17;
+}
+fieldset.ranking-question > div:nth-last-of-type(6) {
+  grid-row-start: 15;
+  grid-row-end: 16;
+}
+fieldset.ranking-question > div:nth-last-of-type(7) {
+  grid-row-start: 14;
+  grid-row-end: 15;
+}
+fieldset.ranking-question > div:nth-last-of-type(8) {
+  grid-row-start: 13;
+  grid-row-end: 14;
+}
+fieldset.ranking-question > div:nth-last-of-type(9) {
+  grid-row-start: 12;
+  grid-row-end: 13;
+}
+fieldset.ranking-question > div:nth-last-of-type(10) {
+  grid-row-start: 11;
+  grid-row-end: 12;
+}
+fieldset.ranking-question > div:nth-last-of-type(11) {
+  grid-row-start: 10;
+  grid-row-end: 11;
+}
+fieldset.ranking-question > div:nth-last-of-type(12) {
+  grid-row-start: 9;
+  grid-row-end: 10;
+}
+fieldset.ranking-question > div:nth-last-of-type(13) {
+  grid-row-start: 8;
+  grid-row-end: 9;
+}
+fieldset.ranking-question > div:nth-last-of-type(14) {
+  grid-row-start: 7;
+  grid-row-end: 8;
+}
+fieldset.ranking-question > div:nth-last-of-type(15) {
+  grid-row-start: 6;
+  grid-row-end: 7;
+}
+fieldset.ranking-question > div:nth-last-of-type(16) {
+  grid-row-start: 5;
+  grid-row-end: 6;
+}
+fieldset.ranking-question > div:nth-last-of-type(17) {
+  grid-row-start: 4;
+  grid-row-end: 5;
+}
+fieldset.ranking-question > div:nth-last-of-type(18) {
+  grid-row-start: 3;
+  grid-row-end: 4;
+}
+fieldset.ranking-question > div:nth-last-of-type(19) {
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+fieldset.ranking-question > div:nth-last-of-type(20) {
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
 fieldset.ranking-question .ranking-item.ranking-row-1 {
   grid-row-start: 1;
   grid-row-end: 2;

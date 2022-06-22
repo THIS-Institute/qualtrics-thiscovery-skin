@@ -417,4 +417,510 @@ Q breakpoints seem to be... [ <480px, <767px (some weird 770px ones?), <979px ]
   color: black;
 }
 
+fieldset.ranking-question > legend > * {
+  margin-bottom: 1.6em;
+}
+fieldset.ranking-question .ranking-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 0.6em;
+}
+fieldset.ranking-question .ranking-item > div {
+  border-radius: 15px;
+  background-color: rgba(0, 0, 0, 0.01);
+  background-image: linear-gradient(45deg, transparent, rgba(0, 0, 0, 0.005) 80%);
+  padding: 0.4rem 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 5rem;
+}
+fieldset.ranking-question .ranking-item > div input {
+  width: 5rem;
+  appearance: textfield;
+}
+fieldset.ranking-question .ranking-item > div input::-webkit-inner-spin-button, fieldset.ranking-question .ranking-item > div input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+fieldset.ranking-question .ranking-item > div label {
+  font-size: 0.8em;
+  padding-right: 0.75em;
+  padding-left: 2.2ch;
+}
+fieldset.ranking-question .ranking-item.ranking-row-1 {
+  grid-row-start: 1;
+  grid-row-end: 2;
+  position: relative;
+}
+fieldset.ranking-question .ranking-item.ranking-row-1::before {
+  content: attr(data-rank-value);
+  display: block;
+  position: absolute;
+  width: 2.1ch;
+  height: 100%;
+  color: black;
+  background: var(--thisco-light-grey);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  transition: all 0.7s 0.9s;
+}
+fieldset.ranking-question .ranking-item.ranking-row-2 {
+  grid-row-start: 2;
+  grid-row-end: 3;
+  position: relative;
+}
+fieldset.ranking-question .ranking-item.ranking-row-2::before {
+  content: attr(data-rank-value);
+  display: block;
+  position: absolute;
+  width: 2.1ch;
+  height: 100%;
+  color: black;
+  background: var(--thisco-light-grey);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  transition: all 0.7s 0.9s;
+}
+fieldset.ranking-question .ranking-item.ranking-row-3 {
+  grid-row-start: 3;
+  grid-row-end: 4;
+  position: relative;
+}
+fieldset.ranking-question .ranking-item.ranking-row-3::before {
+  content: attr(data-rank-value);
+  display: block;
+  position: absolute;
+  width: 2.1ch;
+  height: 100%;
+  color: black;
+  background: var(--thisco-light-grey);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  transition: all 0.7s 0.9s;
+}
+fieldset.ranking-question .ranking-item.ranking-row-4 {
+  grid-row-start: 4;
+  grid-row-end: 5;
+  position: relative;
+}
+fieldset.ranking-question .ranking-item.ranking-row-4::before {
+  content: attr(data-rank-value);
+  display: block;
+  position: absolute;
+  width: 2.1ch;
+  height: 100%;
+  color: black;
+  background: var(--thisco-light-grey);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  transition: all 0.7s 0.9s;
+}
+fieldset.ranking-question .ranking-item.ranking-row-5 {
+  grid-row-start: 5;
+  grid-row-end: 6;
+  position: relative;
+}
+fieldset.ranking-question .ranking-item.ranking-row-5::before {
+  content: attr(data-rank-value);
+  display: block;
+  position: absolute;
+  width: 2.1ch;
+  height: 100%;
+  color: black;
+  background: var(--thisco-light-grey);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  transition: all 0.7s 0.9s;
+}
+fieldset.ranking-question .ranking-item.ranking-row-6 {
+  grid-row-start: 6;
+  grid-row-end: 7;
+  position: relative;
+}
+fieldset.ranking-question .ranking-item.ranking-row-6::before {
+  content: attr(data-rank-value);
+  display: block;
+  position: absolute;
+  width: 2.1ch;
+  height: 100%;
+  color: black;
+  background: var(--thisco-light-grey);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  transition: all 0.7s 0.9s;
+}
+fieldset.ranking-question .ranking-item.ranking-row-7 {
+  grid-row-start: 7;
+  grid-row-end: 8;
+  position: relative;
+}
+fieldset.ranking-question .ranking-item.ranking-row-7::before {
+  content: attr(data-rank-value);
+  display: block;
+  position: absolute;
+  width: 2.1ch;
+  height: 100%;
+  color: black;
+  background: var(--thisco-light-grey);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  transition: all 0.7s 0.9s;
+}
+fieldset.ranking-question .ranking-item.ranking-row-8 {
+  grid-row-start: 8;
+  grid-row-end: 9;
+  position: relative;
+}
+fieldset.ranking-question .ranking-item.ranking-row-8::before {
+  content: attr(data-rank-value);
+  display: block;
+  position: absolute;
+  width: 2.1ch;
+  height: 100%;
+  color: black;
+  background: var(--thisco-light-grey);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  transition: all 0.7s 0.9s;
+}
+fieldset.ranking-question .ranking-item.ranking-row-9 {
+  grid-row-start: 9;
+  grid-row-end: 10;
+  position: relative;
+}
+fieldset.ranking-question .ranking-item.ranking-row-9::before {
+  content: attr(data-rank-value);
+  display: block;
+  position: absolute;
+  width: 2.1ch;
+  height: 100%;
+  color: black;
+  background: var(--thisco-light-grey);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  transition: all 0.7s 0.9s;
+}
+fieldset.ranking-question .ranking-item.ranking-row-10 {
+  grid-row-start: 10;
+  grid-row-end: 11;
+  position: relative;
+}
+fieldset.ranking-question .ranking-item.ranking-row-10::before {
+  content: attr(data-rank-value);
+  display: block;
+  position: absolute;
+  width: 2.1ch;
+  height: 100%;
+  color: black;
+  background: var(--thisco-light-grey);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  transition: all 0.7s 0.9s;
+}
+fieldset.ranking-question .ranking-item.ranking-row-11 {
+  grid-row-start: 11;
+  grid-row-end: 12;
+  position: relative;
+}
+fieldset.ranking-question .ranking-item.ranking-row-11::before {
+  content: attr(data-rank-value);
+  display: block;
+  position: absolute;
+  width: 2.1ch;
+  height: 100%;
+  color: black;
+  background: var(--thisco-light-grey);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  transition: all 0.7s 0.9s;
+}
+fieldset.ranking-question .ranking-item.ranking-row-12 {
+  grid-row-start: 12;
+  grid-row-end: 13;
+  position: relative;
+}
+fieldset.ranking-question .ranking-item.ranking-row-12::before {
+  content: attr(data-rank-value);
+  display: block;
+  position: absolute;
+  width: 2.1ch;
+  height: 100%;
+  color: black;
+  background: var(--thisco-light-grey);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  transition: all 0.7s 0.9s;
+}
+fieldset.ranking-question .ranking-item.ranking-row-13 {
+  grid-row-start: 13;
+  grid-row-end: 14;
+  position: relative;
+}
+fieldset.ranking-question .ranking-item.ranking-row-13::before {
+  content: attr(data-rank-value);
+  display: block;
+  position: absolute;
+  width: 2.1ch;
+  height: 100%;
+  color: black;
+  background: var(--thisco-light-grey);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  transition: all 0.7s 0.9s;
+}
+fieldset.ranking-question .ranking-item.ranking-row-14 {
+  grid-row-start: 14;
+  grid-row-end: 15;
+  position: relative;
+}
+fieldset.ranking-question .ranking-item.ranking-row-14::before {
+  content: attr(data-rank-value);
+  display: block;
+  position: absolute;
+  width: 2.1ch;
+  height: 100%;
+  color: black;
+  background: var(--thisco-light-grey);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  transition: all 0.7s 0.9s;
+}
+fieldset.ranking-question .ranking-item.ranking-row-15 {
+  grid-row-start: 15;
+  grid-row-end: 16;
+  position: relative;
+}
+fieldset.ranking-question .ranking-item.ranking-row-15::before {
+  content: attr(data-rank-value);
+  display: block;
+  position: absolute;
+  width: 2.1ch;
+  height: 100%;
+  color: black;
+  background: var(--thisco-light-grey);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  transition: all 0.7s 0.9s;
+}
+fieldset.ranking-question .ranking-item.ranking-row-16 {
+  grid-row-start: 16;
+  grid-row-end: 17;
+  position: relative;
+}
+fieldset.ranking-question .ranking-item.ranking-row-16::before {
+  content: attr(data-rank-value);
+  display: block;
+  position: absolute;
+  width: 2.1ch;
+  height: 100%;
+  color: black;
+  background: var(--thisco-light-grey);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  transition: all 0.7s 0.9s;
+}
+fieldset.ranking-question .ranking-item.ranking-row-17 {
+  grid-row-start: 17;
+  grid-row-end: 18;
+  position: relative;
+}
+fieldset.ranking-question .ranking-item.ranking-row-17::before {
+  content: attr(data-rank-value);
+  display: block;
+  position: absolute;
+  width: 2.1ch;
+  height: 100%;
+  color: black;
+  background: var(--thisco-light-grey);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  transition: all 0.7s 0.9s;
+}
+fieldset.ranking-question .ranking-item.ranking-row-18 {
+  grid-row-start: 18;
+  grid-row-end: 19;
+  position: relative;
+}
+fieldset.ranking-question .ranking-item.ranking-row-18::before {
+  content: attr(data-rank-value);
+  display: block;
+  position: absolute;
+  width: 2.1ch;
+  height: 100%;
+  color: black;
+  background: var(--thisco-light-grey);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  transition: all 0.7s 0.9s;
+}
+fieldset.ranking-question .ranking-item.ranking-row-19 {
+  grid-row-start: 19;
+  grid-row-end: 20;
+  position: relative;
+}
+fieldset.ranking-question .ranking-item.ranking-row-19::before {
+  content: attr(data-rank-value);
+  display: block;
+  position: absolute;
+  width: 2.1ch;
+  height: 100%;
+  color: black;
+  background: var(--thisco-light-grey);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  transition: all 0.7s 0.9s;
+}
+fieldset.ranking-question .ranking-item.ranking-row-20 {
+  grid-row-start: 20;
+  grid-row-end: 21;
+  position: relative;
+}
+fieldset.ranking-question .ranking-item.ranking-row-20::before {
+  content: attr(data-rank-value);
+  display: block;
+  position: absolute;
+  width: 2.1ch;
+  height: 100%;
+  color: black;
+  background: var(--thisco-light-grey);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  transition: all 0.7s 0.9s;
+}
+fieldset.ranking-question .ranking-item[data-rank-value=null]::before {
+  display: none;
+}
+fieldset.ranking-question .ranking-item[data-rank-value="1"]::before {
+  background: var(--thisco-red);
+  color: white;
+}
+fieldset.ranking-question .ranking-item[data-rank-value="2"]::before {
+  background: var(--thisco-pink);
+}
+fieldset.ranking-question .ranking-item[data-rank-value="3"]::before {
+  background: var(--thisco-yellow);
+}
+fieldset.ranking-question .ranking-item[data-rank-value="4"]::before {
+  background: var(--thisco-aubergine);
+  color: white;
+}
+fieldset.ranking-question .ranking-item[data-rank-value="5"]::before {
+  background: var(--thisco-light-grey);
+}
+fieldset.ranking-question .input-number-wrapper {
+  font-size: 1.2em;
+  display: flex;
+  align-items: center;
+}
+fieldset.ranking-question .input-number-wrapper input {
+  max-width: 3ch;
+  margin: 5px;
+  text-align: center;
+  border-radius: 5px;
+  border: 1px solid var(--thisco-light-grey);
+  box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.1);
+  font-weight: 400;
+  padding-left: 0.2em;
+  padding-right: 0.2em;
+}
+fieldset.ranking-question .input-number-wrapper input:focus-visible {
+  border-color: var(--thisco-red);
+  box-shadow: 0px 0px 0px 1px var(--thisco-red);
+  outline: none;
+}
+fieldset.ranking-question .input-number-wrapper input::placeholder {
+  font-weight: 100;
+  color: rgba(0, 0, 0, 0.5);
+}
+fieldset.ranking-question .input-number-wrapper button {
+  transition: all 0.2s ease-in;
+  border: 0;
+  width: 1.6rem;
+  height: 2rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: transparent;
+}
+fieldset.ranking-question .input-number-wrapper button:active {
+  transform: scale(0.8);
+}
+fieldset.ranking-question .input-number-wrapper button.button-decrement {
+  background-image: linear-gradient(#f9d2dc, #f9d2dc), radial-gradient(circle at center, #dd0031 60%, transparent 61%);
+  background-size: 1rem 3px, 100% 100%;
+}
+fieldset.ranking-question .input-number-wrapper button.button-increment {
+  background-image: linear-gradient(#f9d2dc, #f9d2dc), linear-gradient(#f9d2dc, #f9d2dc), radial-gradient(circle at center, #dd0031 60%, transparent 61%);
+  background-size: 1rem 3px, 3px 1rem, 100% 100%;
+}
+fieldset.ranking-question .ranking-container:not(.indeterminate) .ranking-item[data-rank-value=null] .input-number-wrapper button.button-decrement {
+  background-image: linear-gradient(white, white), radial-gradient(circle at center, #3a3c42 60%, transparent 61%);
+  background-size: 1rem 3px, 100% 100%;
+}
+fieldset.ranking-question .ranking-container:not(.indeterminate) .ranking-item[data-rank-value=null] .input-number-wrapper button.button-increment {
+  background-image: linear-gradient(white, white), linear-gradient(white, white), radial-gradient(circle at center, #3a3c42 60%, transparent 61%);
+  background-size: 1rem 3px, 3px 1rem, 100% 100%;
+}
+
 /*# sourceMappingURL=skin.css.map */

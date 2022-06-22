@@ -1,6 +1,6 @@
 {
 	"name": "qualtrics-thiscovery-skin",
-	"version": "2.1.0",
+	"version": "2.0.0",
 	"latest_alias": "2.0.0",
 	"description": "Javascript and CSS to customise Qualtrics surveys",
 	"main": "./dist/thiscovery-skin.js",

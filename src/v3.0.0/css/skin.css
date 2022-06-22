@@ -2134,7 +2134,7 @@ fieldset.ranking-question .ranking-item.ranking-row-1::before {
   justify-content: center;
   border-top-left-radius: 25px;
   border-bottom-left-radius: 25px;
-  transition: all 0.7s 0.5s;
+  transition: all 0.7s 0.9s;
 }
 fieldset.ranking-question .ranking-item.ranking-row-2 {
   grid-row-start: 2;
@@ -2154,7 +2154,7 @@ fieldset.ranking-question .ranking-item.ranking-row-2::before {
   justify-content: center;
   border-top-left-radius: 25px;
   border-bottom-left-radius: 25px;
-  transition: all 0.7s 0.5s;
+  transition: all 0.7s 0.9s;
 }
 fieldset.ranking-question .ranking-item.ranking-row-3 {
   grid-row-start: 3;
@@ -2174,7 +2174,7 @@ fieldset.ranking-question .ranking-item.ranking-row-3::before {
   justify-content: center;
   border-top-left-radius: 25px;
   border-bottom-left-radius: 25px;
-  transition: all 0.7s 0.5s;
+  transition: all 0.7s 0.9s;
 }
 fieldset.ranking-question .ranking-item.ranking-row-4 {
   grid-row-start: 4;
@@ -2194,7 +2194,7 @@ fieldset.ranking-question .ranking-item.ranking-row-4::before {
   justify-content: center;
   border-top-left-radius: 25px;
   border-bottom-left-radius: 25px;
-  transition: all 0.7s 0.5s;
+  transition: all 0.7s 0.9s;
 }
 fieldset.ranking-question .ranking-item.ranking-row-5 {
   grid-row-start: 5;
@@ -2214,7 +2214,7 @@ fieldset.ranking-question .ranking-item.ranking-row-5::before {
   justify-content: center;
   border-top-left-radius: 25px;
   border-bottom-left-radius: 25px;
-  transition: all 0.7s 0.5s;
+  transition: all 0.7s 0.9s;
 }
 fieldset.ranking-question .ranking-item.ranking-row-6 {
   grid-row-start: 6;
@@ -2234,7 +2234,7 @@ fieldset.ranking-question .ranking-item.ranking-row-6::before {
   justify-content: center;
   border-top-left-radius: 25px;
   border-bottom-left-radius: 25px;
-  transition: all 0.7s 0.5s;
+  transition: all 0.7s 0.9s;
 }
 fieldset.ranking-question .ranking-item.ranking-row-7 {
   grid-row-start: 7;
@@ -2254,7 +2254,7 @@ fieldset.ranking-question .ranking-item.ranking-row-7::before {
   justify-content: center;
   border-top-left-radius: 25px;
   border-bottom-left-radius: 25px;
-  transition: all 0.7s 0.5s;
+  transition: all 0.7s 0.9s;
 }
 fieldset.ranking-question .ranking-item.ranking-row-8 {
   grid-row-start: 8;
@@ -2274,7 +2274,7 @@ fieldset.ranking-question .ranking-item.ranking-row-8::before {
   justify-content: center;
   border-top-left-radius: 25px;
   border-bottom-left-radius: 25px;
-  transition: all 0.7s 0.5s;
+  transition: all 0.7s 0.9s;
 }
 fieldset.ranking-question .ranking-item.ranking-row-9 {
   grid-row-start: 9;
@@ -2294,7 +2294,7 @@ fieldset.ranking-question .ranking-item.ranking-row-9::before {
   justify-content: center;
   border-top-left-radius: 25px;
   border-bottom-left-radius: 25px;
-  transition: all 0.7s 0.5s;
+  transition: all 0.7s 0.9s;
 }
 fieldset.ranking-question .ranking-item.ranking-row-10 {
   grid-row-start: 10;
@@ -2314,7 +2314,7 @@ fieldset.ranking-question .ranking-item.ranking-row-10::before {
   justify-content: center;
   border-top-left-radius: 25px;
   border-bottom-left-radius: 25px;
-  transition: all 0.7s 0.5s;
+  transition: all 0.7s 0.9s;
 }
 fieldset.ranking-question .ranking-item.ranking-row-11 {
   grid-row-start: 11;
@@ -2334,7 +2334,7 @@ fieldset.ranking-question .ranking-item.ranking-row-11::before {
   justify-content: center;
   border-top-left-radius: 25px;
   border-bottom-left-radius: 25px;
-  transition: all 0.7s 0.5s;
+  transition: all 0.7s 0.9s;
 }
 fieldset.ranking-question .ranking-item.ranking-row-12 {
   grid-row-start: 12;
@@ -2354,7 +2354,7 @@ fieldset.ranking-question .ranking-item.ranking-row-12::before {
   justify-content: center;
   border-top-left-radius: 25px;
   border-bottom-left-radius: 25px;
-  transition: all 0.7s 0.5s;
+  transition: all 0.7s 0.9s;
 }
 fieldset.ranking-question .ranking-item.ranking-row-13 {
   grid-row-start: 13;
@@ -2374,7 +2374,7 @@ fieldset.ranking-question .ranking-item.ranking-row-13::before {
   justify-content: center;
   border-top-left-radius: 25px;
   border-bottom-left-radius: 25px;
-  transition: all 0.7s 0.5s;
+  transition: all 0.7s 0.9s;
 }
 fieldset.ranking-question .ranking-item.ranking-row-14 {
   grid-row-start: 14;
@@ -2394,7 +2394,7 @@ fieldset.ranking-question .ranking-item.ranking-row-14::before {
   justify-content: center;
   border-top-left-radius: 25px;
   border-bottom-left-radius: 25px;
-  transition: all 0.7s 0.5s;
+  transition: all 0.7s 0.9s;
 }
 fieldset.ranking-question .ranking-item.ranking-row-15 {
   grid-row-start: 15;
@@ -2414,7 +2414,7 @@ fieldset.ranking-question .ranking-item.ranking-row-15::before {
   justify-content: center;
   border-top-left-radius: 25px;
   border-bottom-left-radius: 25px;
-  transition: all 0.7s 0.5s;
+  transition: all 0.7s 0.9s;
 }
 fieldset.ranking-question .ranking-item.ranking-row-16 {
   grid-row-start: 16;
@@ -2434,7 +2434,7 @@ fieldset.ranking-question .ranking-item.ranking-row-16::before {
   justify-content: center;
   border-top-left-radius: 25px;
   border-bottom-left-radius: 25px;
-  transition: all 0.7s 0.5s;
+  transition: all 0.7s 0.9s;
 }
 fieldset.ranking-question .ranking-item.ranking-row-17 {
   grid-row-start: 17;
@@ -2454,7 +2454,7 @@ fieldset.ranking-question .ranking-item.ranking-row-17::before {
   justify-content: center;
   border-top-left-radius: 25px;
   border-bottom-left-radius: 25px;
-  transition: all 0.7s 0.5s;
+  transition: all 0.7s 0.9s;
 }
 fieldset.ranking-question .ranking-item.ranking-row-18 {
   grid-row-start: 18;
@@ -2474,7 +2474,7 @@ fieldset.ranking-question .ranking-item.ranking-row-18::before {
   justify-content: center;
   border-top-left-radius: 25px;
   border-bottom-left-radius: 25px;
-  transition: all 0.7s 0.5s;
+  transition: all 0.7s 0.9s;
 }
 fieldset.ranking-question .ranking-item.ranking-row-19 {
   grid-row-start: 19;
@@ -2494,7 +2494,7 @@ fieldset.ranking-question .ranking-item.ranking-row-19::before {
   justify-content: center;
   border-top-left-radius: 25px;
   border-bottom-left-radius: 25px;
-  transition: all 0.7s 0.5s;
+  transition: all 0.7s 0.9s;
 }
 fieldset.ranking-question .ranking-item.ranking-row-20 {
   grid-row-start: 20;
@@ -2514,7 +2514,7 @@ fieldset.ranking-question .ranking-item.ranking-row-20::before {
   justify-content: center;
   border-top-left-radius: 25px;
   border-bottom-left-radius: 25px;
-  transition: all 0.7s 0.5s;
+  transition: all 0.7s 0.9s;
 }
 fieldset.ranking-question .ranking-item[data-rank-value=null]::before {
   display: none;
@@ -2579,6 +2579,14 @@ fieldset.ranking-question .input-number-wrapper button.button-decrement {
 }
 fieldset.ranking-question .input-number-wrapper button.button-increment {
   background-image: linear-gradient(#f9d2dc, #f9d2dc), linear-gradient(#f9d2dc, #f9d2dc), radial-gradient(circle at center, #dd0031 60%, transparent 61%);
+  background-size: 1rem 3px, 3px 1rem, 100% 100%;
+}
+fieldset.ranking-question .ranking-container:not(.indeterminate) .ranking-item[data-rank-value=null] .input-number-wrapper button.button-decrement {
+  background-image: linear-gradient(white, white), radial-gradient(circle at center, #3a3c42 60%, transparent 61%);
+  background-size: 1rem 3px, 100% 100%;
+}
+fieldset.ranking-question .ranking-container:not(.indeterminate) .ranking-item[data-rank-value=null] .input-number-wrapper button.button-increment {
+  background-image: linear-gradient(white, white), linear-gradient(white, white), radial-gradient(circle at center, #3a3c42 60%, transparent 61%);
   background-size: 1rem 3px, 3px 1rem, 100% 100%;
 }
 

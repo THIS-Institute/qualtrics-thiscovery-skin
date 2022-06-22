@@ -27,6 +27,8 @@
 $control-width: 5rem;
 $thisco-red: rgb(221, 0, 49);
 $thisco-pink: rgb(243, 165, 185);
+$thisco-light-grey: rgb(210 212 211 / 1);
+$thisco-dark-grey: rgb(58 60 66 / 1);
 
 fieldset.ranking-question {
     > legend {
@@ -80,7 +82,7 @@ fieldset.ranking-question {
           justify-content: center;
           border-top-left-radius: 25px;
           border-bottom-left-radius: 25px;
-          transition: all .7s .5s;
+          transition: all .7s .9s;
         }
       }
     }
@@ -138,6 +140,7 @@ fieldset.ranking-question {
             transform: scale(0.8);
         }
       }
+
       button.button-decrement {
         background-image: linear-gradient(lighten($thisco-pink,10%),lighten($thisco-pink,10%)), 
                           radial-gradient(circle at center, $thisco-red 60%, transparent 61%);
@@ -149,6 +152,22 @@ fieldset.ranking-question {
                           linear-gradient(lighten($thisco-pink,10%),lighten($thisco-pink,10%)),
                           radial-gradient(circle at center, $thisco-red 60%, transparent 61%);
         background-size: 1rem 3px, 3px 1rem, 100% 100%;
+      }
+    }
+    .ranking-container:not(.indeterminate) .ranking-item[data-rank-value="null"] {
+      .input-number-wrapper {
+        button.button-decrement {
+          background-image: linear-gradient(white,white), 
+                            radial-gradient(circle at center, $thisco-dark-grey 60%, transparent 61%);
+          background-size: 1rem 3px, 100% 100%;
+  
+        }
+        button.button-increment {
+          background-image: linear-gradient(white,white), 
+                            linear-gradient(white,white),
+                            radial-gradient(circle at center, $thisco-dark-grey 60%, transparent 61%);
+          background-size: 1rem 3px, 3px 1rem, 100% 100%;
+        }
       }
     }
 }

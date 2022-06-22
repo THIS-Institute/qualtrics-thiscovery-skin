@@ -140,6 +140,12 @@ module.exports = function(){
                 });
             });
 
+            // add indeterminate class
+
+            if (Bliss.$(`.ranking-item[data-rank-value="null"]`).length == Bliss.$(`.ranking-item`).length ) {
+                rankContainer.classList.add("indeterminate");
+            }
+
             // add handlers 
 
             const handleRankChange = (evt)=>{
@@ -195,6 +201,7 @@ module.exports = function(){
             };
 
             const debounced = debounce((evt)=>{
+                rankContainer.classList.remove("indeterminate");
                 handleRankChange(evt);
                 updateRowClasses();
             },DEBOUNCE_RANKING);
@@ -206,7 +213,11 @@ module.exports = function(){
 
             // animate
             updateRowClasses();
-            wrapGrid(rankContainer);
+            wrapGrid(rankContainer,{
+                duration :600,
+                easing: "anticipate",
+                stagger: 20
+            });
             window.requestAnimationFrame(updateRowClasses)
             // updateRowClasses();
 
