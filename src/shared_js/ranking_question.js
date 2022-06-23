@@ -125,6 +125,7 @@ module.exports = function(){
             let existValues = new Set();
             Bliss.$('.ranking-item',rankContainer).forEach(item=>{
                 const input = Bliss("input",item);
+                if (input.value == "0") input.value = null;
                 let normedValue = isFinite(clamp(parseInt(input.value),1,rankMax)) ? clamp(parseInt(input.value),1,rankMax) : null;
                 if (existValues.has(normedValue)) { normedValue = null; } else { existValues.add(normedValue); }
                 input._.set({
