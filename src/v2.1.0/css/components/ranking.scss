@@ -29,6 +29,7 @@ $thisco-red: rgb(221, 0, 49);
 $thisco-pink: rgb(243, 165, 185);
 $thisco-light-grey: rgb(210 212 211 / 1);
 $thisco-dark-grey: rgb(58 60 66 / 1);
+$thisco-dark-75pc: #6d6e72;
 
 fieldset.ranking-question {
     > legend {
@@ -42,6 +43,8 @@ fieldset.ranking-question {
         grid-gap: .6em;
     }
     .ranking-item {
+      transition: background-color .8s;
+      border-radius: 25px;
         > div {
         @include thisco-ranking-label();
         display: flex;
@@ -84,6 +87,10 @@ fieldset.ranking-question {
           border-bottom-left-radius: 25px;
           transition: all .7s .9s;
         }
+      }
+      .ranking-item[data-rank-value="#{$i}"] {
+        background-color: $thisco-dark-75pc;
+        color:white;
       }
     }
     .ranking-item[data-rank-value="null"] {
@@ -170,4 +177,29 @@ fieldset.ranking-question {
         }
       }
     }
+}
+
+/* Qualtrics fix */
+
+.Skin {
+  .InnerInner > fieldset.ranking-question > legend {
+    margin-bottom: 2em !important;
+  }
+  fieldset.ranking-question {
+    ul.ChoiceStructure {
+      opacity: 0;
+      max-height: 0px;
+      overflow: hidden;
+      font-size: 0.5px;
+    } 
+    .ranking-item > div label {
+      font-size: 1em;
+    }
+    .input-number-wrapper input {
+      padding: 10px 5px !important;
+    }
+  }
+  fieldset.ranking-question .ranking-item > div label {
+    flex: 70%;
+  }
 }
