@@ -2,7 +2,7 @@ const BlissfulJs = require('blissfuljs'); // module adds Bliss to window object 
 const { debounce, startsWith, isString, clamp, inRange, isFunction, sortBy } = require('lodash');
 import { wrapGrid } from 'animate-css-grid'
 
-const RANKING_VERSION = "1.1.1";
+const RANKING_VERSION = "1.1.2";
 
 // ranking question
 // to create 1-x ranked list out of x+ items
