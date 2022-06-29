@@ -18,31 +18,111 @@ Requires node.js 16+ and npm 6+ (bundled in node) - in the cloned repo run:
 
 ```npm install ```
 
-## Development
+## Development and Building
 
-_Easiest_ : Run `npm run dev` to get various options, set version to work on, build, set 'Latest' etc.
+Run the `dev` script to get started (either with `npm run dev` or in your VDE of choice). You should see the following:
 
-You can run tasks separately using package.json scripts:
+   ![](./dev_script_options.png)
 
-`npm run watch:scss` - watches all .scss in `/src/css` and creates .css files (skinjob script is set to watch /src)
+### Develop
 
-`npm run skinjob` - run the 'skinjob' server to do live updating of a published survey (if it has this script in its header) __see notes below for setting this up__
+You will be asked to provide a URL to open (usually a Qualtrics anonyomous distribution link) or a local file path.  You will also be asked which version to watch (make sure it is the same as the survey you are working on), then given a choice of browser to open.  You are also asked whether to start a SkinJob server to work on live CSS (see more below).
 
-## Build / Deploy
+The script starts up [Browser-Sync](https://browsersync.io/) server to the given options, and starts watching CSS and JS _across all versions_ (because of shared components) and will rebuild _JS only_ on changes (this is because it is presumed live changes in CSS are done via SkinJob, and to stop constant page reloads).
 
-Make sure you are set to the right version you want to build by using `npm run dev`.  Then build in using the same script, or if you want to do it 'manually' run `npm run build` to do scss and postcss (autoprefixer and cssnano), and then use `esbuild` to bundle and minify the js.  
+**NB** By default the browsersync server uses 3000 - if you have a conflict, run the initial command as `npm run dev [port]` to use an alternative.
 
-When the repo is pushed, AWS automatically copies to the S3 bucket, which is where the Qualtrics survey, the survey manual pages etc look for it.
+If SkinJob is set up properly, you should see instant changes to CSS (providing there is no conflict with the built version - disable bundle...css in the dev tools to debug). Wehn saving pages to the relevant JS, the page should reload.
+
+### Build
+
+The script will clarify which version you want built (although remember JS changes will already have been made in dev - roll back `/src` if necessary), or you can build all versions.
+
+Build recipe is currently:
+
+1. Compile SCSS into `skin.css`
+2. Run `css_postprocess.js` on the version requested - this is currently autoprefixer and cssnano for all versions, and a strip-out of Qualtric styles for v3.0.0
+3. Build and minify JS using esbuild (command is `build:js` defined in `package.json` if you need to edit options)
+4. Make a copy of CS and JSS as `bundle.latest` based on the version set as `latest_alias` in package.json<sup>1</sup>
+
+_<sup>1</sup>This is a build-step just for creating a 'latest' package designed for prefetch in the tasks page on the thiscovery site. Doesn't look like it's been implemented anyway so don't worry about it, just included in case._
+
+## Deployment
+
+Merging the repo currently triggers an automatic action in AWS to copy dist to the serving S3 container.  These are then accessible currently via a URL like so:
+
+`https://thiscovery-skin.s3.eu-west-1.amazonaws.com/dist/bundle.[X.X.X].[css|js]`
+
+So in a Qualtrics, the JS needs to be included as a `<script>` tag in the survey header HTML, and the CSS can be linked under 'External CSS' (both found under the 'Look and Feel' options).
+
+<hr>
+
+## Repo Structure
+
+   ```
+   src
+├── md
+|  ├── cookies.md
+|  ├── personal_information.md
+|  ├── terms_of_participation.md
+|  └── terms_of_use.md
+├── shared_js
+|  ├── expand_textarea.js
+|  ├── link_buttons.js
+|  ├── ranking_question.js
+|  ├── skinjob_client.js
+|  └── thisco_modals.js
+├── v2.0.0
+|  ├── css
+|  |  ├── components
+|  |  |  ├── base.scss
+|  |  |  ├── buttons.scss
+|  |  |  └── policy-modals.scss
+|  |  ├── skin.css
+|  |  ├── skin.css.map
+|  |  └── skin.scss
+|  └── js/skin.js
+├── v2.1.0
+|  ├── css
+|  |  ├── components
+|  |  |  ├── base.scss
+|  |  |  ├── buttons.scss
+|  |  |  ├── forms.scss
+|  |  |  ├── modals.scss
+|  |  |  ├── panels.scss
+|  |  |  ├── policy-modals.scss
+|  |  |  ├── ranking.scss
+|  |  |  └── scales.scss
+|  |  ├── skin.css
+|  |  ├── skin.css.map
+|  |  └── skin.scss
+|  └── js/skin.js
+└── v3.0.0
+   ├── css
+   |  ├── skin.css
+   |  ├── skin.css.map
+   |  └── skin.scss
+   └── js/skin.js
+
+```
+
+
 
 <hr>
 
 ## Tools
 
-### skinjob
+### Setting up 'skinjob'
 
-This is the node script to run fast reloading and development of the main skin stylesheet. It runs a websocket server watching the local css file for changes, then prompts the browser to replace the CSS (without reloading). To run it, run:
+This is the node script to run fast reloading and development of the main skin stylesheet. It runs a websocket server watching the local css file for changes, then prompts the browser to replace the CSS (without reloading). The `dev` script will ask if you want to run it as well as the other watches when selecting the 'develop' option. 
 
-```npm run skinjob ```
+To run it independently, run:
+
+```npm run skinjob [path to css sheet]```
+
+and to see possible options:
+
+`npm run skinjob help`
 
 The command currently watches `src/css/skin.css`. (So when dev rebuilds the SCSS to skin.css, this triggers skinjob)
 

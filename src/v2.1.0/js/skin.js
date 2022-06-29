@@ -30,7 +30,8 @@ require("../../shared_js/skinjob_client.js")();
 // eject Qualtrics stylesheet
 
 Bliss.$("link[rel='stylesheet']").forEach(el=>{
-    if (!(el.getAttribute('href') || "").includes('thiscovery')) el.remove(); // bye!
+    const href = el.getAttribute('href') || "";
+    if (!(href).includes('thiscovery') && !!(href).includes('localhost')) el.remove(); // bye!
 });
 
 // markup additions

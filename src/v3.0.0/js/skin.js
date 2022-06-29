@@ -4,6 +4,7 @@
 // 3.0.0 is a forward-looking version for non-qualtrics surveys
 // and standardised markup
 
+
 const BlissfulJs = require('blissfuljs'); // module adds Bliss to window object for us
 const version = require('../../../package.json').version;
 console.debug(`skin.js version ${version}`);
