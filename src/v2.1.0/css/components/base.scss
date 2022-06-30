@@ -358,6 +358,7 @@ body {
         flex-wrap: wrap;
         > * {
             flex-basis: 100%;
+            width: 100%;
         }
         @include respond-above(sm) {
             max-width: 768px;

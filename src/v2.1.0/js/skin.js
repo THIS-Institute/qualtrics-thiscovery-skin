@@ -8,6 +8,9 @@
 const version = "2.1.0";
 console.log(`Thiscovery survey skin version ${version}`);
 
+const revision = 1;
+console.log(`Revision: ${revision}`);
+
 const BlissfulJs = require('blissfuljs'); // module adds Bliss to window object for us
 import { forIn, fromPairs, startCase, trim } from 'lodash';
 const markdown = require('markdown').markdown;
@@ -31,7 +34,10 @@ require("../../shared_js/skinjob_client.js")();
 
 Bliss.$("link[rel='stylesheet']").forEach(el=>{
     const href = el.getAttribute('href') || "";
-    if (!(href).includes('thiscovery') && !!(href).includes('localhost')) el.remove(); // bye!
+    if (!(href.includes('thiscovery') || href.includes("localhost"))) {
+        console.debug(`ejected : ${href}`);
+        el.remove(); // bye!
+    }
 });
 
 // markup additions
@@ -40,7 +46,10 @@ Bliss.$("link[rel='stylesheet']").forEach(el=>{
 
 const tableChoiceStructure = Bliss("table.ChoiceStructure");
 const testRadio = Bliss("td input[type='radio']");
-if (tableChoiceStructure && testRadio) {
+const isMatrix = !!tableChoiceStructure && tableChoiceStructure.closest("div").classList.contains('q-matrix');
+const isMultiRow = Bliss.$("tr",tableChoiceStructure).length > 1;
+if (tableChoiceStructure && testRadio && !isMatrix &&!isMultiRow) {
+    tableChoiceStructure.classList.add("likert-scale");
     Bliss.$("td",tableChoiceStructure).forEach(el=>{
         const labelActual = Bliss("span.LabelWrapper > label",el);
         const inputActual = Bliss("input[type='radio']",el);
@@ -336,6 +345,25 @@ const processHtml = (dirty)=>sanitizeHtml(dirty, {
 
 const isConsentForm = Bliss.$(".consent-checklist").length > 0;
 if (isConsentForm) {
+
+    Bliss.$(".consent-checklist").forEach(checklist=>{
+        let fset = checklist.closest("fieldset");
+        checklist.className.split(" ").forEach(cl=>{
+            fset.classList.add(cl);
+        });
+        if (fset.classList.contains('consent-switches')) {
+            Bliss.$("label",fset).forEach(label=>{
+                label.appendChild(Bliss.create("button",{
+                    className : "consent-switch",
+                    contents : [
+                        {tag:"span",contents:"Yes"},
+                        {tag:"span",contents:"No"}
+                    ]
+                }))
+            });
+        }
+    });
+
     if (!window.Qualtrics) throw ("Unable to set up consent webhook - no Qualtrics on global object");
     Qualtrics.SurveyEngine.addOnPageSubmit(function(){
         let statements = [];

@@ -68,7 +68,7 @@ const middleware = async (req,res,next) => {
             body = body.replaceAll(replacement_domain,"https://localhost:3000");
             res.end(body);
         }
-        else {
+        else if (likelyRoot) {
             let localBody = readFileSync(__dirname+target,{
                 encoding : "utf-8"
             });
@@ -76,6 +76,7 @@ const middleware = async (req,res,next) => {
             res.end(localBody);
         }
     }
+    next();
 }
 
 const go = async()=>{
