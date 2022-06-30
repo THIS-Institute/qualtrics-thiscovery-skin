@@ -50,6 +50,7 @@ $breakpoints: (
                     margin-top:1em;
                     @include respond-above(sm) {
                         margin-top: 0;
+                        transform: scale(.95);
                     }
                     transform: scale(0.8);
                     pointer-events: none;
@@ -71,7 +72,10 @@ $breakpoints: (
                     span {
                         transition: all .2s ease-out;
                         padding: 3px 9px;
-                        font-size: .9em;
+                        font-size: 1.1em;
+                        @include respond-above(sm) {
+                            font-size: .9em;
+                        }
                         &:first-of-type {
                             background-color: transparent;
                         }
@@ -119,7 +123,7 @@ $breakpoints: (
                 }
                 @include respond-above(sm){
                     margin-left: 0.5rem;
-                    font-size: 1em;
+                    font-size: .9em;
                 }
                 label.MultipleAnswer {
                     &, &.q-checked, &.q-focused {

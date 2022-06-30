@@ -817,6 +817,7 @@ body {
 }
 .Skin #SkinContent > * {
   flex-basis: 100%;
+  width: 100%;
 }
 @media (min-width: 768px) {
   .Skin #SkinContent {
@@ -1456,12 +1457,6 @@ Qualtrics codes:
 .Skin .QuestionText > *, .Skin .QuestionBody > * {
   margin-bottom: 1.6em;
 }
-.Skin .QuestionText > *:last-child, .Skin .QuestionBody > *:last-child {
-  margin-bottom: 0;
-}
-.Skin fieldset > legend {
-  margin-bottom: 1.6em;
-}
 .Skin input {
   border-radius: 5px;
   border: 1px solid var(--thisco-light-grey);
@@ -1521,7 +1516,7 @@ Qualtrics codes:
   min-height: 2.6rem;
   border-radius: 15px;
   background-color: rgba(0, 0, 0, 0.01);
-  background-image: linear-gradient(45deg, transparent, rgba(0, 0, 0, 0.005));
+  background-image: linear-gradient(45deg, transparent, rgba(0, 0, 0, 0.025));
   padding: 0.4rem 0.8rem;
   margin-bottom: 1.2em;
   display: flex;
@@ -1641,7 +1636,7 @@ Qualtrics codes:
   min-height: 2.6rem;
   border-radius: 15px;
   background-color: rgba(0, 0, 0, 0.01);
-  background-image: linear-gradient(45deg, transparent, rgba(0, 0, 0, 0.005) 80%);
+  background-image: linear-gradient(45deg, transparent, rgba(0, 0, 0, 0.025) 80%);
   padding: 0.4rem 0.8rem;
 }
 .thisco-survey form fieldset input:not(:checked) + label input {
@@ -1653,7 +1648,7 @@ Qualtrics codes:
   min-height: 2.6rem;
   border-radius: 15px;
   background-color: rgba(0, 0, 0, 0.01);
-  background-image: linear-gradient(45deg, transparent, rgba(0, 0, 0, 0.005) 80%);
+  background-image: linear-gradient(45deg, transparent, rgba(0, 0, 0, 0.025) 80%);
   padding: 0.4rem 0.8rem;
 }
 .thisco-survey form fieldset label:not(.likert-label) > input {
@@ -2692,6 +2687,101 @@ fieldset.ranking-question .ranking-container:not(.indeterminate) .ranking-item[d
 }
 .Skin fieldset.ranking-question .ranking-item > div label {
   flex: 70%;
+}
+
+.Skin .consent-checklist.consent-switches span.LabelWrapper {
+  width: 100%;
+}
+.Skin .consent-checklist.consent-switches span.LabelWrapper label {
+  flex-wrap: wrap;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+@media (min-width: 768px) {
+  .Skin .consent-checklist.consent-switches span.LabelWrapper label {
+    flex-wrap: nowrap;
+  }
+}
+.Skin .consent-checklist.consent-switches span.LabelWrapper label .consent-switch {
+  color: var(--thisco-dark-grey);
+  margin-top: 1em;
+  transform: scale(0.8);
+  pointer-events: none;
+  opacity: 0.8;
+  height: 2.8rem;
+  min-width: 5em;
+  border: 2px solid white;
+  box-shadow: 0px 0px 0px 2px var(--thisco-dark-grey);
+  border-radius: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  background-image: linear-gradient(var(--thisco-dark-grey), var(--thisco-dark-grey));
+  background-size: 60% 100%;
+  background-position: 130% center;
+  background-repeat: no-repeat;
+  transition: all 0.2s ease-out;
+}
+@media (min-width: 768px) {
+  .Skin .consent-checklist.consent-switches span.LabelWrapper label .consent-switch {
+    margin-top: 0;
+    transform: scale(0.95);
+  }
+}
+.Skin .consent-checklist.consent-switches span.LabelWrapper label .consent-switch span {
+  transition: all 0.2s ease-out;
+  padding: 3px 9px;
+  font-size: 1.1em;
+}
+@media (min-width: 768px) {
+  .Skin .consent-checklist.consent-switches span.LabelWrapper label .consent-switch span {
+    font-size: 0.9em;
+  }
+}
+.Skin .consent-checklist.consent-switches span.LabelWrapper label .consent-switch span:first-of-type {
+  background-color: transparent;
+}
+.Skin .consent-checklist.consent-switches span.LabelWrapper label .consent-switch span:nth-child(2) {
+  color: white;
+}
+.Skin .consent-checklist.consent-switches span.LabelWrapper label.q-checked .consent-switch {
+  opacity: 1;
+  background-image: linear-gradient(var(--thisco-red), var(--thisco-red));
+  background-position: -10% center;
+  box-shadow: 0px 0px 0px 2px var(--thisco-red);
+}
+.Skin .consent-checklist.consent-switches span.LabelWrapper label.q-checked .consent-switch span:first-of-type {
+  color: white;
+}
+.Skin .consent-checklist.consent-switches span.LabelWrapper label.q-checked .consent-switch span:nth-child(2) {
+  color: var(--thisco-red);
+}
+.Skin .consent-checklist.consent-switches span.LabelWrapper label > span::before {
+  display: none;
+}
+
+/* resets and layout */
+.Skin .consent-checklist.consent-switches ul.ChoiceStructure > li:not(.ChoiceGroup) .LabelWrapper, .Skin .consent-checklist.consent-switches ul.ChoiceGroupStructure > li:not(.ChoiceGroup) .LabelWrapper {
+  margin-left: 0rem;
+  font-size: 0.8em;
+}
+.Skin .consent-checklist.consent-switches ul.ChoiceStructure > li:not(.ChoiceGroup) .LabelWrapper a, .Skin .consent-checklist.consent-switches ul.ChoiceGroupStructure > li:not(.ChoiceGroup) .LabelWrapper a {
+  word-break: break-all;
+}
+@media (min-width: 768px) {
+  .Skin .consent-checklist.consent-switches ul.ChoiceStructure > li:not(.ChoiceGroup) .LabelWrapper, .Skin .consent-checklist.consent-switches ul.ChoiceGroupStructure > li:not(.ChoiceGroup) .LabelWrapper {
+    margin-left: 0.5rem;
+    font-size: 0.9em;
+  }
+}
+.Skin .consent-checklist.consent-switches ul.ChoiceStructure > li:not(.ChoiceGroup) .LabelWrapper label.MultipleAnswer > span, .Skin .consent-checklist.consent-switches ul.ChoiceStructure > li:not(.ChoiceGroup) .LabelWrapper label.MultipleAnswer.q-checked > span, .Skin .consent-checklist.consent-switches ul.ChoiceStructure > li:not(.ChoiceGroup) .LabelWrapper label.MultipleAnswer.q-focused > span, .Skin .consent-checklist.consent-switches ul.ChoiceGroupStructure > li:not(.ChoiceGroup) .LabelWrapper label.MultipleAnswer > span, .Skin .consent-checklist.consent-switches ul.ChoiceGroupStructure > li:not(.ChoiceGroup) .LabelWrapper label.MultipleAnswer.q-checked > span, .Skin .consent-checklist.consent-switches ul.ChoiceGroupStructure > li:not(.ChoiceGroup) .LabelWrapper label.MultipleAnswer.q-focused > span {
+  padding-right: 1rem;
+}
+.Skin .consent-checklist.consent-switches ul.ChoiceStructure > li:not(.ChoiceGroup) .LabelWrapper label.MultipleAnswer > span::before, .Skin .consent-checklist.consent-switches ul.ChoiceStructure > li:not(.ChoiceGroup) .LabelWrapper label.MultipleAnswer.q-checked > span::before, .Skin .consent-checklist.consent-switches ul.ChoiceStructure > li:not(.ChoiceGroup) .LabelWrapper label.MultipleAnswer.q-focused > span::before, .Skin .consent-checklist.consent-switches ul.ChoiceGroupStructure > li:not(.ChoiceGroup) .LabelWrapper label.MultipleAnswer > span::before, .Skin .consent-checklist.consent-switches ul.ChoiceGroupStructure > li:not(.ChoiceGroup) .LabelWrapper label.MultipleAnswer.q-checked > span::before, .Skin .consent-checklist.consent-switches ul.ChoiceGroupStructure > li:not(.ChoiceGroup) .LabelWrapper label.MultipleAnswer.q-focused > span::before {
+  display: none;
 }
 
 /*# sourceMappingURL=skin.css.map */
