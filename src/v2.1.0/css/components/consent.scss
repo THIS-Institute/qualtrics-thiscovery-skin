@@ -1,0 +1,137 @@
+// A map of breakpoints.
+$breakpoints: (
+  xs: 481px,
+  sm: 768px,
+  md: 980px,
+  lg: 1400px
+);
+
+//
+//  RESPOND ABOVE
+//––––––––––––––––––––––––––––––––––––––––––––––––––
+
+// @include respond-above(sm) {}
+@mixin respond-above($breakpoint) {
+
+    // If the breakpoint exists in the map.
+    @if map-has-key($breakpoints, $breakpoint) {
+  
+      // Get the breakpoint value.
+      $breakpoint-value: map-get($breakpoints, $breakpoint);
+  
+      // Write the media query.
+      @media (min-width: $breakpoint-value) {
+        @content;
+      }
+    
+    // If the breakpoint doesn't exist in the map.
+    } @else {
+  
+      // Log a warning.
+      @warn 'Invalid breakpoint: #{$breakpoint}.';
+    }
+}
+
+.Skin {
+    .consent-checklist.consent-switches {
+        span.LabelWrapper {
+            width: 100%;
+            label {
+                flex-wrap: wrap;
+                @include respond-above(sm) {
+                    flex-wrap: nowrap;
+                }
+                display: flex;
+                width: 100%;
+                justify-content: space-between;
+                align-items: center;
+                .consent-switch {
+                    color:var(--thisco-dark-grey);
+                    margin-top:1em;
+                    @include respond-above(sm) {
+                        margin-top: 0;
+                    }
+                    transform: scale(0.8);
+                    pointer-events: none;
+                    opacity: .8;
+                    height: 2.8rem;
+                    min-width: 5em;
+                    border: 2px solid white;
+                    box-shadow: 0px 0px 0px 2px var(--thisco-dark-grey);
+                    border-radius: 25px;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    background: white;
+                    background-image: linear-gradient(var(--thisco-dark-grey),var(--thisco-dark-grey));
+                    background-size: 60% 100%;
+                    background-position: 130% center;
+                    background-repeat: no-repeat;
+                    transition: all .2s ease-out;
+                    span {
+                        transition: all .2s ease-out;
+                        padding: 3px 9px;
+                        font-size: .9em;
+                        &:first-of-type {
+                            background-color: transparent;
+                        }
+                        &:nth-child(2) {
+                            color: white;
+                            // border-right: 1px solid var(--thisco-dark-grey);
+                        }
+                    }
+                }
+                &.q-checked .consent-switch {
+                    opacity: 1;
+                    background-image: linear-gradient(var(--thisco-red),var(--thisco-red));
+                    background-position: -10% center;
+                    box-shadow: 0px 0px 0px 2px var(--thisco-red);
+                    span {
+                        &:first-of-type {
+                            color: white;
+                        }
+                        &:nth-child(2) {
+                            color: var(--thisco-red);
+                        }
+                    }
+                }
+                > span::before {
+                    display: none;
+                }
+            }
+
+        }
+    }
+}
+
+// .Skin ul.ChoiceGroupStructure > li:not(.ChoiceGroup) .LabelWrapper label.MultipleAnswer.q-checked.q-focused > span::before, .Skin ul.ChoiceGroupStructure > li:not(.ChoiceGroup) .LabelWrapper label.MultipleAnswer.q-checked > span::before, .Skin ul.ChoiceStructure > li:not(.ChoiceGroup) .LabelWrapper label.MultipleAnswer.q-checked.q-focused > span::before, .Skin ul.ChoiceStructure > li:not(.ChoiceGroup) .LabelWrapper label.MultipleAnswer.q-checked > span::before
+
+/* resets and layout */
+
+.Skin .consent-checklist.consent-switches {
+    ul.ChoiceStructure, ul.ChoiceGroupStructure {
+        > li:not(.ChoiceGroup) {
+            .LabelWrapper {
+                margin-left: 0rem;
+                font-size: .8em;
+                a {
+                    word-break: break-all;
+                }
+                @include respond-above(sm){
+                    margin-left: 0.5rem;
+                    font-size: 1em;
+                }
+                label.MultipleAnswer {
+                    &, &.q-checked, &.q-focused {
+                        > span {
+                            padding-right: 1rem;
+                        }
+                        > span::before {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
