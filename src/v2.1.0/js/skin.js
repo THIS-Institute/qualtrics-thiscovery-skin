@@ -8,7 +8,7 @@
 const version = "2.1.0";
 console.log(`Thiscovery survey skin version ${version}`);
 
-const revision = 1;
+const revision = 2;
 console.log(`Revision: ${revision}`);
 
 const BlissfulJs = require('blissfuljs'); // module adds Bliss to window object for us
@@ -362,6 +362,7 @@ if (isConsentForm) {
                 }))
             });
         }
+        checklist.className = "";
     });
 
     if (!window.Qualtrics) throw ("Unable to set up consent webhook - no Qualtrics on global object");
@@ -372,8 +373,8 @@ if (isConsentForm) {
             let fset = checklist.closest("fieldset");
             // cycle through checkbox inputs
             Bliss.$("input[type='checkbox']").forEach(stControl=>{
-                // pull statement HTML from the input's parent list item
-                const text = trim(processHtml(stControl.closest("li").innerHTML));
+                // pull statement HTML from the input's parent list item, tidy up and trim
+                const text = trim(processHtml(stControl.closest("li").innerHTML).replace(/YesNo/g,""));
                 // add to statements array 
                 const agreement = stControl.checked ? "Yes" : "No";
                 statements.push(fromPairs([[text,agreement]]));
