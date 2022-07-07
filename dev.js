@@ -1,3 +1,4 @@
+require("polyfill-library-node");
 const package = require(__dirname+'/package.json');
 let current_version = package.version;
 let latest_alias = package.latest_alias;

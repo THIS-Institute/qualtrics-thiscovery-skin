@@ -6,11 +6,19 @@ Outputs:
 - /dist/bundle.{version}.min.js
 - /dist/bundle.{version}.min.css
 
+- [Versions](#versions)
+- [Installation](#installation)
+- [Development and Building](#development-and-building)
+- [Deployment](#deployment)
+- [Repo Structure](#repo-structure)
+- [Tools](#tools)
+- [Troubleshooting](#troubleshooting)
+
 ## Versions
 
-- 2.0.0 - simple header and footer over existing CSS shims (so requires both sets of CSS and js in header snippet)
-- 2.1.0 - new ground-up rewrite of the skin CSS (ie. not using existing CSS and JS, so will be backwardly _incompatible_ with older surveys)
-- 3.0.0 - takes all CSS from 2.1.x but strips it of Qualitrics styles (anything '.Skin *' as selector)
+- 2.0.0 - simple header and footer over existing CSS shims (so requires both sets of CSS and js in header snippet) - this is still used in most live surveys
+- 2.1.0 - new ground-up rewrite of the skin CSS (ie. not using existing CSS and JS, so will be backwardly _incompatible_ with older surveys) - new projects will start to use this skin
+- 3.0.0 - takes all CSS from 2.1.x but strips it of Qualitrics styles (anything '.Skin *' as selector) - not in any production use yet
 
 ## Installation
 
@@ -128,3 +136,10 @@ The command currently watches `src/css/skin.css`. (So when dev rebuilds the SCSS
 
 1. Add a `thisco_dev=anything` key-value-pair to localStorage in the browser developer tools (usually under 'Application' or 'Storage') and reload survey. This activates the snippet in the js listening for the websocket.  
 2. Browsers will probably need some flags set to allow the comms to happen.  eg. in Firefox (recommended), in `about:config` set both `layout.css.constructable-stylesheets.enabled` and `network.websocket.allowInsecureFromHTTPS` to true (though remembers the latter flag needs switching off again at some point for security!).
+
+**************
+
+## Troubleshooting
+
+- dev.js does include polyfills, but still make sure you're on as recent a version f node as possible
+- double-check you are developing to the right version to match your Qualtrics survey or test page
