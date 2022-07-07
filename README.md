@@ -1,11 +1,6 @@
 # qualtrics-thiscovery-skin
 Javascript and CSS to customise Qualtrics surveys
 
-Outputs:
-
-- /dist/bundle.{version}.min.js
-- /dist/bundle.{version}.min.css
-
 - [Versions](#versions)
 - [Installation](#installation)
 - [Development and Building](#development-and-building)
@@ -13,6 +8,11 @@ Outputs:
 - [Repo Structure](#repo-structure)
 - [Tools](#tools)
 - [Troubleshooting](#troubleshooting)
+
+## Outputs
+
+- /dist/bundle.{version}.min.js
+- /dist/bundle.{version}.min.css
 
 ## Versions
 
