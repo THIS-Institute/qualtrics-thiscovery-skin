@@ -141,5 +141,5 @@ The command currently watches `src/css/skin.css`. (So when dev rebuilds the SCSS
 
 ## Troubleshooting
 
-- dev.js does include polyfills, but still make sure you're on as recent a version f node as possible
+- dev.js does include polyfills, but still make sure you're on as recent a version of node as possible
 - double-check you are developing to the right version to match your Qualtrics survey or test page
