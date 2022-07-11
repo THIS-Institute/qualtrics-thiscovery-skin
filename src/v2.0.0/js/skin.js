@@ -323,9 +323,12 @@ require("../../shared_js/ranking_question.js")();
 if (!window.Qualtrics) throw ("Unable to set up validation layout fix - no Qualtrics on global object");
 Qualtrics.SurveyEngine.addOnReady(()=>{
 
-    Bliss.$(".ValidationError").forEach(el=>{
-        el.parentNode.prepend(el);
-    });
+    // dirty one second timeout hack to counteract Qualtrics hackery
+    setTimeout(()=>{
+        Bliss.$(".ValidationError").forEach(el=>{
+            el.parentNode.prepend(el);
+        });
+    },1000);
 
 });
 
