@@ -5,6 +5,9 @@
 //
 // JS bundle for various DOM fixes, dev  etc.
 
+const revision = 2;
+console.debug(`Thisco skin.js 2.0.0 - revision ${revision}`);
+
 // import { io } from "socket.io-client";
 const io = require('socket.io-client');
 const BlissfulJs = require('blissfuljs'); // module adds Bliss to window object for us
@@ -312,5 +315,21 @@ if (graphs.length) graphs.forEach(el=>{
 // ranking Qs
 
 require("../../shared_js/ranking_question.js")();
+
+// layout fix, moving ValidationError to a more obvious place
+// prepending to their parent element
+// need to do it on Qualtrics page ready so using their event handler
+
+if (!window.Qualtrics) throw ("Unable to set up validation layout fix - no Qualtrics on global object");
+Qualtrics.SurveyEngine.addOnReady(()=>{
+
+    Bliss.$(".ValidationError").forEach(el=>{
+        el.parentNode.prepend(el);
+    });
+
+});
+
+
+
 
 // shopping list
