@@ -152,6 +152,16 @@ $breakpoints: (
 }
 
 @mixin thisco-headings(){
+
+    /* resets */
+
+    h1, h2, h3, h4 {
+        line-height: 1.2;
+        margin-top: 1em;
+        margin-bottom: 1em;
+        font-weight: 400;
+    }
+
     h1 {
         font-size: 2.2em;
         font-weight: 900;
@@ -159,7 +169,7 @@ $breakpoints: (
 
     h2 {
         font-size: 1.6em;
-        font-weight: 700;
+        font-weight: 900;
     }
 
     h3 {
@@ -170,8 +180,6 @@ $breakpoints: (
         font-size: 1.2em;
     }
 }
-
-
 
 // * {
 //     outline: 1px dotted gray;
@@ -198,13 +206,6 @@ body {
     }
 
     /* basic resets */
-
-    h1, h2, h3, h4 {
-        line-height: 1.2;
-        margin-top: 1em;
-        margin-bottom: 1em;
-        font-weight: 400;
-    }
 
     @include thisco-headings();
 

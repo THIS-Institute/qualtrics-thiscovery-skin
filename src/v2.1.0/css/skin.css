@@ -604,6 +604,7 @@ body {
   line-height: 1.4;
   background-color: white;
   /* basic resets */
+  /* resets */
   /* end resets */
 }
 @media (min-width: 481px) {
@@ -628,7 +629,7 @@ body {
 }
 .Skin h2 {
   font-size: 1.6em;
-  font-weight: 700;
+  font-weight: 900;
 }
 .Skin h3 {
   font-size: 1.4em;
@@ -850,6 +851,7 @@ body {
   font-size: 18px;
   line-height: 1.4;
   background-color: white;
+  /* resets */
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -900,6 +902,26 @@ body {
   background-color: var(--thisco-red);
   top: 0.8ch;
   left: -2ch;
+}
+.thisco-survey h1, .thisco-survey h2, .thisco-survey h3, .thisco-survey h4 {
+  line-height: 1.2;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  font-weight: 400;
+}
+.thisco-survey h1 {
+  font-size: 2.2em;
+  font-weight: 900;
+}
+.thisco-survey h2 {
+  font-size: 1.6em;
+  font-weight: 900;
+}
+.thisco-survey h3 {
+  font-size: 1.4em;
+}
+.thisco-survey h4 {
+  font-size: 1.2em;
 }
 @media (min-width: 481px) {
   .thisco-survey {
