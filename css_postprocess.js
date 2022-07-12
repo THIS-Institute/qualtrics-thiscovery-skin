@@ -1,22 +1,24 @@
 let postcss = require('postcss');
 const fs = require("fs");
 const { argv } = require('process');
-const [node_exec,this_exec,version] = argv;
+let [node_exec,this_exec,version] = argv;
 const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
 const discard = require('postcss-discard');
 const {join} = require('path');
 const npm_package_version = require('./package.json').version;
 
-const path_in = join(`./src/v${npm_package_version}/css/skin.css`);
-const path_out = join(`./dist/bundle.${npm_package_version}.css`);
+if (!version) version = npm_package_version;
 
-console.log(`\nPostCSSing version ${npm_package_version} : ${path_in} to ${path_out}...\n`);
+const path_in = join(`./src/v${version}/css/skin.css`);
+const path_out = join(`./dist/bundle.${version}.css`);
+
+console.log(`\nPostCSSing version ${version} : ${path_in} to ${path_out}...\n`);
 
 const plugin_options = {
     "3.0.0" : [autoprefixer,cssnano,discard({rule:/\.Skin/})]
 }
-const plugins = plugin_options[npm_package_version] || [autoprefixer,cssnano];
+const plugins = plugin_options[version] || [autoprefixer,cssnano];
 
 fs.readFile(path_in, (err, css) => {
     postcss(plugins)

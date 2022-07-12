@@ -88,7 +88,7 @@ async function go (){
             const do_build = (version)=>{
                 const tasks = {
                     'compiled SCSS':`npx sass ./src/v${version}/css/skin.scss ./src/v${version}/css/skin.css --embed-sources`,
-                    'ran PostCSS':'node ./css_postprocess.js',
+                    'ran PostCSS':`node ./css_postprocess.js ${version}`,
                     'built and minified JS':`npx esbuild ./src/v${version}/js/skin.js --bundle --minify --sourcemap --loader:.md=text --outfile=./dist/bundle.${version}.js --target=es2016,chrome94,firefox94,safari13,edge96,node12`,
                     'created "Latest" copy':`cp ./dist/bundle.${latest_alias}.css ./dist/bundle.latest.css & cp ./dist/bundle.${latest_alias}.js ./dist/bundle.latest.js`
                 };
