@@ -657,13 +657,25 @@ body {
 .Skin .SkinInner {
   padding-top: 7rem;
 }
-.Skin .SkinInner ul:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list) {
+.Skin .SkinInner ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list), .Skin .SkinInner ul:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list) {
   padding-left: 2.8em;
 }
-.Skin .SkinInner ul:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list) > li {
+.Skin .SkinInner ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list) > li, .Skin .SkinInner ul:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list) > li {
   display: list-item;
   position: relative;
   margin-bottom: 0.4em;
+}
+.Skin .SkinInner ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list) {
+  counter-reset: count 0;
+}
+.Skin .SkinInner ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list) > li {
+  counter-increment: count 1;
+}
+.Skin .SkinInner ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list) > li:before {
+  content: counter(count);
+  color: var(--thisco-red);
+  position: absolute;
+  left: -2ch;
 }
 .Skin .SkinInner ul:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list) > li:before {
   content: " ";
@@ -857,13 +869,25 @@ body {
 .thisco-survey a:focus {
   outline: 1px solid var(--thisco-pink);
 }
-.thisco-survey ul:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list) {
+.thisco-survey ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list), .thisco-survey ul:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list) {
   padding-left: 2.8em;
 }
-.thisco-survey ul:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list) > li {
+.thisco-survey ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list) > li, .thisco-survey ul:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list) > li {
   display: list-item;
   position: relative;
   margin-bottom: 0.4em;
+}
+.thisco-survey ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list) {
+  counter-reset: count 0;
+}
+.thisco-survey ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list) > li {
+  counter-increment: count 1;
+}
+.thisco-survey ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list) > li:before {
+  content: counter(count);
+  color: var(--thisco-red);
+  position: absolute;
+  left: -2ch;
 }
 .thisco-survey ul:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list) > li:before {
   content: " ";

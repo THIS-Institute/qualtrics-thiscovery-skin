@@ -113,12 +113,28 @@ $breakpoints: (
 }
 
 @mixin thisco_lists(){
-    ul:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list) {
+    ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list),  ul:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list) {
         padding-left: 2.8em;
         > li {
             display: list-item;
             position: relative;
             margin-bottom: .4em;
+        }
+    }
+    ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list) {
+        counter-reset: count 0;
+        > li {
+            counter-increment: count 1;
+            &:before {
+                content: counter(count);
+                color: var(--thisco-red);
+                position: absolute;
+                left: -2ch;
+            }
+        }
+    }
+    ul:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list) {
+        > li {
             &:before {
                 content: " ";
                 color: var(--thisco-red);
