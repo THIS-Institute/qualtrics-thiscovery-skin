@@ -151,6 +151,26 @@ $breakpoints: (
     }
 }
 
+@mixin thisco-headings(){
+    h1 {
+        font-size: 2.2em;
+        font-weight: 900;
+    }
+
+    h2 {
+        font-size: 1.6em;
+        font-weight: 700;
+    }
+
+    h3 {
+        font-size: 1.4em;
+    }
+
+    h4 {
+        font-size: 1.2em;
+    }
+}
+
 
 
 // * {
@@ -186,23 +206,7 @@ body {
         font-weight: 400;
     }
 
-    h1 {
-        font-size: 2.2em;
-        font-weight: 900;
-    }
-
-    h2 {
-        font-size: 1.6em;
-        font-weight: 700;
-    }
-
-    h3 {
-        font-size: 1.4em;
-    }
-
-    h4 {
-        font-size: 1.2em;
-    }
+    @include thisco-headings();
 
     a, a:hover, a:visited, a:focus {
         // style links in place
@@ -400,6 +404,7 @@ body {
     @include thisco_base();
     @include thisco_links();
     @include thisco_lists();
+    @include thisco-headings();
 
     @include respond-above(xs){
         font-size:18px;
