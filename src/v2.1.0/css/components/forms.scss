@@ -303,3 +303,9 @@ $radio-size: .6em;
         }
     }
 }
+
+/* gen utility classes to share across components */
+
+.thisco-response-label {
+    @include thisco-response-label();
+}
