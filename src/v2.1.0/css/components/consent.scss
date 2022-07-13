@@ -38,21 +38,26 @@ $breakpoints: (
             width: 100%;
             label {
                 flex-wrap: wrap;
-                @include respond-above(sm) {
+                @include respond-above(xs) {
                     flex-wrap: nowrap;
                 }
                 display: flex;
                 width: 100%;
                 justify-content: space-between;
                 align-items: center;
+                > span {
+                    flex: 80%;
+                }
                 .consent-switch {
                     color:var(--thisco-dark-grey);
                     margin-top:1em;
-                    @include respond-above(sm) {
+                    transform: scale(0.8);
+                    @include respond-above(xs) {
                         margin-top: 0;
+                    }
+                    @include respond-above(sm) {
                         transform: scale(.95);
                     }
-                    transform: scale(0.8);
                     pointer-events: none;
                     opacity: .8;
                     height: 2.8rem;
@@ -116,23 +121,28 @@ $breakpoints: (
                 height: 0px;
             }
             label {
-                // flex-wrap: wrap;
+                flex-wrap: wrap;
                 padding: .8rem .8rem;
-                // @include respond-above(sm) {
-                //     flex-wrap: nowrap;
-                // }
+                @include respond-above(xs) {
+                    flex-wrap: nowrap;
+                }
                 display: flex;
                 width: 100%;
                 justify-content: space-between;
                 align-items: center;
+                > span {
+                    flex: 80%;
+                }
                 .consent-switch {
                     color:var(--thisco-dark-grey);
-                    // margin-top:1em;
+                    margin-top:1em;
+                    transform: scale(0.8);
+                    @include respond-above(xs) {
+                        margin-top: 0;
+                    }
                     @include respond-above(sm) {
-                        // margin-top: 0;
                         transform: scale(.95);
                     }
-                    transform: scale(0.8);
                     pointer-events: none;
                     opacity: .8;
                     height: 2.8rem;

@@ -75,6 +75,10 @@ require("../../shared_js/expand_textarea.js")();
 
 require("../../shared_js/ranking_question.js")();
 
+// custom validation interception
+
+require("../../shared_js/validation.js")();
+
 // header
 
 const header = document.getElementById("Header");

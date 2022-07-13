@@ -1,8 +1,52 @@
 const BlissfulJs = require('blissfuljs'); // module adds Bliss to window object for us, use Bliss. and Bliss.$. for $ and $$
 
 import A11yDialog from 'a11y-dialog';
+import { uniqueId } from 'lodash';
 
 module.exports = function(){
+
+    window.disposableModal = (messageHTML,destParent=null)=>{
+        // create modal
+        const newModalId = 'disposable_'+uniqueId();
+        const modal = Bliss.create("div",{
+            id : newModalId,
+            className : "dialog-container",
+            "aria-labelled-by" : newModalId+"_title",
+            "aria-hidden" : "true",
+            contents : [{
+                tag: "div",
+                className : "dialog-overlay",
+                "data-a11y-dialog-hide":true
+            },{
+                tag: "div",
+                role: "document",
+                className: "dialog-content",
+                contents : [{
+                    tag: "div",
+                    className: "dialog-header",
+                    contents : [{
+                        tag: "button",
+                        className: "close-dialog-button",
+                        type: "button",
+                        "aria-label":"Close dialog",
+                        "data-a11y-dialog-hide":true,
+                        innerHTML: "&times;&nbsp;Close"
+                    }]
+                },{
+                    tag: "div",
+                    className : "dialog-body",
+                    innerHTML : messageHTML
+                }]
+            }]   
+        });
+        if (destParent!==null) destParent.appendChild(modal); else document.body.appendChild(modal);
+        const dialog = new A11yDialog(modal);
+        dialog.show();
+        dialog.on('hide',()=>{
+            dialog.destroy();
+        }); // one-off modal
+    };
+
     const dialogs = Bliss.$("dialog").forEach(el=>{
         if (el.close) el.close(); // close all dialogs on setup
         const open_link = Bliss.$(`a[href="modal?${el.id}"]`)[0];
