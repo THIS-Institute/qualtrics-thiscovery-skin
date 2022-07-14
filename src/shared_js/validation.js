@@ -1,7 +1,7 @@
 const BlissfulJs = require('blissfuljs'); // module adds Bliss to window object for us, use Bliss. and Bliss.$. for $ and $$
-const { some, isFunction } = require('lodash');
+const { some, isFunction, size } = require('lodash');
 
-// makes use of disposableModal(html,destParent)
+// makes use of disposableModal()
 
 // in Qualtrics we can intercept the Next button
 // by adding an event in the 'capture' phase on its parent
@@ -41,7 +41,7 @@ module.exports = function(){
                     const result = validations[validationClass](fset)
                     if (result !== true) {
                         const errorMsg = el.dataset?.customValidMessage || result;
-                        disposableModal(errorMsg,fset);
+                        disposableModal({bodyHtml:errorMsg,modalParent:fset});
                         return false;
                     }
                     return true;
@@ -68,6 +68,7 @@ module.exports = function(){
         return failure !== true;
     };
 
+    // add a validation intercept on click of Next Button
 
     const nextButton = Bliss("#NextButton");
     if (!nextButton) return;
@@ -83,6 +84,38 @@ module.exports = function(){
         }
         return;
         
-    },{capture:true})
+    },{capture:true});
+
+    // add a MutationObserver to modalise any error message Qualtrics adds
+
+    if (window.MutationObserver) {
+        Bliss.$(".ValidationError").forEach(el=>{
+
+            console.debug("Attaching an observer:",el);
+
+            const callback = function(mutations,observer){
+                console.debug('CHANG');
+                const currentText = el.innerText;
+                const isVisible = el.offsetParent !== null;
+                if ((currentText !== "") && isVisible) {
+                    disposableModal({bodyHtml:currentText,modalParent:el.parentNode});
+                    return;
+                }
+                return;
+            };
+    
+            const observer = new MutationObserver(callback);
+            observer.observe(el,{attributes:true});
+
+            el._.style({
+                "opacity" : "0",
+                "height" : "0px",
+                "font-size" : "0px"
+            })
+    
+        });
+    }
+
+
 
 };

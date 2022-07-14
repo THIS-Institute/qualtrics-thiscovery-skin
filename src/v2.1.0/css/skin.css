@@ -1868,6 +1868,11 @@ dialog {
 .dialog-content .dialog-body {
   padding: 1.25rem 1rem;
 }
+@media (min-width: 768px) {
+  .dialog-content .dialog-body {
+    padding: 1.75rem 1.5rem;
+  }
+}
 .dialog-content .dialog-body > * {
   margin-bottom: 0.6em;
 }
@@ -2928,6 +2933,49 @@ fieldset.ranking-question .ranking-container:not(.indeterminate) .ranking-item[d
 }
 .Skin .consent-checklist.consent-switches ul.ChoiceStructure > li:not(.ChoiceGroup) .LabelWrapper label.MultipleAnswer > span::before, .Skin .consent-checklist.consent-switches ul.ChoiceStructure > li:not(.ChoiceGroup) .LabelWrapper label.MultipleAnswer.q-checked > span::before, .Skin .consent-checklist.consent-switches ul.ChoiceStructure > li:not(.ChoiceGroup) .LabelWrapper label.MultipleAnswer.q-focused > span::before, .Skin .consent-checklist.consent-switches ul.ChoiceGroupStructure > li:not(.ChoiceGroup) .LabelWrapper label.MultipleAnswer > span::before, .Skin .consent-checklist.consent-switches ul.ChoiceGroupStructure > li:not(.ChoiceGroup) .LabelWrapper label.MultipleAnswer.q-checked > span::before, .Skin .consent-checklist.consent-switches ul.ChoiceGroupStructure > li:not(.ChoiceGroup) .LabelWrapper label.MultipleAnswer.q-focused > span::before {
   display: none;
+}
+
+/* Qualtrics page error dialog */
+.PageErrorDialog {
+  background: var(--thisco-light-grey);
+  border-radius: 25px;
+  padding: 1.75rem;
+  font-size: 0.9em;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+}
+.PageErrorDialog .ErrorTitle {
+  margin-top: 0px;
+}
+.PageErrorDialog .ErrorButtons {
+  padding-top: 1em;
+  display: flex;
+}
+.PageErrorDialog .ErrorButtons button {
+  border-radius: 999px;
+  transition: all 0.2s ease-in;
+  background-color: var(--thisco-red);
+  padding: 1em 3em;
+  line-height: 1;
+  border: 2px solid var(--thisco-red);
+  font-weight: 400;
+  color: white;
+  cursor: pointer;
+  box-shadow: none;
+  margin-right: 1ch;
+  font-size: 0.8em;
+  padding: 0.8em 2em;
+}
+.PageErrorDialog .ErrorButtons button:hover, .PageErrorDialog .ErrorButtons button:active, .PageErrorDialog .ErrorButtons button:focus {
+  transform: scale(1.03);
+  background-color: transparent;
+  color: var(--thisco-red);
+  border-color: var(--thisco-red);
+}
+.PageErrorDialog .ErrorButtons button:active {
+  transform: scale(0.9);
+}
+.PageErrorDialog .ErrorButtons button:hover, .PageErrorDialog .ErrorButtons button:active, .PageErrorDialog .ErrorButtons button:focus {
+  background-color: white;
 }
 
 /*# sourceMappingURL=skin.css.map */

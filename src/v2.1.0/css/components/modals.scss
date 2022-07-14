@@ -96,6 +96,9 @@ dialog {
     }
     .dialog-body {
         padding: 1.25rem 1rem;
+        @include respond-above(sm) {
+          padding: 1.75rem 1.5rem;
+        }
         > * {
             margin-bottom: .6em;
         }

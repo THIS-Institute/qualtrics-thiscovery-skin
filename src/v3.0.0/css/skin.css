@@ -1868,6 +1868,11 @@ dialog {
 .dialog-content .dialog-body {
   padding: 1.25rem 1rem;
 }
+@media (min-width: 768px) {
+  .dialog-content .dialog-body {
+    padding: 1.75rem 1.5rem;
+  }
+}
 .dialog-content .dialog-body > * {
   margin-bottom: 0.6em;
 }
@@ -2754,10 +2759,13 @@ fieldset.ranking-question .ranking-container:not(.indeterminate) .ranking-item[d
   justify-content: space-between;
   align-items: center;
 }
-@media (min-width: 768px) {
+@media (min-width: 481px) {
   .Skin .consent-checklist.consent-switches span.LabelWrapper label {
     flex-wrap: nowrap;
   }
+}
+.Skin .consent-checklist.consent-switches span.LabelWrapper label > span {
+  flex: 80%;
 }
 .Skin .consent-checklist.consent-switches span.LabelWrapper label .consent-switch {
   color: var(--thisco-dark-grey);
@@ -2780,9 +2788,13 @@ fieldset.ranking-question .ranking-container:not(.indeterminate) .ranking-item[d
   background-repeat: no-repeat;
   transition: all 0.2s ease-out;
 }
-@media (min-width: 768px) {
+@media (min-width: 481px) {
   .Skin .consent-checklist.consent-switches span.LabelWrapper label .consent-switch {
     margin-top: 0;
+  }
+}
+@media (min-width: 768px) {
+  .Skin .consent-checklist.consent-switches span.LabelWrapper label .consent-switch {
     transform: scale(0.95);
   }
 }
@@ -2824,14 +2836,24 @@ fieldset.ranking-question .ranking-container:not(.indeterminate) .ranking-item[d
   height: 0px;
 }
 .thisco-survey .consent-checklist.consent-switches label {
+  flex-wrap: wrap;
   padding: 0.8rem 0.8rem;
   display: flex;
   width: 100%;
   justify-content: space-between;
   align-items: center;
 }
+@media (min-width: 481px) {
+  .thisco-survey .consent-checklist.consent-switches label {
+    flex-wrap: nowrap;
+  }
+}
+.thisco-survey .consent-checklist.consent-switches label > span {
+  flex: 80%;
+}
 .thisco-survey .consent-checklist.consent-switches label .consent-switch {
   color: var(--thisco-dark-grey);
+  margin-top: 1em;
   transform: scale(0.8);
   pointer-events: none;
   opacity: 0.8;
@@ -2849,6 +2871,11 @@ fieldset.ranking-question .ranking-container:not(.indeterminate) .ranking-item[d
   background-position: 130% center;
   background-repeat: no-repeat;
   transition: all 0.2s ease-out;
+}
+@media (min-width: 481px) {
+  .thisco-survey .consent-checklist.consent-switches label .consent-switch {
+    margin-top: 0;
+  }
 }
 @media (min-width: 768px) {
   .thisco-survey .consent-checklist.consent-switches label .consent-switch {

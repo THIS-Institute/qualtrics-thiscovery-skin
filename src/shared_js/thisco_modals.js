@@ -5,12 +5,15 @@ import { uniqueId } from 'lodash';
 
 module.exports = function(){
 
-    window.disposableModal = (messageHTML,destParent=null)=>{
+    window.disposableModal = ({bodyHtml,modalParent=null,modalClass=""})=>{
+        if (typeof bodyHtml !== "string") {
+            throw "disposableModal called without content";
+        }
         // create modal
         const newModalId = 'disposable_'+uniqueId();
         const modal = Bliss.create("div",{
             id : newModalId,
-            className : "dialog-container",
+            className : "dialog-container "+modalClass,
             "aria-labelled-by" : newModalId+"_title",
             "aria-hidden" : "true",
             contents : [{
@@ -35,11 +38,11 @@ module.exports = function(){
                 },{
                     tag: "div",
                     className : "dialog-body",
-                    innerHTML : messageHTML
+                    innerHTML : bodyHtml
                 }]
             }]   
         });
-        if (destParent!==null) destParent.appendChild(modal); else document.body.appendChild(modal);
+        if (modalParent!==null) modalParent.appendChild(modal); else document.body.appendChild(modal);
         const dialog = new A11yDialog(modal);
         dialog.show();
         dialog.on('hide',()=>{
