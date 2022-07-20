@@ -1541,7 +1541,7 @@ Qualtrics codes:
   font-weight: 400;
   padding-left: 0.2em;
   padding-right: 0.2em;
-  width: 90%;
+  width: 100%;
   resize: none;
   min-height: 4.8rem;
 }
@@ -1678,6 +1678,23 @@ Qualtrics codes:
 .thisco-survey form fieldset legend {
   margin-bottom: 1.6em;
 }
+.thisco-survey form fieldset input[type=text] {
+  border-radius: 5px;
+  border: 1px solid var(--thisco-light-grey);
+  box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.1);
+  font-weight: 400;
+  padding-left: 0.2em;
+  padding-right: 0.2em;
+}
+.thisco-survey form fieldset input[type=text]:focus-visible {
+  border-color: var(--thisco-red);
+  box-shadow: 0px 0px 0px 1px var(--thisco-red);
+  outline: none;
+}
+.thisco-survey form fieldset input[type=text]::placeholder {
+  font-weight: 100;
+  color: rgba(0, 0, 0, 0.5);
+}
 .thisco-survey form fieldset input:not(:checked) + label {
   min-height: 2.6rem;
   border-radius: 15px;
@@ -1736,7 +1753,7 @@ Qualtrics codes:
   font-weight: 400;
   padding-left: 0.2em;
   padding-right: 0.2em;
-  width: 90%;
+  width: 100%;
   resize: none;
   min-height: 4.8rem;
 }
@@ -1788,6 +1805,47 @@ Qualtrics codes:
   background-image: url("data:image/svg+xml,%3Csvg width='100%25' height='100%25' viewBox='0 0 24 20' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xml:space='preserve' xmlns:serif='http://www.serif.com/' style='fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;'%3E%3Cpath id='check' d='M23.051,2.843l-14.151,15.977c-0.19,0.214 -0.463,0.337 -0.749,0.337c-0.275,0 -0.538,-0.113 -0.727,-0.313l-7.152,-7.573c-0.341,-0.361 -0.364,-0.924 -0.054,-1.311l0.952,-1.19c0.293,-0.367 0.808,-0.48 1.228,-0.27l5.277,2.639l12.797,-10.902c0.395,-0.336 0.989,-0.312 1.356,0.055l1.181,1.181c0.372,0.372 0.39,0.977 0.042,1.37Z' style='fill:%23fff;fill-rule:nonzero;'/%3E%3C/svg%3E");
   background-size: 110%;
   border-color: transparent;
+}
+.thisco-survey form .form-group label {
+  margin-bottom: 1.2em;
+  display: block;
+}
+.thisco-survey form .form-group input[type=text], .thisco-survey form .form-group input[type=email], .thisco-survey form .form-group input[type=search], .thisco-survey form .form-group input[type=url], .thisco-survey form .form-group input[type=number] {
+  border-radius: 5px;
+  border: 1px solid var(--thisco-light-grey);
+  box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.1);
+  font-weight: 400;
+  padding-left: 0.2em;
+  padding-right: 0.2em;
+}
+.thisco-survey form .form-group input[type=text]:focus-visible, .thisco-survey form .form-group input[type=email]:focus-visible, .thisco-survey form .form-group input[type=search]:focus-visible, .thisco-survey form .form-group input[type=url]:focus-visible, .thisco-survey form .form-group input[type=number]:focus-visible {
+  border-color: var(--thisco-red);
+  box-shadow: 0px 0px 0px 1px var(--thisco-red);
+  outline: none;
+}
+.thisco-survey form .form-group input[type=text]::placeholder, .thisco-survey form .form-group input[type=email]::placeholder, .thisco-survey form .form-group input[type=search]::placeholder, .thisco-survey form .form-group input[type=url]::placeholder, .thisco-survey form .form-group input[type=number]::placeholder {
+  font-weight: 100;
+  color: rgba(0, 0, 0, 0.5);
+}
+.thisco-survey form .form-group textarea {
+  border-radius: 5px;
+  border: 1px solid var(--thisco-light-grey);
+  box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.1);
+  font-weight: 400;
+  padding-left: 0.2em;
+  padding-right: 0.2em;
+  width: 100%;
+  resize: none;
+  min-height: 4.8rem;
+}
+.thisco-survey form .form-group textarea:focus-visible {
+  border-color: var(--thisco-red);
+  box-shadow: 0px 0px 0px 1px var(--thisco-red);
+  outline: none;
+}
+.thisco-survey form .form-group textarea::placeholder {
+  font-weight: 100;
+  color: rgba(0, 0, 0, 0.5);
 }
 
 /* gen utility classes to share across components */
@@ -2933,6 +2991,49 @@ fieldset.ranking-question .ranking-container:not(.indeterminate) .ranking-item[d
 }
 .Skin .consent-checklist.consent-switches ul.ChoiceStructure > li:not(.ChoiceGroup) .LabelWrapper label.MultipleAnswer > span::before, .Skin .consent-checklist.consent-switches ul.ChoiceStructure > li:not(.ChoiceGroup) .LabelWrapper label.MultipleAnswer.q-checked > span::before, .Skin .consent-checklist.consent-switches ul.ChoiceStructure > li:not(.ChoiceGroup) .LabelWrapper label.MultipleAnswer.q-focused > span::before, .Skin .consent-checklist.consent-switches ul.ChoiceGroupStructure > li:not(.ChoiceGroup) .LabelWrapper label.MultipleAnswer > span::before, .Skin .consent-checklist.consent-switches ul.ChoiceGroupStructure > li:not(.ChoiceGroup) .LabelWrapper label.MultipleAnswer.q-checked > span::before, .Skin .consent-checklist.consent-switches ul.ChoiceGroupStructure > li:not(.ChoiceGroup) .LabelWrapper label.MultipleAnswer.q-focused > span::before {
   display: none;
+}
+
+/* Qualtrics page error dialog */
+.PageErrorDialog {
+  background: var(--thisco-light-grey);
+  border-radius: 25px;
+  padding: 1.75rem;
+  font-size: 0.9em;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+}
+.PageErrorDialog .ErrorTitle {
+  margin-top: 0px;
+}
+.PageErrorDialog .ErrorButtons {
+  padding-top: 1em;
+  display: flex;
+}
+.PageErrorDialog .ErrorButtons button {
+  border-radius: 999px;
+  transition: all 0.2s ease-in;
+  background-color: var(--thisco-red);
+  padding: 1em 3em;
+  line-height: 1;
+  border: 2px solid var(--thisco-red);
+  font-weight: 400;
+  color: white;
+  cursor: pointer;
+  box-shadow: none;
+  margin-right: 1ch;
+  font-size: 0.8em;
+  padding: 0.8em 2em;
+}
+.PageErrorDialog .ErrorButtons button:hover, .PageErrorDialog .ErrorButtons button:active, .PageErrorDialog .ErrorButtons button:focus {
+  transform: scale(1.03);
+  background-color: transparent;
+  color: var(--thisco-red);
+  border-color: var(--thisco-red);
+}
+.PageErrorDialog .ErrorButtons button:active {
+  transform: scale(0.9);
+}
+.PageErrorDialog .ErrorButtons button:hover, .PageErrorDialog .ErrorButtons button:active, .PageErrorDialog .ErrorButtons button:focus {
+  background-color: white;
 }
 
 /*# sourceMappingURL=skin.css.map */

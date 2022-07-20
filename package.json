@@ -76,5 +76,5 @@
 		"socket.io-client": "^4.4.1",
 		"util": "^0.12.4"
 	},
-	"browserslist": "> 0.5% in GB"
+	"browserslist": ["last 2 versions","> 0.2% in GB", "not dead"]
 }

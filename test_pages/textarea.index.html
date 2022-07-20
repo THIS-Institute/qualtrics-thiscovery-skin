@@ -9,12 +9,16 @@
 <body>
     <div id="Header"></div>
     <div class="thisco-survey">
-        <form>
-            <legend><strong>Describe</strong> in a short paragraph the room in which you are currently sat.</legend>
-            <fieldset>
-                <textarea name="room" id="room"></textarea>
-            </fieldset>
-        </form>
+            <form>
+                <div class="form-group">
+                    <label><p><strong>Where</strong> is your favourite holiday destination? (Please give one answer)</p></label>
+                    <input name="hols" id="destination" type="text" />
+                </div>
+                <div class="form-group">
+                    <label><p><strong>Describe</strong> in a short paragraph the room in which you are currently sat.</p></label>
+                    <textarea name="room" id="room"></textarea>
+                </div>
+            </form>
     </div>
     <div id="Footer"></div>
     <script src="https://cdn.socket.io/4.5.0/socket.io.min.js" integrity="sha384-7EyYLQZgWBi67fBtVxw60/OWl1kjsfrPFcaU0pp0nAh+i8FD068QogUvg85Ewy1k" crossorigin="anonymous"></script>    
