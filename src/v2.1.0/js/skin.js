@@ -16,7 +16,9 @@ import { forIn, fromPairs, startCase, trim } from 'lodash';
 const markdown = require('markdown').markdown;
 const sanitizeHtml = require('sanitize-html');
 
-const THISCO_DEV = localStorage.getItem("thisco_dev") !== null;
+window.THISCO_DEV = localStorage.getItem("thisco_dev") !== null;
+window.QUALTRICS_PREVIEW = window.location.href.includes("preview");
+window.TEST_VALIDATION = localStorage.getItem("thisco_dev").includes("TEST_VAL");
 
 const modalHtml = {
     "cookies" : markdown.toHTML( require("../../md/personal_information.md") ),

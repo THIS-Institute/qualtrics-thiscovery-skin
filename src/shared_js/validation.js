@@ -22,100 +22,100 @@ const validations = {
 
 module.exports = function(){
 
-    console.debug("Validation interception");
+    if (!QUALTRICS_PREVIEW || TEST_VALIDATION) {
 
-    // register validators
-    // look for all validation classes and add as necessary
+        console.debug("Validation interception");
 
-    Object.keys(validations).forEach(validationClass=>{
+        // register validators
+        // look for all validation classes and add as necessary
 
-        console.debug(`Attaching validation to ${validationClass}`);
+        Object.keys(validations).forEach(validationClass=>{
 
-        const search = Bliss.$(`.validation-${validationClass}`);
-        console.debug({search});
-        if (search.length) {
-            search.forEach(el=>{
-                let fset = el.tagName.toLowerCase() == "fieldset" ? el : el.closest('fieldset');
-                if (!fset) fset = el.parentNode;
-                const validator = ()=>{
-                    const result = validations[validationClass](fset)
-                    if (result !== true) {
-                        const errorMsg = el.dataset?.customValidMessage || result;
-                        disposableModal({bodyHtml:errorMsg,modalParent:fset});
-                        return false;
+            console.debug(`Attaching validation to ${validationClass}`);
+
+            const search = Bliss.$(`.validation-${validationClass}`);
+            console.debug({search});
+            if (search.length) {
+                search.forEach(el=>{
+                    let fset = el.tagName.toLowerCase() == "fieldset" ? el : el.closest('fieldset');
+                    if (!fset) fset = el.parentNode;
+                    const validator = ()=>{
+                        const result = validations[validationClass](fset)
+                        if (result !== true) {
+                            const errorMsg = el.dataset?.customValidMessage || result;
+                            disposableModal({bodyHtml:errorMsg,modalParent:fset});
+                            return false;
+                        }
+                        return true;
+                    };
+                    validators.push(validator);
+                    el.classList.remove(`validation-${validationClass}`);
+                    return;
+                });
+            }
+
+        });
+
+        const runValidation = ()=>{
+            // validators run in order they have been added
+            // first to fail wins and stops subsequent validators
+            if (!validators.length) return true;
+            const failure = some(validators,(validation)=>{
+                if (!isFunction(validation)) {
+                    throw("Validator is not a function");
+                }
+                return validation.call() === false;
+            });
+            return failure !== true;
+        };
+
+        // add a validation intercept on click of Next Button
+
+        const nextButton = Bliss("#NextButton");
+        if (!nextButton) return;
+
+        nextButton.parentNode.addEventListener('click',(evt)=>{
+            if (evt.target.id == "NextButton") {
+                const isValid = runValidation();
+                console.debug({isValid});
+                if (!isValid) {
+                    evt.stopImmediatePropagation();
+                    return false;
+                }
+            }
+            return;
+            
+        },{capture:true});
+
+        // add a MutationObserver to modalise any error message Qualtrics adds
+
+        if (window.MutationObserver) {
+            Bliss.$(".ValidationError").forEach(el=>{
+
+                console.debug("Attaching an observer:",el);
+
+                const callback = function(mutations,observer){
+                    console.debug('CHANG');
+                    const currentText = el.innerText;
+                    const isVisible = el.offsetParent !== null;
+                    if ((currentText !== "") && isVisible) {
+                        disposableModal({bodyHtml:currentText,modalParent:el.parentNode});
+                        return;
                     }
-                    return true;
+                    return;
                 };
-                validators.push(validator);
-                el.classList.remove(`validation-${validationClass}`);
-                return;
+        
+                const observer = new MutationObserver(callback);
+                observer.observe(el,{attributes:true});
+
+                el._.style({
+                    "opacity" : "0",
+                    "height" : "0px",
+                    "font-size" : "0px"
+                })
+        
             });
         }
-
-    });
-
-
-    const runValidation = ()=>{
-        // validators run in order they have been added
-        // first to fail wins and stops subsequent validators
-        if (!validators.length) return true;
-        const failure = some(validators,(validation)=>{
-            if (!isFunction(validation)) {
-                throw("Validator is not a function");
-            }
-            return validation.call() === false;
-        });
-        return failure !== true;
-    };
-
-    // add a validation intercept on click of Next Button
-
-    const nextButton = Bliss("#NextButton");
-    if (!nextButton) return;
-
-    nextButton.parentNode.addEventListener('click',(evt)=>{
-        if (evt.target.id == "NextButton") {
-            const isValid = runValidation();
-            console.debug({isValid});
-            if (!isValid) {
-                evt.stopImmediatePropagation();
-                return false;
-            }
-        }
-        return;
-        
-    },{capture:true});
-
-    // add a MutationObserver to modalise any error message Qualtrics adds
-
-    if (window.MutationObserver) {
-        Bliss.$(".ValidationError").forEach(el=>{
-
-            console.debug("Attaching an observer:",el);
-
-            const callback = function(mutations,observer){
-                console.debug('CHANG');
-                const currentText = el.innerText;
-                const isVisible = el.offsetParent !== null;
-                if ((currentText !== "") && isVisible) {
-                    disposableModal({bodyHtml:currentText,modalParent:el.parentNode});
-                    return;
-                }
-                return;
-            };
-    
-            const observer = new MutationObserver(callback);
-            observer.observe(el,{attributes:true});
-
-            el._.style({
-                "opacity" : "0",
-                "height" : "0px",
-                "font-size" : "0px"
-            })
-    
-        });
     }
-
-
 
 };
