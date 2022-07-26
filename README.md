@@ -42,6 +42,10 @@ The script starts up [Browser-Sync](https://browsersync.io/) server to the given
 
 If SkinJob is set up properly, you should see instant changes to CSS (providing there is no conflict with the built version - disable bundle...css in the dev tools to debug). Wehn saving pages to the relevant JS, the page should reload.
 
+#### Notes
+
+- Custom validation (ie. non-Qualtrics) is disabled for Qualtrics preview by default - if you need to test it in preview, change the value of thisco_dev in localStorage so it contains `TEST_VAL` (this might be superceded by changing all the custom validation to in-UI warnings?)
+
 ### Build
 
 The script will clarify which version you want built (although remember JS changes will already have been made in dev - roll back `/src` if necessary), or you can build all versions.

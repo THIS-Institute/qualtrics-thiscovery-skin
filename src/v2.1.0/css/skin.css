@@ -2814,15 +2814,16 @@ fieldset.ranking-question .ranking-container:not(.indeterminate) .ranking-item[d
   width: 100%;
 }
 .Skin .consent-checklist.consent-switches span.LabelWrapper label {
-  flex-wrap: wrap;
-  display: flex;
+  display: grid;
+  grid-gap: 0px;
+  grid-template-columns: 1fr;
   width: 100%;
   justify-content: space-between;
   align-items: center;
 }
 @media (min-width: 481px) {
   .Skin .consent-checklist.consent-switches span.LabelWrapper label {
-    flex-wrap: nowrap;
+    grid-template-columns: auto auto;
   }
 }
 .Skin .consent-checklist.consent-switches span.LabelWrapper label > span {
@@ -2830,12 +2831,13 @@ fieldset.ranking-question .ranking-container:not(.indeterminate) .ranking-item[d
 }
 .Skin .consent-checklist.consent-switches span.LabelWrapper label .consent-switch {
   color: var(--thisco-dark-grey);
-  margin-top: 1em;
   transform: scale(0.8);
   pointer-events: none;
   opacity: 0.8;
   height: 2.8rem;
   min-width: 5em;
+  max-width: 6.5em;
+  justify-self: end;
   border: 2px solid white;
   box-shadow: 0px 0px 0px 2px var(--thisco-dark-grey);
   border-radius: 25px;
@@ -2848,11 +2850,6 @@ fieldset.ranking-question .ranking-container:not(.indeterminate) .ranking-item[d
   background-position: 130% center;
   background-repeat: no-repeat;
   transition: all 0.2s ease-out;
-}
-@media (min-width: 481px) {
-  .Skin .consent-checklist.consent-switches span.LabelWrapper label .consent-switch {
-    margin-top: 0;
-  }
 }
 @media (min-width: 768px) {
   .Skin .consent-checklist.consent-switches span.LabelWrapper label .consent-switch {
@@ -2897,16 +2894,17 @@ fieldset.ranking-question .ranking-container:not(.indeterminate) .ranking-item[d
   height: 0px;
 }
 .thisco-survey .consent-checklist.consent-switches label {
-  flex-wrap: wrap;
+  display: grid;
+  grid-gap: 0px;
+  grid-template-columns: 1fr;
   padding: 0.8rem 0.8rem;
-  display: flex;
   width: 100%;
   justify-content: space-between;
   align-items: center;
 }
 @media (min-width: 481px) {
   .thisco-survey .consent-checklist.consent-switches label {
-    flex-wrap: nowrap;
+    grid-template-columns: auto auto;
   }
 }
 .thisco-survey .consent-checklist.consent-switches label > span {
@@ -2914,12 +2912,13 @@ fieldset.ranking-question .ranking-container:not(.indeterminate) .ranking-item[d
 }
 .thisco-survey .consent-checklist.consent-switches label .consent-switch {
   color: var(--thisco-dark-grey);
-  margin-top: 1em;
   transform: scale(0.8);
   pointer-events: none;
   opacity: 0.8;
   height: 2.8rem;
   min-width: 5em;
+  max-width: 6.5em;
+  justify-self: end;
   border: 2px solid white;
   box-shadow: 0px 0px 0px 2px var(--thisco-dark-grey);
   border-radius: 25px;
@@ -2932,11 +2931,6 @@ fieldset.ranking-question .ranking-container:not(.indeterminate) .ranking-item[d
   background-position: 130% center;
   background-repeat: no-repeat;
   transition: all 0.2s ease-out;
-}
-@media (min-width: 481px) {
-  .thisco-survey .consent-checklist.consent-switches label .consent-switch {
-    margin-top: 0;
-  }
 }
 @media (min-width: 768px) {
   .thisco-survey .consent-checklist.consent-switches label .consent-switch {

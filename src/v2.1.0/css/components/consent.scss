@@ -32,16 +32,81 @@ $breakpoints: (
     }
 }
 
+@mixin thisco-consent-label-layout {
+    display: grid;
+    grid-gap: 0px;
+    // flex-wrap: wrap;
+    @include respond-above(xs) {
+        grid-template-columns: auto auto;
+    }
+    // display: flex;
+    grid-template-columns: 1fr;
+}
+
+@mixin thisco-consent-switch {
+    color:var(--thisco-dark-grey);
+    transform: scale(0.8);
+    @include respond-above(sm) {
+        transform: scale(.95);
+    }
+    pointer-events: none;
+    opacity: .8;
+    height: 2.8rem;
+    min-width: 5em;
+    max-width: 6.5em;
+    justify-self: end;
+    border: 2px solid white;
+    box-shadow: 0px 0px 0px 2px var(--thisco-dark-grey);
+    border-radius: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    background-image: linear-gradient(var(--thisco-dark-grey),var(--thisco-dark-grey));
+    background-size: 60% 100%;
+    background-position: 130% center;
+    background-repeat: no-repeat;
+    transition: all .2s ease-out;
+    span {
+        transition: all .2s ease-out;
+        padding: 3px 9px;
+        font-size: 1.1em;
+        @include respond-above(sm) {
+            font-size: .9em;
+        }
+        &:first-of-type {
+            background-color: transparent;
+        }
+        &:nth-child(2) {
+            color: white;
+            // border-right: 1px solid var(--thisco-dark-grey);
+        }
+    }
+}
+
+@mixin thisco-consent-switch-checked {
+
+    opacity: 1;
+    background-image: linear-gradient(var(--thisco-red),var(--thisco-red));
+    background-position: -10% center;
+    box-shadow: 0px 0px 0px 2px var(--thisco-red);
+    span {
+        &:first-of-type {
+            color: white;
+        }
+        &:nth-child(2) {
+            color: var(--thisco-red);
+        }
+    }
+
+}
+
 .Skin {
     .consent-checklist.consent-switches {
         span.LabelWrapper {
             width: 100%;
             label {
-                flex-wrap: wrap;
-                @include respond-above(xs) {
-                    flex-wrap: nowrap;
-                }
-                display: flex;
+                @include thisco-consent-label-layout();
                 width: 100%;
                 justify-content: space-between;
                 align-items: center;
@@ -49,60 +114,10 @@ $breakpoints: (
                     flex: 80%;
                 }
                 .consent-switch {
-                    color:var(--thisco-dark-grey);
-                    margin-top:1em;
-                    transform: scale(0.8);
-                    @include respond-above(xs) {
-                        margin-top: 0;
-                    }
-                    @include respond-above(sm) {
-                        transform: scale(.95);
-                    }
-                    pointer-events: none;
-                    opacity: .8;
-                    height: 2.8rem;
-                    min-width: 5em;
-                    border: 2px solid white;
-                    box-shadow: 0px 0px 0px 2px var(--thisco-dark-grey);
-                    border-radius: 25px;
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                    background: white;
-                    background-image: linear-gradient(var(--thisco-dark-grey),var(--thisco-dark-grey));
-                    background-size: 60% 100%;
-                    background-position: 130% center;
-                    background-repeat: no-repeat;
-                    transition: all .2s ease-out;
-                    span {
-                        transition: all .2s ease-out;
-                        padding: 3px 9px;
-                        font-size: 1.1em;
-                        @include respond-above(sm) {
-                            font-size: .9em;
-                        }
-                        &:first-of-type {
-                            background-color: transparent;
-                        }
-                        &:nth-child(2) {
-                            color: white;
-                            // border-right: 1px solid var(--thisco-dark-grey);
-                        }
-                    }
+                    @include thisco-consent-switch();
                 }
                 &.q-checked .consent-switch {
-                    opacity: 1;
-                    background-image: linear-gradient(var(--thisco-red),var(--thisco-red));
-                    background-position: -10% center;
-                    box-shadow: 0px 0px 0px 2px var(--thisco-red);
-                    span {
-                        &:first-of-type {
-                            color: white;
-                        }
-                        &:nth-child(2) {
-                            color: var(--thisco-red);
-                        }
-                    }
+                    @include thisco-consent-switch-checked();
                 }
                 > span::before {
                     display: none;
@@ -121,12 +136,8 @@ $breakpoints: (
                 height: 0px;
             }
             label {
-                flex-wrap: wrap;
+                @include thisco-consent-label-layout();
                 padding: .8rem .8rem;
-                @include respond-above(xs) {
-                    flex-wrap: nowrap;
-                }
-                display: flex;
                 width: 100%;
                 justify-content: space-between;
                 align-items: center;
@@ -134,64 +145,14 @@ $breakpoints: (
                     flex: 80%;
                 }
                 .consent-switch {
-                    color:var(--thisco-dark-grey);
-                    margin-top:1em;
-                    transform: scale(0.8);
-                    @include respond-above(xs) {
-                        margin-top: 0;
-                    }
-                    @include respond-above(sm) {
-                        transform: scale(.95);
-                    }
-                    pointer-events: none;
-                    opacity: .8;
-                    height: 2.8rem;
-                    min-width: 5em;
-                    border: 2px solid white;
-                    box-shadow: 0px 0px 0px 2px var(--thisco-dark-grey);
-                    border-radius: 25px;
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                    background: white;
-                    background-image: linear-gradient(var(--thisco-dark-grey),var(--thisco-dark-grey));
-                    background-size: 60% 100%;
-                    background-position: 130% center;
-                    background-repeat: no-repeat;
-                    transition: all .2s ease-out;
-                    span {
-                        transition: all .2s ease-out;
-                        padding: 3px 9px;
-                        font-size: 1.1em;
-                        @include respond-above(sm) {
-                            font-size: .9em;
-                        }
-                        &:first-of-type {
-                            background-color: transparent;
-                        }
-                        &:nth-child(2) {
-                            color: white;
-                            // border-right: 1px solid var(--thisco-dark-grey);
-                        }
-                    }
+                    @include thisco-consent-switch();
                 }
                 > span::before {
                     display: none;
                 }
             }
             input:checked + label .consent-switch {
-                opacity: 1;
-                background-image: linear-gradient(var(--thisco-red),var(--thisco-red));
-                background-position: -10% center;
-                box-shadow: 0px 0px 0px 2px var(--thisco-red);
-                span {
-                    &:first-of-type {
-                        color: white;
-                    }
-                    &:nth-child(2) {
-                        color: var(--thisco-red);
-                    }
-                }
+                @include thisco-consent-switch-checked();
             }
 
         
