@@ -4,11 +4,19 @@
 // 3.0.0 is a forward-looking version for non-qualtrics surveys
 // and standardised markup
 
-const version = "3.0.0";
-console.log(`Thiscovery survey skin version ${version}`);
+/* REVISIONS 
 
-const revision = 2;
-console.log(`Revision: ${revision}`);
+3 - switching to Debug in skin.js and components
+
+*/
+
+const debug = require("debug")("thisco:skin.js");
+
+const version = "3.0.0";
+debug(`Thiscovery survey skin version ${version}`);
+
+const revision = 3;
+debug(`Revision: ${revision}`);
 
 const BlissfulJs = require('blissfuljs'); // module adds Bliss to window object for us
 import { forIn, startCase } from 'lodash';
@@ -35,17 +43,17 @@ $$(`input[type="radio"] + label > input, input[type="checkbox"] + label > input`
 
 // modals
 
-console.debug('thisco modals');
+debug('thisco modals');
 require("../../shared_js/thisco_modals.js")();
 
 // link buttons
 
-console.debug('link buttons');
+debug('link buttons');
 require("../../shared_js/link_buttons.js")();
 
 // textareas
 
-console.debug('expanding textareas');
+debug('expanding textareas');
 require("../../shared_js/expand_textarea.js")();
 
 // custom likert scale
@@ -58,7 +66,7 @@ if (likertScale.length) {
         $$("label",el).forEach((label,i)=>{
             const radio = $(`input[type='radio'][id='${label.getAttribute('for')}']`);
             if (!radio) {
-                console.warn('likertScale called on incorrect markup');
+                debug('likertScale called on incorrect markup');
                 return;
             }
             const current = label.innerText;
@@ -90,7 +98,7 @@ if (likertScale.length) {
 
 // ranking question
 
-console.debug('ranking questions');
+debug('ranking questions');
 require("../../shared_js/ranking_question.js")();
 
 // non-Qualtrics consent statements [will one day require own webhook behaviour?]
@@ -98,7 +106,7 @@ require("../../shared_js/ranking_question.js")();
 const isConsentForm = $$(".consent-checklist").length > 0;
 if (isConsentForm) {
 
-    console.debug('Has consent form');
+    debug('Has consent form');
 
     $$(".thisco-survey .consent-checklist").forEach(checklist=>{
         let fset = checklist.closest("fieldset");
