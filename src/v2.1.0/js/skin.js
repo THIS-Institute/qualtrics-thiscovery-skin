@@ -422,7 +422,7 @@ if (typeof window.THISCO_INSTALLED == "undefined") {
     debug('Setting up .JFEContent observer');
     // set up MutationObserver to watch all .JFEContent content
     const qSkin = Bliss(".JFEContent");
-    const config = { attributes: true, childList: true, subtree: true }; // watch everything!
+    const config = { attributes: true, childList: true, subtree: false };
     const observer = new MutationObserver(pageReset);
     observer.observe(qSkin,config);
 }
