@@ -4,12 +4,19 @@
 // =======
 //
 // JS bundle for various DOM fixes, dev  etc
+/* REVISIONS 
+
+3 - switching to Debug in skin.js and components
+
+*/
+
+const debug = require("debug")("thisco:skin.js");
 
 const version = "2.1.0";
-console.log(`Thiscovery survey skin version ${version}`);
+debug(`Thiscovery survey skin version ${version}`);
 
-const revision = 2;
-console.log(`Revision: ${revision}`);
+const revision = 3;
+debug(`Revision: ${revision}`);
 
 const BlissfulJs = require('blissfuljs'); // module adds Bliss to window object for us
 import { forIn, fromPairs, startCase, trim } from 'lodash';
@@ -37,7 +44,7 @@ require("../../shared_js/skinjob_client.js")();
 Bliss.$("link[rel='stylesheet']").forEach(el=>{
     const href = el.getAttribute('href') || "";
     if (!(href.includes('thiscovery') || href.includes("localhost"))) {
-        console.debug(`ejected : ${href}`);
+        debug(`ejected : ${href}`);
         el.remove(); // bye!
     }
 });
@@ -387,7 +394,7 @@ if (isConsentForm) {
             });
         });
         if (THISCO_DEV) {
-            console.warn(`I would have attached : ${JSON.stringify(statements)}`);
+            debug(`I would have attached : ${JSON.stringify(statements)}`);
         }
         else {
             Qualtrics.SurveyEngine.setEmbeddedData('consent_statements', JSON.stringify(statements));
