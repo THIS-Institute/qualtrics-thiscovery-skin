@@ -44,6 +44,7 @@ If SkinJob is set up properly, you should see instant changes to CSS (providing 
 
 #### Notes
 
+- To see debug messages in console, in localStorage, 'debug' must include string 'thisco:*' (see [Debug](https://www.npmjs.com/package/debug)) - the dev.js script injects some code to do that for you in 'Develop' mode
 - Custom validation (ie. non-Qualtrics) is disabled for Qualtrics preview by default - if you need to test it in preview, change the value of thisco_dev in localStorage so it contains `TEST_VAL` (this might be superceded by changing all the custom validation to in-UI warnings?)
 
 ### Build
