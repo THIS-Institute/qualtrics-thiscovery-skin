@@ -1,5 +1,6 @@
 const BlissfulJs = require('blissfuljs'); // module adds Bliss to window object for us, use Bliss. and Bliss.$. for $ and $$
 const { some, isFunction, size } = require('lodash');
+const debug = require('debug')('thisco:validation.js');
 
 // makes use of disposableModal()
 
@@ -24,17 +25,17 @@ module.exports = function(){
 
     if (!QUALTRICS_PREVIEW || TEST_VALIDATION) {
 
-        console.debug("Validation interception");
+        debug("Validation interception");
 
         // register validators
         // look for all validation classes and add as necessary
 
         Object.keys(validations).forEach(validationClass=>{
 
-            console.debug(`Attaching validation to ${validationClass}`);
+            debug(`Attaching validation to ${validationClass}`);
 
             const search = Bliss.$(`.validation-${validationClass}`);
-            console.debug({search});
+            debug({search});
             if (search.length) {
                 search.forEach(el=>{
                     let fset = el.tagName.toLowerCase() == "fieldset" ? el : el.closest('fieldset');
@@ -77,7 +78,7 @@ module.exports = function(){
         nextButton.parentNode.addEventListener('click',(evt)=>{
             if (evt.target.id == "NextButton") {
                 const isValid = runValidation();
-                console.debug({isValid});
+                debug({isValid});
                 if (!isValid) {
                     evt.stopImmediatePropagation();
                     return false;
@@ -92,10 +93,10 @@ module.exports = function(){
         if (window.MutationObserver) {
             Bliss.$(".ValidationError").forEach(el=>{
 
-                console.debug("Attaching an observer:",el);
+                debug("Attaching an observer:",el);
 
                 const callback = function(mutations,observer){
-                    console.debug('CHANG');
+                    debug('CHANG');
                     const currentText = el.innerText;
                     const isVisible = el.offsetParent !== null;
                     if ((currentText !== "") && isVisible) {

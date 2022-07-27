@@ -3,6 +3,8 @@ const BlissfulJs = require('blissfuljs'); // module adds Bliss to window object 
 import A11yDialog from 'a11y-dialog';
 import { uniqueId } from 'lodash';
 
+const debug = require('debug')('thisco:thisco_modal.js');
+
 module.exports = function(){
 
     window.disposableModal = ({bodyHtml,modalParent=null,modalClass=""})=>{

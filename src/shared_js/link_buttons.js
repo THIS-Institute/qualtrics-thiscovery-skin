@@ -1,4 +1,5 @@
 const BlissfulJs = require('blissfuljs'); // module adds Bliss to window object for us, use Bliss. and Bliss.$. for $ and $$
+const debug = require('debug')('thisco:link_buttons.js');
 
 module.exports = function(){
     Bliss.$(".Skin p, .thisco-survey p").forEach(el=>{

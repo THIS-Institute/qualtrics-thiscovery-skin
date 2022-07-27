@@ -33,18 +33,21 @@ const middleware = async (req,res,next) => {
     if ((pathname.match(/dist\/bundle\.\d\.\d\.\d\.((js\.map)|(css\.map)|(js)|(css))/)) && existsSync(__dirname+(pathname))) {
         debug(`Matched : ${pathname}`);
         // serve from local
-        const localFile = readFileSync(__dirname+pathname,{
+        let localFile = readFileSync(__dirname+pathname,{
             encoding : 'utf-8'
         });
         const ext = pathname.split(".").slice(-1);
         debug({ext});
         switch (ext[0]) {
             case "css":
+                debug(`Serving local css`);
                 res.setHeader('Content-Type','text/css');
                 break;
             
             case "js":
+                debug(`Serving local js`);
                 res.setHeader('Content-Type','text/javascript');
+                localFile = `localStorage.setItem('thisco_dev','any_value'); localStorage.setItem('debug','thisco:*');;;` + localFile;
                 break;
         
             default:

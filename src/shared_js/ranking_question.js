@@ -1,6 +1,7 @@
 const BlissfulJs = require('blissfuljs'); // module adds Bliss to window object for us, use Bliss. and Bliss.$. for $ and $$
 const { debounce, startsWith, isString, clamp, inRange, isFunction, sortBy } = require('lodash');
 import { wrapGrid } from 'animate-css-grid'
+const debug = require('debug')('ranking_question.js');
 
 const RANKING_VERSION = "1.1.2";
 
@@ -20,7 +21,7 @@ module.exports = function(){
 
     if (Bliss.$(".ranking-question").length) {
         // game on
-        console.debug(`ranking_question.js v${RANKING_VERSION}`);
+        debug(`ranking_question.js v${RANKING_VERSION}`);
         Bliss.$(".ranking-question").forEach(tagged=>{
 
             const fset = tagged.closest('fieldset');
@@ -157,8 +158,8 @@ module.exports = function(){
                 const targetValue = inRange(parseInt(rankerInput.value),1,rankMax+1) ? parseInt(rankerInput.value) : null;
                 ranker.classList.add("rank-change");
                 const demotion = (isFinite(parseInt(ranker.dataset.rankValue))) && (parseInt(rankerInput.value) > parseInt(ranker.dataset.rankValue));
-                console.debug(`${rankerInput.id} is being ${demotion ? "demoted :(": "promoted :)"}`);
-                console.debug(`its targetValue is ${rankerInput.value} normed to ${targetValue}`);
+                debug(`${rankerInput.id} is being ${demotion ? "demoted :(": "promoted :)"}`);
+                debug(`its targetValue is ${rankerInput.value} normed to ${targetValue}`);
                 // demote/promote function
                 const moveItem = (item,promote=true)=>{
                     const currRank = parseInt(item.dataset.rankValue);
@@ -173,7 +174,7 @@ module.exports = function(){
                         'data-rank-value':newRank
                     });
                     const input = Bliss("input[type='number']",item);
-                    console.debug(`${input.id} is being forcibly ${!promote ? "demoted :(": "promoted :)"}`);
+                    debug(`${input.id} is being forcibly ${!promote ? "demoted :(": "promoted :)"}`);
                     input.value = newRank;
                     // const changa = new Event('change');  
                     // input.dispatchEvent(changa);
@@ -181,9 +182,9 @@ module.exports = function(){
                 };
                 // recursive demotion/promotion as necessary of shoved items
                 const shoveSearch = `div.ranking-item[data-rank-value='${targetValue}']`;
-                console.debug(`it is looking for ${shoveSearch}`);
+                debug(`it is looking for ${shoveSearch}`);
                 const shovee = Bliss(shoveSearch);
-                console.debug(`it is looking to shove ${shoveSearch} which is ${((shovee || {}).dataset || {}).rankId || "unknown"}`);
+                debug(`it is looking to shove ${shoveSearch} which is ${((shovee || {}).dataset || {}).rankId || "unknown"}`);
                 if (!!shovee) moveItem(shovee,demotion); // if item is being promoted, demote shovee and vice versa?
                 // set update w/out change
                 ranker._.set({
