@@ -330,6 +330,7 @@ $radio-size: .6em;
                 display: grid;
                 grid-template-columns: 5% fit-content(30%) auto 5%;
                 grid-gap: 1em;
+                align-items: center;
                 legend {
                     grid-column: 1 / 4;
                 }
@@ -337,9 +338,6 @@ $radio-size: .6em;
                     grid-column: 2 / 3;
                     text-align: right;
                     background: transparent;
-                }
-                input {
-                    max-height: 2.8em;
                 }
             }
         }

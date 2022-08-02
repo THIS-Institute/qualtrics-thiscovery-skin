@@ -1854,6 +1854,7 @@ Qualtrics codes:
   display: grid;
   grid-template-columns: 5% fit-content(30%) auto 5%;
   grid-gap: 1em;
+  align-items: center;
 }
 .thisco-survey form fieldset.form-fields legend {
   grid-column: 1/4;
@@ -1862,9 +1863,6 @@ Qualtrics codes:
   grid-column: 2/3;
   text-align: right;
   background: transparent;
-}
-.thisco-survey form fieldset.form-fields input {
-  max-height: 2.8em;
 }
 .thisco-survey form .form-group label {
   margin-bottom: 1.2em;
