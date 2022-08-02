@@ -1850,10 +1850,9 @@ Qualtrics codes:
   border-color: transparent;
 }
 .thisco-survey form fieldset.form-fields {
-  margin-left: 5%;
   display: grid;
-  grid-template-columns: 5% fit-content(30%) auto 5%;
-  grid-gap: 1em;
+  grid-template-columns: 1rem fit-content(30%) auto 1rem;
+  grid-gap: 0.4em;
   align-items: center;
 }
 .thisco-survey form fieldset.form-fields legend {
