@@ -244,6 +244,19 @@ $radio-size: .6em;
         input[type="text"] {
             width: 90%;
         }
+        // form fields
+        table {
+            width: 90%;
+            margin-left: 5%;
+            border-spacing : 1em .6em;
+            border-collapse: separate;
+            td.ControlContainer {
+                vertical-align: middle;
+            }
+            tr > td:first-of-type {
+                width: 30%;
+            }
+        }
     }
 
 }
@@ -309,7 +322,23 @@ $radio-size: .6em;
                         @include thiscovery-checkbox-checked-addition();
                     }                
                 }
-            }        
+            
+            }
+            // styling for collected form field inputs
+            &.form-fields {
+                margin-left: 5%;
+                display: grid;
+                grid-template-columns: 5% fit-content(30%) auto 5%;
+                grid-gap: 1em;
+                legend {
+                    grid-column: 1 / 4;
+                }
+                label, input:not(:checked) + label {
+                    grid-column: 2 / 3;
+                    text-align: right;
+                    background: transparent;
+                }
+            }
         }
         .form-group {
             label {

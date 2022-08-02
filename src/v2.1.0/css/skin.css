@@ -1696,6 +1696,18 @@ Qualtrics codes:
 .Skin div.ChoiceStructure input[type=text] {
   width: 90%;
 }
+.Skin div.ChoiceStructure table {
+  width: 90%;
+  margin-left: 5%;
+  border-spacing: 1em 0.6em;
+  border-collapse: separate;
+}
+.Skin div.ChoiceStructure table td.ControlContainer {
+  vertical-align: middle;
+}
+.Skin div.ChoiceStructure table tr > td:first-of-type {
+  width: 30%;
+}
 
 .thisco-survey {
   font-size: 16px;
