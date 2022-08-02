@@ -1849,6 +1849,23 @@ Qualtrics codes:
   background-size: 110%;
   border-color: transparent;
 }
+.thisco-survey form fieldset.form-fields {
+  display: grid;
+  grid-template-columns: 1rem fit-content(30%) auto 1rem;
+  grid-gap: 0.4em;
+  align-items: center;
+}
+.thisco-survey form fieldset.form-fields legend {
+  grid-column: 1/4;
+}
+.thisco-survey form fieldset.form-fields label, .thisco-survey form fieldset.form-fields input:not(:checked) + label {
+  grid-column: 2/3;
+  text-align: right;
+  background: transparent;
+}
+.thisco-survey form fieldset.form-fields input {
+  grid-column: 3/4;
+}
 .thisco-survey form .form-group label {
   margin-bottom: 1.2em;
   display: block;
