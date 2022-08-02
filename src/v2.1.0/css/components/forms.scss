@@ -338,6 +338,9 @@ $radio-size: .6em;
                     text-align: right;
                     background: transparent;
                 }
+                input {
+                    max-height: 2.8em;
+                }
             }
         }
         .form-group {
