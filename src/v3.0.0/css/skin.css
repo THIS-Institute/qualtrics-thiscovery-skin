@@ -1864,6 +1864,9 @@ Qualtrics codes:
   text-align: right;
   background: transparent;
 }
+.thisco-survey form fieldset.form-fields input {
+  grid-column: 3/4;
+}
 .thisco-survey form .form-group label {
   margin-bottom: 1.2em;
   display: block;

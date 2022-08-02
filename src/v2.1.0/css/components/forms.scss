@@ -339,6 +339,9 @@ $radio-size: .6em;
                     text-align: right;
                     background: transparent;
                 }
+                input {
+                    grid-column: 3 / 4;
+                }
             }
         }
         .form-group {
