@@ -102,13 +102,16 @@ $breakpoints: (
 @mixin thisco-scale-label () {
     color: var(--thisco-dark-grey);
     font-weight: 400;
-    font-size: .65em;
+    font-size: 0.44em;
     @include respond-above(xs) {
-        font-size: .7em;
+        font-size: 0.47em;
     }
     @include respond-above(sm) {
-        font-size: .75em;
+        font-size: 0.5em;
     }
+    // label cell escape hack
+    transform: scale(1.5);
+    transform-origin: bottom;
 }
 
 .Skin {
@@ -151,10 +154,22 @@ $breakpoints: (
                     }
                     background-position: center, right center;
                 }
+                span.LabelWrapper > label {
+                    transform-origin: left bottom;
+                    @include respond-above(md) {
+                        transform-origin: bottom;
+                    }
+                }
             }
             &:last-of-type {
                 input[type="radio"] {
                     background-position: center, left center;
+                }
+                span.LabelWrapper > label {
+                    transform-origin: right bottom;
+                    @include respond-above(md) {
+                        transform-origin: bottom;
+                    }
                 }
             }
         }
