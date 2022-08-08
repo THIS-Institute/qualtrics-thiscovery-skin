@@ -7,6 +7,7 @@
 /* REVISIONS 
 
 3 - switching to Debug in skin.js and components
+4 - fixes to ratings notches, to apply to multiple controls
 
 */
 
@@ -15,11 +16,12 @@ const debug = require("debug")("thisco:skin.js");
 const version = "2.1.0";
 debug(`Thiscovery survey skin version ${version}`);
 
-const revision = 3;
+const revision = 4;
 debug(`Revision: ${revision}`);
 
 const BlissfulJs = require('blissfuljs'); // module adds Bliss to window object for us
 import { forIn, fromPairs, startCase, trim } from 'lodash';
+import { parse } from 'papaparse';
 const markdown = require('markdown').markdown;
 const sanitizeHtml = require('sanitize-html');
 
@@ -53,20 +55,33 @@ Bliss.$("link[rel='stylesheet']").forEach(el=>{
 
 // horizontal radio group into notched scale (NOT a range input)
 
-const tableChoiceStructure = Bliss("table.ChoiceStructure");
-const testRadio = Bliss("td input[type='radio']");
-const isMatrix = !!tableChoiceStructure && tableChoiceStructure.closest("div").classList.contains('q-matrix');
-const isMultiRow = Bliss.$("tr",tableChoiceStructure).length > 1;
-if (tableChoiceStructure && testRadio && !isMatrix &&!isMultiRow) {
-    tableChoiceStructure.classList.add("likert-scale");
-    Bliss.$("td",tableChoiceStructure).forEach(el=>{
-        const labelActual = Bliss("span.LabelWrapper > label",el);
-        const inputActual = Bliss("input[type='radio']",el);
-        const [notch,notchText] = labelActual.innerText.split(":");
-        labelActual.innerText = notchText;
-        inputActual.dataset.notchNumber = notch;
-    });
-}
+const tableChoiceStructures = Bliss.$("table.ChoiceStructure");
+
+tableChoiceStructures.forEach(tableChoiceStructure=>{
+    const testRadio = Bliss("td input[type='radio']");
+    const isMatrix = !!tableChoiceStructure && tableChoiceStructure.closest("div").classList.contains('q-matrix');
+    const isMultiRow = Bliss.$("tr",tableChoiceStructure).length > 1;
+    if (tableChoiceStructure && testRadio && !isMatrix &&!isMultiRow) {
+        tableChoiceStructure.classList.add("likert-scale");
+        let parseable = true;
+        Bliss.$("td",tableChoiceStructure).forEach(el=>{
+            const labelActual = Bliss("span.LabelWrapper > label",el);
+            const inputActual = Bliss("input[type='radio']",el);
+            const [notch,notchText] = labelActual.innerText.includes(":") ? labelActual.innerText.split(":") : [trim(labelActual.innerText),null];
+            labelActual.innerText = notchText;
+            if (isFinite(parseInt(notch))) inputActual.dataset.notchNumber = parseInt(notch); 
+            else {
+                inputActual.dataset.notchNumber = "?";
+                parseable = false;
+            }
+        });
+        if (!parseable) {
+            const parseError = "<div class='alert-error'>Thiscovery script was unable to fully parse this ratings question - make sure all your labels are in the format 'n:Label' or 'n:'</div>";
+            tableChoiceStructure.insertAdjacentHTML("afterend",parseError);
+            tableChoiceStructure.remove();
+        }
+    }
+});
 
 // modals
 
