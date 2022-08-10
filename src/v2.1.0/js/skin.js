@@ -8,6 +8,7 @@
 
 3 - switching to Debug in skin.js and components
 4 - fixes to ratings notches, to apply to multiple controls
+5 - urgent fixes to consent collection 
 
 */
 
@@ -371,16 +372,16 @@ const processHtml = (dirty)=>sanitizeHtml(dirty, {
     }
 })
 
+// .consent-checklist must be only used once per consent block
 const isConsentForm = Bliss.$(".consent-checklist").length > 0;
 if (isConsentForm) {
-
     Bliss.$(".consent-checklist").forEach(checklist=>{
         let fset = checklist.closest("fieldset");
         checklist.className.split(" ").forEach(cl=>{
             fset.classList.add(cl);
         });
         if (fset.classList.contains('consent-switches')) {
-            Bliss.$("label",fset).forEach(label=>{
+            Bliss.$(".ChoiceStructure label",fset).forEach(label=>{
                 label.appendChild(Bliss.create("button",{
                     className : "consent-switch",
                     contents : [
@@ -400,7 +401,7 @@ if (isConsentForm) {
         Bliss.$(".consent-checklist").forEach(checklist=>{
             let fset = checklist.closest("fieldset");
             // cycle through checkbox inputs
-            Bliss.$("input[type='checkbox']").forEach(stControl=>{
+            Bliss.$("input[type='checkbox']",checklist).forEach(stControl=>{
                 // pull statement HTML from the input's parent list item, tidy up and trim
                 const text = trim(processHtml(stControl.closest("li").innerHTML).replace(/YesNo/g,""));
                 // add to statements array 

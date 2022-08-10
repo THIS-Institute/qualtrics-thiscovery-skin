@@ -47,6 +47,8 @@ NB Q reloads and executes bundle.min.js on every 'Next' click, 2.1.0 does not an
 - consent form markup for switches
 - consent snippet to push consent statements back to Qualtrics embedded data
 - (skinjob + socket.io snippet for dev)
+- [ ] Qualtrics fix - `<p>` wrap in .QuestionText when immediate children are text nodes or non-block
+
 
 #### CSS
 
@@ -61,7 +63,7 @@ NB Q reloads and executes bundle.min.js on every 'Next' click, 2.1.0 does not an
 - [x] ranking.scss: styles for select-and-rank control
 - [x] consent.scss: consent switches
 - [x] pageerror.scss: utility for Qualtrics system error messages
-- [ ] form fields
+- [x] form fields
 - [ ] CROSS-BROWSER CHECKS
 
 
