@@ -1399,8 +1399,20 @@ aside {
   margin-bottom: 1.6rem;
   font-size: 0.7em;
 }
+aside a {
+  font-weight: 400;
+}
+aside ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list), aside ul:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list) {
+  padding-left: 1.2em;
+}
+aside > p, aside > ul, aside > ol, aside > dl, aside > table, aside > figure {
+  margin-bottom: 1.6em;
+}
+aside > p:last-child, aside > ul:last-child, aside > ol:last-child, aside > dl:last-child, aside > table:last-child, aside > figure:last-child {
+  margin-bottom: 0.6em;
+}
 
-blockquote {
+blockquote, .Skin .SkinInner blockquote {
   border-radius: 25px;
   padding: 1.8em;
   background-color: var(--thisco-aubergine);
@@ -1413,7 +1425,19 @@ blockquote {
   color: rgba(0, 0, 0, 0.95);
   font-weight: 100;
 }
-blockquote > cite {
+blockquote a, .Skin .SkinInner blockquote a {
+  font-weight: 400;
+}
+blockquote ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list), blockquote ul:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list), .Skin .SkinInner blockquote ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list), .Skin .SkinInner blockquote ul:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list) {
+  padding-left: 1.2em;
+}
+blockquote > p, blockquote > ul, blockquote > ol, blockquote > dl, blockquote > table, blockquote > figure, .Skin .SkinInner blockquote > p, .Skin .SkinInner blockquote > ul, .Skin .SkinInner blockquote > ol, .Skin .SkinInner blockquote > dl, .Skin .SkinInner blockquote > table, .Skin .SkinInner blockquote > figure {
+  margin-bottom: 1.6em;
+}
+blockquote > p:last-child, blockquote > ul:last-child, blockquote > ol:last-child, blockquote > dl:last-child, blockquote > table:last-child, blockquote > figure:last-child, .Skin .SkinInner blockquote > p:last-child, .Skin .SkinInner blockquote > ul:last-child, .Skin .SkinInner blockquote > ol:last-child, .Skin .SkinInner blockquote > dl:last-child, .Skin .SkinInner blockquote > table:last-child, .Skin .SkinInner blockquote > figure:last-child {
+  margin-bottom: 0.6em;
+}
+blockquote > cite, .Skin .SkinInner blockquote > cite {
   font-size: 0.8em;
   float: right;
   display: inline-block;
@@ -1434,6 +1458,18 @@ div.alert-warning {
   color: #92400e;
   font-weight: 100;
 }
+div.alert-warning a {
+  font-weight: 400;
+}
+div.alert-warning ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list), div.alert-warning ul:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list) {
+  padding-left: 1.2em;
+}
+div.alert-warning > p, div.alert-warning > ul, div.alert-warning > ol, div.alert-warning > dl, div.alert-warning > table, div.alert-warning > figure {
+  margin-bottom: 1.6em;
+}
+div.alert-warning > p:last-child, div.alert-warning > ul:last-child, div.alert-warning > ol:last-child, div.alert-warning > dl:last-child, div.alert-warning > table:last-child, div.alert-warning > figure:last-child {
+  margin-bottom: 0.6em;
+}
 
 div.alert-error {
   border-radius: 25px;
@@ -1447,6 +1483,18 @@ div.alert-error {
   background-color: var(--thisco-red);
   color: rgba(255, 255, 255, 0.95);
   font-weight: 100;
+}
+div.alert-error a {
+  font-weight: 400;
+}
+div.alert-error ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list), div.alert-error ul:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list) {
+  padding-left: 1.2em;
+}
+div.alert-error > p, div.alert-error > ul, div.alert-error > ol, div.alert-error > dl, div.alert-error > table, div.alert-error > figure {
+  margin-bottom: 1.6em;
+}
+div.alert-error > p:last-child, div.alert-error > ul:last-child, div.alert-error > ol:last-child, div.alert-error > dl:last-child, div.alert-error > table:last-child, div.alert-error > figure:last-child {
+  margin-bottom: 0.6em;
 }
 
 pre {
@@ -1462,6 +1510,18 @@ pre {
   background-color: #F4F4F4;
   font-size: 0.9em;
   white-space: pre-wrap;
+}
+pre a {
+  font-weight: 400;
+}
+pre ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list), pre ul:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list) {
+  padding-left: 1.2em;
+}
+pre > p, pre > ul, pre > ol, pre > dl, pre > table, pre > figure {
+  margin-bottom: 1.6em;
+}
+pre > p:last-child, pre > ul:last-child, pre > ol:last-child, pre > dl:last-child, pre > table:last-child, pre > figure:last-child {
+  margin-bottom: 0.6em;
 }
 
 /* special */
@@ -1509,6 +1569,18 @@ pre {
 }
 .Skin .SkinInner ul.thisco-grid-list li::before, ul.thisco-grid-list li::before {
   visibility: hidden;
+}
+.Skin .SkinInner ul.thisco-grid-list li a, ul.thisco-grid-list li a {
+  font-weight: 400;
+}
+.Skin .SkinInner ul.thisco-grid-list li ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list), .Skin .SkinInner ul.thisco-grid-list li ul:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list), ul.thisco-grid-list li ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list), ul.thisco-grid-list li ul:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list) {
+  padding-left: 1.2em;
+}
+.Skin .SkinInner ul.thisco-grid-list li > p, .Skin .SkinInner ul.thisco-grid-list li > ul, .Skin .SkinInner ul.thisco-grid-list li > ol, .Skin .SkinInner ul.thisco-grid-list li > dl, .Skin .SkinInner ul.thisco-grid-list li > table, .Skin .SkinInner ul.thisco-grid-list li > figure, ul.thisco-grid-list li > p, ul.thisco-grid-list li > ul, ul.thisco-grid-list li > ol, ul.thisco-grid-list li > dl, ul.thisco-grid-list li > table, ul.thisco-grid-list li > figure {
+  margin-bottom: 1.6em;
+}
+.Skin .SkinInner ul.thisco-grid-list li > p:last-child, .Skin .SkinInner ul.thisco-grid-list li > ul:last-child, .Skin .SkinInner ul.thisco-grid-list li > ol:last-child, .Skin .SkinInner ul.thisco-grid-list li > dl:last-child, .Skin .SkinInner ul.thisco-grid-list li > table:last-child, .Skin .SkinInner ul.thisco-grid-list li > figure:last-child, ul.thisco-grid-list li > p:last-child, ul.thisco-grid-list li > ul:last-child, ul.thisco-grid-list li > ol:last-child, ul.thisco-grid-list li > dl:last-child, ul.thisco-grid-list li > table:last-child, ul.thisco-grid-list li > figure:last-child {
+  margin-bottom: 0.6em;
 }
 
 /* Qualtrics compensatory styling */
@@ -2138,11 +2210,21 @@ dialog {
 .Skin table.ChoiceStructure td:first-of-type span.LabelWrapper > label, .Skin table.ChoiceStructure td:last-of-type span.LabelWrapper > label {
   transform-origin: left bottom;
 }
+@media (min-width: 980px) {
+  .Skin table.ChoiceStructure td:first-of-type span.LabelWrapper > label, .Skin table.ChoiceStructure td:last-of-type span.LabelWrapper > label {
+    transform-origin: bottom;
+  }
+}
 .Skin table.ChoiceStructure td:last-of-type input[type=radio] {
   background-position: center, left center;
 }
 .Skin table.ChoiceStructure td:last-of-type span.LabelWrapper > label {
   transform-origin: right bottom;
+}
+@media (min-width: 980px) {
+  .Skin table.ChoiceStructure td:last-of-type span.LabelWrapper > label {
+    transform-origin: bottom;
+  }
 }
 
 .thisco-survey form fieldset.likert-scale {

@@ -41,6 +41,18 @@ $breakpoints: (
     max-width: 65ch;
     margin: 0 auto;
     margin-bottom: 1.6rem;
+    a {
+        font-weight: 400;
+    }
+    ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list),  ul:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list) {
+        padding-left: 1.2em;
+    }
+    > p , > ul, > ol, > dl, > table, > figure {
+        margin-bottom: 1.6em;
+        &:last-child {
+            margin-bottom: .6em;
+        }
+    }
 }
 
 // use asides for meta info (ie. not in questionnaires
@@ -49,7 +61,7 @@ aside {
     font-size: .7em;
 }
 
-blockquote {
+blockquote, .Skin .SkinInner blockquote {
     @include panel-basic();
     background-color: var(--thisco-light-pink);
     color: rgb(0 0 0 / .95);
