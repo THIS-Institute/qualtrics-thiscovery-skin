@@ -2977,6 +2977,12 @@ fieldset.ranking-question .ranking-container:not(.indeterminate) .ranking-item[d
 }
 .Skin .consent-checklist.consent-switches span.LabelWrapper label > span {
   flex: 80%;
+  font-size: 1.1em;
+}
+@media (min-width: 768px) {
+  .Skin .consent-checklist.consent-switches span.LabelWrapper label > span {
+    font-size: 1em;
+  }
 }
 .Skin .consent-checklist.consent-switches span.LabelWrapper label .consent-switch {
   color: var(--thisco-dark-grey);
@@ -2999,10 +3005,16 @@ fieldset.ranking-question .ranking-container:not(.indeterminate) .ranking-item[d
   background-position: 130% center;
   background-repeat: no-repeat;
   transition: all 0.2s ease-out;
+  padding: 0px;
 }
 @media (min-width: 768px) {
   .Skin .consent-checklist.consent-switches span.LabelWrapper label .consent-switch {
     transform: scale(0.95);
+  }
+}
+@media (min-width: 768px) {
+  .Skin .consent-checklist.consent-switches span.LabelWrapper label .consent-switch {
+    padding: revert;
   }
 }
 .Skin .consent-checklist.consent-switches span.LabelWrapper label .consent-switch span {
@@ -3080,10 +3092,16 @@ fieldset.ranking-question .ranking-container:not(.indeterminate) .ranking-item[d
   background-position: 130% center;
   background-repeat: no-repeat;
   transition: all 0.2s ease-out;
+  padding: 0px;
 }
 @media (min-width: 768px) {
   .thisco-survey .consent-checklist.consent-switches label .consent-switch {
     transform: scale(0.95);
+  }
+}
+@media (min-width: 768px) {
+  .thisco-survey .consent-checklist.consent-switches label .consent-switch {
+    padding: revert;
   }
 }
 .thisco-survey .consent-checklist.consent-switches label .consent-switch span {

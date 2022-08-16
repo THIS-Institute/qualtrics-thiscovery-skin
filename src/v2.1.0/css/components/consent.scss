@@ -67,6 +67,10 @@ $breakpoints: (
     background-position: 130% center;
     background-repeat: no-repeat;
     transition: all .2s ease-out;
+    padding: 0px;
+    @include respond-above(sm) {
+        padding: revert;
+    }
     span {
         transition: all .2s ease-out;
         padding: 3px 9px;
@@ -112,6 +116,10 @@ $breakpoints: (
                 align-items: center;
                 > span {
                     flex: 80%;
+                    font-size: 1.1em;
+                    @include respond-above(sm) {
+                        font-size: 1em;
+                    }
                 }
                 .consent-switch {
                     @include thisco-consent-switch();
