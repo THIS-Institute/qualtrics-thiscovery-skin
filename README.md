@@ -34,13 +34,13 @@ Run the `dev` script to get started (either with `npm run dev` or in your VDE of
 
 ### Develop
 
-You will be asked to provide a URL to open (usually a Qualtrics anonyomous distribution link) or a local file path.  You will also be asked which version to watch (make sure it is the same as the survey you are working on), then given a choice of browser to open.  You are also asked whether to start a SkinJob server to work on live CSS (see more below).
+You will be asked to provide a URL to open (usually a Qualtrics anonymous distribution link) or a local file path (likely to be one of the html files in `/test_pages`).  You will also be asked which version to watch (make sure it is the same as in the survey you are working on), then given a choice of browser to open.  You are also asked whether to start a SkinJob server to work on live CSS (see more below).
 
 The script starts up [Browser-Sync](https://browsersync.io/) server to the given options, and starts watching CSS and JS _across all versions_ (because of shared components) and will rebuild _JS only_ on changes (this is because it is presumed live changes in CSS are done via SkinJob, and to stop constant page reloads).
 
 **NB** By default the browsersync server uses 3000 - if you have a conflict, run the initial command as `npm run dev [port]` to use an alternative.
 
-If SkinJob is set up properly, you should see instant changes to CSS (providing there is no conflict with the built version - disable bundle...css in the dev tools to debug). Wehn saving pages to the relevant JS, the page should reload.
+If SkinJob is set up properly, you should see changes to CSS after saving without a page reload (see note on conflicts though in [troubleshooting](#troubleshooting)). When saving pages to the relevant JS, the page should fully reload.
 
 #### Notes
 
@@ -148,3 +148,4 @@ The command currently watches `src/css/skin.css`. (So when dev rebuilds the SCSS
 
 - dev.js does include polyfills, but still make sure you're on as recent a version of node as possible
 - double-check you are developing to the right version to match your Qualtrics survey or test page
+- if your changes to CSS do not seem to be appearing, you might be conflicting with existing rules in the current build. To check, in the developer tools of your browser, disable all other CSS sheets to check (skinjob is creating a temporary 'constructed' stylesheet)

@@ -64,7 +64,7 @@ NB Q reloads and executes bundle.min.js on every 'Next' click, 2.1.0 does not an
 - [x] consent.scss: consent switches
 - [x] pageerror.scss: utility for Qualtrics system error messages
 - [x] form fields
-- [ ] CROSS-BROWSER CHECKS
+- [x] CROSS-BROWSER CHECKS
 
 
 ### 2.1.1
