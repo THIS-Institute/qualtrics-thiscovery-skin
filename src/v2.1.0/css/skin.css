@@ -1633,6 +1633,7 @@ Qualtrics codes:
   background-repeat: no-repeat;
   background-position: right center;
   background-size: 1.4em;
+  color: black;
 }
 .Skin textarea {
   border-radius: 5px;
@@ -1860,6 +1861,7 @@ Qualtrics codes:
   background-repeat: no-repeat;
   background-position: right center;
   background-size: 1.4em;
+  color: black;
 }
 .thisco-survey form fieldset textarea {
   border-radius: 5px;
