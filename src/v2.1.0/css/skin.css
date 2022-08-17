@@ -1059,7 +1059,7 @@ body {
 .Skin #Buttons #NextButton, .Skin #Buttons #PreviousButton {
   width: 90%;
   margin: auto;
-  font-size: 1em;
+  font-size: 1.4em;
   font-family: inherit;
   font-weight: inherit;
   border-radius: 999px;
