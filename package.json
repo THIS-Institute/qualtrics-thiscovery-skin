@@ -16,6 +16,8 @@
     "dev:skinjob": "node ./tools/skinjob/skinjob.js ./src/v$TG_VERSION/css/skin.css --novalidation",
     "doiuse": "npx doiuse ./src/v$npm_package_version/css/skin.css",
     "skinjob": "node ./tools/skinjob/skinjob.js",
+    "test_full" : "npx playwright test tests/thisco.2.1.0.test.js --headed && npx playwright show-report",
+    "test_quick" : "npx playwright test tests/thisco.2.1.0.test.js",
     "watch:js": "chokidar --verbose \"src/**/*.js\" -c \"npm run build:js\"",
     "watch:scss": "chokidar --verbose \"src/**/*.scss\" -c \"npm run build:scss\""
   },
@@ -58,6 +60,7 @@
     "pretty-file-tree": "^1.0.1",
     "sass": "^1.49.7",
     "socket.io": "^4.4.1",
+    "wait": "^0.4.2",
     "wretch": "^1.7.10"
   },
   "dependencies": {
