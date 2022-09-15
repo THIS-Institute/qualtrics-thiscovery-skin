@@ -200,3 +200,20 @@ test('test', async ({ page }) => {
 
 
 });
+
+
+test('test_project_task_pages', async ({ page }) => {
+
+  // Should not be behind login page
+  await page.goto('https://www.thiscovery.org/project/care-homes-primary-care/');
+  await expect(page).toHaveScreenshot();
+
+  // Should be behind login page
+  await page.goto('https://www.thiscovery.org/task/care-homes-primary-care-interview/');
+  await expect(page).toHaveScreenshot();
+
+  // Bug puts this behind login page
+  await page.goto('https://www.thiscovery.org/project/care-homes-primary-care/');
+  await expect(page).toHaveScreenshot();
+
+});
