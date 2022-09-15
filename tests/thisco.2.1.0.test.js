@@ -217,3 +217,20 @@ test('test_project_task_pages', async ({ page }) => {
   await expect(page).toHaveScreenshot();
 
 });
+
+
+test('test_project_task_pages_staging', async ({ page }) => {
+
+  // Should not be behind login page
+  await page.goto('https://staging.thiscovery.org/project/remote-mental-healthcare/');
+  await expect(page).toHaveScreenshot();
+
+  // Should be behind login page
+  await page.goto('https://staging.thiscovery.org/task/demo-learning-from-intensive-caffeine-experiences/');
+  await expect(page).toHaveScreenshot();
+
+  // Should not be behind login page
+  await page.goto('https://staging.thiscovery.org/project/remote-mental-healthcare/');
+  await expect(page).toHaveScreenshot();
+
+});
