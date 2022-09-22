@@ -145,7 +145,8 @@ module.exports = function(){
         debug(`multiline_text.js v${MULTILINE_VERSION}`);
 
         Bliss.$(".multiline-text").forEach(el=>{
-            const options = {}, targetInput = el.closest("div.form-group").querySelector("input[type='text']");
+            const closest = el.closest("div.form-group") || el.closest("div.ChoiceStructure");
+            const options = {}, targetInput = closest.querySelector("input[type='text']");
             const itemsMaxClasses = el.className.split(" ").filter(v=>startsWith(v,'multiline-limit-'));
             if (!!itemsMaxClasses[0]) options.maxInputs = parseInt(itemsMaxClasses[0].replace("multiline-limit-",""));
             if (!isFinite(options.maxInputs)) unset(options.maxInputs);
