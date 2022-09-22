@@ -9,6 +9,7 @@
 3 - switching to Debug in skin.js and components
 4 - fixes to ratings notches, to apply to multiple controls
 5 - urgent fixes to consent collection 
+6 - adding multiline text control
 
 */
 
@@ -99,6 +100,10 @@ require("../../shared_js/expand_textarea.js")();
 // ranking Qs
 
 require("../../shared_js/ranking_question.js")();
+
+// multiline text Qs
+
+require("../../shared_js/multiline_text.js")();
 
 // custom validation interception
 

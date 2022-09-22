@@ -3202,4 +3202,17 @@ fieldset.ranking-question .ranking-container:not(.indeterminate) .ranking-item[d
   background-color: white;
 }
 
+.multiline-input {
+  display: block;
+  width: 80%;
+  margin-top: 0.7em;
+}
+
+@keyframes mlAppear {
+  to {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+}
+
 /*# sourceMappingURL=skin.css.map */

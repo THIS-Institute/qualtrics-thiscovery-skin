@@ -101,6 +101,10 @@ if (likertScale.length) {
 debug('ranking questions');
 require("../../shared_js/ranking_question.js")();
 
+// multiline text Qs
+
+require("../../shared_js/multiline_text.js")();
+
 // non-Qualtrics consent statements [will one day require own webhook behaviour?]
 
 const isConsentForm = $$(".consent-checklist").length > 0;

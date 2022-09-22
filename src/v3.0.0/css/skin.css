@@ -1059,7 +1059,7 @@ body {
 .Skin #Buttons #NextButton, .Skin #Buttons #PreviousButton {
   width: 90%;
   margin: auto;
-  font-size: 1em;
+  font-size: 1.4em;
   font-family: inherit;
   font-weight: inherit;
   border-radius: 999px;
@@ -1633,6 +1633,7 @@ Qualtrics codes:
   background-repeat: no-repeat;
   background-position: right center;
   background-size: 1.4em;
+  color: black;
 }
 .Skin textarea {
   border-radius: 5px;
@@ -1860,6 +1861,7 @@ Qualtrics codes:
   background-repeat: no-repeat;
   background-position: right center;
   background-size: 1.4em;
+  color: black;
 }
 .thisco-survey form fieldset textarea {
   border-radius: 5px;
@@ -2977,6 +2979,12 @@ fieldset.ranking-question .ranking-container:not(.indeterminate) .ranking-item[d
 }
 .Skin .consent-checklist.consent-switches span.LabelWrapper label > span {
   flex: 80%;
+  font-size: 1.1em;
+}
+@media (min-width: 768px) {
+  .Skin .consent-checklist.consent-switches span.LabelWrapper label > span {
+    font-size: 1em;
+  }
 }
 .Skin .consent-checklist.consent-switches span.LabelWrapper label .consent-switch {
   color: var(--thisco-dark-grey);
@@ -2999,10 +3007,16 @@ fieldset.ranking-question .ranking-container:not(.indeterminate) .ranking-item[d
   background-position: 130% center;
   background-repeat: no-repeat;
   transition: all 0.2s ease-out;
+  padding: 0px;
 }
 @media (min-width: 768px) {
   .Skin .consent-checklist.consent-switches span.LabelWrapper label .consent-switch {
     transform: scale(0.95);
+  }
+}
+@media (min-width: 768px) {
+  .Skin .consent-checklist.consent-switches span.LabelWrapper label .consent-switch {
+    padding: revert;
   }
 }
 .Skin .consent-checklist.consent-switches span.LabelWrapper label .consent-switch span {
@@ -3080,10 +3094,16 @@ fieldset.ranking-question .ranking-container:not(.indeterminate) .ranking-item[d
   background-position: 130% center;
   background-repeat: no-repeat;
   transition: all 0.2s ease-out;
+  padding: 0px;
 }
 @media (min-width: 768px) {
   .thisco-survey .consent-checklist.consent-switches label .consent-switch {
     transform: scale(0.95);
+  }
+}
+@media (min-width: 768px) {
+  .thisco-survey .consent-checklist.consent-switches label .consent-switch {
+    padding: revert;
   }
 }
 .thisco-survey .consent-checklist.consent-switches label .consent-switch span {
@@ -3180,6 +3200,19 @@ fieldset.ranking-question .ranking-container:not(.indeterminate) .ranking-item[d
 }
 .PageErrorDialog .ErrorButtons button:hover, .PageErrorDialog .ErrorButtons button:active, .PageErrorDialog .ErrorButtons button:focus {
   background-color: white;
+}
+
+.multiline-input {
+  display: block;
+  width: 80%;
+  margin-top: 0.7em;
+}
+
+@keyframes mlAppear {
+  to {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
 }
 
 /*# sourceMappingURL=skin.css.map */

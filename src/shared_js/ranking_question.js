@@ -1,7 +1,7 @@
 const BlissfulJs = require('blissfuljs'); // module adds Bliss to window object for us, use Bliss. and Bliss.$. for $ and $$
 const { debounce, startsWith, isString, clamp, inRange, isFunction, sortBy } = require('lodash');
 import { wrapGrid } from 'animate-css-grid'
-const debug = require('debug')('ranking_question.js');
+const debug = require('debug')('thisco:ranking_question.js');
 
 const RANKING_VERSION = "1.1.2";
 

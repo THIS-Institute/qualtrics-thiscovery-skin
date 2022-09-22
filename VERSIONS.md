@@ -47,6 +47,7 @@ NB Q reloads and executes bundle.min.js on every 'Next' click, 2.1.0 does not an
 - consent form markup for switches
 - consent snippet to push consent statements back to Qualtrics embedded data
 - (skinjob + socket.io snippet for dev)
+- [x] multiline array input functionality
 - [ ] Qualtrics fix - `<p>` wrap in .QuestionText when immediate children are text nodes or non-block
 
 
@@ -65,6 +66,7 @@ NB Q reloads and executes bundle.min.js on every 'Next' click, 2.1.0 does not an
 - [x] pageerror.scss: utility for Qualtrics system error messages
 - [x] form fields
 - [x] CROSS-BROWSER CHECKS
+- [x] multiline array input
 
 
 ### 2.1.1
@@ -73,14 +75,12 @@ Script needs to be split into setup() and reset() to persist script across 'Next
 
 #### JavaScript
 
-- [ ] multiline array input functionality
 - [ ] progress dial markup (from Qualtrics measure?)
 - [ ] validation warnings in-screen
 - [ ] element invalid markup classes
 
 #### CSS
 
-- [ ] multiline array input
 - [ ] progress dial + animation (from Qualtrics measure?)
 - [ ] validation warnings + animation
 - [ ] element invalid styling (dashed outline)
