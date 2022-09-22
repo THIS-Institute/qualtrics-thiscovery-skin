@@ -146,7 +146,7 @@ module.exports = function(){
 
         Bliss.$(".multiline-text").forEach(el=>{
             const closest = el.closest("div.form-group") || el.closest("div.ChoiceStructure");
-            const options = {}, targetInput = closest.querySelector("input[type='text']");
+            const options = {}, targetInput = closest.querySelector("input[type='text']") || closest.querySelector("input[type='TEXT']"); // stoopid Qualtrics
             const itemsMaxClasses = el.className.split(" ").filter(v=>startsWith(v,'multiline-limit-'));
             if (!!itemsMaxClasses[0]) options.maxInputs = parseInt(itemsMaxClasses[0].replace("multiline-limit-",""));
             if (!isFinite(options.maxInputs)) unset(options.maxInputs);
