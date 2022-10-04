@@ -1,5 +1,5 @@
 const BlissfulJs = require('blissfuljs'); // module adds Bliss to window object for us, use Bliss. and Bliss.$. for $ and $$
-const { last, debounce, uniqueId, isUndefined, findIndex, concat, unset, startsWith, isString } = require('lodash');
+const { isNull, isArray, last, debounce, uniqueId, isUndefined, findIndex, concat, unset, startsWith, isString } = require('lodash');
 const debug = require('debug')('thisco:multiline_text.js');
 
 const MULTILINE_VERSION = "1.0.0";
@@ -8,7 +8,15 @@ const MULTILINE_VERSION = "1.0.0";
 // eg. ["This","That","The other"]
 // the inputs also prevent " to save hassle down the line
 
-const DEBOUNCE_AMOUNT = 1000;
+const DEBOUNCE_AMOUNT = 750;
+
+const safeJSONparse = (input)=>{
+    try {
+        return JSON.parse(input);
+    } catch (error) {
+        return input;
+    }
+}
 
 class Multiline {
     constructor (targetInput,options={}){
@@ -19,20 +27,33 @@ class Multiline {
         this.container = targetInput.parentNode;
         this.inputs = [];
         this.maxInputs = options.maxInputs || null;
-        this.name = targetInput.name || `multiline_${uniqueId()}`
+        this.name = targetInput.name || `multiline_${uniqueId()}`;
+        this.initialValue = targetInput.value || "";
         Bliss(targetInput)._.style({
             "opacity" : 0,
             "height": "0px",
             "font-size":"0px"
         });
-        this.addInput();
+        const { addInput, maxInputs } = this, self = this;
+        if (this.initialValue == "") addInput.call(self);
+        else if (!isArray(safeJSONparse(this.initialValue))) {
+            addInput.call(self,this.initialValue);
+        }
+        else {
+            const inputs = safeJSONparse(this.initialValue);
+            debug ({inputs,maxInputs});
+            (!isNull(maxInputs) ? inputs.slice(0,maxInputs) : inputs).forEach(input =>{
+                addInput.call(self,input);
+            });
+            addInput.call(self);
+        }
     }
 
     get values() {
         return Bliss.$(`.multiline-input`,this.container).map(inp=>inp.value).filter(v=>isString(v)&&v!=="");
     }
 
-    addInput(){
+    addInput(valueIn = ""){
         const inputEls = Bliss.$(`.multiline-input`,this.container);
         if (inputEls.length == this.maxInputs) return false;
         const handler = debounce((evt)=>{
@@ -69,7 +90,8 @@ class Multiline {
             events : {
                 input : handler,
                 keydown : specialKeys
-            }
+            },
+            value : valueIn
         });
         const i = this.inputs.push(newInput);
         newInput._.set({"data-position":i});
@@ -126,11 +148,13 @@ class Multiline {
         const lastInView = last(Bliss.$(`.multiline-input`,this.container))
         // remove any empty except last
         let toRemove = Bliss.$(`.multiline-input`,this.container).slice(0,-1).filter(inp=>inp.value == "");
+        debug({toRemove});
         toRemove = concat(toRemove,this.inputs.filter(inp=>inp.offsetParent==null));
         toRemove.forEach(inp=>{
             if (!inp) return;
-            Bliss(`.multiline-input#${inp.id}`).remove();
-            this.inputs.splice(findIndex(this.inputs,{id:inp.id}),1);
+            const removee = Bliss(`.multiline-input[id='${inp.id}']`); // something in Qualtrics sulky about selector
+            if (removee) removee.remove();
+            if (findIndex(this.inputs,{id:inp.id}) == -1) this.inputs.splice(findIndex(this.inputs,{id:inp.id}),1);
         });
         inFocus.focus();
     }
@@ -145,7 +169,7 @@ module.exports = function(){
         debug(`multiline_text.js v${MULTILINE_VERSION}`);
 
         Bliss.$(".multiline-text").forEach(el=>{
-            const closest = el.closest("div.form-group") || el.closest("div.ChoiceStructure");
+            const closest = el.closest("div.form-group") || el.closest("fieldset");
             const options = {}, targetInput = closest.querySelector("input[type='text']") || closest.querySelector("input[type='TEXT']"); // stoopid Qualtrics
             const itemsMaxClasses = el.className.split(" ").filter(v=>startsWith(v,'multiline-limit-'));
             if (!!itemsMaxClasses[0]) options.maxInputs = parseInt(itemsMaxClasses[0].replace("multiline-limit-",""));
