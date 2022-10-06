@@ -16,8 +16,9 @@
     "dev:skinjob": "node ./tools/skinjob/skinjob.js ./src/v$TG_VERSION/css/skin.css --novalidation",
     "doiuse": "npx doiuse ./src/v$npm_package_version/css/skin.css",
     "skinjob": "node ./tools/skinjob/skinjob.js",
-    "test_full" : "npx playwright test tests/thisco.2.1.0.test.js --headed && npx playwright show-report",
-    "test_quick" : "npx playwright test tests/thisco.2.1.0.test.js",
+    "test_full": "npx playwright test tests/thisco.2.1.0.test.js --headed && npx playwright show-report",
+    "test_debug": "npx playwright test tests/thisco.2.1.0.test.js --debug --ignore-snapshots",
+    "test_quick": "npx playwright test tests/thisco.2.1.0.test.js --reporter=line",
     "watch:js": "chokidar --verbose \"src/**/*.js\" -c \"npm run build:js\"",
     "watch:scss": "chokidar --verbose \"src/**/*.scss\" -c \"npm run build:scss\""
   },
@@ -32,7 +33,7 @@
   },
   "homepage": "https://github.com/THIS-Institute/qualtrics-thiscovery-skin#readme",
   "devDependencies": {
-    "@playwright/test": "^1.24.2",
+    "@playwright/test": "^1.26.1",
     "autoprefixer": "^10.4.2",
     "browserslist": "^4.19.1",
     "chalk": "^3.0.0",

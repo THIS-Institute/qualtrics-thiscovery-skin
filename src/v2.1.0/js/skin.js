@@ -109,6 +109,12 @@ require("../../shared_js/multiline_text.js")();
 
 require("../../shared_js/validation.js")();
 
+// meta panel
+
+Bliss.$('.Skin .meta-panel, .thisco-survey .meta-panel').forEach(el=>{
+    el.closest('fieldset').classList.add("meta-panel");
+});
+
 // header
 
 const header = document.getElementById("Header");

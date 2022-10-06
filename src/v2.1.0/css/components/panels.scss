@@ -135,3 +135,15 @@ pre {
         margin:0;
     }
 }
+
+.Skin .SkinInner fieldset.meta-panel {
+    background-color: var(--thisco-aubergine);
+    display: block;
+    border-radius: 25px;
+    padding: 1em 1em 0em 1em;
+    legend {
+        float: left;
+        color: white;
+        font-weight: 400;
+    }
+}

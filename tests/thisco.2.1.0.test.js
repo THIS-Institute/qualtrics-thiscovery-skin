@@ -202,35 +202,35 @@ test('test', async ({ page }) => {
 });
 
 
-test('test_project_task_pages', async ({ page }) => {
+// test('test_project_task_pages', async ({ page }) => {
 
-  // Should not be behind login page
-  await page.goto('https://www.thiscovery.org/project/care-homes-primary-care/');
-  await expect(page).toHaveScreenshot();
+//   // Should not be behind login page
+//   await page.goto('https://www.thiscovery.org/project/care-homes-primary-care/');
+//   await expect(page).toHaveScreenshot();
 
-  // Should be behind login page
-  await page.goto('https://www.thiscovery.org/task/care-homes-primary-care-interview/');
-  await expect(page).toHaveScreenshot();
+//   // Should be behind login page
+//   await page.goto('https://www.thiscovery.org/task/care-homes-primary-care-interview/');
+//   await expect(page).toHaveScreenshot();
 
-  // Bug puts this behind login page
-  await page.goto('https://www.thiscovery.org/project/care-homes-primary-care/');
-  await expect(page).toHaveScreenshot();
+//   // Bug puts this behind login page
+//   await page.goto('https://www.thiscovery.org/project/care-homes-primary-care/');
+//   await expect(page).toHaveScreenshot();
 
-});
+// });
 
 
-test('test_project_task_pages_staging', async ({ page }) => {
+// test('test_project_task_pages_staging', async ({ page }) => {
 
-  // Should not be behind login page
-  await page.goto('https://staging.thiscovery.org/project/remote-mental-healthcare/');
-  await expect(page).toHaveScreenshot();
+//   // Should not be behind login page
+//   await page.goto('https://staging.thiscovery.org/project/remote-mental-healthcare/');
+//   await expect(page).toHaveScreenshot();
 
-  // Should be behind login page
-  await page.goto('https://staging.thiscovery.org/task/demo-learning-from-intensive-caffeine-experiences/');
-  await expect(page).toHaveScreenshot();
+//   // Should be behind login page
+//   await page.goto('https://staging.thiscovery.org/task/demo-learning-from-intensive-caffeine-experiences/');
+//   await expect(page).toHaveScreenshot();
 
-  // Should not be behind login page
-  await page.goto('https://staging.thiscovery.org/project/remote-mental-healthcare/');
-  await expect(page).toHaveScreenshot();
+//   // Should not be behind login page
+//   await page.goto('https://staging.thiscovery.org/project/remote-mental-healthcare/');
+//   await expect(page).toHaveScreenshot();
 
-});
+// });

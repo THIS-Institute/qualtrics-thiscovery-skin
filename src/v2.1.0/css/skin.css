@@ -1583,6 +1583,18 @@ pre > p:last-child, pre > ul:last-child, pre > ol:last-child, pre > dl:last-chil
   margin-bottom: 0.6em;
 }
 
+.Skin .SkinInner fieldset.meta-panel {
+  background-color: var(--thisco-aubergine);
+  display: block;
+  border-radius: 25px;
+  padding: 1em 1em 0em 1em;
+}
+.Skin .SkinInner fieldset.meta-panel legend {
+  float: left;
+  color: white;
+  font-weight: 400;
+}
+
 /* Qualtrics compensatory styling */
 /*
 
@@ -3204,7 +3216,7 @@ fieldset.ranking-question .ranking-container:not(.indeterminate) .ranking-item[d
 
 .multiline-input {
   display: block;
-  width: 80%;
+  width: 100%;
   margin-top: 0.7em;
 }
 
