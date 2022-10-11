@@ -73,7 +73,17 @@ blockquote, .Skin .SkinInner blockquote {
         max-width: 40%;
         margin: .2em;
     }
-}
+
+    &.numbered-quote {
+        position: relative;
+        .number-bubble {
+            position: absolute;
+            top: -.2ch;
+            left: -.2ch;
+            scale: 1.2;
+        }
+    }
+ }
 
 div.alert-warning {
     @include panel-basic();
