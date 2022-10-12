@@ -1703,7 +1703,7 @@ Qualtrics codes:
   padding-right: 0.2em;
   width: 100%;
   resize: none;
-  min-height: 4.8rem;
+  min-height: 6.2rem;
 }
 .Skin textarea:focus-visible {
   border-color: var(--thisco-red);
@@ -1931,7 +1931,7 @@ Qualtrics codes:
   padding-right: 0.2em;
   width: 100%;
   resize: none;
-  min-height: 4.8rem;
+  min-height: 6.2rem;
 }
 .thisco-survey form fieldset textarea:focus-visible {
   border-color: var(--thisco-red);
@@ -2029,7 +2029,7 @@ Qualtrics codes:
   padding-right: 0.2em;
   width: 100%;
   resize: none;
-  min-height: 4.8rem;
+  min-height: 6.2rem;
 }
 .thisco-survey form .form-group textarea:focus-visible {
   border-color: var(--thisco-red);
