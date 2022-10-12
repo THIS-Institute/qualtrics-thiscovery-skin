@@ -6,7 +6,7 @@ module.exports = function(){
 
     const bruteScroll = (el)=>{
         const [x,y] = [window.scrollX,window.scrollY];
-        el.scrollIntoView();
+        el.scrollIntoView({inline:"center"});
         window.scrollTo(x,y);
         return;
     };
