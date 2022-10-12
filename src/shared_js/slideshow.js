@@ -3,8 +3,15 @@ const { debounce, uniqueId, range, clamp } = require('lodash');
 const debug = require('debug')('thisco:slideshow.js');
 
 module.exports = function(){
+
+    const bruteScroll = (el)=>{
+        const [x,y] = [window.scrollX,window.scrollY];
+        el.scrollIntoView();
+        window.scrollTo(x,y);
+        return;
+    };
+
     Bliss.$('.Skin .thisco-slideshow, .thisco-survey .thisco-slideshow').forEach(el=>{
-        debug({el});
         const id = `thisco_slideshow_${uniqueId()}`;
         const itemNo = el.children.length;
         const handleFlip = (evt)=>{
@@ -17,7 +24,18 @@ module.exports = function(){
             // set new page
             container._.set({'data-page' : currentPage+1});
             const page = Bliss(`.thisco-slideshow-item-wrapper[data-page-no="${currentPage+1}"]`);
-            if (page) page.scrollIntoView(); // native scrollIntoView
+            bruteScroll(page); // native scrollIntoView
+            // set buttons
+            if (currentPage == 0) {
+                Bliss("button.thisco-slideshow-left").classList.add("hidden");
+            } else {
+                Bliss("button.thisco-slideshow-left").classList.remove("hidden");
+            }
+            if ((currentPage+1) == itemNo) {
+                Bliss("button.thisco-slideshow-right").classList.add("hidden");
+            } else {
+                Bliss("button.thisco-slideshow-right").classList.remove("hidden");
+            }
         };
         // create slideshow box, and extract from p element
         const slideshow = Bliss.create("div",{
@@ -55,10 +73,6 @@ module.exports = function(){
         const follow = Bliss(".thisco-slideshow-follow-bar",slideshow);
         const target = Bliss(".thisco-slideshow-content",slideshow);
 
-        // needs to figure out and set a max-width of scroll-follow
-        // based on desired size of following things
-        // to leverage flexbox well
-
         if (target instanceof HTMLElement) {
           const scrollItems = target.children;
           debug({scrollItems});
@@ -85,36 +99,10 @@ module.exports = function(){
           });
         }
 
+        const pageOne = Bliss("[data-page-no='1']");
+        if (pageOne) bruteScroll(pageOne);
+
     });
 }
 
 
-// const follow = $(".scroll-follow");
-// const target = $(follow.dataset.target);
-
-// // needs to figure out and set a max-width of scroll-follow
-// // based on desired size of following things
-// // to leverage flexbox well
-
-// if (target instanceof HTMLElement) {
-//   const scrollItems = target.children;
-//   $$(scrollItems).forEach((el) => {
-//     const follower = $.create("div", { className: "follower" });
-//     follow.appendChild(follower);
-//     const callback = (entries, observer) => {
-//       // we'll get back to this
-//       window.requestAnimationFrame(() => {
-//         $(follower)._.style({
-//           width: `${50 * entries[0].intersectionRatio + 0}px`
-//         });
-//       });
-//     };
-//     let options = {
-//       root: target,
-//       rootMargin: "0px",
-//       threshold: Array.from(Array(1000)).map((v,i)=>(i+1)/1000)
-//     };
-//     let observer = new IntersectionObserver(callback, options);
-//     observer.observe(el);
-//   });
-// }

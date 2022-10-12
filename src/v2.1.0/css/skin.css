@@ -3309,7 +3309,7 @@ div.thisco-slideshow .thisco-slideshow-button.hidden {
 }
 div.thisco-slideshow .thisco-slideshow-content {
   white-space: nowrap;
-  overflow-x: scroll;
+  overflow-x: hidden;
   -webkit-scroll-snap-type: x mandatory;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
@@ -3334,6 +3334,10 @@ div.thisco-slideshow .thisco-slideshow-follow-bar .follower {
   background: crimson;
   border-radius: 999px;
   margin: 2px;
+}
+
+.touchevents div.thisco-slideshow .thisco-slideshow-content {
+  overflow-x: scroll;
 }
 
 /*# sourceMappingURL=skin.css.map */
