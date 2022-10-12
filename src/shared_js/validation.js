@@ -96,7 +96,6 @@ module.exports = function(){
                 debug("Attaching an observer:",el);
 
                 const callback = function(mutations,observer){
-                    debug('CHANG');
                     const currentText = el.innerText;
                     const isVisible = el.offsetParent !== null;
                     if ((currentText !== "") && isVisible) {
