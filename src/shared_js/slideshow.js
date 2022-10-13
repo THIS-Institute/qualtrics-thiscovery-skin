@@ -5,9 +5,11 @@ const debug = require('debug')('thisco:slideshow.js');
 module.exports = function(){
 
     const bruteScroll = (el)=>{
-        const [x,y] = [window.scrollX,window.scrollY];
-        el.scrollIntoView({inline:"center"});
-        window.scrollTo(x,y);
+        // had written a fudge to deal with vert jump, but this is better
+        // const [x,y] = [window.scrollX,window.scrollY];
+        el.scrollIntoView({inline:"nearest",block:"nearest"});
+        // el.scrollIntoView(false);
+        // window.scrollTo(x,y);
         return;
     };
 

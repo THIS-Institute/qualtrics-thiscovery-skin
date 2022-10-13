@@ -105,6 +105,10 @@ require("../../shared_js/ranking_question.js")();
 
 require("../../shared_js/multiline_text.js")();
 
+// slideshows
+
+require("../../shared_js/slideshow.js")();
+
 // non-Qualtrics consent statements [will one day require own webhook behaviour?]
 
 const isConsentForm = $$(".consent-checklist").length > 0;
