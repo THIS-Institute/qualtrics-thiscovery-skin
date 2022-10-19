@@ -10,6 +10,7 @@
 4 - fixes to ratings notches, to apply to multiple controls
 5 - urgent fixes to consent collection 
 6 - adding multiline text control
+7 - adding panel-choice
 
 */
 
@@ -116,6 +117,10 @@ require("../../shared_js/validation.js")();
 // slideshows
 
 require("../../shared_js/slideshow.js")();
+
+// panel choice
+
+require("../../shared_js/panel_choice.js")();
 
 // meta panel
 

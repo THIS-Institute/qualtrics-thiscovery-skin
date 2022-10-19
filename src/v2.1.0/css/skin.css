@@ -1650,6 +1650,7 @@ Qualtrics codes:
 
 */
 /* radio buttons */
+/* reformat QuestionBody etc for panel choices on fieldset (Qualtrics) */
 /* basic question here for building on */
 .Skin #SkinContent {
   padding: 1rem;
@@ -1722,11 +1723,18 @@ Qualtrics codes:
   min-height: 2.6rem;
   border-radius: 15px;
   background-color: rgba(0, 0, 0, 0.01);
-  background-image: linear-gradient(45deg, transparent, rgba(0, 0, 0, 0.025));
+  background-image: linear-gradient(45deg, transparent, rgba(0, 0, 0, 0.05) 50%);
+  padding: 0.4rem 0.8rem;
+  min-height: 2.6rem;
+  border-radius: 15px;
   padding: 0.4rem 0.8rem;
   margin-bottom: 1.2em;
   display: flex;
   transition: box-shadow 0.2s;
+}
+.Skin ul.ChoiceStructure > li:not(.ChoiceGroup):focus-within, .Skin ul.ChoiceGroupStructure > li:not(.ChoiceGroup):focus-within {
+  outline: 2px solid white;
+  box-shadow: 0px 0px 0px 4px crimson !important;
 }
 .Skin ul.ChoiceStructure > li:not(.ChoiceGroup):hover, .Skin ul.ChoiceGroupStructure > li:not(.ChoiceGroup):hover {
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
@@ -1840,6 +1848,41 @@ Qualtrics codes:
 .Skin div.ChoiceStructure table tr > td:first-of-type {
   width: 30%;
 }
+.Skin fieldset.panel-choice ul.ChoiceStructure {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 1rem;
+}
+@media (min-width: 481px) {
+  .Skin fieldset.panel-choice ul.ChoiceStructure {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.Skin fieldset.panel-choice ul.ChoiceStructure li {
+  height: 100%;
+  padding: 0;
+  overflow: hidden;
+}
+.Skin fieldset.panel-choice ul.ChoiceStructure span.LabelWrapper {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+.Skin fieldset.panel-choice ul.ChoiceStructure span.LabelWrapper label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+.Skin fieldset.panel-choice ul.ChoiceStructure span.LabelWrapper label.q-checked {
+  background: var(--thisco-red);
+}
+.Skin fieldset.panel-choice ul.ChoiceStructure span.LabelWrapper label > span {
+  line-height: 1;
+}
+.Skin fieldset.panel-choice ul.ChoiceStructure span.LabelWrapper label > span:before {
+  display: none !important;
+}
 
 .thisco-survey {
   font-size: 16px;
@@ -1874,8 +1917,12 @@ Qualtrics codes:
   min-height: 2.6rem;
   border-radius: 15px;
   background-color: rgba(0, 0, 0, 0.01);
-  background-image: linear-gradient(45deg, transparent, rgba(0, 0, 0, 0.025) 80%);
+  background-image: linear-gradient(45deg, transparent, rgba(0, 0, 0, 0.05) 50%);
   padding: 0.4rem 0.8rem;
+}
+.thisco-survey form fieldset input:not(:checked) + label:focus-within {
+  outline: 2px solid white;
+  box-shadow: 0px 0px 0px 4px crimson !important;
 }
 .thisco-survey form fieldset input:not(:checked) + label input {
   color: rgba(0, 0, 0, 0.3);
@@ -1886,8 +1933,12 @@ Qualtrics codes:
   min-height: 2.6rem;
   border-radius: 15px;
   background-color: rgba(0, 0, 0, 0.01);
-  background-image: linear-gradient(45deg, transparent, rgba(0, 0, 0, 0.025) 80%);
+  background-image: linear-gradient(45deg, transparent, rgba(0, 0, 0, 0.05) 50%);
   padding: 0.4rem 0.8rem;
+}
+.thisco-survey form fieldset label:not(.likert-label):focus-within {
+  outline: 2px solid white;
+  box-shadow: 0px 0px 0px 4px crimson !important;
 }
 .thisco-survey form fieldset label:not(.likert-label) > input {
   margin-left: 0.5em;
@@ -2046,8 +2097,12 @@ Qualtrics codes:
   min-height: 2.6rem;
   border-radius: 15px;
   background-color: rgba(0, 0, 0, 0.01);
-  background-image: linear-gradient(45deg, transparent, rgba(0, 0, 0, 0.025) 80%);
+  background-image: linear-gradient(45deg, transparent, rgba(0, 0, 0, 0.05) 50%);
   padding: 0.4rem 0.8rem;
+}
+.thisco-response-label:focus-within {
+  outline: 2px solid white;
+  box-shadow: 0px 0px 0px 4px crimson !important;
 }
 
 /* define official THIS colours */

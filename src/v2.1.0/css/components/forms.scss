@@ -7,6 +7,37 @@ Qualtrics codes:
 
 */
 
+// A map of breakpoints.
+$breakpoints: (
+  xs: 481px,
+  sm: 768px,
+  md: 980px,
+  lg: 1400px,
+);
+
+//
+//  RESPOND ABOVE
+//––––––––––––––––––––––––––––––––––––––––––––––––––
+
+// @include respond-above(sm) {}
+@mixin respond-above($breakpoint) {
+  // If the breakpoint exists in the map.
+  @if map-has-key($breakpoints, $breakpoint) {
+    // Get the breakpoint value.
+    $breakpoint-value: map-get($breakpoints, $breakpoint);
+
+    // Write the media query.
+    @media (min-width: $breakpoint-value) {
+      @content;
+    }
+
+    // If the breakpoint doesn't exist in the map.
+  } @else {
+    // Log a warning.
+    @warn 'Invalid breakpoint: #{$breakpoint}.';
+  }
+}
+
 /* radio buttons */
 
 @mixin thiscovery-radio-button ($size) {
@@ -93,14 +124,59 @@ Qualtrics codes:
 $min-response-height: 2.6rem;
 $radio-size: .6em;
 
+$label-background: linear-gradient(45deg, transparent, rgb(0 0 0 / 0.05) 50%);
+
 @mixin thisco-response-label () {
     min-height: $min-response-height;
     border-radius: 15px;
     // box-shadow: inset .5px .5px 0px rgb(0 0 0 / .05);
     background-color: rgb(0 0 0 / 0.01);
-    background-image: linear-gradient(45deg, transparent, rgb(0 0 0 / 0.025) 80%);
+    background-image: $label-background;
     padding: .4rem .8rem;
     // margin-bottom: .6em;
+    &:focus-within {
+        outline : 2px solid white;
+        box-shadow: 0px 0px 0px 4px crimson !important;           
+    }
+}
+
+/* reformat QuestionBody etc for panel choices on fieldset (Qualtrics) */
+@mixin thisco-panel-choices () {
+    ul.ChoiceStructure {
+        display: grid;
+        grid-template-columns: 1fr;
+        @include respond-above(xs) {
+            grid-template-columns: 1fr 1fr;
+        }
+        grid-gap: 1rem;
+        li {
+            height: 100%;
+            // background: none;
+            padding: 0;
+            overflow: hidden;
+        }
+        span.LabelWrapper {
+            width:100%;
+            height: 100%;
+            margin: 0;
+            label {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 100%;
+                // background-image: $label-background;
+                &.q-checked {
+                    background: var(--thisco-red);
+                }
+                > span {
+                    line-height: 1;
+                }
+                > span:before {
+                    display: none !important;
+                }
+            }
+        }
+    }
 }
 
 /* basic question here for building on */
@@ -147,12 +223,11 @@ $radio-size: .6em;
     ul.ChoiceStructure, ul.ChoiceGroupStructure {
 
         > li:not(.ChoiceGroup) {
+            @include thisco-response-label();
             // hide native - Q js handles events, clicks on whole li element *NOT* label as per standards
             min-height: $min-response-height;
             border-radius: 15px;
             // box-shadow: inset .5px .5px 0px rgb(0 0 0 / .05);
-            background-color: rgb(0 0 0 / 0.01);
-            background-image: linear-gradient(45deg, transparent, rgb(0 0 0 / 0.025));
             padding: .4rem .8rem;
             margin-bottom: 1.2em;
             display: flex;
@@ -258,6 +333,10 @@ $radio-size: .6em;
                 width: 30%;
             }
         }
+    }
+
+    fieldset.panel-choice {
+        @include thisco-panel-choices();
     }
 
 }

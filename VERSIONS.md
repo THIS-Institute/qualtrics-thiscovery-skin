@@ -68,6 +68,7 @@ NB Q reloads and executes bundle.min.js on every 'Next' click, 2.1.0 does not an
 - [x] CROSS-BROWSER CHECKS
 - [x] multiline array input
 - [x] image slideshow
+- [x] panels for multiple choice (panel-choice)
 
 
 ### 2.1.1
