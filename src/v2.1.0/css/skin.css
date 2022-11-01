@@ -1656,7 +1656,7 @@ pre > p:last-child, pre > ul:last-child, pre > ol:last-child, pre > dl:last-chil
 .q-insight-panel div {
   padding: 25px;
 }
-.q-insight-panel div p, .q-insight-panel div img, .q-insight-panel div blockquote {
+.q-insight-panel div p, .q-insight-panel div blockquote {
   margin-bottom: 1em;
 }
 .q-insight-panel div .number-disc {
