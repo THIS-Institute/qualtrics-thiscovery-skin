@@ -109,6 +109,11 @@ require("../../shared_js/multiline_text.js")();
 
 require("../../shared_js/slideshow.js")();
 
+// custom videos
+
+require("../../shared_js/custom_video.js")();
+
+
 // non-Qualtrics consent statements [will one day require own webhook behaviour?]
 
 const isConsentForm = $$(".consent-checklist").length > 0;
