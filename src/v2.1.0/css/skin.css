@@ -1675,7 +1675,6 @@ pre > p:last-child, pre > ul:last-child, pre > ol:last-child, pre > dl:last-chil
 }
 .q-insight-panel div img {
   max-width: 50vw;
-  float: left;
 }
 .q-insight-panel div:nth-child(1) {
   color: var(--thisco-aubergine);
