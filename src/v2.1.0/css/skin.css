@@ -1697,6 +1697,8 @@ pre > p:last-child, pre > ul:last-child, pre > ol:last-child, pre > dl:last-chil
 }
 .q-insight-panel div:nth-child(2) blockquote .big-quotes.end-quote {
   float: right;
+  position: relative;
+  top: 0.2em;
 }
 .q-insight-panel div:nth-child(2) blockquote cite {
   margin-top: 0.7em;

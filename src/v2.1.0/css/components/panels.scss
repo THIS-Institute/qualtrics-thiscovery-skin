@@ -208,6 +208,8 @@ pre {
             }
             .big-quotes.end-quote {
                 float:right;
+                position: relative;
+                top: .2em;
             }
             cite {
                 margin-top: .7em;
