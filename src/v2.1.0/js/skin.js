@@ -128,6 +128,14 @@ Bliss.$('.Skin .meta-panel, .thisco-survey .meta-panel').forEach(el=>{
     el.closest('fieldset').classList.add("meta-panel");
 });
 
+// custom videos
+
+require("../../shared_js/custom_video.js")();
+
+// thisco icon web component
+
+require("../../shared_js/thisco_icons.js")();
+
 // header
 
 const header = document.getElementById("Header");

@@ -113,6 +113,9 @@ require("../../shared_js/slideshow.js")();
 
 require("../../shared_js/custom_video.js")();
 
+// thisco icon web component
+
+require("../../shared_js/thisco_icons.js")();
 
 // non-Qualtrics consent statements [will one day require own webhook behaviour?]
 

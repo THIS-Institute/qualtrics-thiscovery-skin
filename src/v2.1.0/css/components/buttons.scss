@@ -9,6 +9,7 @@
     --thisco-pink: rgb(243, 165, 185);
     --thisco-aubergine: rgb(104 4 54 / 1);
     --thisco-yellow: rgb(255 216 90 / 1);
+    --thisco-text-on-yellow: #4B3800;
 }
 
 // A map of breakpoints.
@@ -60,10 +61,23 @@ $breakpoints: (
         transform: scale(1.03);
         background-color: transparent;
         color: $col;
-        border-color: $col;
     }
     &:active {
         transform: scale(0.9);
+    }
+    &.inactive {
+        background-color: var(--thisco-dark-grey);
+        border-color: var(--thisco-dark-grey);
+    }
+    &.no-invert {
+        &:hover, &:active, &:focus {
+            background-color: $col;
+            color: white;
+        }
+    }
+    &[disabled] {
+        pointer-events: none;
+        filter: saturate(0) brightness(.8);
     }
 }
 
@@ -78,7 +92,7 @@ $breakpoints: (
     }
 }
 
-.Skin {
+.Skin, .thisco-survey {
     #Buttons {
         /* reset */
 
