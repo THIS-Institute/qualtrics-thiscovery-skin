@@ -49,6 +49,8 @@ NB Q reloads and executes bundle.min.js on every 'Next' click, 2.1.0 does not an
 - (skinjob + socket.io snippet for dev)
 - [x] multiline array input functionality
 - [ ] Qualtrics fix - `<p>` wrap in .QuestionText when immediate children are text nodes or non-block
+- [x] custom video component (see VIDEO_NOTE.MD)
+- [x] thisco-icons - web component to drop in icon SVGs (as embedded in that js file)
 
 
 #### CSS
@@ -69,9 +71,10 @@ NB Q reloads and executes bundle.min.js on every 'Next' click, 2.1.0 does not an
 - [x] multiline array input
 - [x] image slideshow
 - [x] panels for multiple choice (panel-choice)
+- [x] customvideo.scss: video.js + custom css for custom video component
+- [x] icons.scss: small bit to handle icons
 
-
-### 2.1.1
+### 2.2
 
 Script needs to be split into setup() and reset() to persist script across 'Next' clicks - allowing element outside JFEContent (progress and validation)
 

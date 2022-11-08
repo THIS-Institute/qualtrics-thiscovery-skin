@@ -11,6 +11,7 @@
 5 - urgent fixes to consent collection 
 6 - adding multiline text control
 7 - adding panel-choice
+8 - added thisco-icon
 
 */
 
@@ -19,7 +20,7 @@ const debug = require("debug")("thisco:skin.js");
 const version = "2.1.0";
 debug(`Thiscovery survey skin version ${version}`);
 
-const revision = 4;
+const revision = 8;
 debug(`Revision: ${revision}`);
 
 /*! modernizr 3.6.0 (Custom Build) | MIT *

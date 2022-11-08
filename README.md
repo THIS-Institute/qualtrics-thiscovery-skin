@@ -8,6 +8,7 @@ Javascript and CSS to customise Qualtrics surveys
 - [Repo Structure](#repo-structure)
 - [Tools](#tools)
 - [Troubleshooting](#troubleshooting)
+- [Qualtricksiness](#qualtricksiness)
 
 ## Outputs
 
@@ -80,11 +81,17 @@ So in a Qualtrics, the JS needs to be included as a `<script>` tag in the survey
 |  ├── terms_of_participation.md
 |  └── terms_of_use.md
 ├── shared_js
+|  ├── custom_video.js
 |  ├── expand_textarea.js
 |  ├── link_buttons.js
+|  ├── multiline_text.js
+|  ├── panel_choice.js
 |  ├── ranking_question.js
 |  ├── skinjob_client.js
-|  └── thisco_modals.js
+|  ├── slideshow.js
+|  ├── thisco_icons.js
+|  ├── thisco_modals.js
+|  └── validation.js
 ├── v2.0.0
 |  ├── css
 |  |  ├── components
@@ -100,12 +107,18 @@ So in a Qualtrics, the JS needs to be included as a `<script>` tag in the survey
 |  |  ├── components
 |  |  |  ├── base.scss
 |  |  |  ├── buttons.scss
+|  |  |  ├── consent.scss
+|  |  |  ├── customvideo.scss
 |  |  |  ├── forms.scss
+|  |  |  ├── icons.scss
 |  |  |  ├── modals.scss
+|  |  |  ├── multiline.scss
+|  |  |  ├── pageerror.scss
 |  |  |  ├── panels.scss
 |  |  |  ├── policy-modals.scss
 |  |  |  ├── ranking.scss
-|  |  |  └── scales.scss
+|  |  |  ├── scales.scss
+|  |  |  └── slideshow.scss
 |  |  ├── skin.css
 |  |  ├── skin.css.map
 |  |  └── skin.scss
@@ -149,3 +162,11 @@ The command currently watches `src/css/skin.css`. (So when dev rebuilds the SCSS
 - dev.js does include polyfills, but still make sure you're on as recent a version of node as possible
 - double-check you are developing to the right version to match your Qualtrics survey or test page
 - if your changes to CSS do not seem to be appearing, you might be conflicting with existing rules in the current build. To check, in the developer tools of your browser, disable all other CSS sheets to check (skinjob is creating a temporary 'constructed' stylesheet)
+
+***************
+
+## Qualtricksiness
+
+Tons of fun to be had in getting to know how Qualtrics more, I'll note a bit more of the lifecycle as I wrap around it (for v 2.2 especially). In the meantime, this useful image is a map of how Qualtrics markup generally breaks down:
+
+![](/qualtrics_DOM_model.Feb_2022.png)

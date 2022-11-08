@@ -137,6 +137,7 @@ module.exports = function(){
                 const handleVideoEnd = (evt)=>{
                     const playButt = Bliss(`button#play_${id}`);
                     playButt.classList.remove("is-playing");
+                    player.exitFullscreen();
                     if (play_once) {
                         playButt.innerHTML = "End of video";
                         playButt._.set({disabled:true});

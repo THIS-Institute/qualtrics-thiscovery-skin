@@ -28,6 +28,10 @@ const iconLib = {
 
 module.exports = function(){
 
+    if (customElements.get('thisco-icon') !== undefined) {
+        debug('thisco-icon already defined');
+    }
+
     class ThiscoIcon extends LitElement {
 
         static properties = {
@@ -52,6 +56,7 @@ module.exports = function(){
         }
 
     }
+    
     customElements.define('thisco-icon',ThiscoIcon);
 
 }
