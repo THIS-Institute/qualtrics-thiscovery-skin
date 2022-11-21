@@ -1,5 +1,5 @@
 const BlissfulJs = require('blissfuljs'); // module adds Bliss to window object for us, use Bliss. and Bliss.$. for $ and $$
-const { uniqueId, noop } = require('lodash');
+import { uniqueId, noop } from 'lodash';
 const debug = require('debug')('thisco:custom_video.js');
 const load = require('load-script');
 

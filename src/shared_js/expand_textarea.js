@@ -1,5 +1,5 @@
 const BlissfulJs = require('blissfuljs'); // module adds Bliss to window object for us, use Bliss. and Bliss.$. for $ and $$
-const { debounce } = require('lodash');
+import { debounce } from 'lodash';
 const debug = require('debug')('thisco:expand_textarea.js');
 
 module.exports = function(){

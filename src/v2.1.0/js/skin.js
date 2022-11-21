@@ -29,7 +29,6 @@ debug(`Revision: ${revision}`);
 
 const BlissfulJs = require('blissfuljs'); // module adds Bliss to window object for us
 import { forIn, fromPairs, startCase, trim } from 'lodash';
-import { parse } from 'papaparse';
 const markdown = require('markdown').markdown;
 const sanitizeHtml = require('sanitize-html');
 

@@ -82,8 +82,7 @@
     "sanitize-html": "^2.7.0",
     "socket.io-client": "^4.4.1",
     "util": "^0.12.4",
-    "video.js": "^7.20.3",
-    "videojs-vimeo": "github:videojs/videojs-vimeo"
+    "video.js": "^7.20.3"
   },
   "browserslist": [
     "last 2 versions",

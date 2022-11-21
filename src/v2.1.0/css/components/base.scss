@@ -284,61 +284,6 @@ body {
     }
   }
 
-  #HeaderContainer {
-    background-color: var(--thisco-light-grey);
-    position: fixed;
-    left: 0px;
-    width: 100vw;
-    z-index: 100;
-    top: 0px;
-    box-shadow: 0px 1px 10px rgb(0 0 0 / 0.1);
-    padding: 0px 1rem;
-    #Header {
-      height: 5rem;
-      padding-bottom: 0px;
-      @include thisco_logo();
-      background-repeat: no-repeat;
-      background-size: 10rem auto;
-      background-position: left 50%;
-
-      @include respond-above(sm) {
-        height: 6rem;
-        background-position: 1.6rem 50%;
-      }
-
-      @include respond-above(lg) {
-        background-position: calc(50vw - 700px) 50%;
-      }
-
-      .header-content {
-        height: 100%;
-        // width: clamp(80vw, 100%, 1400px);
-        width: 100%;
-        max-width: 1400px;
-        @include respond-above(lg) {
-          margin-left: calc(50vw - 700px);
-        }
-        display: grid;
-        grid-column-templates: 1fr 1fr 1fr;
-        align-items: center;
-
-        .back-button {
-          grid-column-start: 3;
-          max-width: 24ch;
-          font-size: 0.7em;
-          padding: 10px 12px;
-          text-align: right;
-          justify-self: flex-end;
-          margin-right: 0rem;
-          font-weight: 400;
-          @include respond-above(md) {
-            margin-right: 2rem;
-          }
-        }
-      }
-    }
-  }
-
   .QuestionText,
   .DB .QuestionText {
     color: inherit;
@@ -350,61 +295,6 @@ body {
 
   .QuestionOuter {
     padding: 0;
-  }
-
-  #Footer {
-    background-color: var(--thisco-light-grey);
-    position: absolute;
-    width: 100%;
-    max-width: initial;
-    margin-top: 0px;
-    padding: 5rem 1rem;
-    padding-bottom: 1rem;
-    width: 100vw;
-    font-size: 14px;
-
-    .footer-content {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-gap: 1em;
-      align-items: flex-end;
-      width: clamp(80vw, 100%, 1400px);
-      @include respond-above(lg) {
-        margin-left: calc(50vw - 700px);
-      }
-
-      @include respond-above(sm) {
-        grid-template-columns: 15rem 1fr;
-        padding-left: 2.1rem;
-      }
-
-      .logo-holder {
-        border-right: 2px solid rgb(58 60 66 / 0.25);
-      }
-
-      .logo-container {
-        display: inline-block;
-        height: 2rem;
-        margin-right: 1em;
-        margin-bottom: 0.8em;
-        img {
-          max-width: 100%;
-        }
-      }
-
-      .colophon {
-        ul {
-          list-style: none;
-          width: 100%;
-          padding: 0;
-          font-size: 0.75em;
-
-          li.policy-link {
-            font-size: 1.35em;
-          }
-        }
-      }
-    }
   }
 
   #SkinContent {
@@ -435,11 +325,133 @@ body {
   }
 }
 
-.thisco-survey {
+/* header and footer back compatability here for 2.1 and forwards for 2.2 */
+
+.Skin  #HeaderContainer, #thiscoHeaderContainer {
+  background-color: var(--thisco-light-grey);
+  position: fixed;
+  left: 0px;
+  width: 100vw;
+  z-index: 100;
+  top: 0px;
+  box-shadow: 0px 1px 10px rgb(0 0 0 / 0.1);
+  padding: 0px 1rem;
+  #Header, #thiscoHeader {
+    height: 5rem;
+    padding-bottom: 0px;
+    @include thisco_logo();
+    background-repeat: no-repeat;
+    background-size: 10rem auto;
+    background-position: left 50%;
+
+    @include respond-above(sm) {
+      height: 6rem;
+      background-position: 1.6rem 50%;
+    }
+
+    @include respond-above(lg) {
+      background-position: calc(50vw - 700px) 50%;
+    }
+
+    .header-content {
+      height: 100%;
+      // width: clamp(80vw, 100%, 1400px);
+      width: 100%;
+      max-width: 1400px;
+      @include respond-above(lg) {
+        margin-left: calc(50vw - 700px);
+      }
+      display: grid;
+      grid-column-templates: 1fr 1fr 1fr;
+      align-items: center;
+
+      .back-button {
+        grid-column-start: 3;
+        max-width: 24ch;
+        font-size: 0.7em;
+        padding: 10px 12px;
+        text-align: right;
+        justify-self: flex-end;
+        margin-right: 0rem;
+        font-weight: 400;
+        @include respond-above(md) {
+          margin-right: 2rem;
+        }
+      }
+    }
+  }
+}
+
+.Skin #Footer, #thiscoFooter {
+  background-color: var(--thisco-light-grey);
+  position: absolute;
+  width: 100%;
+  max-width: initial;
+  margin-top: 0px;
+  padding: 5rem 1rem;
+  padding-bottom: 1rem;
+  width: 100vw;
+  font-size: 14px;
+
+  .footer-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1em;
+    align-items: flex-end;
+    width: clamp(80vw, 100%, 1400px);
+    @include respond-above(lg) {
+      margin-left: calc(50vw - 700px);
+    }
+
+    @include respond-above(sm) {
+      grid-template-columns: 15rem 1fr;
+      padding-left: 2.1rem;
+    }
+
+    .logo-holder {
+      border-right: 2px solid rgb(58 60 66 / 0.25);
+    }
+
+    .logo-container {
+      display: inline-block;
+      height: 2rem;
+      margin-right: 1em;
+      margin-bottom: 0.8em;
+      img {
+        max-width: 100%;
+      }
+    }
+
+    .colophon {
+      ul {
+        list-style: none;
+        width: 100%;
+        padding: 0;
+        font-size: 0.75em;
+
+        li.policy-link {
+          font-size: 1.35em;
+        }
+
+        li.policy-link, li.copyright {
+          &:before {
+            display: none;
+          }
+        }
+
+      }
+    }
+  }
+}
+
+.thisco-survey, .thisco-base-styles {
   @include thisco_base();
   @include thisco_links();
   @include thisco_lists();
   @include thisco-headings();
+}
+
+.thisco-survey {
 
   @include respond-above(xs) {
     font-size: 18px;

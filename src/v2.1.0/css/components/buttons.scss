@@ -92,7 +92,7 @@ $breakpoints: (
     }
 }
 
-.Skin, .thisco-survey {
+.Skin, .thisco-survey, .thisco-base-styles {
     #Buttons {
         /* reset */
 
@@ -164,6 +164,10 @@ $breakpoints: (
             color: white;
             border-color: transparent;
         }
+    }
+
+    a.btn.thisco-btn:hover {
+        text-decoration: none;
     }
 
 }

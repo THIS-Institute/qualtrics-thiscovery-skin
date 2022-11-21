@@ -1,5 +1,5 @@
 const BlissfulJs = require('blissfuljs'); // module adds Bliss to window object for us, use Bliss. and Bliss.$. for $ and $$
-const { debounce, uniqueId, range, clamp } = require('lodash');
+import { uniqueId, range, clamp } from 'lodash';
 const debug = require('debug')('thisco:slideshow.js');
 
 module.exports = function(){

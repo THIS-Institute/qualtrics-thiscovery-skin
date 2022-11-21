@@ -1,5 +1,5 @@
 const BlissfulJs = require('blissfuljs'); // module adds Bliss to window object for us, use Bliss. and Bliss.$. for $ and $$
-const { some, isFunction, size } = require('lodash');
+import { some, isFunction } from 'lodash';
 const debug = require('debug')('thisco:validation.js');
 
 // makes use of disposableModal()

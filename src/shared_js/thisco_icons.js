@@ -1,5 +1,4 @@
 const debug = require('debug')('thisco:thisco_icons.js');
-import { SVG } from '@svgdotjs/svg.js';
 import { html, LitElement } from 'lit';
 
 const iconLib = {
@@ -46,7 +45,7 @@ module.exports = function(){
             else if (!iconTemplate.svg) return html`<span>${iconTemplate.fallback || '?'}</span>`;
             else {
                 const cont = document.createElement("span");
-                cont.appendChild(SVG(iconTemplate.svg).node);
+                cont.innerHTML = iconTemplate.svg;
                 return cont;
             }
         }

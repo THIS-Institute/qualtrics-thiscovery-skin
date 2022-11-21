@@ -1816,6 +1816,7 @@ Qualtrics codes:
   border-radius: 5px;
   font-size: 1em;
   padding: 0.2em 0.3em;
+  max-width: 100%;
   min-width: 70%;
   appearance: none;
   padding-right: 2em;
@@ -2094,6 +2095,7 @@ Qualtrics codes:
   border-radius: 5px;
   font-size: 1em;
   padding: 0.2em 0.3em;
+  max-width: 100%;
   min-width: 70%;
   appearance: none;
   padding-right: 2em;
@@ -5485,6 +5487,34 @@ thisco-icon {
   vertical-align: -0.16em;
   background-position: center;
   background-size: 100%;
+}
+
+body .curtain #SkinContent {
+  visibility: hidden !important;
+}
+/* Header, Footer externalisation etc */
+.Skin #HeaderContainer {
+  display: none !important;
+}
+
+/* grid layout to help persistent panel - requires obs to be outside .JFEContent DOM, fixed, but follows an anchoring el */
+.JFEContent {
+  display: grid;
+  background-color: white;
+  grid-template-columns: 0px auto 0rem 0px;
+}
+.JFEContent > * {
+  grid-column: 2/3;
+}
+@media (min-width: 768px) {
+  .JFEContent {
+    grid-template-columns: clamp(50vw - 384px, min(50vw - 384px, 100vw - 868px), 100vw) 668px 100px auto;
+  }
+}
+@media (min-width: 980px) {
+  .JFEContent {
+    grid-template-columns: clamp(50vw - 384px, min(50vw - 384px, 100vw - 868px), 100vw) 768px 100px auto;
+  }
 }
 
 /*# sourceMappingURL=skin.css.map */

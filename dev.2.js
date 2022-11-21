@@ -31,6 +31,11 @@ const top_choices = [
 
 async function go (){
 
+    let dev_pref = {};
+    if (fs.existsSync("./.dev_pref")) {
+        dev_pref = JSON.parse(fs.readFileSync("./.dev_pref",{encoding:'utf-8'}));
+    }
+
     log(chalk.grey("Available versions are:\n"));
     forIn(version_log,(value,key)=>{
         log(chalk.cyanBright(`${key}\t\t`)+chalk.yellow(`${value}`));
@@ -117,7 +122,7 @@ async function go (){
         case "D":
             prompt = new Input({
                 message : 'Enter a URL or local file to work from:',
-                initial : '/test_pages/index.html'
+                initial : dev_pref.last_target || '/test_pages/index.html'
             });
             const target = await prompt.run();
 
@@ -126,6 +131,8 @@ async function go (){
                 log(chalk.redBright("Cannot find this filename"));
                 return go();
             }
+
+            dev_pref.last_target = target;
 
             choices = Object.keys(version_log).map(k=>({message:`${k} : ${version_log[k]}`,value:k}));
             prompt = new Select({
@@ -146,6 +153,9 @@ async function go (){
                 message : "Include skinjob.js?"
             });
             const conf_skinjob = await prompt.run();
+
+            // save dev_pref
+            fs.writeFileSync('./.dev_pref',JSON.stringify(dev_pref),{encoding:'utf-8'});
 
             // runs npm processes in package json
             let tasks = `TG_VERSION=${version_choice} run-p watch:js watch:scss`;

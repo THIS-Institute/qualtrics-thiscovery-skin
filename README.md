@@ -19,6 +19,7 @@ Javascript and CSS to customise Qualtrics surveys
 
 - 2.0.0 - simple header and footer over existing CSS shims (so requires both sets of CSS and js in header snippet) - this is still used in most live surveys
 - 2.1.0 - new ground-up rewrite of the skin CSS (ie. not using existing CSS and JS, so will be backwardly _incompatible_ with older surveys) - new projects will start to use this skin
+- 2.2.0 - same CSS as 2.1.x but re-organising script into setup() and update() to better leverage Qualtrics cycle
 - 3.0.0 - takes all CSS from 2.1.x but strips it of Qualitrics styles (anything '.Skin *' as selector) - not in any production use yet
 
 ## Installation

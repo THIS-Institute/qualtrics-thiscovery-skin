@@ -1,5 +1,5 @@
 const BlissfulJs = require('blissfuljs'); // module adds Bliss to window object for us, use Bliss. and Bliss.$. for $ and $$
-const { isNull, isArray, last, debounce, uniqueId, isUndefined, findIndex, concat, unset, startsWith, isString } = require('lodash');
+import { isNull, isArray, last, debounce, uniqueId, isUndefined, findIndex, concat, unset, startsWith, isString } from 'lodash';
 const debug = require('debug')('thisco:multiline_text.js');
 
 const MULTILINE_VERSION = "1.0.0";
