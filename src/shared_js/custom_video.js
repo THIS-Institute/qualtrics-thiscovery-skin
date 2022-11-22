@@ -26,7 +26,6 @@ module.exports = function(){
         const no_controls = el.classList.contains("play-only");
         const no_picture_in_picture = el.classList.contains("no-pic-in-pic");
         const force_fullscreen = el.classList.contains("force-fullscreen");
-        debug({no_controls})
         if (!src) {
             console.warn("Thiscovery: attempted video element being instantiated without a source"); return;
         }
@@ -105,6 +104,8 @@ module.exports = function(){
             videoElements.forEach(el=>{
 
                 const id = el.dataset.containerId;
+                const track = el.dataset?.track || null;
+                const hasSubs = track !== null; // this all presumes one subtitle track v. languages AND closed captions **LATER VERSION**        
                 const play_once = el.classList.contains("play-once");
                 const force_fullscreen = el.classList.contains("force-fullscreen");
                 const player = videojs(id);
@@ -134,10 +135,28 @@ module.exports = function(){
                         return;
                     }
                 };
+                const handleSubsButton = (evt)=>{
+                    const subsButt = evt.currentTarget || Bliss(`button#cc_${id}`);
+                    if (!subsButt) return;
+                    evt.stopPropagation();
+                    subsButt.blur();
+
+                    const subtitles = player.textTracks()[0] || {}; // presumes only one captions track
+
+                    if (subsButt.classList.contains("inactive")) {
+                        subsButt.classList.remove("inactive");
+                        subsButt.innerHTML = `Subtitles <thisco-icon icon="check"></thisco-icon>`;
+                        subtitles.mode = "showing";
+                    } else {
+                        subsButt.classList.add("inactive");
+                        subsButt.innerHTML = `Subtitles <thisco-icon icon="cross"></thisco-icon>`;
+                        subtitles.mode = "hidden";
+                    }
+                };
                 const handleVideoEnd = (evt)=>{
                     const playButt = Bliss(`button#play_${id}`);
                     playButt.classList.remove("is-playing");
-                    player.exitFullscreen();
+                    if (player.isFullscreen()) player.exitFullscreen();
                     if (play_once) {
                         playButt.innerHTML = "End of video";
                         playButt._.set({disabled:true});
@@ -150,8 +169,9 @@ module.exports = function(){
                     }
                 };
                 player.ready(()=>{
-                    Bliss(`#controls_${id}`).classList.remove('controls-unready');
-                    Bliss(`button#play_${id}`).addEventListener('click',handlePlayPauseButton);
+                    if (Bliss(`#controls_${id}`)) Bliss(`#controls_${id}`).classList.remove('controls-unready');
+                    if (Bliss(`button#play_${id}`)) Bliss(`button#play_${id}`).addEventListener('click',handlePlayPauseButton);
+                    if (Bliss(`button#cc_${id}`)) Bliss(`button#cc_${id}`).addEventListener('click',handleSubsButton);
                     Bliss(`#${id}>video`).addEventListener('ended',handleVideoEnd);
                     Bliss(`#${id}>video`).addEventListener('keypress',(evt)=>{
                         if (![evt.code,evt.key].includes("Space")) {

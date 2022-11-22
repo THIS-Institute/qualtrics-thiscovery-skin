@@ -57,6 +57,9 @@ $breakpoints: (
     color: white;
     cursor: pointer;
     box-shadow: none;
+    &:focus-visible {
+        outline: none;
+    }
     &:hover, &:active, &:focus {
         transform: scale(1.03);
         background-color: transparent;
@@ -68,11 +71,19 @@ $breakpoints: (
     &.inactive {
         background-color: var(--thisco-dark-grey);
         border-color: var(--thisco-dark-grey);
+        &:hover, &:active, &:focus {
+            border-color: inherit;
+        }
+
     }
     &.no-invert {
         &:hover, &:active, &:focus {
             background-color: $col;
             color: white;
+            border-color : var(--thisco-red);
+        }
+        &:focus-visible {
+            box-shadow: 0px 0px 3px 2px var(--thisco-red) !important;
         }
     }
     &[disabled] {

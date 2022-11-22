@@ -1131,6 +1131,9 @@ body {
   cursor: pointer;
   box-shadow: none;
 }
+.Skin #Buttons #NextButton:focus-visible, .Skin #Buttons #PreviousButton:focus-visible, .thisco-survey #Buttons #NextButton:focus-visible, .thisco-survey #Buttons #PreviousButton:focus-visible, .thisco-base-styles #Buttons #NextButton:focus-visible, .thisco-base-styles #Buttons #PreviousButton:focus-visible {
+  outline: none;
+}
 .Skin #Buttons #NextButton:hover, .Skin #Buttons #NextButton:active, .Skin #Buttons #NextButton:focus, .Skin #Buttons #PreviousButton:hover, .Skin #Buttons #PreviousButton:active, .Skin #Buttons #PreviousButton:focus, .thisco-survey #Buttons #NextButton:hover, .thisco-survey #Buttons #NextButton:active, .thisco-survey #Buttons #NextButton:focus, .thisco-survey #Buttons #PreviousButton:hover, .thisco-survey #Buttons #PreviousButton:active, .thisco-survey #Buttons #PreviousButton:focus, .thisco-base-styles #Buttons #NextButton:hover, .thisco-base-styles #Buttons #NextButton:active, .thisco-base-styles #Buttons #NextButton:focus, .thisco-base-styles #Buttons #PreviousButton:hover, .thisco-base-styles #Buttons #PreviousButton:active, .thisco-base-styles #Buttons #PreviousButton:focus {
   transform: scale(1.03);
   background-color: transparent;
@@ -1143,9 +1146,16 @@ body {
   background-color: var(--thisco-dark-grey);
   border-color: var(--thisco-dark-grey);
 }
+.Skin #Buttons #NextButton.inactive:hover, .Skin #Buttons #NextButton.inactive:active, .Skin #Buttons #NextButton.inactive:focus, .Skin #Buttons #PreviousButton.inactive:hover, .Skin #Buttons #PreviousButton.inactive:active, .Skin #Buttons #PreviousButton.inactive:focus, .thisco-survey #Buttons #NextButton.inactive:hover, .thisco-survey #Buttons #NextButton.inactive:active, .thisco-survey #Buttons #NextButton.inactive:focus, .thisco-survey #Buttons #PreviousButton.inactive:hover, .thisco-survey #Buttons #PreviousButton.inactive:active, .thisco-survey #Buttons #PreviousButton.inactive:focus, .thisco-base-styles #Buttons #NextButton.inactive:hover, .thisco-base-styles #Buttons #NextButton.inactive:active, .thisco-base-styles #Buttons #NextButton.inactive:focus, .thisco-base-styles #Buttons #PreviousButton.inactive:hover, .thisco-base-styles #Buttons #PreviousButton.inactive:active, .thisco-base-styles #Buttons #PreviousButton.inactive:focus {
+  border-color: inherit;
+}
 .Skin #Buttons #NextButton.no-invert:hover, .Skin #Buttons #NextButton.no-invert:active, .Skin #Buttons #NextButton.no-invert:focus, .Skin #Buttons #PreviousButton.no-invert:hover, .Skin #Buttons #PreviousButton.no-invert:active, .Skin #Buttons #PreviousButton.no-invert:focus, .thisco-survey #Buttons #NextButton.no-invert:hover, .thisco-survey #Buttons #NextButton.no-invert:active, .thisco-survey #Buttons #NextButton.no-invert:focus, .thisco-survey #Buttons #PreviousButton.no-invert:hover, .thisco-survey #Buttons #PreviousButton.no-invert:active, .thisco-survey #Buttons #PreviousButton.no-invert:focus, .thisco-base-styles #Buttons #NextButton.no-invert:hover, .thisco-base-styles #Buttons #NextButton.no-invert:active, .thisco-base-styles #Buttons #NextButton.no-invert:focus, .thisco-base-styles #Buttons #PreviousButton.no-invert:hover, .thisco-base-styles #Buttons #PreviousButton.no-invert:active, .thisco-base-styles #Buttons #PreviousButton.no-invert:focus {
   background-color: var(--thisco-red);
   color: white;
+  border-color: var(--thisco-red);
+}
+.Skin #Buttons #NextButton.no-invert:focus-visible, .Skin #Buttons #PreviousButton.no-invert:focus-visible, .thisco-survey #Buttons #NextButton.no-invert:focus-visible, .thisco-survey #Buttons #PreviousButton.no-invert:focus-visible, .thisco-base-styles #Buttons #NextButton.no-invert:focus-visible, .thisco-base-styles #Buttons #PreviousButton.no-invert:focus-visible {
+  box-shadow: 0px 0px 3px 2px var(--thisco-red) !important;
 }
 .Skin #Buttons #NextButton[disabled], .Skin #Buttons #PreviousButton[disabled], .thisco-survey #Buttons #NextButton[disabled], .thisco-survey #Buttons #PreviousButton[disabled], .thisco-base-styles #Buttons #NextButton[disabled], .thisco-base-styles #Buttons #PreviousButton[disabled] {
   pointer-events: none;
@@ -1171,6 +1181,9 @@ body {
   box-shadow: none;
   grid-row-start: 2;
 }
+.Skin #Buttons #PreviousButton:focus-visible, .thisco-survey #Buttons #PreviousButton:focus-visible, .thisco-base-styles #Buttons #PreviousButton:focus-visible {
+  outline: none;
+}
 .Skin #Buttons #PreviousButton:hover, .Skin #Buttons #PreviousButton:active, .Skin #Buttons #PreviousButton:focus, .thisco-survey #Buttons #PreviousButton:hover, .thisco-survey #Buttons #PreviousButton:active, .thisco-survey #Buttons #PreviousButton:focus, .thisco-base-styles #Buttons #PreviousButton:hover, .thisco-base-styles #Buttons #PreviousButton:active, .thisco-base-styles #Buttons #PreviousButton:focus {
   transform: scale(1.03);
   background-color: transparent;
@@ -1183,9 +1196,16 @@ body {
   background-color: var(--thisco-dark-grey);
   border-color: var(--thisco-dark-grey);
 }
+.Skin #Buttons #PreviousButton.inactive:hover, .Skin #Buttons #PreviousButton.inactive:active, .Skin #Buttons #PreviousButton.inactive:focus, .thisco-survey #Buttons #PreviousButton.inactive:hover, .thisco-survey #Buttons #PreviousButton.inactive:active, .thisco-survey #Buttons #PreviousButton.inactive:focus, .thisco-base-styles #Buttons #PreviousButton.inactive:hover, .thisco-base-styles #Buttons #PreviousButton.inactive:active, .thisco-base-styles #Buttons #PreviousButton.inactive:focus {
+  border-color: inherit;
+}
 .Skin #Buttons #PreviousButton.no-invert:hover, .Skin #Buttons #PreviousButton.no-invert:active, .Skin #Buttons #PreviousButton.no-invert:focus, .thisco-survey #Buttons #PreviousButton.no-invert:hover, .thisco-survey #Buttons #PreviousButton.no-invert:active, .thisco-survey #Buttons #PreviousButton.no-invert:focus, .thisco-base-styles #Buttons #PreviousButton.no-invert:hover, .thisco-base-styles #Buttons #PreviousButton.no-invert:active, .thisco-base-styles #Buttons #PreviousButton.no-invert:focus {
   background-color: var(--thisco-dark-grey);
   color: white;
+  border-color: var(--thisco-red);
+}
+.Skin #Buttons #PreviousButton.no-invert:focus-visible, .thisco-survey #Buttons #PreviousButton.no-invert:focus-visible, .thisco-base-styles #Buttons #PreviousButton.no-invert:focus-visible {
+  box-shadow: 0px 0px 3px 2px var(--thisco-red) !important;
 }
 .Skin #Buttons #PreviousButton[disabled], .thisco-survey #Buttons #PreviousButton[disabled], .thisco-base-styles #Buttons #PreviousButton[disabled] {
   pointer-events: none;
@@ -1208,6 +1228,9 @@ body {
   cursor: pointer;
   box-shadow: none;
 }
+.Skin .btn.thisco-btn:focus-visible, .thisco-survey .btn.thisco-btn:focus-visible, .thisco-base-styles .btn.thisco-btn:focus-visible {
+  outline: none;
+}
 .Skin .btn.thisco-btn:hover, .Skin .btn.thisco-btn:active, .Skin .btn.thisco-btn:focus, .thisco-survey .btn.thisco-btn:hover, .thisco-survey .btn.thisco-btn:active, .thisco-survey .btn.thisco-btn:focus, .thisco-base-styles .btn.thisco-btn:hover, .thisco-base-styles .btn.thisco-btn:active, .thisco-base-styles .btn.thisco-btn:focus {
   transform: scale(1.03);
   background-color: transparent;
@@ -1220,9 +1243,16 @@ body {
   background-color: var(--thisco-dark-grey);
   border-color: var(--thisco-dark-grey);
 }
+.Skin .btn.thisco-btn.inactive:hover, .Skin .btn.thisco-btn.inactive:active, .Skin .btn.thisco-btn.inactive:focus, .thisco-survey .btn.thisco-btn.inactive:hover, .thisco-survey .btn.thisco-btn.inactive:active, .thisco-survey .btn.thisco-btn.inactive:focus, .thisco-base-styles .btn.thisco-btn.inactive:hover, .thisco-base-styles .btn.thisco-btn.inactive:active, .thisco-base-styles .btn.thisco-btn.inactive:focus {
+  border-color: inherit;
+}
 .Skin .btn.thisco-btn.no-invert:hover, .Skin .btn.thisco-btn.no-invert:active, .Skin .btn.thisco-btn.no-invert:focus, .thisco-survey .btn.thisco-btn.no-invert:hover, .thisco-survey .btn.thisco-btn.no-invert:active, .thisco-survey .btn.thisco-btn.no-invert:focus, .thisco-base-styles .btn.thisco-btn.no-invert:hover, .thisco-base-styles .btn.thisco-btn.no-invert:active, .thisco-base-styles .btn.thisco-btn.no-invert:focus {
   background-color: var(--thisco-red);
   color: white;
+  border-color: var(--thisco-red);
+}
+.Skin .btn.thisco-btn.no-invert:focus-visible, .thisco-survey .btn.thisco-btn.no-invert:focus-visible, .thisco-base-styles .btn.thisco-btn.no-invert:focus-visible {
+  box-shadow: 0px 0px 3px 2px var(--thisco-red) !important;
 }
 .Skin .btn.thisco-btn[disabled], .thisco-survey .btn.thisco-btn[disabled], .thisco-base-styles .btn.thisco-btn[disabled] {
   pointer-events: none;
@@ -1277,6 +1307,9 @@ body {
   align-items: center;
   transition: all 0.15s linear;
 }
+.close-dialog-button:focus-visible {
+  outline: none;
+}
 .close-dialog-button:hover, .close-dialog-button:active, .close-dialog-button:focus {
   transform: scale(1.03);
   background-color: transparent;
@@ -1289,9 +1322,16 @@ body {
   background-color: var(--thisco-dark-grey);
   border-color: var(--thisco-dark-grey);
 }
+.close-dialog-button.inactive:hover, .close-dialog-button.inactive:active, .close-dialog-button.inactive:focus {
+  border-color: inherit;
+}
 .close-dialog-button.no-invert:hover, .close-dialog-button.no-invert:active, .close-dialog-button.no-invert:focus {
   background-color: var(--thisco-red);
   color: white;
+  border-color: var(--thisco-red);
+}
+.close-dialog-button.no-invert:focus-visible {
+  box-shadow: 0px 0px 3px 2px var(--thisco-red) !important;
 }
 .close-dialog-button[disabled] {
   pointer-events: none;
@@ -1816,6 +1856,7 @@ Qualtrics codes:
   border-radius: 5px;
   font-size: 1em;
   padding: 0.2em 0.3em;
+  max-width: 100%;
   min-width: 70%;
   appearance: none;
   padding-right: 2em;
@@ -2094,6 +2135,7 @@ Qualtrics codes:
   border-radius: 5px;
   font-size: 1em;
   padding: 0.2em 0.3em;
+  max-width: 100%;
   min-width: 70%;
   appearance: none;
   padding-right: 2em;

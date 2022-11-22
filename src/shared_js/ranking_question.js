@@ -3,7 +3,7 @@ import { debounce, startsWith, isString, clamp, inRange, sortBy } from 'lodash';
 import { wrapGrid } from 'animate-css-grid'
 const debug = require('debug')('thisco:ranking_question.js');
 
-const RANKING_VERSION = "1.1.2";
+const RANKING_VERSION = "1.1.3";
 
 // ranking question
 // to create 1-x ranked list out of x+ items
@@ -202,10 +202,24 @@ module.exports = function(){
                 });
             };
 
+            const postRankings = ()=>{
+                // QUALTRICS HACK COS QUALTRICS SUCKS
+                let result = {};
+                let rows = sortBy(Bliss.$(".ranking-item"),item=>parseInt(item.dataset.rankValue));
+                rows.forEach((item,i)=>{
+                    if (item.dataset.rankValue == "null") return;
+                    const rank = parseInt(item.dataset.rankValue);
+                    const text = (Bliss("label",item) || {}).innerText;
+                    result[`preference${rank}`] = text;
+                });
+                window.thiscoRankingResult = result;
+            };
+
             const debounced = debounce((evt)=>{
                 rankContainer.classList.remove("indeterminate");
                 handleRankChange(evt);
                 updateRowClasses();
+                postRankings();
             },DEBOUNCE_RANKING);
 
             Bliss.$('.ranking-item',rankContainer).forEach(item=>{
