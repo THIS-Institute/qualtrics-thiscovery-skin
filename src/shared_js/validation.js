@@ -2,6 +2,8 @@ const BlissfulJs = require('blissfuljs'); // module adds Bliss to window object 
 import { some, isFunction } from 'lodash';
 const debug = require('debug')('thisco:validation.js');
 
+const emitter = require('tiny-emitter/instance');
+
 // makes use of disposableModal()
 
 // in Qualtrics we can intercept the Next button
@@ -89,6 +91,7 @@ module.exports = function(){
         },{capture:true});
 
         // add a MutationObserver to modalise any error message Qualtrics adds
+        // NOT a great method but Qualtrics timing hard to divine here
 
         if (window.MutationObserver) {
             Bliss.$(".ValidationError").forEach(el=>{
@@ -99,7 +102,8 @@ module.exports = function(){
                     const currentText = el.innerText;
                     const isVisible = el.offsetParent !== null;
                     if ((currentText !== "") && isVisible) {
-                        disposableModal({bodyHtml:currentText,modalParent:el.parentNode});
+                        // disposableModal({bodyHtml:currentText,modalParent:el.parentNode});
+                        emitter.emit("addMessage",currentText);
                         return;
                     }
                     return;

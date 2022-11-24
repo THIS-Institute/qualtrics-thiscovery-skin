@@ -100,7 +100,6 @@ $breakpoints: (
   font-weight: 100;
   font-size: 18px;
   line-height: 1.4;
-  background-color: white;
 }
 
 @mixin thisco_focus() {
@@ -229,6 +228,7 @@ body {
 
 .Skin {
   @include thisco_base();
+  background-color: white;
 
   @include respond-above(xs) {
     font-size: 18px;
@@ -444,7 +444,7 @@ body {
   }
 }
 
-.thisco-survey, .thisco-base-styles {
+.thisco-survey, .thisco-base-styles, body>.dialog-container {
   @include thisco_base();
   @include thisco_links();
   @include thisco_lists();
@@ -452,6 +452,8 @@ body {
 }
 
 .thisco-survey {
+
+  background-color: white;
 
   @include respond-above(xs) {
     font-size: 18px;

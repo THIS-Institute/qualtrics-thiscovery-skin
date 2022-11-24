@@ -6,14 +6,20 @@
 
 /* REVISIONS 
 
+2 - adding message watcher
+
 */
 
-const debug = require("debug")("thisco:skin.js");
+const {Qid} = require("qid");
+const instance = Qid();
+
+let debug = require("debug")("thisco:skin.js");
+debug = debug.extend(instance);
 
 const version = "2.2.0";
 debug(`Thiscovery survey skin version ${version}`);
 
-const revision = 1;
+const revision = 2;
 debug(`Revision: ${revision}`);
 
 /*! modernizr 3.6.0 (Custom Build) | MIT *
@@ -28,6 +34,9 @@ const BlissfulJs = require('blissfuljs');
 const { debounce, trim, forIn, fromPairs, startCase } = require("lodash");
 const markdown = require('markdown').markdown;
 const sanitizeHtml = require('sanitize-html');
+const shortHash = require('short-hash');
+
+const emitter = require("tiny-emitter/instance");
 
 const modalHtml = {
     "cookies" : markdown.toHTML( require("../../md/personal_information.md") ),
@@ -91,6 +100,31 @@ const update = ()=>{
 
     require("../../shared_js/thisco_modals.js")();
 
+    // handle modal alert messages HERE FOR NOW
+
+    window.thiscoMessages = [];
+    emitter.on("addMessage",(message)=>{
+        debug({thiscoMessages});
+        const messageId = shortHash(message);
+        if (thiscoMessages.filter(m=>m.active).map(m=>m.message).includes(message)) {
+            debug("already got this message");
+            return;
+        }
+        else {
+            debug({thiscoMessages});
+            const msgObj = {
+                messageId,
+                message,
+                active : true
+            };
+            thiscoMessages.push(msgObj);
+            setTimeout(()=>{
+                msgObj.active = false;
+            },1500);
+            disposableModal({bodyHtml:message});
+        }
+    });
+
     // link buttons
 
     require("../../shared_js/link_buttons.js")();
@@ -109,7 +143,7 @@ const update = ()=>{
 
     // custom validation interception
 
-    // require("../../shared_js/validation.js")();
+    require("../../shared_js/validation.js")();
 
     // slideshows
 
