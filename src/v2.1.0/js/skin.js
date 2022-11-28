@@ -61,6 +61,17 @@ Bliss.$("link[rel='stylesheet']").forEach(el=>{
     }
 });
 
+// switch favicon and title
+
+let iconLink = Bliss(`link[rel="icon]`);
+if (!iconLink) {
+    iconLink = Bliss.create("link",{rel:"icon"});
+    Bliss('head').appendChild(iconLink);
+}
+iconLink.href = "https://www.thiscovery.org/favicon-32x32.png"; 
+
+document.title = "Thiscovery";
+
 // markup additions
 
 // horizontal radio group into notched scale (NOT a range input)
