@@ -61,7 +61,7 @@ $breakpoints: (
     position: absolute;
     left:($radio-size * 0.7);
     top:($radio-size * 1); // half line height?
-    margin-top: 0;
+    margin-top: 0.15em;
 }
 
 @mixin thiscovery-radio-button-checked () {
@@ -247,6 +247,10 @@ $label-background: linear-gradient(45deg, transparent, rgb(0 0 0 / 0.05) 50%);
             }
             .LabelWrapper {
                 margin-left: 2rem;
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+                align-items: center;
                 label.MultipleAnswer, label.SingleAnswer {
                     padding: 5px;
                     > span {
@@ -298,7 +302,10 @@ $label-background: linear-gradient(45deg, transparent, rgb(0 0 0 / 0.05) 50%);
                 }
                 input.TextEntryBox {
                     // margin-left: 5px;
-                    // margin-bottom: .4em;
+                    margin-top: .4em;
+                    margin-bottom: .4em;
+                    flex: 50%;
+                    height: 1.6em;
                 }
             }
             input:not(:checked) ~ span {

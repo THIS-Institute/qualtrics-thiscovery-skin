@@ -1931,6 +1931,10 @@ Qualtrics codes:
 }
 .Skin ul.ChoiceStructure > li:not(.ChoiceGroup) .LabelWrapper, .Skin ul.ChoiceGroupStructure > li:not(.ChoiceGroup) .LabelWrapper {
   margin-left: 2rem;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
 }
 .Skin ul.ChoiceStructure > li:not(.ChoiceGroup) .LabelWrapper label.MultipleAnswer, .Skin ul.ChoiceStructure > li:not(.ChoiceGroup) .LabelWrapper label.SingleAnswer, .Skin ul.ChoiceGroupStructure > li:not(.ChoiceGroup) .LabelWrapper label.MultipleAnswer, .Skin ul.ChoiceGroupStructure > li:not(.ChoiceGroup) .LabelWrapper label.SingleAnswer {
   padding: 5px;
@@ -1964,7 +1968,7 @@ Qualtrics codes:
   position: absolute;
   left: 0.42em;
   top: 0.6em;
-  margin-top: 0;
+  margin-top: 0.15em;
   top: 0px;
   left: -1.68em;
 }
@@ -1987,7 +1991,7 @@ Qualtrics codes:
   position: absolute;
   left: 0.42em;
   top: 0.6em;
-  margin-top: 0;
+  margin-top: 0.15em;
   background-color: transparent;
   background-size: 200% 200%;
   top: 0px;
@@ -2002,6 +2006,12 @@ Qualtrics codes:
   background-image: url("data:image/svg+xml,%3Csvg width='100%25' height='100%25' viewBox='0 0 24 20' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xml:space='preserve' xmlns:serif='http://www.serif.com/' style='fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;'%3E%3Cpath id='check' d='M23.051,2.843l-14.151,15.977c-0.19,0.214 -0.463,0.337 -0.749,0.337c-0.275,0 -0.538,-0.113 -0.727,-0.313l-7.152,-7.573c-0.341,-0.361 -0.364,-0.924 -0.054,-1.311l0.952,-1.19c0.293,-0.367 0.808,-0.48 1.228,-0.27l5.277,2.639l12.797,-10.902c0.395,-0.336 0.989,-0.312 1.356,0.055l1.181,1.181c0.372,0.372 0.39,0.977 0.042,1.37Z' style='fill:%23fff;fill-rule:nonzero;'/%3E%3C/svg%3E");
   background-size: 110%;
   border-color: transparent;
+}
+.Skin ul.ChoiceStructure > li:not(.ChoiceGroup) .LabelWrapper input.TextEntryBox, .Skin ul.ChoiceGroupStructure > li:not(.ChoiceGroup) .LabelWrapper input.TextEntryBox {
+  margin-top: 0.4em;
+  margin-bottom: 0.4em;
+  flex: 50%;
+  height: 1.6em;
 }
 .Skin ul.ChoiceStructure > li:not(.ChoiceGroup) input:not(:checked) ~ span input, .Skin ul.ChoiceGroupStructure > li:not(.ChoiceGroup) input:not(:checked) ~ span input {
   color: rgba(0, 0, 0, 0.3);
@@ -2200,7 +2210,7 @@ Qualtrics codes:
   position: absolute;
   left: 0.42em;
   top: 0.6em;
-  margin-top: 0;
+  margin-top: 0.15em;
 }
 .thisco-survey form fieldset input[type=radio]:not(.likert-input):checked + label::before, .thisco-survey form fieldset input[type=checkbox]:checked + label::before {
   background-color: transparent;
