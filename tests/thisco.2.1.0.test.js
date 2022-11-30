@@ -135,6 +135,7 @@ test('test', async ({ page }) => {
 
   // Click [aria-label="Next"]
   await page.locator('[aria-label="Next"]').click();
+  await wait(500); // give script time to clear the hyperlink
   // Click text=This should be the correctly styled button that opens the modal.
   await page.locator('text=This should be the correctly styled button that opens the modal.').click();
   // Click text=× Close
