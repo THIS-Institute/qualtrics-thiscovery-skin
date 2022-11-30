@@ -167,7 +167,11 @@ const update = ()=>{
 
     require("../../shared_js/thisco_icons.js")();
 
-   jfeContent.insertAdjacentHTML("beforeend",`<div class="thisco-obs-follow"></div>`);
+    // misc fixes
+
+    require("../../shared_js/misc_fixes.js")();
+
+   jfeContent.insertAdjacentHTML("beforeend",`<div class="thisco-obs-follow" style="position:relative"><a style="position:absolute;"></a></div>`);
     
     jfeContent.classList.remove('curtain');
 
@@ -196,7 +200,16 @@ const setup = ()=>{
         }
     });
 
+    // switch favicon and title
 
+    let iconLink = Bliss(`link[rel="icon]`);
+    if (!iconLink) {
+        iconLink = Bliss.create("link",{rel:"icon"});
+        Bliss('head').appendChild(iconLink);
+    }
+    iconLink.href = "https://www.thiscovery.org/favicon-32x32.png"; 
+
+    document.title = "Thiscovery";
 
     // set up external header, footer and obs areas from Qualtrics refresh zone
 
@@ -206,6 +219,19 @@ const setup = ()=>{
         <div class="thisco-obs thisco-base-styles" id="thiscoObs"></div>
     `;
     jfeContent.insertAdjacentHTML("afterend",thContainers);
+
+    // set up #thiscoObs
+    // follow left position of .thisco-obs-follow
+
+    const followObs = ()=>{
+        const thiscoObsFollow = Bliss(".thisco-obs-follow > a");
+        const obs = Bliss("#thiscoObs");
+        if (!thiscoObsFollow || !obs) return;
+        const r = thiscoObsFollow.getBoundingClientRect();
+        obs._.style({left:`${r.left}px`});
+        return;
+    };
+    window.addEventListener("resize",followObs);
 
     // colophon modal builders
 

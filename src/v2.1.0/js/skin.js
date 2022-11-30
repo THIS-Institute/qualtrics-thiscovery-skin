@@ -175,6 +175,10 @@ require("../../shared_js/custom_video.js")();
 
 require("../../shared_js/thisco_icons.js")();
 
+// misc fixes
+
+require("../../shared_js/misc_fixes.js")();
+
 // header
 
 const header = document.getElementById("Header");

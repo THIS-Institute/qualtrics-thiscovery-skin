@@ -60,6 +60,12 @@ $main-max-width : 768px;
     > * {
         grid-column: 2 / 3;
     }
+    > .thisco-obs-follow {
+      grid-column: 3 / 4;
+      > a {
+        opacity: 0;
+      }
+    }
     @include respond-above(sm) {
         grid-template-columns: 
             clamp(calc(50vw - ($main-max-width/2)), min(calc(50vw - ($main-max-width/2)),calc(100vw - ($main-max-width + $obs-width))), 100vw) 
