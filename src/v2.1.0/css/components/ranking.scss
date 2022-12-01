@@ -144,7 +144,7 @@ fieldset.ranking-question {
         background-position: center;
         background-color: $thisco-red;
         border-radius: 999px;
-        transform: rotate(90deg); // this was a strange choice ¯\_(ツ)_/¯
+        rotate: 90deg; // this was a strange choice ¯\_(ツ)_/¯
 
         &:active {
             transform: scale(0.8);
