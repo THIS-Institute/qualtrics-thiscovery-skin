@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import wait from 'wait';
 
-const THIS_TESTS = "2.1.0";
+const THIS_TESTS = "2.2.0";
 const THIS_SURVEY_URL = require('./thisco_testing_config.json')['test_surveys'][THIS_TESTS];
 
 test('test', async ({ page }) => {

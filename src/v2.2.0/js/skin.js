@@ -170,9 +170,67 @@ const update = ()=>{
     // misc fixes
 
     require("../../shared_js/misc_fixes.js")();
+// consent form Qualtrics addition
 
-   jfeContent.insertAdjacentHTML("beforeend",`<div class="thisco-obs-follow" style="position:relative"><a style="position:absolute;"></a></div>`);
-    
+const processHtml = (dirty)=>sanitizeHtml(dirty, {
+    allowedTags : ["a","ul","li","strong","b","i","em"],
+    allowedAttributes : {
+        "a": ["href","alt"]
+    }
+})
+
+    // .consent-checklist must be only used once per consent block
+    const isConsentForm = Bliss.$(".consent-checklist").length > 0;
+    if (isConsentForm) {
+        Bliss.$(".consent-checklist").forEach(checklist=>{
+            let fset = checklist.closest("fieldset");
+            checklist.className.split(" ").forEach(cl=>{
+                fset.classList.add(cl);
+            });
+            if (fset.classList.contains('consent-switches')) {
+                Bliss.$(".ChoiceStructure label",fset).forEach(label=>{
+                    label.appendChild(Bliss.create("button",{
+                        className : "consent-switch",
+                        contents : [
+                            {tag:"span",contents:"Yes"},
+                            {tag:"span",contents:"No"}
+                        ]
+                    }))
+                });
+            }
+            checklist.className = "";
+        });
+
+        if (!window.Qualtrics) throw ("Unable to set up consent webhook - no Qualtrics on global object");
+        Qualtrics.SurveyEngine.addOnPageSubmit(function(){
+            let statements = [];
+            // Pull any instance of a consent checklist
+            Bliss.$(".consent-checklist").forEach(checklist=>{
+                let fset = checklist.closest("fieldset");
+                // cycle through checkbox inputs
+                Bliss.$("input[type='checkbox']",checklist).forEach(stControl=>{
+                    // pull statement HTML from the input's parent list item, tidy up and trim
+                    const text = trim(processHtml(stControl.closest("li").innerHTML).replace(/YesNo/g,""));
+                    // add to statements array 
+                    const agreement = stControl.checked ? "Yes" : "No";
+                    statements.push(fromPairs([[text,agreement]]));
+                });
+            });
+            if (THISCO_DEV) {
+                debug(`I would have attached : ${JSON.stringify(statements)}`);
+            }
+            else {
+                Qualtrics.SurveyEngine.setEmbeddedData('consent_statements', JSON.stringify(statements));
+            }
+        });
+    ;
+
+    }
+
+    // --> end updates
+    // 2.2 stuff -->
+
+    jfeContent.insertAdjacentHTML("beforeend",`<div class="thisco-obs-follow" style="position:relative"><a style="position:absolute;"></a></div>`);
     jfeContent.classList.remove('curtain');
 
 }
