@@ -3226,7 +3226,7 @@ fieldset.ranking-question .input-number-wrapper button {
   background-position: center;
   background-color: #dd0031;
   border-radius: 999px;
-  transform: rotate(90deg);
+  rotate: 90deg;
 }
 fieldset.ranking-question .input-number-wrapper button:active {
   transform: scale(0.8);
@@ -3239,13 +3239,16 @@ fieldset.ranking-question .input-number-wrapper button.button-increment {
   background-image: linear-gradient(#f9d2dc, #f9d2dc), linear-gradient(#f9d2dc, #f9d2dc), radial-gradient(circle at center, #dd0031 60%, transparent 61%);
   background-size: 1rem 3px, 3px 1rem, 100% 100%;
 }
+fieldset.ranking-question .ranking-container:not(.indeterminate) .ranking-item[data-rank-value=null] .input-number-wrapper button {
+  background-color: #3a3c42;
+}
 fieldset.ranking-question .ranking-container:not(.indeterminate) .ranking-item[data-rank-value=null] .input-number-wrapper button.button-decrement {
-  background-image: linear-gradient(white, white), radial-gradient(circle at center, #3a3c42 60%, transparent 61%);
-  background-size: 1rem 3px, 100% 100%;
+  background-image: linear-gradient(white, white);
+  background-size: 3px 1rem;
 }
 fieldset.ranking-question .ranking-container:not(.indeterminate) .ranking-item[data-rank-value=null] .input-number-wrapper button.button-increment {
-  background-image: linear-gradient(white, white), linear-gradient(white, white), radial-gradient(circle at center, #3a3c42 60%, transparent 61%);
-  background-size: 1rem 3px, 3px 1rem, 100% 100%;
+  background-image: linear-gradient(white, white), linear-gradient(white, white);
+  background-size: 1rem 3px, 3px 1rem;
 }
 
 /* Qualtrics fix */
