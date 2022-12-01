@@ -166,17 +166,18 @@ fieldset.ranking-question {
     }
     .ranking-container:not(.indeterminate) .ranking-item[data-rank-value="null"] {
       .input-number-wrapper {
+        button {
+          background-color: $thisco-dark-grey;
+        }
         button.button-decrement {
-          background-image: linear-gradient(white,white), 
-                            radial-gradient(circle at center, $thisco-dark-grey 60%, transparent 61%);
-          background-size: 1rem 3px, 100% 100%;
+          background-image: linear-gradient(white,white);
+          background-size: 3px 1rem;
   
         }
         button.button-increment {
           background-image: linear-gradient(white,white), 
-                            linear-gradient(white,white),
-                            radial-gradient(circle at center, $thisco-dark-grey 60%, transparent 61%);
-          background-size: 1rem 3px, 3px 1rem, 100% 100%;
+                            linear-gradient(white,white);
+          background-size: 1rem 3px, 3px 1rem;
         }
       }
     }
