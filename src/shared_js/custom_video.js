@@ -77,6 +77,7 @@ module.exports = function(){
                     type: "video/mp4" //*** NEED TO PARSE VIDEO TYPE ***/
                 },(track !== null ? {
                     tag : "track",
+                    label : "captions on",
                     src : track,
                     crossorigin : "anonymous",
                     disablePictureInPicture: no_picture_in_picture, // may not be cross-browser consistent esp. Firefox
