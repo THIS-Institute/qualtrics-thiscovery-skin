@@ -20,7 +20,7 @@ const debug = require("debug")("thisco:skin.js");
 const version = "2.1.0";
 debug(`Thiscovery survey skin version ${version}`);
 
-const revision = 8;
+const revision = 9;
 debug(`Revision: ${revision}`);
 
 /*! modernizr 3.6.0 (Custom Build) | MIT *

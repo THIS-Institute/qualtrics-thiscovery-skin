@@ -12,6 +12,9 @@ const load = require('load-script');
 // - subtitle button - needs to be a switch
 // - integrated progress counter in Play/Pause button?
 
+const videoCompVersion = "1.0.1";
+debug(`Video comp version: ${videoCompVersion}`);
+
 module.exports = function(){
     // set up markup first?
     const videoElements = Bliss.$(".thisco-video");

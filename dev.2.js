@@ -1,6 +1,6 @@
 // skin dev script v.2
 
-const debug = require('debug')('thisco-dev'); 
+const debug = require('debug')('thisco-dev:dev'); 
 
 const package = require(__dirname+'/package.json');
 let current_version = package.version;

@@ -2,7 +2,7 @@ const browserSync = require("browser-sync").create();
 const { argv } = require('process');
 const hasScheme = require('has-scheme');
 const { existsSync, readFileSync } = require('fs');
-const debug = require('debug')('thisco-dev'); 
+const debug = require('debug')('thisco-dev:bsync'); 
 const version_log = require(__dirname+"/versions.json");
 const parse = (i)=>{
     try {
