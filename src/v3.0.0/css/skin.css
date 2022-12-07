@@ -2685,6 +2685,9 @@ dialog {
   color: var(--thisco-red);
 }
 
+fieldset.ranking-question > legend {
+  margin-bottom: 1.6em;
+}
 fieldset.ranking-question .ranking-container {
   display: grid;
   grid-template-columns: 1fr;
@@ -3278,6 +3281,9 @@ fieldset.ranking-question .ranking-container:not(.indeterminate) .ranking-item[d
 }
 
 /* Qualtrics fix */
+.Skin fieldset.ranking-question > legend {
+  margin-bottom: unset;
+}
 .Skin fieldset.ranking-question ul.ChoiceStructure {
   opacity: 0;
   max-height: 0px;
@@ -5557,11 +5563,17 @@ video::-webkit-media-text-track-display {
 }
 
 .thisco-video-controls {
+  font-size: 0.8em;
   width: 100%;
   display: flex;
   padding: 1em 1em;
   justify-content: space-around;
   flex-wrap: wrap;
+}
+@media (min-width: 768px) {
+  .thisco-video-controls {
+    font-size: 1em;
+  }
 }
 .thisco-video-controls.controls-unready {
   visibility: hidden;

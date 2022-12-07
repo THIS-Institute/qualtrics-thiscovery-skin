@@ -33,6 +33,7 @@ $thisco-dark-75pc: #6d6e72;
 
 fieldset.ranking-question {
     > legend {
+      margin-bottom: 1.6em;
         > * {
             // margin-bottom: 1.6em;
         }
@@ -190,6 +191,9 @@ fieldset.ranking-question {
     // margin-bottom: -1em !important;
   }
   fieldset.ranking-question {
+    > legend {
+      margin-bottom: unset;
+    }
     ul.ChoiceStructure {
       opacity: 0;
       max-height: 0px;

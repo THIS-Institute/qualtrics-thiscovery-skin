@@ -417,6 +417,9 @@ Q breakpoints seem to be... [ <480px, <767px (some weird 770px ones?), <979px ]
   color: black;
 }
 
+fieldset.ranking-question > legend {
+  margin-bottom: 1.6em;
+}
 fieldset.ranking-question .ranking-container {
   display: grid;
   grid-template-columns: 1fr;
@@ -1010,6 +1013,9 @@ fieldset.ranking-question .ranking-container:not(.indeterminate) .ranking-item[d
 }
 
 /* Qualtrics fix */
+.Skin fieldset.ranking-question > legend {
+  margin-bottom: unset;
+}
 .Skin fieldset.ranking-question ul.ChoiceStructure {
   opacity: 0;
   max-height: 0px;

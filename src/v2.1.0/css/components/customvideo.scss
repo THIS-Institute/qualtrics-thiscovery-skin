@@ -1,3 +1,34 @@
+// A map of breakpoints.
+$breakpoints: (
+  xs: 481px,
+  sm: 768px,
+  md: 980px,
+  lg: 1400px,
+);
+
+//
+//  RESPOND ABOVE
+//––––––––––––––––––––––––––––––––––––––––––––––––––
+
+// @include respond-above(sm) {}
+@mixin respond-above($breakpoint) {
+  // If the breakpoint exists in the map.
+  @if map-has-key($breakpoints, $breakpoint) {
+    // Get the breakpoint value.
+    $breakpoint-value: map-get($breakpoints, $breakpoint);
+
+    // Write the media query.
+    @media (min-width: $breakpoint-value) {
+      @content;
+    }
+
+    // If the breakpoint doesn't exist in the map.
+  } @else {
+    // Log a warning.
+    @warn 'Invalid breakpoint: #{$breakpoint}.';
+  }
+}
+
 // video.js 7.20.3 basic CSS with overrides at end
 
 @charset "UTF-8";
@@ -1974,6 +2005,10 @@ video::-webkit-media-text-track-display {
 }
 
 .thisco-video-controls {
+    font-size: .8em;
+    @include respond-above(sm) {
+      font-size: 1em;
+    }
     &.controls-unready {
         visibility: hidden;
     }
