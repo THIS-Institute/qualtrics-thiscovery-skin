@@ -648,7 +648,8 @@ body {
   text-decoration: none;
 }
 .Skin img,
-.Skin iframe {
+.Skin iframe,
+.Skin figure {
   max-width: 100%;
 }
 .Skin a,
@@ -718,6 +719,16 @@ body {
 .Skin .SkinInner dl dt {
   font-weight: 400;
 }
+.Skin .SkinInner figure {
+  text-align: center;
+}
+.Skin .SkinInner figure > img {
+  width: 100%;
+}
+.Skin .SkinInner figure > figcaption {
+  font-size: 0.8em;
+  font-weight: bold;
+}
 @media (min-width: 768px) {
   .Skin .SkinInner {
     padding-top: 8.5rem;
@@ -725,7 +736,8 @@ body {
 }
 .Skin .SkinInner img,
 .Skin .SkinInner iframe,
-.Skin .SkinInner embed {
+.Skin .SkinInner embed,
+.Skin .SkinInner figure {
   max-width: 90%;
   position: relative;
   left: 50%;
@@ -997,6 +1009,16 @@ body > .dialog-container h4 {
 .thisco-survey h4, .thisco-base-styles h4, body > .dialog-container h4 {
   font-size: 1.2em;
 }
+.thisco-survey figure, .thisco-base-styles figure, body > .dialog-container figure {
+  text-align: center;
+}
+.thisco-survey figure > img, .thisco-base-styles figure > img, body > .dialog-container figure > img {
+  width: 100%;
+}
+.thisco-survey figure > figcaption, .thisco-base-styles figure > figcaption, body > .dialog-container figure > figcaption {
+  font-size: 0.8em;
+  font-weight: bold;
+}
 
 .thisco-survey {
   background-color: white;
@@ -1022,7 +1044,7 @@ body > .dialog-container h4 {
   flex-basis: 100%;
   margin-bottom: 1.6em;
 }
-.thisco-survey img {
+.thisco-survey > img, .thisco-survey > figure {
   max-width: 90%;
   position: relative;
   left: 50%;

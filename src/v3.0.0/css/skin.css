@@ -648,7 +648,8 @@ body {
   text-decoration: none;
 }
 .Skin img,
-.Skin iframe {
+.Skin iframe,
+.Skin figure {
   max-width: 100%;
 }
 .Skin a,
@@ -718,6 +719,16 @@ body {
 .Skin .SkinInner dl dt {
   font-weight: 400;
 }
+.Skin .SkinInner figure {
+  text-align: center;
+}
+.Skin .SkinInner figure > img {
+  width: 100%;
+}
+.Skin .SkinInner figure > figcaption {
+  font-size: 0.8em;
+  font-weight: bold;
+}
 @media (min-width: 768px) {
   .Skin .SkinInner {
     padding-top: 8.5rem;
@@ -725,7 +736,8 @@ body {
 }
 .Skin .SkinInner img,
 .Skin .SkinInner iframe,
-.Skin .SkinInner embed {
+.Skin .SkinInner embed,
+.Skin .SkinInner figure {
   max-width: 90%;
   position: relative;
   left: 50%;
@@ -997,6 +1009,16 @@ body > .dialog-container h4 {
 .thisco-survey h4, .thisco-base-styles h4, body > .dialog-container h4 {
   font-size: 1.2em;
 }
+.thisco-survey figure, .thisco-base-styles figure, body > .dialog-container figure {
+  text-align: center;
+}
+.thisco-survey figure > img, .thisco-base-styles figure > img, body > .dialog-container figure > img {
+  width: 100%;
+}
+.thisco-survey figure > figcaption, .thisco-base-styles figure > figcaption, body > .dialog-container figure > figcaption {
+  font-size: 0.8em;
+  font-weight: bold;
+}
 
 .thisco-survey {
   background-color: white;
@@ -1022,7 +1044,7 @@ body > .dialog-container h4 {
   flex-basis: 100%;
   margin-bottom: 1.6em;
 }
-.thisco-survey img {
+.thisco-survey > img, .thisco-survey > figure {
   max-width: 90%;
   position: relative;
   left: 50%;
@@ -2328,6 +2350,7 @@ dialog {
   z-index: 2;
   display: flex;
   padding: 2rem;
+  padding-top: clamp(100px, 2rem, 5rem);
 }
 
 .dialog-container[aria-hidden=true] {
@@ -2365,6 +2388,7 @@ dialog {
 }
 .dialog-content .dialog-body {
   padding: 1.25rem 1rem;
+  overflow-y: scroll;
 }
 @media (min-width: 768px) {
   .dialog-content .dialog-body {
@@ -2657,9 +2681,6 @@ dialog {
   color: var(--thisco-red);
 }
 
-fieldset.ranking-question > legend > * {
-  margin-bottom: 1.6em;
-}
 fieldset.ranking-question .ranking-container {
   display: grid;
   grid-template-columns: 1fr;
@@ -3225,32 +3246,34 @@ fieldset.ranking-question .input-number-wrapper button {
   height: 2rem;
   background-repeat: no-repeat;
   background-position: center;
-  background-color: transparent;
+  background-color: #dd0031;
+  border-radius: 999px;
+  rotate: 90deg;
 }
 fieldset.ranking-question .input-number-wrapper button:active {
   transform: scale(0.8);
 }
 fieldset.ranking-question .input-number-wrapper button.button-decrement {
   background-image: linear-gradient(#f9d2dc, #f9d2dc), radial-gradient(circle at center, #dd0031 60%, transparent 61%);
-  background-size: 1rem 3px, 100% 100%;
+  background-size: 3px 1rem, 100% 100%;
 }
 fieldset.ranking-question .input-number-wrapper button.button-increment {
   background-image: linear-gradient(#f9d2dc, #f9d2dc), linear-gradient(#f9d2dc, #f9d2dc), radial-gradient(circle at center, #dd0031 60%, transparent 61%);
   background-size: 1rem 3px, 3px 1rem, 100% 100%;
 }
+fieldset.ranking-question .ranking-container:not(.indeterminate) .ranking-item[data-rank-value=null] .input-number-wrapper button {
+  background-color: #3a3c42;
+}
 fieldset.ranking-question .ranking-container:not(.indeterminate) .ranking-item[data-rank-value=null] .input-number-wrapper button.button-decrement {
-  background-image: linear-gradient(white, white), radial-gradient(circle at center, #3a3c42 60%, transparent 61%);
-  background-size: 1rem 3px, 100% 100%;
+  background-image: linear-gradient(white, white);
+  background-size: 3px 1rem;
 }
 fieldset.ranking-question .ranking-container:not(.indeterminate) .ranking-item[data-rank-value=null] .input-number-wrapper button.button-increment {
-  background-image: linear-gradient(white, white), linear-gradient(white, white), radial-gradient(circle at center, #3a3c42 60%, transparent 61%);
-  background-size: 1rem 3px, 3px 1rem, 100% 100%;
+  background-image: linear-gradient(white, white), linear-gradient(white, white);
+  background-size: 1rem 3px, 3px 1rem;
 }
 
 /* Qualtrics fix */
-.Skin .InnerInner > fieldset.ranking-question > legend {
-  margin-bottom: 2em !important;
-}
 .Skin fieldset.ranking-question ul.ChoiceStructure {
   opacity: 0;
   max-height: 0px;

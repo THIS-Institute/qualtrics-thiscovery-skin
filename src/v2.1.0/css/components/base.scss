@@ -213,6 +213,19 @@ $breakpoints: (
   }
 }
 
+@mixin thisco-figures() {
+  figure {
+    text-align: center;
+    > img {
+      width: 100%;
+    }
+    > figcaption {
+        font-size: .8em;
+        font-weight: bold;
+    }
+  }
+}
+
 // * {
 //     outline: 1px dotted gray;
 // }
@@ -252,7 +265,8 @@ body {
   }
 
   img,
-  iframe {
+  iframe, 
+  figure {
     max-width: 100%;
   }
 
@@ -262,6 +276,7 @@ body {
 
   .SkinInner {
     @include thisco_lists();
+    @include thisco-figures();
 
     padding-top: 7rem;
     @include respond-above(sm) {
@@ -270,7 +285,8 @@ body {
 
     img,
     iframe,
-    embed {
+    embed,
+    figure {
       max-width: 90%;
       position: relative;
       left: 50%;
@@ -449,6 +465,7 @@ body {
   @include thisco_links();
   @include thisco_lists();
   @include thisco-headings();
+  @include thisco-figures();
 }
 
 .thisco-survey {
@@ -474,7 +491,7 @@ body {
     flex-basis: 100%;
     margin-bottom: 1.6em;
   }
-  img {
+  > img,> figure {
     max-width: 90%;
     position: relative;
     left: 50%;

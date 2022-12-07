@@ -12,6 +12,7 @@
 6 - adding multiline text control
 7 - adding panel-choice
 8 - added thisco-icon
+8 - adding thisco-graph snippet
 
 */
 
@@ -437,6 +438,21 @@ const addHSpot = function(){
     document.head.appendChild(hb);
 }
 addHSpot();
+
+// thisco-graph script pull
+
+const graphs = Bliss.$('.thisco-graph');
+if (graphs.length) graphs.forEach(el=>{
+    const targetScript = (el.dataset || {}).graphlink;
+    if (!targetScript) return;
+    else {
+        const scriptIn = document.createElement("script");
+        scriptIn.setAttribute("src",targetScript);
+        scriptIn.setAttribute('defer',true);
+        scriptIn.setAttribute('async',true);
+        document.head.appendChild(scriptIn);
+    }
+});
 
 // consent form Qualtrics addition
 

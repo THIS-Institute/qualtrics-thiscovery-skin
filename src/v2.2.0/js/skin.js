@@ -170,14 +170,15 @@ const update = ()=>{
     // misc fixes
 
     require("../../shared_js/misc_fixes.js")();
-// consent form Qualtrics addition
+    
+    // consent form Qualtrics addition
 
-const processHtml = (dirty)=>sanitizeHtml(dirty, {
-    allowedTags : ["a","ul","li","strong","b","i","em"],
-    allowedAttributes : {
-        "a": ["href","alt"]
-    }
-})
+    const processHtml = (dirty)=>sanitizeHtml(dirty, {
+        allowedTags : ["a","ul","li","strong","b","i","em"],
+        allowedAttributes : {
+            "a": ["href","alt"]
+        }
+    })
 
     // .consent-checklist must be only used once per consent block
     const isConsentForm = Bliss.$(".consent-checklist").length > 0;
@@ -226,6 +227,21 @@ const processHtml = (dirty)=>sanitizeHtml(dirty, {
     ;
 
     }
+
+    // thisco-graph script pull
+
+    const graphs = Bliss.$('.thisco-graph');
+    if (graphs.length) graphs.forEach(el=>{
+        const targetScript = (el.dataset || {}).graphlink;
+        if (!targetScript) return;
+        else {
+            const scriptIn = document.createElement("script");
+            scriptIn.setAttribute("src",targetScript);
+            scriptIn.setAttribute('defer',true);
+            scriptIn.setAttribute('async',true);
+            document.head.appendChild(scriptIn);
+        }
+    });
 
     // --> end updates
     // 2.2 stuff -->
