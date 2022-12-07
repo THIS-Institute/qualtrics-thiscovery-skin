@@ -217,7 +217,9 @@ $breakpoints: (
   figure {
     text-align: center;
     > img {
-      width: 100%;
+      max-width: 80%;
+      left: 0;
+      transform: none;
     }
     > figcaption {
         font-size: .8em;
@@ -491,7 +493,7 @@ body {
     flex-basis: 100%;
     margin-bottom: 1.6em;
   }
-  > img,> figure {
+  img {
     max-width: 90%;
     position: relative;
     left: 50%;

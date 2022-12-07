@@ -723,7 +723,9 @@ body {
   text-align: center;
 }
 .Skin .SkinInner figure > img {
-  width: 100%;
+  max-width: 80%;
+  left: 0;
+  transform: none;
 }
 .Skin .SkinInner figure > figcaption {
   font-size: 0.8em;
@@ -1013,7 +1015,9 @@ body > .dialog-container h4 {
   text-align: center;
 }
 .thisco-survey figure > img, .thisco-base-styles figure > img, body > .dialog-container figure > img {
-  width: 100%;
+  max-width: 80%;
+  left: 0;
+  transform: none;
 }
 .thisco-survey figure > figcaption, .thisco-base-styles figure > figcaption, body > .dialog-container figure > figcaption {
   font-size: 0.8em;
@@ -1044,7 +1048,7 @@ body > .dialog-container h4 {
   flex-basis: 100%;
   margin-bottom: 1.6em;
 }
-.thisco-survey > img, .thisco-survey > figure {
+.thisco-survey img {
   max-width: 90%;
   position: relative;
   left: 50%;
