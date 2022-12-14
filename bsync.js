@@ -84,7 +84,7 @@ const middleware = async (req,res,next) => {
 
 const go = async()=>{
 
-    replacement_domain = "https://thiscovery-skin.s3.eu-west-1.amazonaws.com";
+    replacement_domain = "https://this-institute.github.io/qualtrics-thiscovery-skin";
 
     if (hasScheme(target)) {
         browserSync.init({

@@ -51,6 +51,9 @@ const BACK_LINK = window.location.search.includes("staging") ? "https://staging.
 // skinjob client
 require("../../shared_js/skinjob_client.js")();
 
+// shared between update and setup:
+let followObs;
+
 const update = ()=>{
 
     const jfeContent = document.getElementsByClassName('JFEContent')[0];
@@ -59,6 +62,10 @@ const update = ()=>{
     // closer alliance to Qualtrics requires using Qualtrics particular hooks
 
     debug('JFEContent updated');
+
+    // shared functions
+
+    requestAnimationFrame(followObs);
 
     // markup additions
 
@@ -246,7 +253,9 @@ const update = ()=>{
     // --> end updates
     // 2.2 stuff -->
 
-    jfeContent.insertAdjacentHTML("beforeend",`<div class="thisco-obs-follow" style="position:relative"><a style="position:absolute;"></a></div>`);
+    if (!Bliss(".thisco-obs-follow")) {
+        jfeContent.insertAdjacentHTML("beforeend",`<div class="thisco-obs-follow" style="position:relative"><a style="position:absolute;"></a></div>`);
+    }
     jfeContent.classList.remove('curtain');
 
 }
@@ -290,14 +299,14 @@ const setup = ()=>{
     const thContainers = `
         <div class="thisco-header-container thisco-base-styles" id="thiscoHeaderContainer"><div id="thiscoHeader"></div></div>
         <div class="thisco-footer-container thisco-base-styles" id="thiscoFooter"></div>
-        <div class="thisco-obs thisco-base-styles" id="thiscoObs"></div>
+        <div class="thisco-obs thisco-base-styles" id="thiscoObs"><div class="thisco-obs-content">Hello</div></div>
     `;
     jfeContent.insertAdjacentHTML("afterend",thContainers);
 
     // set up #thiscoObs
     // follow left position of .thisco-obs-follow
 
-    const followObs = ()=>{
+    followObs = ()=>{
         const thiscoObsFollow = Bliss(".thisco-obs-follow > a");
         const obs = Bliss("#thiscoObs");
         if (!thiscoObsFollow || !obs) return;
