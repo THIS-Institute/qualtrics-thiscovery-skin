@@ -83,16 +83,18 @@ $main-max-width : 768px;
 }
 
 #thiscoObs {
-  position: absolute;
+  // opacity: .75;
+  position: fixed;
   top: 0px;
   width: $obs-width;
   height: 1000px;
   padding-top: calc(8.5rem + 2em);
   > .thisco-obs-content {
-    min-height: 10rem;
+    min-height: 13rem;
     display: block;
     position: relative;
     &:before {
+      opacity: .2;
       position: absolute;
       display: inline-block;
       background-image: 
@@ -111,4 +113,8 @@ $main-max-width : 768px;
         5px 5px;
     }
   }
+}
+
+table.ProgressBarContainer {
+
 }

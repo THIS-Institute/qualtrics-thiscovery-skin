@@ -9,7 +9,6 @@ module.exports = function(){
         el.addEventListener("click",(evt)=>{
             evt.stopPropagation();
             const label = Bliss("label",evt.target);
-            debug({label});
             if (label) label.click();
         });
     });

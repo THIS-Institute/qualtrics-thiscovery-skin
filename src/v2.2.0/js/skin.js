@@ -31,7 +31,7 @@ window.QUALTRICS_PREVIEW = window.location.href.includes("preview");
 window.TEST_VALIDATION = (localStorage.getItem("thisco_dev") || "").includes("TEST_VAL");
 
 const BlissfulJs = require('blissfuljs');
-const { debounce, trim, forIn, fromPairs, startCase } = require("lodash");
+const { debounce, trim, forIn, fromPairs, startCase, isFunction } = require("lodash");
 const markdown = require('markdown').markdown;
 const sanitizeHtml = require('sanitize-html');
 const shortHash = require('short-hash');
@@ -52,7 +52,7 @@ const BACK_LINK = window.location.search.includes("staging") ? "https://staging.
 require("../../shared_js/skinjob_client.js")();
 
 // shared between update and setup:
-let followObs;
+let followObs, progressWatcher = null;
 
 const update = ()=>{
 
@@ -66,6 +66,21 @@ const update = ()=>{
     // shared functions
 
     requestAnimationFrame(followObs);
+
+    // progress bar
+
+    // set up progress bar
+
+    if (progressWatcher == null) {
+        const setupProg = ()=>{
+            progressWatcher = require("../../shared_js/progress.js")();
+            progressWatcher.update();
+        };
+        requestAnimationFrame(setupProg);
+    }
+    else {
+        progressWatcher.update(true);
+    }
 
     // markup additions
 
@@ -250,6 +265,20 @@ const update = ()=>{
         }
     });
 
+    // fieldsets add a 'touched' class if clicked on at all
+    // intermediate fix for better in-page validation
+    const fsets = Bliss.$("fieldset");
+    if (fsets.length) {
+        fsets.forEach(fset=>{
+            fset.addEventListener('click',(evt)=>{
+                evt.stopPropagation();
+                fset.classList.add('touched');
+                requestAnimationFrame(progressWatcher.update);
+                debug({progressWatcher});
+            })
+        })
+    }
+
     // --> end updates
     // 2.2 stuff -->
 
@@ -299,7 +328,7 @@ const setup = ()=>{
     const thContainers = `
         <div class="thisco-header-container thisco-base-styles" id="thiscoHeaderContainer"><div id="thiscoHeader"></div></div>
         <div class="thisco-footer-container thisco-base-styles" id="thiscoFooter"></div>
-        <div class="thisco-obs thisco-base-styles" id="thiscoObs"><div class="thisco-obs-content">Hello</div></div>
+        <div class="thisco-obs thisco-base-styles" id="thiscoObs"><div class="thisco-obs-content"></div></div>
     `;
     jfeContent.insertAdjacentHTML("afterend",thContainers);
 

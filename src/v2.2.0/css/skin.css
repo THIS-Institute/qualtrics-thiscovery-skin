@@ -5623,18 +5623,19 @@ body .curtain #SkinContent {
 }
 
 #thiscoObs {
-  position: absolute;
+  position: fixed;
   top: 0px;
   width: 100px;
   height: 1000px;
   padding-top: calc(8.5rem + 2em);
 }
 #thiscoObs > .thisco-obs-content {
-  min-height: 10rem;
+  min-height: 13rem;
   display: block;
   position: relative;
 }
 #thiscoObs > .thisco-obs-content:before {
+  opacity: 0.2;
   position: absolute;
   display: inline-block;
   background-image: radial-gradient(circle at center, var(--thisco-pink) 64%, transparent 66%), linear-gradient(var(--thisco-pink), var(--thisco-pink)), radial-gradient(circle at center, var(--thisco-pink) 64%, transparent 66%);
