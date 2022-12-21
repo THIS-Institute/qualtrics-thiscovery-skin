@@ -4,6 +4,8 @@ import _ from 'lodash';
 
 import { CircleSegments } from '../ext_custom/CircleSegments';
 
+debug('revision 1')
+
 module.exports = function(){
     // sets up a progress bar and returns obj with one method- update
    
@@ -20,17 +22,32 @@ module.exports = function(){
 
     // updates by:
     // taking Qualtrics value at minimum
-    // then adds a best guess at the % 'weight' of a question
+    // Qualtrics weights pages by question number (incl. graphics)
+    // so can guess interval after first page
     // and adds in all fieldsets with 'touched' class to the current score
 
     let progressWatcher = {
         lastQProgress : 0,
-        lastFieldsets : 1,
+        lastQuestions : false,
         current : 0,
-        latestIntervalGuess : 0
+        // latestIncrementGuess : 0,
+        lastInterval : 0,
+        intervalGuess : false
     }, progressDial;
 
     const obs = Bliss(`div#thiscoObs>div.thisco-obs-content`);
+    const progressBar = Bliss.create("div",{
+        tagname:  'div',
+        className : 'progress',
+        style : { width : '50%'}
+    });
+    obs.appendChild(Bliss.create("div",{
+        className : "thisco-progress-bar",
+        style : {
+            'position' : 'fixed'
+        },
+        contents : [progressBar]
+    }));
     obs.appendChild(Bliss.create("div",{
         className : "thisco-progress-dial",
         style : {
@@ -38,7 +55,7 @@ module.exports = function(){
             'position' : 'relative'
         }
     }));
-    const progressGrain = 25;
+    const progressGrain = 50;
     progressDial = new CircleSegments({
         target : ".thisco-progress-dial",
         rotationStart : -90,
@@ -53,32 +70,58 @@ module.exports = function(){
     progressDial.init();
 
     const update = (pageTurn=false)=>{
+
+        debug({progressWatcher,pageTurn});
+
+        const {lastQProgress,lastQuestions,current,lastInterval,intervalGuess} = progressWatcher;
+
+        // get current page stats
         const progressEl = Bliss(`table.ProgressBarContainer`);
         const prog = {};
         ['valuemin','valuemax','valuenow'].forEach(val=>{
             prog[val] = parseInt(progressEl.getAttribute(`aria-${val}`));
         });
-        const qProgress = (prog.valuemax - prog.valuemin) > 0 ? _.round(prog.valuenow / (prog.valuemax - prog.valuemin) * progressGrain) : 0;
-        progressWatcher.current = qProgress + (Bliss.$("fieldset.touched").length * progressWatcher.latestIntervalGuess);
+        const qProgress = (prog.valuemax - prog.valuemin) > 0 ? prog.valuenow / (prog.valuemax - prog.valuemin) : 0;
+
+        if (pageTurn) progressWatcher.lastInterval = qProgress - progressWatcher.lastQProgress;
+
+        // if we can, guess interval
+        if (pageTurn && !intervalGuess && isFinite(lastQuestions) && isFinite(lastInterval)) {
+            progressWatcher.intervalGuess = lastInterval / lastQuestions;
+        }
+
+        // const latestIncrementGuess = _.clamp(progressWatcher.lastInterval / _.clamp(Bliss.$("fieldset").length,1,999), 0, 999)
+        progressWatcher.current = !intervalGuess ? qProgress : qProgress + (Bliss.$("fieldset.touched").length * intervalGuess);
+
+        const currentVisual = progressWatcher.current * progressGrain;
+
+        // set progress bar
+
+        progressBar._.style({
+            width : `${progressWatcher.current * 100}%`
+        });
+
+        // set progress dial
+
         if ((progressDial.options.startIntRadius == 0) && (progressWatcher.lastQProgress == 0) && (qProgress > 0)) {
             progressDial.options.startIntRadius = 450;
-            progressDial.setProgress(_.ceil(progressWatcher.current),0);
+            progressDial.setProgress(_.floor(currentVisual),0);
         }
-        else if (progressWatcher.current > progressGrain-1) {
+        else if (progressWatcher.current > .99) {
             progressDial.options.startIntRadius = 0;
-            progressDial.setProgress(_.ceil(progressWatcher.current),0);
+            progressDial.setProgress(_.ceil(currentVisual),0);
         }
         else {
-            // progressDial.options.startIntRadius = 0;
-            progressDial.setProgress(_.ceil(progressWatcher.current),15);
+            progressDial.setProgress(_.floor(currentVisual),15);
         }
 
         if (pageTurn) {
             _.assign(progressWatcher,{
                 lastQProgress : qProgress,
-                lastFieldsets : _.clamp(Bliss.$("fieldset.touched").length,1,999),
-                latestIntervalGuess : _.clamp((qProgress - progressWatcher.lastQProgress) / progressWatcher.lastFieldsets, 0, 999)
-            })
+                lastQuestions : !lastQuestions ?_.clamp(Bliss.$("div[questionid]").length,1,999) : lastQuestions,
+                // latestIncrementGuess : _.clamp((qProgress - progressWatcher.lastQProgress) / progressWatcher.lastQuestions, 0, 999),
+                // lastInterval : qProgress - progressWatcher.lastQProgress
+            });
         }
 
     };

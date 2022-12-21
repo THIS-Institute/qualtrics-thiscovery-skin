@@ -7,6 +7,7 @@
 /* REVISIONS 
 
 2 - adding message watcher
+3 - progess dial fixes
 
 */
 
@@ -19,12 +20,14 @@ debug = debug.extend(instance);
 const version = "2.2.0";
 debug(`Thiscovery survey skin version ${version}`);
 
-const revision = 2;
+const revision = 3;
 debug(`Revision: ${revision}`);
 
-/*! modernizr 3.6.0 (Custom Build) | MIT *
- * https://modernizr.com/download/?-touchevents-setclasses !*/
- !function(e,n,t){function o(e,n){return typeof e===n}function s(){var e,n,t,s,a,i,r;for(var l in c)if(c.hasOwnProperty(l)){if(e=[],n=c[l],n.name&&(e.push(n.name.toLowerCase()),n.options&&n.options.aliases&&n.options.aliases.length))for(t=0;t<n.options.aliases.length;t++)e.push(n.options.aliases[t].toLowerCase());for(s=o(n.fn,"function")?n.fn():n.fn,a=0;a<e.length;a++)i=e[a],r=i.split("."),1===r.length?Modernizr[r[0]]=s:(!Modernizr[r[0]]||Modernizr[r[0]]instanceof Boolean||(Modernizr[r[0]]=new Boolean(Modernizr[r[0]])),Modernizr[r[0]][r[1]]=s),f.push((s?"":"no-")+r.join("-"))}}function a(e){var n=u.className,t=Modernizr._config.classPrefix||"";if(p&&(n=n.baseVal),Modernizr._config.enableJSClass){var o=new RegExp("(^|\\s)"+t+"no-js(\\s|$)");n=n.replace(o,"$1"+t+"js$2")}Modernizr._config.enableClasses&&(n+=" "+t+e.join(" "+t),p?u.className.baseVal=n:u.className=n)}function i(){return"function"!=typeof n.createElement?n.createElement(arguments[0]):p?n.createElementNS.call(n,"http://www.w3.org/2000/svg",arguments[0]):n.createElement.apply(n,arguments)}function r(){var e=n.body;return e||(e=i(p?"svg":"body"),e.fake=!0),e}function l(e,t,o,s){var a,l,f,c,d="modernizr",p=i("div"),h=r();if(parseInt(o,10))for(;o--;)f=i("div"),f.id=s?s[o]:d+(o+1),p.appendChild(f);return a=i("style"),a.type="text/css",a.id="s"+d,(h.fake?h:p).appendChild(a),h.appendChild(p),a.styleSheet?a.styleSheet.cssText=e:a.appendChild(n.createTextNode(e)),p.id=d,h.fake&&(h.style.background="",h.style.overflow="hidden",c=u.style.overflow,u.style.overflow="hidden",u.appendChild(h)),l=t(p,e),h.fake?(h.parentNode.removeChild(h),u.style.overflow=c,u.offsetHeight):p.parentNode.removeChild(p),!!l}var f=[],c=[],d={_version:"3.6.0",_config:{classPrefix:"",enableClasses:!0,enableJSClass:!0,usePrefixes:!0},_q:[],on:function(e,n){var t=this;setTimeout(function(){n(t[e])},0)},addTest:function(e,n,t){c.push({name:e,fn:n,options:t})},addAsyncTest:function(e){c.push({name:null,fn:e})}},Modernizr=function(){};Modernizr.prototype=d,Modernizr=new Modernizr;var u=n.documentElement,p="svg"===u.nodeName.toLowerCase(),h=d._config.usePrefixes?" -webkit- -moz- -o- -ms- ".split(" "):["",""];d._prefixes=h;var m=d.testStyles=l;Modernizr.addTest("touchevents",function(){var t;if("ontouchstart"in e||e.DocumentTouch&&n instanceof DocumentTouch)t=!0;else{var o=["@media (",h.join("touch-enabled),("),"heartz",")","{#modernizr{top:9px;position:absolute}}"].join("");m(o,function(e){t=9===e.offsetTop})}return t}),s(),a(f),delete d.addTest,delete d.addAsyncTest;for(var v=0;v<Modernizr._q.length;v++)Modernizr._q[v]();e.Modernizr=Modernizr}(window,document);
+/*! modernizr 3.12.0 (Custom Build) | MIT *
+ * https://modernizr.com/download/?-touchevents !*/
+ !function(e,n,t,o){function r(e,n){return typeof e===n}function i(){return"function"!=typeof t.createElement?t.createElement(arguments[0]):h?t.createElementNS.call(t,"http://www.w3.org/2000/svg",arguments[0]):t.createElement.apply(t,arguments)}function a(){var e=t.body;return e||(e=i(h?"svg":"body"),e.fake=!0),e}function s(e,n,o,r){var s,l,u,d,f="modernizr",c=i("div"),h=a();if(parseInt(o,10))for(;o--;)u=i("div"),u.id=r?r[o]:f+(o+1),c.appendChild(u);return s=i("style"),s.type="text/css",s.id="s"+f,(h.fake?h:c).appendChild(s),h.appendChild(c),s.styleSheet?s.styleSheet.cssText=e:s.appendChild(t.createTextNode(e)),c.id=f,h.fake&&(h.style.background="",h.style.overflow="hidden",d=p.style.overflow,p.style.overflow="hidden",p.appendChild(h)),l=n(c,e),h.fake&&h.parentNode?(h.parentNode.removeChild(h),p.style.overflow=d,p.offsetHeight):c.parentNode.removeChild(c),!!l}function l(e,t,o){var r;if("getComputedStyle"in n){r=getComputedStyle.call(n,e,t);var i=n.console;if(null!==r)o&&(r=r.getPropertyValue(o));else if(i){var a=i.error?"error":"log";i[a].call(i,"getComputedStyle returning null, its possible modernizr test results are inaccurate")}}else r=!t&&e.currentStyle&&e.currentStyle[o];return r}var u=[],d={_version:"3.12.0",_config:{classPrefix:"",enableClasses:!0,enableJSClass:!0,usePrefixes:!0},_q:[],on:function(e,n){var t=this;setTimeout(function(){n(t[e])},0)},addTest:function(e,n,t){u.push({name:e,fn:n,options:t})},addAsyncTest:function(e){u.push({name:null,fn:e})}},Modernizr=function(){};Modernizr.prototype=d,Modernizr=new Modernizr;var f=[],c=d._config.usePrefixes?" -webkit- -moz- -o- -ms- ".split(" "):["",""];d._prefixes=c;var p=t.documentElement,h="svg"===p.nodeName.toLowerCase(),m=function(){var e=n.matchMedia||n.msMatchMedia;return e?function(n){var t=e(n);return t&&t.matches||!1}:function(e){var n=!1;return s("@media "+e+" { #modernizr { position: absolute; } }",function(e){n="absolute"===l(e,null,"position")}),n}}();d.mq=m,Modernizr.addTest("touchevents",function(){if("ontouchstart"in n||n.TouchEvent||n.DocumentTouch&&t instanceof DocumentTouch)return!0;var e=["(",c.join("touch-enabled),("),"heartz",")"].join("");return m(e)}),function(){var e,n,t,o,i,a,s;for(var l in u)if(u.hasOwnProperty(l)){if(e=[],n=u[l],n.name&&(e.push(n.name.toLowerCase()),n.options&&n.options.aliases&&n.options.aliases.length))for(t=0;t<n.options.aliases.length;t++)e.push(n.options.aliases[t].toLowerCase());for(o=r(n.fn,"function")?n.fn():n.fn,i=0;i<e.length;i++)a=e[i],s=a.split("."),1===s.length?Modernizr[s[0]]=o:(Modernizr[s[0]]&&(!Modernizr[s[0]]||Modernizr[s[0]]instanceof Boolean)||(Modernizr[s[0]]=new Boolean(Modernizr[s[0]])),Modernizr[s[0]][s[1]]=o),f.push((o?"":"no-")+s.join("-"))}}(),delete d.addTest,delete d.addAsyncTest;for(var v=0;v<Modernizr._q.length;v++)Modernizr._q[v]();e.Modernizr=Modernizr}(window,window,document);
+
+window.document.body.classList.add(Modernizr.touchevents ? 'touchevents' : 'no-touchevents');
 
 window.THISCO_DEV = localStorage.getItem("thisco_dev") !== null;
 window.QUALTRICS_PREVIEW = window.location.href.includes("preview");
@@ -74,7 +77,7 @@ const update = ()=>{
     if (progressWatcher == null) {
         const setupProg = ()=>{
             progressWatcher = require("../../shared_js/progress.js")();
-            progressWatcher.update();
+            progressWatcher.update(true);
         };
         requestAnimationFrame(setupProg);
     }
@@ -273,7 +276,7 @@ const update = ()=>{
             fset.addEventListener('click',(evt)=>{
                 evt.stopPropagation();
                 fset.classList.add('touched');
-                requestAnimationFrame(progressWatcher.update);
+                requestAnimationFrame(()=>progressWatcher.update());
                 debug({progressWatcher});
             })
         })
@@ -608,6 +611,7 @@ const setup = ()=>{
     const observer = new MutationObserver(mutCallback);
     observer.observe(jfeContent,mutConfig);
     // if needs disconnecting at any point: observer.disconnect()
+
     return;
     
 

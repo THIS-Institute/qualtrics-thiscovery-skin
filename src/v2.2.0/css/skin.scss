@@ -1,4 +1,5 @@
 @use '../../v2.1.0/css/skin.scss';
+@use './components/obs.scss';
 
 // A map of breakpoints.
 $breakpoints: (
@@ -50,8 +51,8 @@ body {
 
 /* grid layout to help persistent panel - requires obs to be outside .JFEContent DOM, fixed, but follows an anchoring el */
 
-$obs-width : 100px;
 $main-max-width : 768px;
+$obs-width : 100px;
 
 .JFEContent {
     display: grid;
@@ -61,7 +62,11 @@ $main-max-width : 768px;
         grid-column: 2 / 3;
     }
     > .thisco-obs-follow {
-      grid-column: 3 / 4;
+      grid-row : 1 / 2 ;
+      grid-column: 1 / 2;
+      @include respond-above(sm){
+        grid-column: 3 / 4;
+      }
       > a {
         opacity: 0;
       }
@@ -80,41 +85,4 @@ $main-max-width : 768px;
             $obs-width 
             auto;
     }
-}
-
-#thiscoObs {
-  // opacity: .75;
-  position: fixed;
-  top: 0px;
-  width: $obs-width;
-  height: 1000px;
-  padding-top: calc(8.5rem + 2em);
-  > .thisco-obs-content {
-    min-height: 13rem;
-    display: block;
-    position: relative;
-    &:before {
-      opacity: .2;
-      position: absolute;
-      display: inline-block;
-      background-image: 
-        radial-gradient(circle at center, var(--thisco-pink) 64%, transparent 66%),
-        linear-gradient(var(--thisco-pink), var(--thisco-pink)),
-        radial-gradient(circle at center, var(--thisco-pink) 64%,  transparent 66%);
-      content:" ";
-      height: calc(100% + 1em);
-      width: 5px;
-      left:-10px;
-      top:-.5em;
-      background-repeat: no-repeat;
-      background-position: center top, center, center bottom;
-      background-size: 5px 5px,
-        100% calc(100% - 5px),
-        5px 5px;
-    }
-  }
-}
-
-table.ProgressBarContainer {
-
 }

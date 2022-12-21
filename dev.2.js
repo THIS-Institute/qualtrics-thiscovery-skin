@@ -145,7 +145,7 @@ async function go (){
             prompt = new Select({
                 name : 'browser_choice',
                 message : 'Open a browser? (make sure is an installed browser)',
-                choices : [`"firefox"`,`"google chrome"`,`"safari"`,`"edge"`,`I'll do it`]
+                choices : [`"firefox"`,`"googleChrome"`,`"safari"`,`"edge"`,`I'll do it`]
             });
             const browser = await prompt.run();
             prompt = new Confirm({

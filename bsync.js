@@ -18,6 +18,7 @@ const parse = (i)=>{
 const got = require('got');
 
 const { Input } = require('enquirer');
+const { lowerCase } = require("lodash");
 
 let [nX,sPath,target,browser,altport] = [...argv,null,null,null];
 
@@ -90,7 +91,7 @@ const go = async()=>{
         browserSync.init({
             files: "dist/**.*",
             proxy: target,
-            browser : browser || "firefox",
+            browser : lowerCase(browser) || "firefox",
             port:altport,
             ui : {
                 port : altport+1
