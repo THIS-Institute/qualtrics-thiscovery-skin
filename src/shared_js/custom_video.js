@@ -15,6 +15,11 @@ const load = require('load-script');
 const videoCompVersion = "1.0.1";
 debug(`Video comp version: ${videoCompVersion}`);
 
+/**
+ * Sets up any video elements with video.js and parses class options
+ * @module custom_video
+ */
+
 module.exports = function(){
     // set up markup first?
     const videoElements = Bliss.$(".thisco-video");
@@ -191,9 +196,6 @@ module.exports = function(){
 
                 });
             });
-
-
-
         }
     });
 }

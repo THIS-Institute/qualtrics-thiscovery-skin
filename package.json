@@ -7,6 +7,7 @@
   "scripts": {
     "bsync": "node bsync.js",
     "build": "TG_VERSION=$npm_package_version run-s build:scss build:postcss build:js build:copy_latest",
+    "build:docs": "jsdoc ./src/v2.2.0/js/skin.js ./src/shared_js -c ./jsdoc_config.json",
     "build:js": "esbuild ./src/v$TG_VERSION/js/skin.js --bundle --minify --sourcemap --loader:.md=text --outfile=./dist/bundle.$TG_VERSION.js --target=es2016,chrome94,firefox94,safari13,edge96,node12",
     "build:scss": "sass ./src/v$TG_VERSION/css/skin.scss ./src/v$TG_VERSION/css/skin.css --embed-sources",
     "build:copy_latest": "cp ./dist/bundle.$npm_package_version.css ./dist/bundle.latest.css & cp ./dist/bundle.$npm_package_version.js ./dist/bundle.latest.js",
@@ -20,6 +21,7 @@
     "test_full": "npx playwright test tests/thisco.2.1.0.test.js --headed && npx playwright show-report",
     "test_debug": "npx playwright test tests/thisco.2.1.0.test.js --debug --ignore-snapshots",
     "test_quick": "npx playwright test tests/thisco.2.1.0.test.js --reporter=line",
+    "watch:docs" : "chokidar --verbose \"src/**/*.js\" -c \"npm run build:docs\"",
     "watch:js": "chokidar --verbose \"src/**/*.js\" -c \"npm run build:js\"",
     "watch:scss": "chokidar --verbose \"src/**/*.scss\" -c \"npm run build:scss\""
   },

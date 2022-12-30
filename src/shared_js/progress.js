@@ -4,8 +4,6 @@ import _ from 'lodash';
 
 import { CircleSegments } from '../ext_custom/CircleSegments';
 
-debug('revision 1')
-
 module.exports = function(){
     // sets up a progress bar and returns obj with one method- update
    
@@ -41,14 +39,14 @@ module.exports = function(){
         className : 'progress',
         style : { width : '50%'}
     });
-    obs.appendChild(Bliss.create("div",{
+    obs.prepend(Bliss.create("div",{
         className : "thisco-progress-bar",
         style : {
             'position' : 'fixed'
         },
         contents : [progressBar]
     }));
-    obs.appendChild(Bliss.create("div",{
+    obs.prepend(Bliss.create("div",{
         className : "thisco-progress-dial",
         style : {
             'aspect-ratio' : 1,

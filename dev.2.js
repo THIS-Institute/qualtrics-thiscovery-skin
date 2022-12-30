@@ -158,7 +158,7 @@ async function go (){
             fs.writeFileSync('./.dev_pref',JSON.stringify(dev_pref),{encoding:'utf-8'});
 
             // runs npm processes in package json
-            let tasks = `TG_VERSION=${version_choice} run-p watch:js watch:scss`;
+            let tasks = `TG_VERSION=${version_choice} run-p watch:js watch:scss watch:docs`;
             tasks += browser == "I'll do it" ? ` bsync ${target}` : ` "bsync ${target} ${browser} ${altport}"`;
             tasks += conf_skinjob ? ' dev:skinjob' : '';
             try {

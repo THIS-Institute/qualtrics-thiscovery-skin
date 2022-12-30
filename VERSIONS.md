@@ -80,16 +80,16 @@ Script needs to be split into setup() and reset() to persist script across 'Next
 
 #### JavaScript
 
-- [ ] progress dial markup (from Qualtrics measure?)
+- [x] progress dial markup (from Qualtrics measure?)
 - [ ] validation warnings in-screen
 - [ ] element invalid markup classes
 
 #### CSS
 
-- [ ] progress dial + animation (from Qualtrics measure?)
+- [x] progress dial + animation (from Qualtrics measure?)
 - [ ] validation warnings + animation
 - [ ] element invalid styling (dashed outline)
-- [ ] load curtain? or loader?
+- [x] load curtain? or loader?
 
 ## 3.0
 

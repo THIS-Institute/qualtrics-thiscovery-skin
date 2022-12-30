@@ -259,7 +259,7 @@ class CircleSegments {
             segItem.setProp("explode",this.options.startExplode);
             segItem.setProp("radius",this.options.startRadius);
             segItem.setProp("intRadius",this.options.startIntRadius);
-            console.debug(JSON.stringify(segItem))
+            // console.debug(JSON.stringify(segItem))
             this.scene.push(segItem);
         };
         _.times(this.segmentPortions.length,addSegment);
