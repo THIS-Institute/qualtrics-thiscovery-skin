@@ -594,6 +594,7 @@ html {
 body {
   min-height: 100vh;
   background-color: var(--thisco-light-grey);
+  overflow-x: hidden;
 }
 
 .Skin {
@@ -1868,6 +1869,9 @@ Qualtrics codes:
 }
 .Skin .QuestionText > *, .Skin .QuestionBody > * {
   margin-bottom: 1.6em;
+}
+.Skin fieldset {
+  margin-bottom: 1em;
 }
 .Skin input {
   border-radius: 5px;
