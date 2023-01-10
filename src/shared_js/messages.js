@@ -6,7 +6,7 @@ const shortHash = require('short-hash');
 
 /**
  * Sets up the message listener for [addMessage]{@link event:addMessage} and [killMessage]{@link event:killMessage} - require as object and run init()
- * @module messages 
+ * @module 
  */
 
 module.exports = function(){
@@ -102,8 +102,9 @@ module.exports = function(){
                  * to allow an exit animation to be applied
                  */
                 const killEvent = `killMessage:${messageId}`;
+                debug({killEvent});
                 addMessage(msg,messageId);
-                emitter.once(killEvent,()=>{
+                emitter.on(killEvent,()=>{
                     killMessage(messageId);
                 });
             }

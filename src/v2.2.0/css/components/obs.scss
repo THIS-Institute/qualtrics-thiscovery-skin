@@ -17,7 +17,7 @@ $breakpoints: (
     // Get the breakpoint value.
     $breakpoint-value: map-get($breakpoints, $breakpoint);
 
-    // Write the media query.
+    // Write the media query. 
     @media (min-width: $breakpoint-value) {
       @content;
     }
@@ -34,8 +34,8 @@ $breakpoints: (
     padding: 1rem; 
     @include respond-above(sm){
       padding: 2px;
+      font-size: .7em;
     }
-    font-size: .7em;
     .thisco-message > div {
       padding: 5px;
       border-radius: 5px;
@@ -44,13 +44,11 @@ $breakpoints: (
       // font-weight: bold;
       margin-bottom: 5px;
       box-shadow: 1px 1px 5px rgb(0 0 0 / 0.3);
-      animation: appear .3s;
+      animation: appear .3s, flash .1s 1s;
     }
     .thisco-message.message-dead {
       animation: disappear .3s;
-
     }
-
   }
 }
 

@@ -54,11 +54,37 @@ const BACK_LINK = window.location.search.includes("staging") ? "https://staging.
 // skinjob client
 require("../../shared_js/skinjob_client.js")();
 
-// shared between update and setup:
+// shared_between update and setup:
 let followObs, progressWatcher = null, messages;
 
 /**
- * This is fired by the MutationObserver that is watching JFEContent. It contains all the scripts that need to be run on each survey page.
+ * This is fired by the MutationObserver that is watching JFEContent. It contains 
+ * all the scripts that need to be run on each survey page.
+ * 
+ * Check code for inline comments, timings etc.
+ * 
+ * The script:
+ * 
+ * - looks for `.JFEContent`
+ * - checks y offset placement of `#thiscoObs`
+ * - sets up progress bar if not already done once
+ * - sets up messages ( `messages.init()` )
+ * - fires all the modules (see below)
+ * - adds snippet to process consent statements for Qualtrics webhook
+ * - pulls in any graphs into divs marked `.thisco-graph`
+ * 
+ * @requires module:shared_js/messages
+ * @requires module:shared_js/thisco_modals
+ * @requires module:shared_js/link_buttons
+ * @requires module:shared_js/ranking_question
+ * @requires module:shared_js/expand_textarea
+ * @requires module:shared_js/multiline_text
+ * @requires module:shared_js/validation
+ * @requires module:shared_js/slideshow
+ * @requires module:shared_js/panel_choice
+ * @requires module:shared_js/custom_video
+ * @requires module:shared_js/misc_fixes
+ * @requires module:shared_js/thisco_icons
  */
 const update = ()=>{
 
@@ -69,7 +95,7 @@ const update = ()=>{
 
     debug('JFEContent updated');
 
-    // shared functions
+    // shared_functions
 
     requestAnimationFrame(followObs);
 
@@ -258,9 +284,9 @@ const update = ()=>{
         fsets.forEach(fset=>{
             fset.addEventListener('click',(evt)=>{
                 evt.stopPropagation();
-                fset.classList.add('touched');
+                if(["input","textarea","select","label"].includes(evt.target.tagName.toLowerCase())) fset.classList.add('touched');
                 requestAnimationFrame(()=>progressWatcher.update());
-                debug({progressWatcher});
+                // debug({progressWatcher});
             })
         })
     }
@@ -276,7 +302,25 @@ const update = ()=>{
 }
 
 /**
- * This is fired by the script if it finds no previous instance of ThiscoScript on the window object. It sets up anything that is outside the Qualtrics updated content (e.g. header, footer) and the MutationObserver that fires update. 
+ * This is fired by the script if it finds no previous instance of 
+ * ThiscoScript on the window object. It sets up anything that is 
+ * outside the Qualtrics updated content (e.g. header, footer) and 
+ * the MutationObserver that fires {@link update} when the childlist or subtree
+ * of `.JFEContent` changes.
+ *
+ * Check code for inline comments and timings.
+ * 
+ * The script:
+ * 
+ * - Checks for `.JFEContent` - stands down if can't find it
+ * - ejects any stylesheet not including 'thiscovery' or 'localhost' in its href
+ * - rewrites favicon
+ * - adds header, footer and thiscoObs containers
+ * - adds a followObs function for obs panel to track position
+ * - fires {@link module:shared_js/header_footer}
+ * - sets up MutationObserver
+ * 
+ * @requires module:shared_js/header_footer
  */
 const setup = ()=>{
 

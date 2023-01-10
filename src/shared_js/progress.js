@@ -4,6 +4,21 @@ import _ from 'lodash';
 
 import { CircleSegments } from '../ext_custom/CircleSegments';
 
+/**
+ * 
+ * Sets up progress bar and progress watching:
+ * - checks `table.ProgressBarContainer` and `div#thiscoObs>div.thisco-obs-content` selectors work
+ * - adds relevant elements into `div#thiscoObs>div.thisco-obs-content`
+ * - update function checks Qualtrics progress
+ * - makes guess at Qualtrics weighting of % (will need to have gone forward past first 'page' to do this)
+ * - also checks for fieldsets with class `touched` (this will change to `is-dirty` when validation used)
+ * and uses them to guess a 'fill-in' progress amount
+ * - renders progress bars (mobile one and the circular bar for wider screens)
+ * 
+ * Module default function, when called returns an object with single function, update()
+ *   
+ * @module
+ */
 module.exports = function(){
     // sets up a progress bar and returns obj with one method- update
    
@@ -71,7 +86,7 @@ module.exports = function(){
 
         debug({progressWatcher,pageTurn});
 
-        const {lastQProgress,lastQuestions,current,lastInterval,intervalGuess} = progressWatcher;
+        const {lastQuestions,lastInterval,intervalGuess} = progressWatcher;
 
         // get current page stats
         const progressEl = Bliss(`table.ProgressBarContainer`);

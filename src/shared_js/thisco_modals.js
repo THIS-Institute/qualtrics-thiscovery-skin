@@ -5,8 +5,31 @@ import { uniqueId } from 'lodash';
 
 const debug = require('debug')('thisco:thisco_modal.js');
 
+/**
+ * 
+ * Uses [a11y-dialog](https://a11y-dialog.netlify.app/) to create modals
+ * leveraging the `<dialog>` element
+ * 
+ * Set up as per [survey documentation](https://survey-docs.thiscovery.org/#/modals)
+ * 
+ * Adds a global method, {@link disposableModal} to the window object
+ * 
+ * @module
+ */
+
 module.exports = function(){
 
+    /**
+     * @global
+     * @method disposableModal
+     * 
+     * @description Programmatic modals - creates a one-off blocking modal for messages - removes itself from DOM once closed
+     * 
+     * @param {Object} options
+     * @param {string} options.bodyHtml body content of modal
+     * @param {Object} options.modalParent optional parent element for the modal (defaults to body)
+     * @param {string} options.modalClass optional class added to dialog-container
+     */
     window.disposableModal = ({bodyHtml,modalParent=null,modalClass=""})=>{
         if (typeof bodyHtml !== "string") {
             throw "disposableModal called without content";

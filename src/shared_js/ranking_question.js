@@ -15,6 +15,18 @@ const fire = (evtName="click",el)=>{
     el.dispatchEvent(fireEv);
 };
 
+/**
+ * 
+ * Sets up any question with the `.ranking-question` class as per [survey docs](https://survey-docs.thiscovery.org/#/select-and-rank)
+ * 
+ * Control listens to `input` on any of the row inputs, and then rearranges the grid
+ * using [animate-css-grid](https://www.npmjs.com/package/animate-css-grid)
+ * 
+ * Debounce amount is set in module by DEBOUNCE_RANKING (currently set to 750ms)
+ * 
+ * @module
+ */
+
 module.exports = function(){
 
     // find in survey

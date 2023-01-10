@@ -13,6 +13,24 @@ const modalHtml = {
 
 const BACK_LINK = window.location.search.includes("staging") ? "https://staging.thiscovery.org/my-tasks/" : "https://www.thiscovery.org/my-tasks/";
 
+/**
+ * Adds thiscovery-styled header and footer elements.
+ * 
+ * In version 2.1.x:
+ * - They are added inside the `#Header` and `#Footer` elements within the `.Skin` Qualtrics content
+ * - This means they get refreshed and re-added with every pseudo-reload (ie. Next button)
+ * 
+ * In version 2.2.x:
+ * - Elements `#thiscoHeader` and `#thiscoFooter` are created outside the `.Skin` content
+ * 
+ * In both cases:
+ * - The Headers contains a 'Back to My Tasks' button - link is defined in this module as BACK_LINK
+ * - The Footer ToC modals are built (to match main site)
+ * - The supporter icons are added in the footer - URLs are set in this module in the object `logos`
+ * 
+ * @module
+ */
+
 module.exports = function(){
 
     // colophon modal builders
@@ -155,20 +173,24 @@ module.exports = function(){
 
     // header
 
-    const header = document.getElementById("thiscoHeader");
-    if (header) {
-        header.appendChild(Bliss.create("div",{
-            className : "header-content",
-            contents : [{
-                tag : "a",
-                href : BACK_LINK,
-                className : "btn thisco-btn thisco-btn-inverse-red back-button",
+    try {
+        const header = document.getElementById("thiscoHeader") || document.getElementById("Header");
+        if (header) {
+            header.appendChild(Bliss.create("div",{
+                className : "header-content thisco-header",
                 contents : [{
-                    tag : "span",
-                    className : "back-arrow"
-                },"Back to My Tasks"]
-            }]
-        }));
+                    tag : "a",
+                    href : BACK_LINK,
+                    className : "btn thisco-btn thisco-btn-inverse-red back-button",
+                    contents : [{
+                        tag : "span",
+                        className : "back-arrow"
+                    },"Back to My Tasks"]
+                }]
+            }));
+        }
+    } catch (error) {
+        debug(error);
     }
 
     // footer (incl. colophon modals events)
@@ -185,7 +207,7 @@ module.exports = function(){
     };
 
     try {
-        const footer = document.getElementById("Footer") || document.getElementById("thiscoFooter");
+        const footer = document.getElementById("thiscoFooter") || document.getElementById("Footer");
         if (footer) {
             const footerContent = Bliss.create("div",{
                 className : "footer-content"

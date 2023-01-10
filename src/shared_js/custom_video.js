@@ -16,8 +16,9 @@ const videoCompVersion = "1.0.1";
 debug(`Video comp version: ${videoCompVersion}`);
 
 /**
- * Sets up any video elements with video.js and parses class options
- * @module custom_video
+ * Sets up any video elements with [video.js](https://videojs.com/) and parses class 
+ * options - see details in the [survey documentation](https://survey-docs.thiscovery.org/#/media-and-video)
+ * @module
  */
 
 module.exports = function(){

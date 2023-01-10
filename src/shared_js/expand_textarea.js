@@ -2,6 +2,12 @@ const BlissfulJs = require('blissfuljs'); // module adds Bliss to window object 
 import { debounce } from 'lodash';
 const debug = require('debug')('thisco:expand_textarea.js');
 
+/**
+ * Adds an expand function to all `textarea` tags so that they expand to scrollHeight
+ * on any `keyup` event
+ * @module
+ */
+
 module.exports = function(){
     const expand = debounce((evt)=>{
         debug({evt});

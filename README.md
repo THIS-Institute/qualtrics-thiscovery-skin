@@ -1,4 +1,3 @@
-# qualtrics-thiscovery-skin
 Javascript and CSS to customise Qualtrics surveys
 
 ## Outputs
@@ -15,16 +14,14 @@ Javascript and CSS to customise Qualtrics surveys
 
 ## Installation
 
-Requires node.js 16+ and npm 6+ (bundled in node) - in the cloned repo run:
+Requires at least node.js 16+ and npm 6+ (bundled in node) - in the cloned repo run:
 
 ```npm install ```
 
-## Development and Building
-
-Run the `dev` script to get started (either with `npm run dev` or in your VDE of choice). You should see the following:
-
-   ![](./dev_script_options.png)
-
 ## Documentation
 
-New JsDoc documentation following shortly...
+Instructions on development scripts have been moved to the documentation, under the 'Tutorials' section.
+
+The documentation has been set up to build using [jsdoc](https://jsdoc.app) and a few automated scripts.  To read the docs, run `npm run read_docs`.
+
+To update the documentation, make sure you have [jsoc installed globally](https://github.com/jsdoc/jsdoc#installation-and-usage), and then run `npm run watch:docs`. This will watch all js for changes, as well as the markdown files in `./doc_extras`, which is were the 'Tutorial' pages live.  Add any images, assets to `./doc_static`.

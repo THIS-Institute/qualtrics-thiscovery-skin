@@ -1,0 +1,15 @@
+fieldset.contains-invalid {
+    position: relative;
+}
+
+fieldset.contains-invalid::before {
+    content : "!";
+    position: absolute;
+    left: 0em;
+    font-size: 2em;
+    color: var(--thisco-red);
+    font-weight: bold;
+    height: 80%;
+    line-height: 1;
+    // border-right: 2px solid var(--thisco-red);
+}

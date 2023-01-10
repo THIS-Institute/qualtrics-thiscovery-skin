@@ -2,6 +2,14 @@ const BlissfulJs = require('blissfuljs'); // module adds Bliss to window object 
 import { uniqueId, range, clamp } from 'lodash';
 const debug = require('debug')('thisco:slideshow.js');
 
+/**
+ * 
+ * Creates a slideshow if it finds the `.thisco-slideshow` tag in page, and uses the targets
+ * direct children as the pages, and adds left and right buttons
+ * 
+ * @module
+ */
+
 module.exports = function(){
 
     const bruteScroll = (el)=>{

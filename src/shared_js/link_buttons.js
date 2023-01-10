@@ -1,6 +1,14 @@
 const BlissfulJs = require('blissfuljs'); // module adds Bliss to window object for us, use Bliss. and Bliss.$. for $ and $$
 const debug = require('debug')('thisco:link_buttons.js');
 
+/**
+ * 
+ * Module looks for any `p` element containing an anchor element and nothing else
+ * and adds `has-sole-link` and `link-button` classes respectively
+ * 
+ * @module
+ */
+
 module.exports = function(){
     Bliss.$(".Skin p, .thisco-survey p").forEach(el=>{
         let anchors = Bliss.$("a",el);

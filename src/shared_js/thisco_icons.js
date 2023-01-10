@@ -25,6 +25,19 @@ const iconLib = {
 
 // create a web component thisco-icon which takes icon="" as sole attribute
 
+/**
+ * 
+ * Creates a custom web component using [Lit](https://lit.dev/) of `thisco-icon` to
+ * allow easy insertion of custom icons
+ * 
+ * Library is defined as svg strings in this module
+ * 
+ * Use `<thisco-icon>` with `icon=[name]` as attribute - gets inserted as in inline svg filled
+ * with currentColor
+ * 
+ * @module
+ */
+
 module.exports = function(){
 
     class ThiscoIcon extends LitElement {

@@ -182,24 +182,6 @@ require("../../shared_js/thisco_icons.js")();
 
 require("../../shared_js/misc_fixes.js")();
 
-// header
-
-const header = document.getElementById("Header");
-if (header) {
-    header.appendChild(Bliss.create("div",{
-        className : "header-content",
-        contents : [{
-            tag : "a",
-            href : BACK_LINK,
-            className : "btn thisco-btn thisco-btn-inverse-red back-button",
-            contents : [{
-                tag : "span",
-                className : "back-arrow"
-            },"Back to My Tasks"]
-        }]
-    }));
-}
-
 require('../../shared_js/header_footer.js')();
 
 // hubspot script addition

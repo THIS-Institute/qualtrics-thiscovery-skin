@@ -1,5 +1,6 @@
 @use '../../v2.1.0/css/skin.scss';
 @use './components/obs.scss';
+@use './components/validation.scss';
 
 // A map of breakpoints.
 $breakpoints: (

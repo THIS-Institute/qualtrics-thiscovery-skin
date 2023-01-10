@@ -69,14 +69,14 @@ const middleware = async (req,res,next) => {
             let {body} = await got({
                 url:target
             });
-            body = body.replaceAll(replacement_domain,"https://localhost:3000");
+            body = body.replaceAll(replacement_domain,`https://localhost:${altport}`);
             res.end(body);
         }
         else if (likelyRoot) {
             let localBody = readFileSync(__dirname+target,{
                 encoding : "utf-8"
             });
-            localBody = localBody.replaceAll(replacement_domain,"https://localhost:3000");
+            localBody = localBody.replaceAll(replacement_domain,`https://localhost:${altport}`);
             res.end(localBody);
         }
     }

@@ -199,6 +199,10 @@ $label-background: linear-gradient(45deg, transparent, rgb(0 0 0 / 0.05) 50%);
         //     margin-bottom: 0;
         // }
     }
+    
+    fieldset {
+        margin-bottom: 1em;
+    }
 
     fieldset > legend {
         // margin-bottom: 1.6em;

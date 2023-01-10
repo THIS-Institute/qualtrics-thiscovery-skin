@@ -18,7 +18,28 @@ const safeJSONparse = (input)=>{
     }
 }
 
+/**
+ * Module looks for any questions containing `multiline-text` class, as per [survey docs](https://survey-docs.thiscovery.org/#/multiline-text)
+ * and creates a Multiline instance for it
+ * 
+ * @module
+ */
+
 class Multiline {
+    /**
+     * 
+     * @class Multiline
+     * 
+     * Class handling a multiline input - watches `input` and `keyup` events to handle input - on
+     * values changes, puts all the values back into the target input as a JSON string
+     * 
+     * 
+     * Options:
+     * - `maxInputs` : maximum number of inputs added
+     * 
+     * @param {Object} targetInput Must be a HTMLInputElement
+     * @param {Object} options See above
+     */
     constructor (targetInput,options={}){
         if (!(targetInput instanceof HTMLInputElement)) {
             throw ('Cannot instantiate multiline without input element');
