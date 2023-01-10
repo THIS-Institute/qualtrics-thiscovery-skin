@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: shared_js/multiline_text.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: shared_js/multiline_text.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>const BlissfulJs = require('blissfuljs'); // module adds Bliss to window object for us, use Bliss. and Bliss.$. for $ and $$
+import { isNull, isArray, last, debounce, uniqueId, isUndefined, findIndex, concat, unset, startsWith, isString } from 'lodash';
+const debug = require('debug')('thisco:multiline_text.js');
+
+const MULTILINE_VERSION = "1.0.0";
+
+// this control condenses multi-line inputs into a single JSON array value
+// eg. ["This","That","The other"]
+// the inputs also prevent " to save hassle down the line
+
+const DEBOUNCE_AMOUNT = 750;
+
+const safeJSONparse = (input)=>{
+    try {
+        return JSON.parse(input);
+    } catch (error) {
+        return input;
+    }
+}
+
+/**
+ * Module looks for any questions containing `multiline-text` class, as per [survey docs](https://survey-docs.thiscovery.org/#/multiline-text)
+ * and creates a Multiline instance for it
+ * 
+ * @module
+ */
+
+class Multiline {
+    /**
+     * 
+     * @class Multiline
+     * 
+     * Class handling a multiline input - watches `input` and `keyup` events to handle input - on
+     * values changes, puts all the values back into the target input as a JSON string
+     * 
+     * 
+     * Options:
+     * - `maxInputs` : maximum number of inputs added
+     * 
+     * @param {Object} targetInput Must be a HTMLInputElement
+     * @param {Object} options See above
+     */
+    constructor (targetInput,options={}){
+        if (!(targetInput instanceof HTMLInputElement)) {
+            throw ('Cannot instantiate multiline without input element');
+        }
+        this.targetInput = targetInput;
+        this.container = targetInput.parentNode;
+        this.inputs = [];
+        this.maxInputs = options.maxInputs || null;
+        this.name = targetInput.name || `multiline_${uniqueId()}`;
+        this.initialValue = targetInput.value || "";
+        Bliss(targetInput)._.style({
+            "opacity" : 0,
+            "height": "0px",
+            "font-size":"0px"
+        });
+        const { addInput, maxInputs } = this, self = this;
+        if (this.initialValue == "") addInput.call(self);
+        else if (!isArray(safeJSONparse(this.initialValue))) {
+            addInput.call(self,this.initialValue);
+        }
+        else {
+            const inputs = safeJSONparse(this.initialValue);
+            debug ({inputs,maxInputs});
+            (!isNull(maxInputs) ? inputs.slice(0,maxInputs) : inputs).forEach(input =>{
+                addInput.call(self,input);
+            });
+            addInput.call(self);
+        }
+    }
+
+    get values() {
+        return Bliss.$(`.multiline-input`,this.container).map(inp=>inp.value).filter(v=>isString(v)&amp;&amp;v!=="");
+    }
+
+    addInput(valueIn = ""){
+        const inputEls = Bliss.$(`.multiline-input`,this.container);
+        if (inputEls.length == this.maxInputs) return false;
+        const handler = debounce((evt)=>{
+            this.handleChange.call(this,evt);
+        },DEBOUNCE_AMOUNT);
+        const specialKeys = (evt)=>{
+            if ((evt.code,evt.key).includes("ArrowUp")) {
+                this.focusOnPrevious();
+                return;
+            }
+            if ((evt.code,evt.key).includes("ArrowDown")) {
+                this.focusOnNext(evt);
+                return;
+            }
+            if ((evt.code,evt.key).includes("Enter")) {
+                this.focusOnNext(evt);
+                setTimeout(()=>this.handleChange(evt),DEBOUNCE_AMOUNT,{
+                    maxWait : DEBOUNCE_AMOUNT+10
+                });
+                return;
+            }
+            // suppress quotes to mimimise JSON escapage
+            if ((evt.code,evt.key).includes(`"`) || (evt.code,evt.key).includes(`Quote`)) {
+                evt.preventDefault();
+                return;
+            }
+        }
+        const newInput = Bliss.create("input",{
+            type : "text",
+            tabindex : "0",
+            name  : this.name+'_multiline',
+            id : `multiline_${this.name}_${uniqueId()}`,
+            className : 'multiline-input',
+            events : {
+                input : handler,
+                keydown : specialKeys
+            },
+            value : valueIn
+        });
+        const i = this.inputs.push(newInput);
+        newInput._.set({"data-position":i});
+        // look for last input again
+        const lastInput = last(Bliss.$(".multiline-input",this.container));
+        debug({lastInput});
+        (!isUndefined(lastInput) ? lastInput : this.targetInput).insertAdjacentElement("afterend",newInput);
+        // use a css animation for entry?
+        return true;
+    }
+
+    handleChange(evt){
+        // I don't handle change very well
+        const lastInView = last(Bliss.$(`.multiline-input`,this.container));
+        if (lastInView.value !== "") this.addInput();
+        // remove any empty inputs that are left
+        this.removeEmptyInputs();
+        this.targetInput.value = JSON.stringify(this.values);
+    }
+
+    focusOnNext({code="",key=""}){
+        const position = findIndex(this.inputs,{id:document.activeElement.id});
+        const lastInView = last(Bliss.$(`.multiline-input`,this.container));
+        debug(Bliss.$(`.multiline-input`,this.container));
+        if (lastInView == document.activeElement) {
+            if ((code,key).includes("ArrowDown")) return;
+            // last input
+            const addOne = this.addInput();
+            if (!!addOne) this.focusOnNext({});
+            return;
+        }
+        else {
+            const nextId = this.inputs[position+1].id;
+            const nextInp = Bliss(`.multiline-input#${nextId}`,this.container) || {};
+            if (nextInp.focus) nextInp.focus();
+        }
+        return;
+    }
+
+    focusOnPrevious(){
+        if (document.activeElement == Bliss.$(".multiline-input",this.container)[0]) {
+            return;
+        }
+        else {
+            const inputEls = Bliss.$(`.multiline-input`,this.container);
+            const previous = inputEls.indexOf(document.activeElement)-1;
+            if (previous >= 0) inputEls[previous].focus();
+        }
+        return;
+    }
+
+    removeEmptyInputs(){
+        const inFocus = document.activeElement;
+        const lastInView = last(Bliss.$(`.multiline-input`,this.container))
+        // remove any empty except last
+        let toRemove = Bliss.$(`.multiline-input`,this.container).slice(0,-1).filter(inp=>inp.value == "");
+        debug({toRemove});
+        toRemove = concat(toRemove,this.inputs.filter(inp=>inp.offsetParent==null));
+        toRemove.forEach(inp=>{
+            if (!inp) return;
+            const removee = Bliss(`.multiline-input[id='${inp.id}']`); // something in Qualtrics sulky about selector
+            if (removee) removee.remove();
+            if (findIndex(this.inputs,{id:inp.id}) == -1) this.inputs.splice(findIndex(this.inputs,{id:inp.id}),1);
+        });
+        inFocus.focus();
+    }
+
+}
+
+module.exports = function(){
+
+    // find in survey
+
+    if (Bliss.$(".multiline-text").length) {
+        debug(`multiline_text.js v${MULTILINE_VERSION}`);
+
+        Bliss.$(".multiline-text").forEach(el=>{
+            const closest = el.closest("div.form-group") || el.closest("fieldset");
+            const options = {}, targetInput = closest.querySelector("input[type='text']") || closest.querySelector("input[type='TEXT']"); // stoopid Qualtrics
+            const itemsMaxClasses = el.className.split(" ").filter(v=>startsWith(v,'multiline-limit-'));
+            if (!!itemsMaxClasses[0]) options.maxInputs = parseInt(itemsMaxClasses[0].replace("multiline-limit-",""));
+            if (!isFinite(options.maxInputs)) unset(options.maxInputs);
+            const ml = new Multiline(targetInput,options);
+        });
+    }
+
+
+}</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-shared_js_custom_video.html">shared_js/custom_video</a></li><li><a href="module-shared_js_expand_textarea.html">shared_js/expand_textarea</a></li><li><a href="module-shared_js_header_footer.html">shared_js/header_footer</a></li><li><a href="module-shared_js_link_buttons.html">shared_js/link_buttons</a></li><li><a href="module-shared_js_messages.html">shared_js/messages</a></li><li><a href="module-shared_js_misc_fixes.html">shared_js/misc_fixes</a></li><li><a href="module-shared_js_multiline_text.html">shared_js/multiline_text</a></li><li><a href="module-shared_js_panel_choice.html">shared_js/panel_choice</a></li><li><a href="module-shared_js_progress.html">shared_js/progress</a></li><li><a href="module-shared_js_ranking_question.html">shared_js/ranking_question</a></li><li><a href="module-shared_js_skinjob_client.html">shared_js/skinjob_client</a></li><li><a href="module-shared_js_slideshow.html">shared_js/slideshow</a></li><li><a href="module-shared_js_thisco_icons.html">shared_js/thisco_icons</a></li><li><a href="module-shared_js_thisco_modals.html">shared_js/thisco_modals</a></li><li><a href="module-shared_js_validation.html">shared_js/validation</a></li></ul><h3>Classes</h3><ul><li><a href="module-shared_js_multiline_text-Multiline.html">Multiline</a></li></ul><h3>Events</h3><ul><li><a href="module-shared_js_messages.html#~event:addMessage">addMessage</a></li><li><a href="module-shared_js_messages.html#~event:killMessage">killMessage</a></li></ul><h3>Tutorials</h3><ul><li><a href="tutorial-deployment.html">Build and Deployment</a></li><li><a href="tutorial-development.html">Development</a></li><li><a href="tutorial-qualtrics.html">Qualtricksiness</a></li><li><a href="tutorial-survey_setup.html">Survey Setup</a></li><li><a href="tutorial-testing.html">Testing</a></li><li><a href="tutorial-tools.html">Tools</a></li><li><a href="tutorial-troubleshooting.html">Troubleshooting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#disposableModal">disposableModal</a></li><li><a href="global.html#setup">setup</a></li><li><a href="global.html#update">update</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.0</a> on Tue Jan 10 2023 10:31:52 GMT+0000 (Greenwich Mean Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

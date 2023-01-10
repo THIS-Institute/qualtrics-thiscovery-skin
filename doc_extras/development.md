@@ -1,4 +1,4 @@
-Either you are going to be working on a local html file (likely to be one of the html files in `/test_pages`) which are useful for working on new js snippets, or more often you are going to be working directly on a Qualtrics survey.  Make sure the survey is set up to use the 'development' version of the skin by pointing it to the github repo directly (see Survey Setup).
+Either you are going to be working on a local html file (likely to be one of the html files in `/test_pages`) which are useful for working on new js snippets, or more often you are going to be working directly on a Qualtrics survey.  Make sure the survey is set up to use the 'development' version of the skin by pointing it to the github repo directly (see {@tutorial survey_setup}).
 
 Run the `dev` script to get started (either with `npm run dev` or in your VDE of choice). You should see the following:
 

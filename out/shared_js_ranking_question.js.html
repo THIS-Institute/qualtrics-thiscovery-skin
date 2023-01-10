@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: shared_js/ranking_question.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: shared_js/ranking_question.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>const BlissfulJs = require('blissfuljs'); // module adds Bliss to window object for us, use Bliss. and Bliss.$. for $ and $$
+import { debounce, startsWith, isString, clamp, inRange, sortBy } from 'lodash';
+import { wrapGrid } from 'animate-css-grid'
+const debug = require('debug')('thisco:ranking_question.js');
+
+const RANKING_VERSION = "1.1.3";
+
+// ranking question
+// to create 1-x ranked list out of x+ items
+
+const DEBOUNCE_RANKING = 750;
+
+const fire = (evtName="click",el)=>{
+    const fireEv = new Event(evtName);  
+    el.dispatchEvent(fireEv);
+};
+
+/**
+ * 
+ * Sets up any question with the `.ranking-question` class as per [survey docs](https://survey-docs.thiscovery.org/#/select-and-rank)
+ * 
+ * Control listens to `input` on any of the row inputs, and then rearranges the grid
+ * using [animate-css-grid](https://www.npmjs.com/package/animate-css-grid)
+ * 
+ * Debounce amount is set in module by DEBOUNCE_RANKING (currently set to 750ms)
+ * 
+ * @module
+ */
+
+module.exports = function(){
+
+    // find in survey
+
+    if (Bliss.$(".ranking-question").length) {
+        // game on
+        debug(`ranking_question.js v${RANKING_VERSION}`);
+        Bliss.$(".ranking-question").forEach(tagged=>{
+
+            const fset = tagged.closest('fieldset');
+            const legend = Bliss("legend",fset);
+            fset.classList.add("ranking-question");
+
+            // Qualtrics pre-mod
+            // change type on inputs to number
+
+            const QItems = Bliss.$(".Skin .ChoiceStructure li>input");
+            const isQualtrics = QItems.length > 0;
+            if (isQualtrics) {
+                QItems.forEach(item=>{
+                    item.type = "number";
+                });
+                Bliss(".ChoiceStructure")._.style({
+                    "opacity" : 0,
+                    "height": "0px",
+                    "font-size":"0px"
+                });
+            }
+
+            // normalise and wrap ranking items
+
+            const rankContainer = Bliss.create("div",{
+                className : "ranking-container"
+            });
+            if (!legend) {
+                fset.prepend(rankContainer);
+            }
+            else {
+                legend.insertAdjacentElement('afterend',rankContainer);
+            }
+
+            // cycle input[number]
+            Bliss.$("input[type='number']").forEach(input=>{
+                const label = Bliss.$(`label[for='${input.id}'], label[for='${input.name}']`)[0];
+                if (!label) return; // skip inputs w/out matching label
+                const wrap = Bliss.create("div",{
+                    className : "ranking-item",
+                    contents : {
+                        tag : 'div',
+                        contents : [label,input]
+                    }
+                });
+                rankContainer.appendChild(wrap);
+            });
+
+            // get ranking items number and ranking max
+
+            let rankMaxClasses = tagged.className.split(" ").filter(v=>startsWith(v,'ranking-q-max'));
+            let rankMax = isString(rankMaxClasses[0]) ? parseInt(rankMaxClasses[0].slice(-1)) : rankContainer.children.length;
+            rankMax = clamp(rankMax,1,rankContainer.children.length); // in case class labelled incorrectly
+            tagged.classList.remove("ranking-question");
+            tagged.classList.remove((rankMaxClasses[0] || "nope").toString());
+
+            rankContainer._.set({
+                "data-rank-max" : rankMax
+            })
+
+            // conform and format inputs
+
+            const wrapInputControls = (input)=>{
+
+                const wrapper = Bliss.create("div",{
+                    className:"input-number-wrapper"
+                });
+                input.insertAdjacentElement("afterend",wrapper);
+                Bliss.contents(wrapper,[{
+                    tag : "button",
+                    className : "button-decrement",
+                    contents : " ",
+                    events : {
+                        click : debounce((evt)=>{
+                            evt.stopPropagation();
+                            evt.preventDefault();
+                            if (!isFinite(parseInt(input.value))) return; // no affect on empty rank
+                            input.stepDown();
+                            fire("input",input);
+                        },50)
+                    },
+                    tabindex : "-1"
+                },input,{
+                    tag : "button",
+                    className : "button-increment",
+                    contents : " ",
+                    events : {
+                        click : debounce((evt)=>{
+                            evt.stopPropagation();
+                            evt.preventDefault();
+                            if (!isFinite(parseInt(input.value))) { 
+                                input.value = 1; 
+                            } // fix for iOS
+                            else { input.stepUp(); }
+                            fire("input",input);
+                        },50)
+                    },
+                    tabindex : "-1"
+                }])
+            };
+
+            let existValues = new Set();
+            Bliss.$('.ranking-item',rankContainer).forEach(item=>{
+                const input = Bliss("input",item);
+                if (input.value == "0") input.value = null;
+                let normedValue = isFinite(clamp(parseInt(input.value),1,rankMax)) ? clamp(parseInt(input.value),1,rankMax) : null;
+                if (existValues.has(normedValue)) { normedValue = null; } else { existValues.add(normedValue); }
+                input._.set({
+                    value : normedValue,
+                    min : 1,
+                    max : rankMax,
+                    tabindex : "0"
+                });
+                wrapInputControls(input);
+                item._.set({
+                    "data-rank-value" : normedValue,
+                    "data-rank-id" : input.id
+                });
+            });
+
+            // add indeterminate class
+
+            if (Bliss.$(`.ranking-item[data-rank-value="null"]`).length == Bliss.$(`.ranking-item`).length ) {
+                rankContainer.classList.add("indeterminate");
+            }
+
+            // add handlers 
+
+            const handleRankChange = (evt)=>{
+                // handle settled rank change of item (debounce this function)
+                // watch on all rank number inputs
+                const ranker = evt.target.closest(".ranking-item");
+                const rankerInput = evt.target;
+                const targetValue = inRange(parseInt(rankerInput.value),1,rankMax+1) ? parseInt(rankerInput.value) : null;
+                ranker.classList.add("rank-change");
+                const demotion = (isFinite(parseInt(ranker.dataset.rankValue))) &amp;&amp; (parseInt(rankerInput.value) > parseInt(ranker.dataset.rankValue));
+                debug(`${rankerInput.id} is being ${demotion ? "demoted :(": "promoted :)"}`);
+                debug(`its targetValue is ${rankerInput.value} normed to ${targetValue}`);
+                // demote/promote function
+                const moveItem = (item,promote=true)=>{
+                    const currRank = parseInt(item.dataset.rankValue);
+                    if (!isFinite(currRank)) return;
+                    const nextItem = Bliss(`div.ranking-item[data-rank-value='${currRank + (promote ? -1 : 1)}']`);
+                    if (!!nextItem &amp;&amp; !nextItem.classList.contains("rank-change")) {
+                        moveItem(nextItem,promote); // do all the promotions/demotions in rev order
+                    }
+                    let newRank = currRank + (promote ? -1 : 1);
+                    if ((newRank > rankMax) || (newRank == 0)) newRank = null;
+                    item._.set({
+                        'data-rank-value':newRank
+                    });
+                    const input = Bliss("input[type='number']",item);
+                    debug(`${input.id} is being forcibly ${!promote ? "demoted :(": "promoted :)"}`);
+                    input.value = newRank;
+                    // const changa = new Event('change');  
+                    // input.dispatchEvent(changa);
+                    fire("change",input);
+                };
+                // recursive demotion/promotion as necessary of shoved items
+                const shoveSearch = `div.ranking-item[data-rank-value='${targetValue}']`;
+                debug(`it is looking for ${shoveSearch}`);
+                const shovee = Bliss(shoveSearch);
+                debug(`it is looking to shove ${shoveSearch} which is ${((shovee || {}).dataset || {}).rankId || "unknown"}`);
+                if (!!shovee) moveItem(shovee,demotion); // if item is being promoted, demote shovee and vice versa?
+                // set update w/out change
+                ranker._.set({
+                    'data-rank-value':targetValue
+                });
+                rankerInput.value = targetValue;
+                ranker.classList.remove("rank-change");
+            };
+
+            const updateRowClasses = ()=>{
+                let rows = sortBy(Bliss.$(".ranking-item"),item=>parseInt(item.dataset.rankValue));
+                rows.forEach((item,i)=>{
+                    item.className = item.className.replace(/ranking-row-./,"");
+                    item.classList.add(`ranking-row-${i+1}`);
+                });
+            };
+
+            const postRankings = ()=>{
+                // QUALTRICS HACK COS QUALTRICS SUCKS
+                let result = {};
+                let rows = sortBy(Bliss.$(".ranking-item"),item=>parseInt(item.dataset.rankValue));
+                rows.forEach((item,i)=>{
+                    if (item.dataset.rankValue == "null") return;
+                    const rank = parseInt(item.dataset.rankValue);
+                    const text = (Bliss("label",item) || {}).innerText;
+                    result[`preference${rank}`] = text;
+                });
+                window.thiscoRankingResult = result;
+            };
+
+            const debounced = debounce((evt)=>{
+                rankContainer.classList.remove("indeterminate");
+                handleRankChange(evt);
+                updateRowClasses();
+                postRankings();
+            },DEBOUNCE_RANKING);
+
+            Bliss.$('.ranking-item',rankContainer).forEach(item=>{
+                const input = Bliss("input",item);
+                input.addEventListener('input',debounced);
+            });
+
+            // animate
+            updateRowClasses();
+            wrapGrid(rankContainer,{
+                duration :600,
+                easing: "anticipate",
+                stagger: 20
+            });
+            window.requestAnimationFrame(updateRowClasses)
+            // updateRowClasses();
+
+        });
+
+    }
+}</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-shared_js_custom_video.html">shared_js/custom_video</a></li><li><a href="module-shared_js_expand_textarea.html">shared_js/expand_textarea</a></li><li><a href="module-shared_js_header_footer.html">shared_js/header_footer</a></li><li><a href="module-shared_js_link_buttons.html">shared_js/link_buttons</a></li><li><a href="module-shared_js_messages.html">shared_js/messages</a></li><li><a href="module-shared_js_misc_fixes.html">shared_js/misc_fixes</a></li><li><a href="module-shared_js_multiline_text.html">shared_js/multiline_text</a></li><li><a href="module-shared_js_panel_choice.html">shared_js/panel_choice</a></li><li><a href="module-shared_js_progress.html">shared_js/progress</a></li><li><a href="module-shared_js_ranking_question.html">shared_js/ranking_question</a></li><li><a href="module-shared_js_skinjob_client.html">shared_js/skinjob_client</a></li><li><a href="module-shared_js_slideshow.html">shared_js/slideshow</a></li><li><a href="module-shared_js_thisco_icons.html">shared_js/thisco_icons</a></li><li><a href="module-shared_js_thisco_modals.html">shared_js/thisco_modals</a></li><li><a href="module-shared_js_validation.html">shared_js/validation</a></li></ul><h3>Classes</h3><ul><li><a href="module-shared_js_multiline_text-Multiline.html">Multiline</a></li></ul><h3>Events</h3><ul><li><a href="module-shared_js_messages.html#~event:addMessage">addMessage</a></li><li><a href="module-shared_js_messages.html#~event:killMessage">killMessage</a></li></ul><h3>Tutorials</h3><ul><li><a href="tutorial-deployment.html">Build and Deployment</a></li><li><a href="tutorial-development.html">Development</a></li><li><a href="tutorial-qualtrics.html">Qualtricksiness</a></li><li><a href="tutorial-survey_setup.html">Survey Setup</a></li><li><a href="tutorial-testing.html">Testing</a></li><li><a href="tutorial-tools.html">Tools</a></li><li><a href="tutorial-troubleshooting.html">Troubleshooting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#disposableModal">disposableModal</a></li><li><a href="global.html#setup">setup</a></li><li><a href="global.html#update">update</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.0</a> on Tue Jan 10 2023 10:31:52 GMT+0000 (Greenwich Mean Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
