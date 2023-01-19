@@ -19,5 +19,8 @@
     },
     "survey_setup" : {
         "title" : "Survey Setup"
+    },
+    "validation" : {
+        "title" : "Validation"
     }
 }

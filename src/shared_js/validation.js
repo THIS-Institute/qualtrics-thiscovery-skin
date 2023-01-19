@@ -20,6 +20,8 @@ const emitter = require('tiny-emitter/instance');
  * 
  * If it receives any error message from the validation functions or Qualtrics watch, fires [addMessage]{@link event:addMessage} 
  * 
+ * Bit more complicated than other modules, so see {@tutorial validation} for detailed explanation
+ * 
  *
  * @module
  */
@@ -34,14 +36,34 @@ const PATTERNS = {
     "whole number" : /^[0-9,]+$/
 };
 
+/**
+ * 
+ * @param {Object} el - element
+ * @returns {boolean} Does element have the class 'is-dirty'?
+ */
 const isDirty = (el)=>el.classList.contains('is-dirty');
 
+/**
+ * Checks the value of a containing element's `input[type='text']` against one of the hard-coded regexes
+ * @param {*} el 
+ * @param {string} pattern - email|URL|number|whole number - pattern to check against
+ * @returns {boolean|string} - true if passes, message for display if not
+ */
 const checkPattern = (el,pattern = "email")=>{
     const value = trim(Bliss("input[type='text']",el).value);
     debug(pattern,PATTERNS[pattern],value,PATTERNS[pattern].test(value));
     return ["",null].includes(value) || PATTERNS[pattern].test(value) ? true : `This answer must be a valid ${pattern}`;
 }
+
+/**
+ * For form fields - checks `label` element contents for pattern string, 
+ * if it gets a match, checks the `input` value matching that label's `for` attribute
+ * @param {*} el - element containing the inputs
+ * @param {*} pattern - email|URL|number|whole number - pattern to check against
+ * @returns {boolean|string} - true if passes, message for display if not
+ */
 const labelMatchCheckPattern = (el,pattern)=>{
+    // for form fields:
     // look for labels matching pattern name
     // they must [for] a matching input id
     // then batch check them
@@ -58,6 +80,12 @@ const labelMatchCheckPattern = (el,pattern)=>{
     return allValid;
 }
 
+/**
+ * Looks on el for a classname matching `prefix-X' and returns X
+ * @param {*} el 
+ * @param {string} prefix - first part of classname to look for, e.g. `is-maximum`
+ * @returns {string|boolean} returns the numeral after the given prefix it finds matching className or `false`
+ */
 const getClassedValue = (el,prefix)=>{
     const matcher = new RegExp(`${prefix}-[0-9]+`,'g');
     const firstMatch = el.className.match(matcher);
@@ -202,6 +230,9 @@ const validations = {
     }
 }
 
+/**
+ * @function
+ */
 module.exports = function(){
 
     if (!QUALTRICS_PREVIEW || TEST_VALIDATION) {
@@ -252,7 +283,7 @@ module.exports = function(){
                             return true; // null results mean validation has been skipped
                         }
                         else if ((result !== true) && (!fset.classList.contains("contains-invalid"))) {
-                            const errorMsg = el.dataset?.customValidMessage || result;
+                            const errorMsg = el.dataset?.customInvalidMessage || result;
                             emitter.emit("addMessage",errorMsg,errorId);
                             fset.classList.add("contains-invalid");
                             fset.classList.remove("contains-valid");
