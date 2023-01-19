@@ -48,6 +48,7 @@ module.exports = function(){
     };
 
     const killMessage = (messageId)=>{
+        debug(`victim is ${messageId}`)
         const victim = Bliss(`div.thisco-message[data-thisco-msg-id="${messageId}"]`);
         if (!victim) return null;
         victim.classList.add('message-dead');
@@ -63,6 +64,12 @@ module.exports = function(){
             setTimeout(bathtub,1000);
         };
         requestAnimationFrame(disposeOfBody);
+    };
+
+    const killAll = ()=>{
+        const victims = Bliss.$(`div.thisco-message[data-thisco-msg-id]`).forEach(msg=>{
+            killMessage(msg.dataset.thiscoMsgId);
+        })
     };
 
     /**
@@ -109,6 +116,14 @@ module.exports = function(){
                 });
             }
             return;
+        });
+
+        /**
+         * @event bodyUpdate
+         * @description on an update of main body, kill all messages outstanding
+         */
+        emitter.on("bodyUpdate",()=>{
+            killAll();
         });
 
     }

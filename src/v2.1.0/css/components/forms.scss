@@ -89,7 +89,7 @@ $breakpoints: (
     padding-right: .2em;
     &:focus-visible {
         border-color: var(--thisco-red);
-        box-shadow: 0px 0px 0px 1px var(--thisco-red);
+        box-shadow: 0px 0px 1px 1px var(--thisco-red);
         outline: none;
     }
     &::placeholder {

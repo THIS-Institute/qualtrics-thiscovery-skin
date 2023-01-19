@@ -1,9 +1,12 @@
 // CircleSegments
 //
-// 0.0.1
+// 0.0.3
 // from template of AnimCanvas 0.0.1
 // Nov 2022
 // Glyn Cannon
+//
+//
+// 0.0.3 - adding some demo functions
 
 const Blissfuljs = require('blissfuljs');
 const _ = require('lodash');
@@ -191,6 +194,8 @@ class SceneItem {
     }
 }
 
+const DPR = window.devicePixelRatio;
+
 // replace CircleSegments with whatever your thing is
 
 class CircleSegments {
@@ -210,6 +215,8 @@ class CircleSegments {
 
         this.id = _.uniqueId();
 
+        this.devicePixelRatio = window.devicePixelRatio;
+
         // set up container and canvas element (change to <figure> as necessary)
 
         this.container = Bliss.create('div',{
@@ -224,8 +231,11 @@ class CircleSegments {
                 tag: "canvas",
                 id: `cc-canvas-${this.id}`,
                 style: {
-                    width: '100%',
-                    'aspect-ratio': `${CANVAS_RATIO}`
+                    width : "100%",
+                    // width: `${100*devicePixelRatio}%`,
+                    'aspect-ratio': `${CANVAS_RATIO}`,
+                    // 'transform-origin' : 'top left',
+                    // 'scale' : 1/devicePixelRatio
                 },
                 width : this.canvWidth,
                 height : this.canvHeight
@@ -292,6 +302,7 @@ class CircleSegments {
         // set canvas context and any global values
         this.canvas = Bliss("canvas",this.container);
         this.ctx = this.canvas.getContext("2d");
+        // this.ctx.scale(this.devicePixelRatio,this.devicePixelRatio);
         this.updateAllSegments();
         // run update once
         // this.update();
@@ -376,7 +387,7 @@ class CircleSegments {
     wipeCanvas(){
         const { ctx, canvHeight, canvWidth, options, mBlurCol } = this;
         if (!(ctx instanceof CanvasRenderingContext2D)) return;
-        if (options.canvasMBlur === true) {
+        if (options.canvasMBlur === true) { 
             ctx.fillStyle = mBlurCol || `rgb(255 255 255 / 0.5)`;
             ctx.fillRect(0,0,canvWidth,canvHeight);
         }
@@ -456,6 +467,40 @@ class CircleSegments {
 
     }
 
+    minuteClock(){
+        const { segmentNo } = this.options;
+        const checkMinute = ()=>{
+            const m = new Date().getSeconds() / 59;
+            this.setProgress(Math.floor(segmentNo * m));
+        }
+        return window.setInterval(checkMinute,500);
+    }
+
+    chase(durationMs=1000){
+        const self = this;
+        const getSegment = (i)=>{
+            return this.getSegment(i);
+        }
+        const { segmentNo } = this.options;
+        const checkClock = ()=>{
+            const t = (new Date().getTime() % durationMs) / durationMs;
+            const activeNo  = _.floor(t * segmentNo);
+            const activeSeg = getSegment(activeNo);
+            if (!activeSeg.active) {
+                activeSeg.active = true;
+                self.updateSegment(activeNo);
+            }
+            const preceedingNo = activeNo == 0 ? segmentNo-1 : activeNo -1;
+            const preceedingSeg = getSegment(preceedingNo);
+            if (preceedingSeg.active) {
+                preceedingSeg.active = false;
+                self.updateSegment(preceedingNo);
+            }
+        }
+        this.update();
+        return window.setInterval(checkClock,10);
+    }
+
     setAll(props){
         // quickly set properties on all segments
         const { segments } = this;
@@ -481,7 +526,7 @@ class CircleSegments {
     // }
 
     get canvWidth() {
-        return this.options.canvasRes * devicePixelRatio;
+        return this.options.canvasRes * this.devicePixelRatio;
     }
 
     get canvHeight() {

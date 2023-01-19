@@ -73,6 +73,7 @@ module.exports = function(){
         target : ".thisco-progress-dial",
         rotationStart : -90,
         activeColors : ["crimson"],
+        canvasMBlur : false,
         rounded : false,
         segmentNo : progressGrain,
         startExplode: 0,
@@ -104,7 +105,8 @@ module.exports = function(){
         }
 
         // const latestIncrementGuess = _.clamp(progressWatcher.lastInterval / _.clamp(Bliss.$("fieldset").length,1,999), 0, 999)
-        progressWatcher.current = !intervalGuess ? qProgress : qProgress + (Bliss.$("fieldset.touched").length * intervalGuess);
+        const validFsets = Bliss.$("fieldset.touched").filter(fset=>!fset.className.includes('contains-invalid')).length;
+        progressWatcher.current = !intervalGuess ? qProgress : qProgress + (validFsets * intervalGuess);
 
         const currentVisual = progressWatcher.current * progressGrain;
 

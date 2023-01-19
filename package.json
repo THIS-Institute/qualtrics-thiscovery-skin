@@ -7,6 +7,8 @@
   "scripts": {
     "bsync": "node bsync.js",
     "build:docs": "jsdoc ./src/v2.2.0/js/skin.js ./src/shared_js ./README.md -c ./jsdoc_config.json -u ./doc_extras && cp ./src/jsdoc-default.css ./out/styles/jsdoc-default.css",
+    "build:js": "esbuild ./src/v$TG_VERSION/js/skin.js --bundle --minify --sourcemap --loader:.md=text --outfile=./dist/bundle.$TG_VERSION.js --target=es2016,chrome94,firefox94,safari13,edge96,node12",
+    "build:scss": "sass ./src/v$TG_VERSION/css/skin.scss ./src/v$TG_VERSION/css/skin.css --embed-sources",
     "deploy": "git checkout deploy && git merge master && git push origin deploy && git checkout master",
     "dev": "DEBUG=thisco-dev:* node dev.2.js",
     "dev:skinjob": "node ./tools/skinjob/skinjob.js ./src/v$TG_VERSION/css/skin.css --novalidation",
@@ -78,6 +80,7 @@
     "lodash": "^4.17.21",
     "markdown": "^0.5.0",
     "modernizr": "^3.12.0",
+    "num-to-words": "^0.2.1",
     "polyfill-library-node": "^1.1.0",
     "qid": "^0.9.12",
     "sanitize-html": "^2.7.0",
