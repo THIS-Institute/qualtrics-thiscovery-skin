@@ -2120,7 +2120,7 @@ Qualtrics codes:
 .thisco-survey form fieldset legend > p, .thisco-survey form fieldset legend > div, .thisco-survey form fieldset legend > blockquote, .thisco-survey form fieldset legend > ul, .thisco-survey form fieldset legend > ol, .thisco-survey form fieldset legend > dl {
   margin-bottom: 1.6em;
 }
-.thisco-survey form fieldset legend > p:last-of-type, .thisco-survey form fieldset legend > div:last-of-type, .thisco-survey form fieldset legend > blockquote:last-of-type, .thisco-survey form fieldset legend > ul:last-of-type, .thisco-survey form fieldset legend > ol:last-of-type, .thisco-survey form fieldset legend > dl:last-of-type {
+.thisco-survey form fieldset legend > p:last-child, .thisco-survey form fieldset legend > div:last-child, .thisco-survey form fieldset legend > blockquote:last-child, .thisco-survey form fieldset legend > ul:last-child, .thisco-survey form fieldset legend > ol:last-child, .thisco-survey form fieldset legend > dl:last-child {
   margin-bottom: 0;
 }
 .thisco-survey form fieldset input[type=text] {

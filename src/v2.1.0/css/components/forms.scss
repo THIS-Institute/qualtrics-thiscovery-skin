@@ -365,7 +365,7 @@ $label-background: linear-gradient(45deg, transparent, rgb(0 0 0 / 0.05) 50%);
                 margin-bottom: 1.6em;
                 > p, > div, > blockquote, > ul , > ol, > dl {
                     margin-bottom: 1.6em;
-                    &:last-of-type {
+                    &:last-child {
                         margin-bottom: 0;
                     }
                 }
