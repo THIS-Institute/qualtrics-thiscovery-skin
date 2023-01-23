@@ -363,6 +363,12 @@ $label-background: linear-gradient(45deg, transparent, rgb(0 0 0 / 0.05) 50%);
         fieldset {
             legend {
                 margin-bottom: 1.6em;
+                > p, > div, > blockquote, > ul , > ol, > dl {
+                    margin-bottom: 1.6em;
+                    &:last-of-type {
+                        margin-bottom: 0;
+                    }
+                }
             }
             input[type="text"] {
                 @include thisco-input();
