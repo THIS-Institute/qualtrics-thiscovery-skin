@@ -94,6 +94,7 @@ const update = ()=>{
     // closer alliance to Qualtrics requires using Qualtrics particular hooks
 
     debug('JFEContent updated');
+    emitter.emit('bodyUpdate');
 
     // shared_functions
 
