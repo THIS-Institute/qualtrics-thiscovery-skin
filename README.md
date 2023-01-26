@@ -40,7 +40,7 @@ Follow these steps for CSS updates to qualtrics surveys
 2. Copy the distribution URL for the survey.
 3. Run the `npm run dev` script. These scrips are defined in package.json and 
   can be run in PyCharm directly. For more details of running the dev server,
-  see the 'Development' section in the docs.  
+  see [Development]{@tutorial development}.  
    1. Choose `Develop`
    2. Paste the anonymous link
    3. Choose the version, usually 2.1.0
@@ -52,14 +52,16 @@ Follow these steps for CSS updates to qualtrics surveys
 4. Once you've got the survey, you can make the change you want to the CSS files
 5. When you are happy with the new CSS, commit the changes to a branch.
 6. Run the `npm run dev` script again, but this time choose `Build`. For more 
-  details of building and deploying see the 'Build and deployment' section of 
-  the docs.
+  details see [Build and deployment]{@tutorial deployment}
 7. The `Build` command will update a load of compiled files. Commit these. 
 8. Open a PR with the source code changes and the compiled files.
 9. When approved, merge to master. This will kick off the 'pages build and 
   deployment' action on GitHub, which will make the CSS and JS available
   publicly.
-10. Check the survey can load the built CSS. This is the link to the built CSS:
+10. Check the survey can load the built CSS. For more details see 
+[Survey Setup]{@tutorial survey_setup}
+
+    This is the link to the built CSS:
 
         https://this-institute.github.io/qualtrics-thiscovery-skin/dist/bundle.2.1.0.css
     1. Open the survey
