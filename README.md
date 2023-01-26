@@ -24,4 +24,6 @@ Instructions on development scripts have been moved to the documentation, under 
 
 The documentation has been set up to build using [jsdoc](https://jsdoc.app) and a few automated scripts.  To read the docs, run `npm run read_docs`.
 
-To update the documentation, make sure you have [jsoc installed globally](https://github.com/jsdoc/jsdoc#installation-and-usage), and then run `npm run watch:docs`. This will watch all js for changes, as well as the markdown files in `./doc_extras`, which is were the 'Tutorial' pages live.  Add any images, assets to `./doc_static`.
+To update the documentation, make sure you have [jsoc installed globally](https://github.com/jsdoc/jsdoc#installation-and-usage),
+and then run `npm run watch:docs`. This will watch all js for changes, as well as the markdown files in `./doc_extras`,
+which is were the 'Tutorial' pages live.  Add any images, assets to `./doc_static`.
