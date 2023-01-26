@@ -1,10 +1,18 @@
 For **development**, we can use the skin files directly from the github repo (set up via GitHub pages to serve them):
 
-`https://this-institute.github.io/qualtrics-thiscovery-skin/dist/bundle.X.X.X.css OR .js`
+`https://this-institute.github.io/qualtrics-thiscovery-skin/dist/bundle.X.X.X.css`
+
+or
+
+`https://this-institute.github.io/qualtrics-thiscovery-skin/dist/bundle.X.X.X.js`
 
 In **production**, skin files are hosted in a an S3 bucket, and URLs are like so:
 
-`https://thiscovery-skin.s3.eu-west-1.amazonaws.com/dist/bundle.X.X.X.css OR .js`
+`https://thiscovery-skin.s3.eu-west-1.amazonaws.com/dist/bundle.X.X.X.css`
+
+or
+
+`https://thiscovery-skin.s3.eu-west-1.amazonaws.com/dist/bundle.X.X.X.js`
 
 The Qualtrics survey template is kept up-to-date with the latest rolled-out version (at Nov 2022, 2.1.0).
 
