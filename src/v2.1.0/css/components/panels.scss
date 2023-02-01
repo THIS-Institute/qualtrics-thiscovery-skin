@@ -218,3 +218,17 @@ pre {
         }
     }
 }
+
+.Skin .SkinInner .q-insight-panel ul:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list) {
+    > li::before {
+            color: white;
+            background-color: white;
+    }
+    padding-left: 1.4em;
+}
+
+.Skin .q-insight-panel a {
+    &,&:visited, &:active, &:focus, &:hover {
+        color : var(--thisco-pink);
+    }
+}

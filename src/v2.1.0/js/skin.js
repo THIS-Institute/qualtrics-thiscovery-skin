@@ -15,6 +15,7 @@
 8 - adding thisco-graph snippet
 9 - ?
 10 - componentified header + footer
+11 - adding data-explainer attribute
 
 */
 
@@ -23,7 +24,7 @@ const debug = require("debug")("thisco:skin.js");
 const version = "2.1.0";
 debug(`Thiscovery survey skin version ${version}`);
 
-const revision = 10;
+const revision = 11;
 debug(`Revision: ${revision}`);
 
 /*! modernizr 3.6.0 (Custom Build) | MIT *
@@ -177,6 +178,10 @@ require("../../shared_js/custom_video.js")();
 // thisco icon web component
 
 require("../../shared_js/thisco_icons.js")();
+
+// data-explainer 
+
+require("../../shared_js/explainer.js")();
 
 // misc fixes
 
