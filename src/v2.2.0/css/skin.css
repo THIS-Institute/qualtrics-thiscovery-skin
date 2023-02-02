@@ -1849,6 +1849,18 @@ pre > p:last-child, pre > ul:last-child, pre > ol:last-child, pre > dl:last-chil
   font-size: 0.6em;
 }
 
+.Skin .SkinInner .q-insight-panel ul:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list) {
+  padding-left: 1.4em;
+}
+.Skin .SkinInner .q-insight-panel ul:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list) > li::before {
+  color: white;
+  background-color: white;
+}
+
+.Skin .q-insight-panel a, .Skin .q-insight-panel a:visited, .Skin .q-insight-panel a:active, .Skin .q-insight-panel a:focus, .Skin .q-insight-panel a:hover {
+  color: var(--thisco-pink);
+}
+
 /* Qualtrics compensatory styling */
 /*
 
@@ -1883,7 +1895,7 @@ Qualtrics codes:
 }
 .Skin input:focus-visible {
   border-color: var(--thisco-red);
-  box-shadow: 0px 0px 1px 1px var(--thisco-red);
+  box-shadow: 0px 0px 3px 1px var(--thisco-red);
   outline: none;
 }
 .Skin input::placeholder {
@@ -1919,7 +1931,7 @@ Qualtrics codes:
 }
 .Skin textarea:focus-visible {
   border-color: var(--thisco-red);
-  box-shadow: 0px 0px 1px 1px var(--thisco-red);
+  box-shadow: 0px 0px 3px 1px var(--thisco-red);
   outline: none;
 }
 .Skin textarea::placeholder {
@@ -2117,6 +2129,12 @@ Qualtrics codes:
 .thisco-survey form fieldset legend {
   margin-bottom: 1.6em;
 }
+.thisco-survey form fieldset legend > p, .thisco-survey form fieldset legend > div, .thisco-survey form fieldset legend > blockquote, .thisco-survey form fieldset legend > ul, .thisco-survey form fieldset legend > ol, .thisco-survey form fieldset legend > dl {
+  margin-bottom: 1.6em;
+}
+.thisco-survey form fieldset legend > p:last-child, .thisco-survey form fieldset legend > div:last-child, .thisco-survey form fieldset legend > blockquote:last-child, .thisco-survey form fieldset legend > ul:last-child, .thisco-survey form fieldset legend > ol:last-child, .thisco-survey form fieldset legend > dl:last-child {
+  margin-bottom: 0;
+}
 .thisco-survey form fieldset input[type=text] {
   border-radius: 5px;
   border: 1px solid var(--thisco-light-grey);
@@ -2127,7 +2145,7 @@ Qualtrics codes:
 }
 .thisco-survey form fieldset input[type=text]:focus-visible {
   border-color: var(--thisco-red);
-  box-shadow: 0px 0px 1px 1px var(--thisco-red);
+  box-shadow: 0px 0px 3px 1px var(--thisco-red);
   outline: none;
 }
 .thisco-survey form fieldset input[type=text]::placeholder {
@@ -2172,7 +2190,7 @@ Qualtrics codes:
 }
 .thisco-survey form fieldset label:not(.likert-label) > input:focus-visible {
   border-color: var(--thisco-red);
-  box-shadow: 0px 0px 1px 1px var(--thisco-red);
+  box-shadow: 0px 0px 3px 1px var(--thisco-red);
   outline: none;
 }
 .thisco-survey form fieldset label:not(.likert-label) > input::placeholder {
@@ -2208,7 +2226,7 @@ Qualtrics codes:
 }
 .thisco-survey form fieldset textarea:focus-visible {
   border-color: var(--thisco-red);
-  box-shadow: 0px 0px 1px 1px var(--thisco-red);
+  box-shadow: 0px 0px 3px 1px var(--thisco-red);
   outline: none;
 }
 .thisco-survey form fieldset textarea::placeholder {
@@ -2286,7 +2304,7 @@ Qualtrics codes:
 }
 .thisco-survey form .form-group input[type=text]:focus-visible, .thisco-survey form .form-group input[type=email]:focus-visible, .thisco-survey form .form-group input[type=search]:focus-visible, .thisco-survey form .form-group input[type=url]:focus-visible, .thisco-survey form .form-group input[type=number]:focus-visible {
   border-color: var(--thisco-red);
-  box-shadow: 0px 0px 1px 1px var(--thisco-red);
+  box-shadow: 0px 0px 3px 1px var(--thisco-red);
   outline: none;
 }
 .thisco-survey form .form-group input[type=text]::placeholder, .thisco-survey form .form-group input[type=email]::placeholder, .thisco-survey form .form-group input[type=search]::placeholder, .thisco-survey form .form-group input[type=url]::placeholder, .thisco-survey form .form-group input[type=number]::placeholder {
@@ -2306,7 +2324,7 @@ Qualtrics codes:
 }
 .thisco-survey form .form-group textarea:focus-visible {
   border-color: var(--thisco-red);
-  box-shadow: 0px 0px 1px 1px var(--thisco-red);
+  box-shadow: 0px 0px 3px 1px var(--thisco-red);
   outline: none;
 }
 .thisco-survey form .form-group textarea::placeholder {
