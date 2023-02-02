@@ -24,32 +24,32 @@ Instructions on development scripts have been moved to the documentation, under 
 
 The documentation has been set up to build using [jsdoc](https://jsdoc.app) and a few automated scripts.  To read the docs, run `npm run read_docs`.
 
-To update the documentation, make sure you have [jsoc installed globally](https://github.com/jsdoc/jsdoc#installation-and-usage),
+To update the documentation, make sure you have [jsdoc installed globally](https://github.com/jsdoc/jsdoc#installation-and-usage),
 and then run `npm run watch:docs`. This will watch all js for changes, as well as the markdown files in `./doc_extras`,
 which is were the 'Tutorial' pages live.  Add any images, assets to `./doc_static`.
 
-## Workflow
+## Workflow (Minor CSS Changes)
 
-Follow these steps for CSS updates to qualtrics surveys
+Follow these steps for simple CSS fixes to Qualtrics surveys
 
-1. Find a qualtrics survey that has the behaviour you want to change.
-  The qualtrics survey in the THIS account named "E2E Test Survey [skin v2.1.0]"
+1. Find a Qualtrics survey that has the behaviour you want to change.
+  The Qualtrics survey in the THIS account named "E2E Test Survey [skin v2.1.0]"
   usually has all the functionality that you will need.
 
        https://thisinstitute.fra1.qualtrics.com/jfe/form/SV_0kAu2Hthu9RWxpQ
 2. Copy the distribution URL for the survey.
-3. Run the `npm run dev` script. These scrips are defined in package.json and 
-  can be run in PyCharm directly. For more details of running the dev server,
+3. Run the `dev` script. These scripts are defined in package.json and 
+  can be run in the terminal (eg. `npm run dev`) or directly from your IDE of choice. For more details of running the dev server,
   see [Development]{@tutorial development}.  
    1. Choose `Develop`
    2. Paste the anonymous link
    3. Choose the version, usually 2.1.0
    4. Choose your browser. Firefox tends to be slightly better than the others.
-   5. Skinjob false is fine
+   5. Skinjob false is fine for a minor change (it just means that you will not see your CSS changes immediately take effect if making them in the code directly)
    6. Wait for it to do its npm stuff
    7. It should print out a URL and open a browser window with the survey
    8. The survey should contain the CSS
-4. Once you've got the survey, you can make the change you want to the CSS files
+4. Once you've got the survey, you can make the change you want to the CSS - for small changes, it is best to play with the CSS directly in the browser and then edit the relevant rules in the source.
 5. When you are happy with the new CSS, commit the changes to a branch.
 6. Run the `npm run dev` script again, but this time choose `Build`. For more 
   details see [Build and deployment]{@tutorial deployment}
