@@ -110,4 +110,4 @@ g_dev
 /test-results/
 /playwright-report/
 /playwright/.cache/
-
+out
