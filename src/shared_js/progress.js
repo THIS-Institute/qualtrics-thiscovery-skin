@@ -77,7 +77,7 @@ module.exports = function(){
         rounded : false,
         segmentNo : progressGrain,
         startExplode: 0,
-        startRadius : 800,
+        startRadius : 400,
         startIntRadius : 0,
         recessColor: "rgb(243 165 185 / .5)"
     });
@@ -119,7 +119,7 @@ module.exports = function(){
         // set progress dial
 
         if ((progressDial.options.startIntRadius == 0) && (progressWatcher.lastQProgress == 0) && (qProgress > 0)) {
-            progressDial.options.startIntRadius = 450;
+            progressDial.options.startIntRadius = 250;
             progressDial.setProgress(_.floor(currentVisual),0);
         }
         else if (progressWatcher.current > .99) {

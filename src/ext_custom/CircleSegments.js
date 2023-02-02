@@ -1,12 +1,17 @@
 // CircleSegments
 //
-// 0.0.3
+// 0.0.4
 // from template of AnimCanvas 0.0.1
-// Nov 2022
+// Jan 2023
 // Glyn Cannon
 //
 //
 // 0.0.3 - adding some demo functions
+// 0.0.4 - tidy up / dpr issue
+
+// **NOTE ON devicePixelRatio**
+// currently ignores DPR issues, uses canvas width at 100% instead
+// and presumes higher resolution than element width
 
 const Blissfuljs = require('blissfuljs');
 const _ = require('lodash');
@@ -58,7 +63,6 @@ window.getInterpColor = ({a,b,time,duration}) => {
 const inRads = (deg)=>deg*Math.PI / 180;
 
 function circPoint(radius, deg) {
-  // console.debug({radius,deg});
     return {
       x: radius * Math.cos(inRads(deg)),
       y: radius * Math.sin(inRads(deg))
@@ -194,8 +198,6 @@ class SceneItem {
     }
 }
 
-const DPR = window.devicePixelRatio;
-
 // replace CircleSegments with whatever your thing is
 
 class CircleSegments {
@@ -215,8 +217,6 @@ class CircleSegments {
 
         this.id = _.uniqueId();
 
-        this.devicePixelRatio = window.devicePixelRatio;
-
         // set up container and canvas element (change to <figure> as necessary)
 
         this.container = Bliss.create('div',{
@@ -232,10 +232,7 @@ class CircleSegments {
                 id: `cc-canvas-${this.id}`,
                 style: {
                     width : "100%",
-                    // width: `${100*devicePixelRatio}%`,
-                    'aspect-ratio': `${CANVAS_RATIO}`,
-                    // 'transform-origin' : 'top left',
-                    // 'scale' : 1/devicePixelRatio
+                    'aspect-ratio': `${CANVAS_RATIO}`
                 },
                 width : this.canvWidth,
                 height : this.canvHeight
@@ -269,7 +266,6 @@ class CircleSegments {
             segItem.setProp("explode",this.options.startExplode);
             segItem.setProp("radius",this.options.startRadius);
             segItem.setProp("intRadius",this.options.startIntRadius);
-            // console.debug(JSON.stringify(segItem))
             this.scene.push(segItem);
         };
         _.times(this.segmentPortions.length,addSegment);
@@ -302,10 +298,7 @@ class CircleSegments {
         // set canvas context and any global values
         this.canvas = Bliss("canvas",this.container);
         this.ctx = this.canvas.getContext("2d");
-        // this.ctx.scale(this.devicePixelRatio,this.devicePixelRatio);
         this.updateAllSegments();
-        // run update once
-        // this.update();
     }
 
     loopStart() {
@@ -313,7 +306,6 @@ class CircleSegments {
     }
 
     loop() {
-        // console.count("loop");
         const self = this;
         // draw!
         this.wipeCanvas();
@@ -526,7 +518,7 @@ class CircleSegments {
     // }
 
     get canvWidth() {
-        return this.options.canvasRes * this.devicePixelRatio;
+        return this.options.canvasRes;
     }
 
     get canvHeight() {
