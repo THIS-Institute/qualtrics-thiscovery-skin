@@ -10,11 +10,15 @@ fieldset.contains-invalid {
 fieldset.contains-invalid::before {
     content : "!";
     position: absolute;
-    left: -.3ch;
-    top: -17px;
-    font-size: 2em;
+    left: -.2ch;
+    top: -.15em;
+    font-size: 2.4em;
     color: var(--thisco-red);
     font-weight: bold;
-    height: 80%;
+    height: 100%;
     line-height: 1;
+    background-image: linear-gradient(var(--thisco-pink),var(--thisco-pink));
+    background-size: 2px calc(100% - 2.4em);
+    background-position: center;
+    background-repeat: no-repeat;
 }
