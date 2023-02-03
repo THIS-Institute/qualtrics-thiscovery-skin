@@ -9,6 +9,16 @@ const shortHash = require('short-hash');
  * @module 
  */
 
+function getTotalOffsetTop(element) {
+    let totalOffsetTop = 0;
+    while (element) {
+      totalOffsetTop += element.offsetTop;
+      element = element.offsetParent;
+    }
+    return totalOffsetTop;
+  }
+  
+
 module.exports = function(){
 
     // expects to see a few elements to work
@@ -20,6 +30,30 @@ module.exports = function(){
         return {
             init : _.noop
         };
+    }
+
+    const updateMessages = ()=>{
+        Bliss.$('.thisco-message').forEach(msg=>{
+            msg.dataset.yOffset = getTotalOffsetTop(msg);
+            const messageId = msg.dataset?.thiscoMsgId;
+            requestAnimationFrame(()=>{
+                // message might have just been added
+                const matchTo = Bliss(`fieldset[data-error-message-id="${messageId}"] .QuestionBody`) || Bliss(`fieldset[data-error-message-id="${messageId}"]`);
+                if (matchTo) {
+                    msg.dataset.targetOffset = getTotalOffsetTop(matchTo);
+                }
+            });
+        });
+    }
+
+    const setMessagesY = (scrollEvt)=>{
+        Bliss.$('.thisco-message').forEach(msg=>{
+            if (!msg.dataset?.targetOffset) return;
+            const offset = parseInt(msg.dataset.targetOffset) - parseInt(msg.dataset.yOffset) - scrollY;
+            msg._.style({
+                'translate' : `0px ${_.clamp(offset,0,9999)}px`
+            })
+        });
     }
 
     const addMessage = (message, messageId=null)=>{
@@ -36,13 +70,29 @@ module.exports = function(){
         const el = Bliss.create("div",{
             className : "thisco-message",
             'data-thisco-msg-id' : messageId,
-            contents : msgContent
+            contents : msgContent,
+            style : {
+                order : "1"
+            }
         });
         if (Bliss(`div.thisco-message[data-thisco-msg-id="${messageId}"]`)) {
             return Bliss(`div.thisco-message[data-thisco-msg-id="${messageId}"]`);
         }
         if (Bliss(`div#thiscoObs div.thisco-messages`)) {
+            // check for order
+            let order = 1;
+            requestAnimationFrame(()=>{
+                if (Bliss(`fieldset[data-error-message-id="${messageId}"]`)) {
+                    const fsetId = Bliss(`fieldset[data-error-message-id="${messageId}"]`)?.dataset?.validationId;
+                    debug({fsetId});
+                    order = parseInt(fsetId.replace('thisco-validators-','')) || 1;
+                    el._.style({
+                        order
+                    });
+                }
+            })
             Bliss(`div#thiscoObs div.thisco-messages`).appendChild(el);
+            updateMessages();
         }
         return {el,messageId};
     };
@@ -59,6 +109,7 @@ module.exports = function(){
                 } catch (error) {
                     // insert shrug emoji
                 }
+                requestAnimationFrame(updateMessages);
             }
             victim.addEventListener('animationend',bathtub);
             setTimeout(bathtub,1000);
@@ -69,7 +120,7 @@ module.exports = function(){
     const killAll = ()=>{
         const victims = Bliss.$(`div.thisco-message[data-thisco-msg-id]`).forEach(msg=>{
             killMessage(msg.dataset.thiscoMsgId);
-        })
+        });
     };
 
     /**
@@ -81,6 +132,9 @@ module.exports = function(){
         if (!Bliss(`div#thiscoObs div.thisco-messages`)) {
             Bliss(`div#thiscoObs>div.thisco-obs-content`).appendChild(Bliss.create('div',{className:'thisco-messages'}));
         }
+
+        // set scroll listener
+        window.addEventListener('scroll',setMessagesY);
 
         // set emiiter listener to add message
         // if a messageId is provided, use that to set a kill listener
@@ -125,7 +179,6 @@ module.exports = function(){
         emitter.on("bodyUpdate",()=>{
             killAll();
         });
-
     }
 
     return {
