@@ -1,5 +1,5 @@
 const BlissfulJs = require('blissfuljs'); // module adds Bliss to window object for us, use Bliss. and Bliss.$. for $ and $$
-import { some, every, isFunction, uniqueId, flatten, values, trim, inRange } from 'lodash';
+import { some, every, isFunction, uniqueId, flatten, values, trim, inRange, debounce, forEach } from 'lodash';
 import numToWords from 'num-to-words';
 const debug = require('debug')('thisco:validation.js');
 
@@ -29,11 +29,13 @@ const emitter = require('tiny-emitter/instance');
 const EMAIL_REGEX = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 const URL_REGEX = /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[\-;:&=\+\$,\w]+@)?[A-Za-z0-9\.\-]+|(?:www\.|[\-;:&=\+\$,\w]+@)[A-Za-z0-9\.\-]+)((?:\/[\+~%\/\.\w\-_]*)?\??(?:[\-\+=&;%@\.\w_]*)#?(?:[\.\!\/\\\w]*))?)/;
 const FLOAT_REGEX = /(([-+])?[.,]\b(\d+)(?:[Ee]([+-])?(\d+)?)?\b)|(?:([+-])?\b(\d+)(?:[.,]?(\d+))?(?:[Ee]([+-])?(\d+)?)?\b)/;
+const POSTCODE_REGEX = /^(A[BL]|B[ABDFHLNRSTX]?|C[ABFHMORTVW]|D[ADEGHLNTY]|E[CHNX]?|F[KY]|G[LUY]?|H[ADGPRSUX]|I[GMPV]|JE|K[ATWY]|L[ADELNSU]?|M[EKL]?|N[EGNPRW]?|O[LX]|P[AEHLOR]|R[GHM]|S[AEGKLMNOPRSTWY]?|T[ADFNQRSW]|UB|W[ACDFNRSV]?|YO|ZE)(\d[\dA-Z]?) ?(\d)([A-Z]{2})$/;
 const PATTERNS = {
     "email" : EMAIL_REGEX,
     "URL" : URL_REGEX,
     "number" : FLOAT_REGEX,
-    "whole number" : /^[0-9,]+$/
+    "whole number" : /^[0-9,]+$/,
+    "postcode" : POSTCODE_REGEX
 };
 
 /**
@@ -41,7 +43,9 @@ const PATTERNS = {
  * @param {Object} el - element
  * @returns {boolean} Does element have the class 'is-dirty'?
  */
+
 const isDirty = (el)=>el.classList.contains('is-dirty');
+const isInvalid = (el)=>el.classList.contains('contains-invalid');
 
 /**
  * Checks the value of a containing element's `input[type='text']` against one of the hard-coded regexes
@@ -111,12 +115,23 @@ const validations = {
         });
         return !noCheckedInputs || !noInputValues ? true : "This question requires a response";
     },
+    "other-answer-is-required" : (el,evtType)=>{
+        if (!isDirty(el) && (evtType !== "next")) return null;
+        const checkedField = Bliss.$('input:checked',el);
+        if (!checkedField.length) return null; // not relevant if an input with text not checked
+        // presumes there will be an input[type=text] that is also a child of el's parent
+        // checks that for content
+        const textInput = Bliss(`input[type="text"]`,checkedField[0].parentNode);
+        debug({textInput});
+        if (!textInput) return true;
+        return ["",null].includes(textInput.value) ? "This questions requires a text entry response" : true;
+    },
     "all-consent-statements" : (el,evtType)=>{
         if (evtType !== "next") return null;
         return Bliss.$("input[type='checkbox']",el).length == Bliss.$("input[type='checkbox']:checked",el).length || "All mandatory consent statements must be checked";
     },
     "is-email" : (el,evtType)=>{
-        if (!["next","fieldsetBlur"].includes(evtType)) return null;
+        if (!["next","fieldsetBlur"].includes(evtType) && !isInvalid(el)) return null;
         if (!isDirty(el)) return true;
         // is basic input
         if (Bliss.$("input[type='text']",el).length == 1) {
@@ -127,7 +142,7 @@ const validations = {
         }
     },
     "is-url" : (el,evtType)=>{
-        if (!["next","fieldsetBlur"].includes(evtType)) return null;
+        if (!["next","fieldsetBlur"].includes(evtType) && !isInvalid(el)) return null;
         if (!isDirty(el)) return true;
         // is basic input
         if (Bliss.$("input[type='text']",el).length == 1) {
@@ -137,8 +152,19 @@ const validations = {
             return labelMatchCheckPattern(el,"URL");
         }
     },
+    "is-uk-postcode" : (el,evtType)=>{
+        if (!["next","fieldsetBlur"].includes(evtType) && !isInvalid(el)) return null;
+        if (!isDirty(el)) return true;
+        // is basic input
+        if (Bliss.$("input[type='text']",el).length == 1) {
+            return checkPattern(el,"postcode");
+        }
+        else {
+            return labelMatchCheckPattern(el,"postcode");
+        }
+    },
     "min-checked" : (el,evtType)=>{
-        if (!["next","fieldsetBlur"].includes(evtType)) return null;
+        if (!["next","fieldsetBlur"].includes(evtType) && !isInvalid(el)) return null;
         if (!isDirty(el) && (evtType !== "next")) return null;
         // get minumum
         let min = getClassedValue(el,'min-checked');
@@ -174,6 +200,7 @@ const validations = {
         }
     },
     "max-checked" : (el,evtType)=>{
+        if (isFinite(parseInt(getClassedValue(el,'min-checked')))) return null; // min-checked handles
         if (!isDirty(el) && (evtType !== "next")) return null;
         // get minumum
         let max = getClassedValue(el,'max-checked');
@@ -185,17 +212,17 @@ const validations = {
         return selected > max ? `Select no more than ${numToWords(max).toUpperCase()} responses for this question.` : true;
     },
     "is-number" : (el,evtType)=>{
-        if (!["next","fieldsetBlur"].includes(evtType)) return null;
+        if (!["next","fieldsetBlur"].includes(evtType) && !isInvalid(el)) return null;
         if (!isDirty(el)) return true;
         return checkPattern(el,"number");
     },
     "is-integer" : (el,evtType)=>{
-        if (!["next","fieldsetBlur"].includes(evtType)) return null;
+        if (!["next","fieldsetBlur"].includes(evtType) && !isInvalid(el)) return null;
         if (!isDirty(el)) return true;
         return checkPattern(el,"whole number");
     },
     "is-minimum": (el,evtType,max)=>{
-        if (!["next","fieldsetBlur"].includes(evtType)) return null;
+        if (!["next","fieldsetBlur"].includes(evtType) && !isInvalid(el)) return null;
         if (!isDirty(el)) return true;
         if (validations['is-integer'](el,evtType) !== true ) { return validations['is-integer'](el,evtType)}
         // get minumum
@@ -220,6 +247,7 @@ const validations = {
         }
     },
     "is-maximum": (el,evtType)=>{
+        if (isFinite(parseInt(getClassedValue(el,'is-minimum')))) return null; // is-minimum handles
         // passes most of business back to 'is-minimum' to avoid repetition
         let max = getClassedValue(el,'is-maximum');
         if (!isFinite(parseInt(max))) {
@@ -267,22 +295,30 @@ module.exports = function(){
                         fset.dataset.validationId = validationId;
                     }
                     const checkIsDirty = ()=>{
+                        
                         // default added to any validated fieldset
                         // always returns true
                         const noCheckedInputs = Bliss.$("input:checked",fset).length < 1;
                         const noInputValues = every(Bliss.$('input:not([type="checkbox"],[type="radio"]),textarea',fset),(inp)=>{
                             return ["",null].includes(inp.value);
                         });
-                        if (!(noCheckedInputs && noInputValues)) fset.classList.add("is-dirty");
+                        const isDirty = !noCheckedInputs || !noInputValues;
+                        if (isDirty) fset.classList.add("is-dirty");
+                        debug(`Checking if dirty: ${isDirty}`)
                         return true;
                     };
                     const validator = (evtType)=>{
+                        debug({validationClass});
                         const result = validations[validationClass](fset,evtType);
+                        const inError = typeof result === 'string';
                         const errorId = `errMsg${uniqueId()}`;
                         if (result == null) {
                             return true; // null results mean validation has been skipped
                         }
-                        else if ((result !== true) && (!fset.classList.contains("contains-invalid"))) {
+                        else if (inError && isInvalid(fset)) {
+                            return null;
+                        }
+                        else if (inError && (!isInvalid(fset))) {
                             const errorMsg = el.dataset?.customInvalidMessage || result;
                             emitter.emit("addMessage",errorMsg,errorId);
                             fset.classList.add("contains-invalid");
@@ -291,6 +327,7 @@ module.exports = function(){
                             return errorMsg;
                         }
                         else if ((result === true) && (fset.classList.contains("contains-invalid"))) {
+                            debug(`Now passes ${validationClass}`)
                             fset.classList.remove("contains-invalid");
                             fset.classList.add("contains-valid");
                             if (!!fset.dataset?.errorMessageId) {
@@ -324,32 +361,34 @@ module.exports = function(){
         });
 
         const runValidation = (evtType='next',validationId=null)=>{
-            debug({validationId,validators});
+            debug({evtType,validationId,validators});
             // get validators
             const running_validators = validationId == null ? flatten(values(validators)) : (validators[validationId] || []); 
             // validators run in order they have been added
-            // first to fail wins and stops subsequent validators
             if (!running_validators.length) return true;
             let failMessage = true;
-            const failure = some(running_validators,(validation)=>{
+            forEach(running_validators,(validation)=>{
                 if (!isFunction(validation)) {
                     throw("Validator is not a function");
                 }
-                failMessage = validation.call(null,evtType);
-                return failMessage !== true;
+                const result = validation.call(null,evtType);
+                failMessage = typeof failMessage !== "string" ? result : failMessage;
+                // return failMessage == true;
             });
-            return failure ? failMessage : true;
+            debug({failMessage});
+            return failMessage;
         };
 
         // add event listeners to fieldsets for 
 
         const fsets = Bliss.$('fieldset').filter(fset=>fset.className.includes("validation") || fset.className.includes("thv"));
         fsets.forEach(fset=>{
-            fset.addEventListener('change',(evt)=>{
+            const handleChange = debounce((evt)=>{
                 const validationId = fset.dataset.validationId || null;
                 runValidation('valueChange',validationId);
-                evt.stopImmediatePropagation();
-            });
+                // evt.stopImmediatePropagation();
+            },100);
+            fset.addEventListener('change',handleChange);
             fset.addEventListener('focusout',(evt)=>{
                 debug (!evt.relatedTarget,fset.contains(evt.relatedTarget));
                 if (!evt.relatedTarget || (fset.contains(evt.relatedTarget))) return;
@@ -358,7 +397,7 @@ module.exports = function(){
                 runValidation('fieldsetBlur',validationId);
                 evt.stopImmediatePropagation();
             });
-            const f = ()=>{if(fset.classList.contains("touched")) {runValidation('entry');} }
+            const f = (evt)=>{if(fset.classList.contains("touched")) {handleChange(evt);} }
             fset.addEventListener('click',f);
             fset.addEventListener('keyup',f);
         });

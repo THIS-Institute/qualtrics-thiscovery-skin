@@ -31,7 +31,8 @@ $breakpoints: (
 
 @mixin thisco-messages(){
   .thisco-messages {   
-    padding: 1rem; 
+    padding: 1rem;
+    display: grid;
     @include respond-above(sm){
       padding: 2px;
       font-size: .7em;
@@ -147,17 +148,18 @@ table.ProgressBarContainer {
 @keyframes appear {
   from {
     opacity: 0;
-    translate: 0px 10px;
+    scale: 1.2;
   }
   to {
     opacity: 1;
-    translate: 0px 0px;
+    scale : 1;
   }
 }
 
 @keyframes disappear {
   to {
     opacity: 0;
-    translate: 0px -10px;
+    // translate: 0px -10px;
+    scale : .8;
   }
 }

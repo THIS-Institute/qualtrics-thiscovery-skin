@@ -11,19 +11,23 @@ The code then moves classnames to the closest `fieldset` tag, and sets listeners
 Classname | Question Type | Trigger| Looks for
 ---------|----------|---------|--------
  is-required | All | Value change / Fieldset blur / Next | Input has a value that isn't null or """
+ other-answer-is-required | Checkboxes / Radios | Value change / Fieldset blur / Next | If input has a checked answer containing a text entry, passes if entry is filled (_cannot_ handle more than one text entry answer in a block)
  all-consent-statements | Consent statements | Next | All consent statements are checked
  min-checked-x | Multi-choice checkboxes | Value change / Next | Minimum of x inputs are checked (Will divine a range if max also set)
  max-checked-x | Multi-choice checkboxes | Value change / Fieldset blur / Next | Maximum of x inputs are checked
- is-email | Text / Form fields | Fieldset blur / Next | Checks value looks like an email (In form fields, checks anything with `" email"` in label)
+ is-email | Text / Form fields | Fieldset blur / Next | Checks value looks like an email (In form fields, checks anything with `" email"` in label)<sup>*</sup>
  is-url | Text / Form fields | Fieldset blur / Next | Checks value looks like a URL (In form fields, checks anything with `" URL"` in label)
- is-number | Text  | Fieldset blur / Next | Checks value looks like a floating point number<sup>*</sup> 
+ is-uk-postcode | Text / Form fields | Fieldset blur / Next | Checks value looks like a valid UK Postcode, but not if it actually exists (In form fields, checks anything with `" Postcode"` in label)
+ is-number | Text  | Fieldset blur / Next | Checks value looks like a floating point number<sup>**</sup> 
  is-minimum-x | Text  | Fieldset blur / Next | Checks value looks like an integer<sup>*</sup> no smaller than x (Will divine a range if max also set)
  is-maximum-x | Text  | Fieldset blur / Next | Checks value looks like an integer<sup>*</sup> no larger than x
  is-integer | Text  | Fieldset blur / Next | Checks value looks like an integer<sup>*</sup>
 
 ##### Notes
 
-<small><sup>*</sup>Accepts comma-split numbers per UK convention, but not smart enough to spot right place eg. `1,000` passes as a thousand, but so will `1,0,0,0`</small>
+<small><sup>*</sup>If a max-checked validation also requires at least one answer, use `min-checked-1` rather than `is-required` for more consistent performance</small>
+
+<small><sup>**</sup>Accepts comma-split numbers per UK convention, but not smart enough to spot right place eg. `1,000` passes as a thousand, but so will `1,0,0,0`</small>
 
 <hr>
 

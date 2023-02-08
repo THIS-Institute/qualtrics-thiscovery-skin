@@ -32,27 +32,33 @@ module.exports = function(){
         };
     }
 
+    const setMessagesY = ()=>{
+        Bliss.$('.thisco-message').forEach(msg=>{
+            requestAnimationFrame(()=>{
+                msg._.style({
+                    visibility : "visible"
+                })
+            })
+            if (!msg.dataset?.targetOffset) return;
+            const offset = parseInt(msg.dataset.targetOffset) - parseInt(msg.dataset.yOffset) - scrollY;
+            msg._.style({
+                'translate' : `0px ${_.clamp(offset,0,9999)}px`
+            });
+        });
+    }
+
     const updateMessages = ()=>{
         Bliss.$('.thisco-message').forEach(msg=>{
-            msg.dataset.yOffset = getTotalOffsetTop(msg);
-            const messageId = msg.dataset?.thiscoMsgId;
             requestAnimationFrame(()=>{
+                msg.dataset.yOffset = getTotalOffsetTop(msg);
+                const messageId = msg.dataset?.thiscoMsgId;
                 // message might have just been added
                 const matchTo = Bliss(`fieldset[data-error-message-id="${messageId}"] .QuestionBody`) || Bliss(`fieldset[data-error-message-id="${messageId}"]`);
                 if (matchTo) {
                     msg.dataset.targetOffset = getTotalOffsetTop(matchTo);
                 }
+                setMessagesY();
             });
-        });
-    }
-
-    const setMessagesY = (scrollEvt)=>{
-        Bliss.$('.thisco-message').forEach(msg=>{
-            if (!msg.dataset?.targetOffset) return;
-            const offset = parseInt(msg.dataset.targetOffset) - parseInt(msg.dataset.yOffset) - scrollY;
-            msg._.style({
-                'translate' : `0px ${_.clamp(offset,0,9999)}px`
-            })
         });
     }
 
@@ -72,7 +78,8 @@ module.exports = function(){
             'data-thisco-msg-id' : messageId,
             contents : msgContent,
             style : {
-                order : "1"
+                order : "1",
+                visibility: "hidden"
             }
         });
         if (Bliss(`div.thisco-message[data-thisco-msg-id="${messageId}"]`)) {
