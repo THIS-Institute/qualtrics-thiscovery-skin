@@ -37,6 +37,9 @@ thisco-illustration {
         &.pull-left {
             float: left;
         }
+        @include respond-above(sm) {
+          width: 25%;
+        }
     }
     &[roughaspect="square"] {
         width: 45vw;
@@ -45,7 +48,7 @@ thisco-illustration {
             float: left;
         }
         @include respond-above(sm) {
-            width: 33vw;
+            width: 50%;
         }
     }
     scale:.9;

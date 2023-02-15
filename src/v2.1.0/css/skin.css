@@ -5621,6 +5621,11 @@ thisco-illustration[roughaspect=tall] {
 thisco-illustration[roughaspect=tall].pull-left {
   float: left;
 }
+@media (min-width: 768px) {
+  thisco-illustration[roughaspect=tall] {
+    width: 25%;
+  }
+}
 thisco-illustration[roughaspect=square] {
   width: 45vw;
   float: right;
@@ -5630,7 +5635,7 @@ thisco-illustration[roughaspect=square].pull-left {
 }
 @media (min-width: 768px) {
   thisco-illustration[roughaspect=square] {
-    width: 33vw;
+    width: 50%;
   }
 }
 
