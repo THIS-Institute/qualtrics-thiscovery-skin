@@ -198,10 +198,6 @@ const update = ()=>{
 
     require("../../shared_js/custom_video.js")();
 
-    // thisco icon web component
-
-    require("../../shared_js/thisco_icons.js")();
-
     // misc fixes
 
     require("../../shared_js/misc_fixes.js")();
@@ -335,6 +331,14 @@ const setup = ()=>{
     }
 
     // functions to be run on first execution
+
+    // thisco icon web component
+
+    require("../../shared_js/thisco_icons.js")();
+
+    // thisco-illustration web component
+
+    require("../../shared_js/illustrations.js")();
 
     // eject Qualtrics stylesheet
 

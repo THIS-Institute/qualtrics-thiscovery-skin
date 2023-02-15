@@ -1,0 +1,53 @@
+// A map of breakpoints.
+$breakpoints: (
+  xs: 481px,
+  sm: 768px,
+  md: 980px,
+  lg: 1400px,
+);
+
+//
+//  RESPOND ABOVE
+//––––––––––––––––––––––––––––––––––––––––––––––––––
+
+// @include respond-above(sm) {}
+@mixin respond-above($breakpoint) {
+  // If the breakpoint exists in the map.
+  @if map-has-key($breakpoints, $breakpoint) {
+    // Get the breakpoint value.
+    $breakpoint-value: map-get($breakpoints, $breakpoint);
+
+    // Write the media query. 
+    @media (min-width: $breakpoint-value) {
+      @content;
+    }
+
+    // If the breakpoint doesn't exist in the map.
+  } @else {
+    // Log a warning.
+    @warn 'Invalid breakpoint: #{$breakpoint}.';
+  }
+}
+
+thisco-illustration {
+    color: transparent;
+    &[roughaspect="tall"] {
+        width: 25vw;
+        float: right;
+        &.pull-left {
+            float: left;
+        }
+    }
+    &[roughaspect="square"] {
+        width: 45vw;
+        float: right;
+        &.pull-left {
+            float: left;
+        }
+        @include respond-above(sm) {
+            width: 33vw;
+        }
+    }
+    scale:.9;
+}
+

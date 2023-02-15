@@ -179,6 +179,10 @@ require("../../shared_js/custom_video.js")();
 
 require("../../shared_js/thisco_icons.js")();
 
+// thisco-illustration web component
+
+require("../../shared_js/illustrations.js")();
+
 // data-explainer 
 
 require("../../shared_js/explainer.js")();
