@@ -16,6 +16,7 @@
 9 - ?
 10 - componentified header + footer
 11 - adding data-explainer attribute
+12 - added illustrations script loading
 
 */
 
@@ -24,7 +25,7 @@ const debug = require("debug")("thisco:skin.js");
 const version = "2.1.0";
 debug(`Thiscovery survey skin version ${version}`);
 
-const revision = 11;
+const revision = 12;
 debug(`Revision: ${revision}`);
 
 /*! modernizr 3.6.0 (Custom Build) | MIT *
