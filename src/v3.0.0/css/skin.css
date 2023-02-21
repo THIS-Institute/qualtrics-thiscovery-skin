@@ -5614,29 +5614,51 @@ thisco-illustration {
   color: transparent;
   scale: 0.9;
 }
-thisco-illustration[roughaspect=tall] {
-  width: 25vw;
+thisco-illustration[roughaspect=tall], thisco-illustration.force-tall[roughaspect] {
+  width: 35vw;
   float: right;
 }
-thisco-illustration[roughaspect=tall].pull-left {
+thisco-illustration[roughaspect=tall].pull-left, thisco-illustration.force-tall[roughaspect].pull-left {
   float: left;
 }
 @media (min-width: 768px) {
-  thisco-illustration[roughaspect=tall] {
-    width: 25%;
+  thisco-illustration[roughaspect=tall], thisco-illustration.force-tall[roughaspect] {
+    width: 31%;
   }
 }
-thisco-illustration[roughaspect=square] {
+@media (min-width: 980px) {
+  thisco-illustration[roughaspect=tall], thisco-illustration.force-tall[roughaspect] {
+    width: 35%;
+  }
+}
+thisco-illustration[roughaspect=square], thisco-illustration.force-square[roughaspect] {
   width: 45vw;
   float: right;
 }
-thisco-illustration[roughaspect=square].pull-left {
+thisco-illustration[roughaspect=square].pull-left, thisco-illustration.force-square[roughaspect].pull-left {
   float: left;
 }
 @media (min-width: 768px) {
-  thisco-illustration[roughaspect=square] {
+  thisco-illustration[roughaspect=square], thisco-illustration.force-square[roughaspect] {
     width: 50%;
   }
+}
+@media (min-width: 768px) {
+  thisco-illustration[roughaspect=wide]:not(.force-wide) {
+    width: 50%;
+    float: right;
+  }
+  thisco-illustration[roughaspect=wide]:not(.force-wide).pull-left {
+    float: left;
+  }
+}
+thisco-illustration[roughaspect].force-wide {
+  width: unset;
+  float: none;
+}
+
+#SkinContent .QuestionOuter {
+  clear: both;
 }
 
 /*# sourceMappingURL=skin.css.map */

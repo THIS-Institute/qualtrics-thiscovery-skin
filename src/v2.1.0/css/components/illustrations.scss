@@ -31,17 +31,20 @@ $breakpoints: (
 
 thisco-illustration {
     color: transparent;
-    &[roughaspect="tall"] {
-        width: 25vw;
+    &[roughaspect="tall"], &.force-tall[roughaspect] {
+        width: 35vw;
         float: right;
         &.pull-left {
             float: left;
         }
         @include respond-above(sm) {
-          width: 25%;
+          width: 31%;
+        }
+        @include respond-above(md) {
+          width: 35%;
         }
     }
-    &[roughaspect="square"] {
+    &[roughaspect="square"], &.force-square[roughaspect] {
         width: 45vw;
         float: right;
         &.pull-left {
@@ -51,6 +54,24 @@ thisco-illustration {
             width: 50%;
         }
     }
+    &[roughaspect="wide"]:not(.force-wide) {
+      @include respond-above(sm){
+        width: 50%;
+        float: right;
+        &.pull-left {
+            float: left;
+        }
+      }
+    }
+    &[roughaspect].force-wide {
+      width:unset;
+      float: none;
+    }
+
     scale:.9;
+}
+
+#SkinContent .QuestionOuter {
+  clear: both;
 }
 
