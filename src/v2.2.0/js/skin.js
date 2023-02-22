@@ -160,6 +160,10 @@ const update = ()=>{
 
     require("../../shared_js/thisco_modals.js")();
 
+    // data-explainer 
+
+    require("../../shared_js/explainer.js")();
+
     // link buttons
 
     require("../../shared_js/link_buttons.js")();
