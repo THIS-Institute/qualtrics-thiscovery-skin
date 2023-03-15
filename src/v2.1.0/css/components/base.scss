@@ -149,6 +149,12 @@ $breakpoints: (
       }
     }
   }
+  /* fixing [start] cos I rebuilt ol to have red numbers */
+  @for $i from 2 through 30 {
+    ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="#{$i}"] {
+      counter-reset: count #{$i - 1};
+    }
+  }
   ul:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list) {
     > li {
       &:before {

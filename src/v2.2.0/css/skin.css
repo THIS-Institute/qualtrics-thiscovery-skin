@@ -670,6 +670,7 @@ body {
   outline: 1px solid var(--thisco-pink);
 }
 .Skin .SkinInner {
+  /* fixing [start] cos I rebuilt ol to have red numbers */
   padding-top: 7rem;
 }
 .Skin .SkinInner ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list),
@@ -693,6 +694,93 @@ body {
   color: var(--thisco-red);
   position: absolute;
   left: -2ch;
+}
+.Skin .SkinInner ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="2"] {
+  counter-reset: count 1;
+}
+.Skin .SkinInner ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="3"] {
+  counter-reset: count 2;
+}
+.Skin .SkinInner ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="4"] {
+  counter-reset: count 3;
+}
+.Skin .SkinInner ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="5"] {
+  counter-reset: count 4;
+}
+.Skin .SkinInner ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="6"] {
+  counter-reset: count 5;
+}
+.Skin .SkinInner ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="7"] {
+  counter-reset: count 6;
+}
+.Skin .SkinInner ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="8"] {
+  counter-reset: count 7;
+}
+.Skin .SkinInner ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="9"] {
+  counter-reset: count 8;
+}
+.Skin .SkinInner ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="10"] {
+  counter-reset: count 9;
+}
+.Skin .SkinInner ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="11"] {
+  counter-reset: count 10;
+}
+.Skin .SkinInner ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="12"] {
+  counter-reset: count 11;
+}
+.Skin .SkinInner ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="13"] {
+  counter-reset: count 12;
+}
+.Skin .SkinInner ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="14"] {
+  counter-reset: count 13;
+}
+.Skin .SkinInner ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="15"] {
+  counter-reset: count 14;
+}
+.Skin .SkinInner ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="16"] {
+  counter-reset: count 15;
+}
+.Skin .SkinInner ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="17"] {
+  counter-reset: count 16;
+}
+.Skin .SkinInner ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="18"] {
+  counter-reset: count 17;
+}
+.Skin .SkinInner ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="19"] {
+  counter-reset: count 18;
+}
+.Skin .SkinInner ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="20"] {
+  counter-reset: count 19;
+}
+.Skin .SkinInner ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="21"] {
+  counter-reset: count 20;
+}
+.Skin .SkinInner ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="22"] {
+  counter-reset: count 21;
+}
+.Skin .SkinInner ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="23"] {
+  counter-reset: count 22;
+}
+.Skin .SkinInner ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="24"] {
+  counter-reset: count 23;
+}
+.Skin .SkinInner ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="25"] {
+  counter-reset: count 24;
+}
+.Skin .SkinInner ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="26"] {
+  counter-reset: count 25;
+}
+.Skin .SkinInner ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="27"] {
+  counter-reset: count 26;
+}
+.Skin .SkinInner ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="28"] {
+  counter-reset: count 27;
+}
+.Skin .SkinInner ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="29"] {
+  counter-reset: count 28;
+}
+.Skin .SkinInner ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="30"] {
+  counter-reset: count 29;
 }
 .Skin .SkinInner ul:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list) > li:before {
   content: " ";
@@ -903,6 +991,7 @@ body {
   font-weight: 100;
   font-size: 18px;
   line-height: 1.4;
+  /* fixing [start] cos I rebuilt ol to have red numbers */
   /* resets */
 }
 .thisco-survey a,
@@ -956,6 +1045,93 @@ body > .dialog-container ul:not(.ChoiceStructure):not(.ChoiceGroupStructure):not
   color: var(--thisco-red);
   position: absolute;
   left: -2ch;
+}
+.thisco-survey ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="2"], .thisco-base-styles ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="2"], body > .dialog-container ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="2"] {
+  counter-reset: count 1;
+}
+.thisco-survey ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="3"], .thisco-base-styles ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="3"], body > .dialog-container ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="3"] {
+  counter-reset: count 2;
+}
+.thisco-survey ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="4"], .thisco-base-styles ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="4"], body > .dialog-container ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="4"] {
+  counter-reset: count 3;
+}
+.thisco-survey ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="5"], .thisco-base-styles ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="5"], body > .dialog-container ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="5"] {
+  counter-reset: count 4;
+}
+.thisco-survey ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="6"], .thisco-base-styles ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="6"], body > .dialog-container ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="6"] {
+  counter-reset: count 5;
+}
+.thisco-survey ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="7"], .thisco-base-styles ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="7"], body > .dialog-container ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="7"] {
+  counter-reset: count 6;
+}
+.thisco-survey ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="8"], .thisco-base-styles ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="8"], body > .dialog-container ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="8"] {
+  counter-reset: count 7;
+}
+.thisco-survey ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="9"], .thisco-base-styles ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="9"], body > .dialog-container ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="9"] {
+  counter-reset: count 8;
+}
+.thisco-survey ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="10"], .thisco-base-styles ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="10"], body > .dialog-container ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="10"] {
+  counter-reset: count 9;
+}
+.thisco-survey ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="11"], .thisco-base-styles ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="11"], body > .dialog-container ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="11"] {
+  counter-reset: count 10;
+}
+.thisco-survey ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="12"], .thisco-base-styles ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="12"], body > .dialog-container ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="12"] {
+  counter-reset: count 11;
+}
+.thisco-survey ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="13"], .thisco-base-styles ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="13"], body > .dialog-container ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="13"] {
+  counter-reset: count 12;
+}
+.thisco-survey ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="14"], .thisco-base-styles ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="14"], body > .dialog-container ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="14"] {
+  counter-reset: count 13;
+}
+.thisco-survey ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="15"], .thisco-base-styles ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="15"], body > .dialog-container ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="15"] {
+  counter-reset: count 14;
+}
+.thisco-survey ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="16"], .thisco-base-styles ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="16"], body > .dialog-container ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="16"] {
+  counter-reset: count 15;
+}
+.thisco-survey ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="17"], .thisco-base-styles ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="17"], body > .dialog-container ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="17"] {
+  counter-reset: count 16;
+}
+.thisco-survey ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="18"], .thisco-base-styles ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="18"], body > .dialog-container ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="18"] {
+  counter-reset: count 17;
+}
+.thisco-survey ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="19"], .thisco-base-styles ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="19"], body > .dialog-container ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="19"] {
+  counter-reset: count 18;
+}
+.thisco-survey ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="20"], .thisco-base-styles ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="20"], body > .dialog-container ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="20"] {
+  counter-reset: count 19;
+}
+.thisco-survey ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="21"], .thisco-base-styles ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="21"], body > .dialog-container ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="21"] {
+  counter-reset: count 20;
+}
+.thisco-survey ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="22"], .thisco-base-styles ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="22"], body > .dialog-container ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="22"] {
+  counter-reset: count 21;
+}
+.thisco-survey ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="23"], .thisco-base-styles ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="23"], body > .dialog-container ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="23"] {
+  counter-reset: count 22;
+}
+.thisco-survey ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="24"], .thisco-base-styles ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="24"], body > .dialog-container ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="24"] {
+  counter-reset: count 23;
+}
+.thisco-survey ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="25"], .thisco-base-styles ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="25"], body > .dialog-container ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="25"] {
+  counter-reset: count 24;
+}
+.thisco-survey ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="26"], .thisco-base-styles ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="26"], body > .dialog-container ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="26"] {
+  counter-reset: count 25;
+}
+.thisco-survey ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="27"], .thisco-base-styles ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="27"], body > .dialog-container ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="27"] {
+  counter-reset: count 26;
+}
+.thisco-survey ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="28"], .thisco-base-styles ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="28"], body > .dialog-container ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="28"] {
+  counter-reset: count 27;
+}
+.thisco-survey ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="29"], .thisco-base-styles ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="29"], body > .dialog-container ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="29"] {
+  counter-reset: count 28;
+}
+.thisco-survey ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="30"], .thisco-base-styles ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="30"], body > .dialog-container ol:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list)[start="30"] {
+  counter-reset: count 29;
 }
 .thisco-survey ul:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list) > li:before, .thisco-base-styles ul:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list) > li:before, body > .dialog-container ul:not(.ChoiceStructure):not(.ChoiceGroupStructure):not(.thisco-grid-list) > li:before {
   content: " ";
