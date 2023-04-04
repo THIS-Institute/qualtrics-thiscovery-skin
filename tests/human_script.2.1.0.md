@@ -1,9 +1,10 @@
 # Testing Script - Human Readable!
 
-## For CSS/JS 2.1.0
+## For CSS/JS 2.1.0 and 2.2.0
 
-- Test Survey URL: https://thisinstitute.fra1.qualtrics.com/jfe/form/SV_0kAu2Hthu9RWxpQ
-- _Screenshots should be labelled up for screen size and devide (PW does device?)_
+- Test Survey URL (2.1): https://thisinstitute.fra1.qualtrics.com/jfe/form/SV_0kAu2Hthu9RWxpQ
+- Test Survey URL (2.2): https://thisinstitute.fra1.qualtrics.com/jfe/form/SV_8wDQtFknMDEwPKC
+- _Screenshots should be labelled up for screen size and device (PW does device?)_
 - _This script should be device/screen agnostic_
 
 1. Click/clear HubSpot box (click 'Accept') (should be non-breaking though? on a timeout but non-failing?)

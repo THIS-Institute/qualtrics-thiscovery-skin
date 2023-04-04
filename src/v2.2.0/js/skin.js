@@ -202,6 +202,10 @@ const update = ()=>{
 
     require("../../shared_js/custom_video.js")();
 
+    // accordions
+
+    require("../../shared_js/accordion.js")();
+
     // misc fixes
 
     require("../../shared_js/misc_fixes.js")();
