@@ -5846,7 +5846,8 @@ thisco-illustration[roughaspect].force-wide {
   justify-content: space-between;
   padding: 0.75rem 1.25rem;
   align-items: center;
-  background: #eee;
+  text-align: left;
+  background: var(--thisco-light-grey);
   margin-bottom: 10px;
   font-weight: inherit;
   border: none;
@@ -5855,6 +5856,8 @@ thisco-illustration[roughaspect].force-wide {
   color: var(--thisco-red);
   rotate: 135deg;
   transition: rotate 0.3s;
+  min-width: 1.4rem;
+  margin-left: 1rem;
 }
 .thisco-accordion .thisco-accordion-label:focus-within {
   outline-color: var(--thisco-red);
