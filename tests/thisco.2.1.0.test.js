@@ -118,7 +118,7 @@ test('test', async ({ page }) => {
   // Click [aria-label="Next"]
   await page.locator('[aria-label="Next"]').click();
   // Click div:nth-child(9) > div > .input-number-wrapper > .button-increment
-  await wait(1000);
+  await wait(1000); 
   await page.locator('div:nth-child(9) > div > .input-number-wrapper > .button-increment').click();
   // Click div:nth-child(9) > div > .input-number-wrapper > .button-increment
   await wait(1000);

@@ -5837,4 +5837,67 @@ thisco-illustration[roughaspect].force-wide {
   clear: both;
 }
 
+.thisco-accordion {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+.thisco-accordion .thisco-accordion-label {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.75rem 1.25rem;
+  align-items: center;
+  background: #eee;
+  margin-bottom: 10px;
+  font-weight: inherit;
+  border: none;
+}
+.thisco-accordion .thisco-accordion-label thisco-icon {
+  color: var(--thisco-red);
+  rotate: 135deg;
+  transition: rotate 0.3s;
+}
+.thisco-accordion .thisco-accordion-label:focus-within {
+  outline-color: var(--thisco-red);
+  border-color: var(--thisco-red);
+}
+.thisco-accordion .thisco-accordion-content {
+  padding: 0 1.5rem;
+  background: #eee;
+  overflow: hidden;
+  transition: max-height 0.3s;
+}
+.thisco-accordion .thisco-accordion-content > * {
+  padding-top: 1.25rem;
+  padding-bottom: 1.5rem;
+}
+.thisco-accordion .thisco-accordion-label[aria-expanded=true] thisco-icon {
+  rotate: 0deg;
+}
+.thisco-accordion .thisco-accordion-label[aria-expanded=true] + .thisco-accordion-content {
+  margin-bottom: 10px;
+}
+.thisco-accordion button:first-of-type {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+.thisco-accordion button:last-of-type {
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.thisco-accordion button:last-of-type[aria-expanded=true] {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.thisco-accordion > div:last-child {
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.thisco-accordion.strong-labels .thisco-accordion-label {
+  color: white;
+  background: var(--thisco-aubergine);
+}
+.thisco-accordion.strong-labels .thisco-accordion-label thisco-icon {
+  color: white;
+}
+
 /*# sourceMappingURL=skin.css.map */

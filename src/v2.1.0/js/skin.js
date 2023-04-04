@@ -188,6 +188,10 @@ require("../../shared_js/illustrations.js")();
 
 require("../../shared_js/explainer.js")();
 
+// accordions
+
+require("../../shared_js/accordion.js")();
+
 // misc fixes
 
 require("../../shared_js/misc_fixes.js")();
