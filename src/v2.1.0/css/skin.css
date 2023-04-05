@@ -5859,9 +5859,11 @@ thisco-illustration[roughaspect].force-wide {
   min-width: 1.4rem;
   margin-left: 1rem;
 }
-.thisco-accordion .thisco-accordion-label:focus-within {
+.thisco-accordion .thisco-accordion-label:focus-within, .thisco-accordion .thisco-accordion-label:focus, .thisco-accordion .thisco-accordion-label:focus-visible {
   outline-color: var(--thisco-red);
   border-color: var(--thisco-red);
+  outline-width: 1px;
+  outline-style: dotted;
 }
 .thisco-accordion .thisco-accordion-content {
   padding: 0 1.5rem;
