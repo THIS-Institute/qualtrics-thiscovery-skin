@@ -46,6 +46,16 @@ $$(`input[type="radio"] + label > input, input[type="checkbox"] + label > input`
 debug('thisco modals');
 require("../../shared_js/thisco_modals.js")();
 
+// explainers
+
+debug('explainers');
+require("../../shared_js/explainer.js")();
+
+// accordions
+
+debug('accordions');
+require("../../shared_js/accordion.js")();
+
 // link buttons
 
 debug('link buttons');
