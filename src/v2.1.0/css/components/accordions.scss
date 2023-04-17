@@ -1,0 +1,73 @@
+.thisco-accordion {
+    display: grid;
+    grid-template-columns: 1fr;
+    .thisco-accordion-label {
+        display: flex;
+        justify-content: space-between;
+        padding: .75rem 1.25rem;
+        align-items: center;
+        text-align: left;
+        background: var(--thisco-light-grey);
+        margin-bottom: 10px;
+        font-weight: inherit;
+        thisco-icon {
+            color: var(--thisco-red);
+            rotate: 135deg;
+            transition: rotate .3s;
+            min-width: 1.4rem;
+            margin-left: 1rem;
+        }
+        border: none;
+        &:focus-within, &:focus, &:focus-visible {
+            outline-color: var(--thisco-red);
+            border-color: var(--thisco-red);
+            outline-width: 1px;
+            outline-style: dotted;
+        }
+    }
+    .thisco-accordion-content {
+        padding:0 1.5rem;
+        background: #eee;
+        overflow: hidden;
+        transition: max-height .3s;
+        > * {
+            padding-top: 1.25rem;
+            padding-bottom: 1.5rem;
+        }
+    }
+    .thisco-accordion-label[aria-expanded="true"] {
+        thisco-icon {
+            rotate: 0deg;
+        } 
+        & + .thisco-accordion-content {
+            margin-bottom: 10px;
+        }
+    }
+    button:first-of-type {
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+    button:last-of-type {
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        &[aria-expanded="true"] {
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+    }
+    > div:last-child {
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
+
+    &.strong-labels {
+        .thisco-accordion-label {
+            color: white;
+            background: var(--thisco-aubergine);
+            thisco-icon {
+                color: white;
+            }
+        }
+    }
+
+}
